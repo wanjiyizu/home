@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="MobileOptimized" content="320">
+  <meta name="HandheldFriendly" content="true">
+  <meta name="format-detection" content="telephone=no, email=no">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style type="text/css">
+	*{margin:0;padding:0;}
+	html,body{height:100%;overflow:hidden;}
+	html{background:#000;}
+	body{background:#fff;}
+	.active{transform:scale(0.9);transition:0.3s all cubic-bezier(0.250, 0.460, 0.450, 0.940);transform-origin:center;}
+	.overlay{background:rgba( 0, 0, 0, 0.5 );position:fixed;width:100%;height:100%;left:0;top:0;z-index:1;visibility:hidden;opacity:0;}
+	.show{opacity:1;visibility:visible;}
+	.dialog{width:300px;height:200px;background:#fff;position:absolute;z-index:2;left:0;top:0;right:0;bottom:0;margin:auto;box-shadow:0px 0px 20px rgba( 0, 0, 0, 0.6 );border-radius:3px;
+		transition:0.3s all cubic-bezier(0.250, 0.460, 0.450, 0.940);visibility:hidden;transform:scale(0);
+	}
+	.dialog-animate{visibility:visible;transform:scale(1.1);}
+  </style>
+ </head>
+ <body>
+	<div class="dialog"></div>
+	<div class="overlay"></div>
+	<a href="javascript:void(0)" class="clickme">点击我</a>
+	<script type="text/javascript">
+		document.querySelector(".clickme").onclick = function(){
+			document.querySelector("body").className = "active";
+			document.querySelector(".overlay").className = "overlay show"
+			document.querySelector(".dialog").className = "dialog dialog-animate"
+
+		}
+
+		function addClass(dom, className){
+			dom.className.replace(/\s+$/gi, '') + " " + name;
+		}
+	</script>
+ </body>
+</html>
+<head>
