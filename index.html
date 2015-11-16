@@ -22,14 +22,25 @@
 	.active{transform:scale(0.9);transition:0.3s all cubic-bezier(0.250, 0.460, 0.450, 0.940);transform-origin:center;}
 	.overlay{background:rgba( 0, 0, 0, 0.5 );position:fixed;width:100%;height:100%;left:0;top:0;z-index:1;visibility:hidden;opacity:0;}
 	.show{opacity:1;visibility:visible;}
-	.dialog{width:300px;height:200px;background:#fff;position:absolute;z-index:2;left:0;top:0;right:0;bottom:0;margin:auto;box-shadow:0px 0px 20px rgba( 0, 0, 0, 0.6 );border-radius:3px;
-		transition:0.3s all cubic-bezier(0.250, 0.460, 0.450, 0.940);visibility:hidden;transform:scale(0);
-	}
+	.dialog{width:300px;height:200px;background:#fff;position:absolute;z-index:2;left:0;top:0;right:0;bottom:0;margin:auto;box-shadow:0px 0px 20px rgba( 0, 0, 0, 0.6 );border-radius:3px;transition:0.3s all cubic-bezier(0.250, 0.460, 0.450, 0.940);visibility:hidden;transform:scale(0);font-family:"微软雅黑";}
+	.dialog .title{height:35px;line-height:35px;text-align:left;text-indent:10px;font-size:12px;color:#000;-webkit-user-select:none;}
+	.dialog .content{height:120px;width:100%;text-align:center;display:-webkit-box;display:-moz-box;display:box;-webkit-box-align:center;-webkit-box-pack:center;}
+	.dialog .bottom{height:40px;width:100%;text-align:center;display:-webkit-box;display:-moz-box;display:box;-webkit-box-align:center;-webkit-box-pack:end;-webkit-user-select:none;}
+	.dialog span{display:inline-block;height:30px;width:60px;line-height:30px;font-size:12px;text-align:center;border-radius:5px;cursor:pointer;}
+	.dialog span.soure{background:#337ab7;color:#fff;}
+	.dialog span.cancel{background:#996600;color:#fff;margin-right:10px;}
 	.dialog-animate{visibility:visible;transform:scale(1.1);}
   </style>
  </head>
  <body>
-	<div class="dialog"></div>
+	<div class="dialog">
+		<div class="title">提示</div>
+		<div class="content">这是一个提示框</div>
+		<div class="bottom">
+			<!--<span class="soure">确定</span>-->
+			<span class="cancel">取消</span>
+		</div>
+	</div>
 	<div class="overlay"></div>
 	<a href="javascript:void(0)" class="clickme">点击我</a>
 	<script type="text/javascript">
@@ -42,6 +53,12 @@
 
 		function addClass(dom, className){
 			dom.className.replace(/\s+$/gi, '') + " " + name;
+		}
+
+		document.querySelector(".cancel").onclick = function(){
+			document.querySelector("body").className = "";
+			document.querySelector(".overlay").className = "overlay"
+			document.querySelector(".dialog").className = "dialog"
 		}
 	</script>
  </body>
