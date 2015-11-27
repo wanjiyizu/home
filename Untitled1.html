@@ -15,13 +15,16 @@
   <meta name="Description" content="">
   <title>Document</title>
   <style type="text/css">
-	.ym_alert{width:250px;border:1px solid #ccc;box-shadow:0px 0px 10px #000;background:#fff;position:absolute;font-size:12px;color:#666;z-index:999;-webkit-animation:showAlert 0.3s;-moz-animation:showAlert 0.3s;-o-animation:showAlert 0.3s;animation:showAlert 0.3s;}
+	.ym_alert{width:250px;border:1px solid #ccc;box-shadow:1px 1px 50px rgba(0,0,0,.3);background:#fff;position:absolute;font-size:12px;color:#666;z-index:999;
+	-webkit-animation:showAlert 0.3s;-moz-animation:showAlert 0.3s;-o-animation:showAlert 0.3s;animation:showAlert 0.3s;}
 	.ym_alert .title{padding:0 20px;height:40px;line-height:40px;font-family:"微软雅黑";color:#000;font-size:14px;}
-	.ym_alert .content{padding:20px;}
+	.ym_alert .content{padding:20px;font-size:14px;font-family:"微软雅黑";}
 	.ym_alert .bottom{text-align:right;padding:20px 10px 10px 20px}
-	.ym_alert .bottom span{display:inline-block;padding:0 20px;height:28px;line-height:28px;background:#2e8ded;border-radius:4px;color:#fff;font-size:12px;}
+	.ym_alert .bottom span{display:inline-block;padding:0 20px;height:28px;line-height:28px;border-radius:4px;font-size:12px;}
+	.ym_alert .bottom .close{background:#ccc;}
+	.ym_alert .bottom .sure{background:#2e8ded;color:#fff;margin-right:10px;}
 	.ym_overlay{position:absolute;left:0;top:0;background:#000;opacity:0.5;width:100%;height:100%;}
-	.ym_loading{padding:10px 20px;border-radius:5px;box-shadow:0 0 10px #000;background:#fff;z-index:999;position:absolute;font-size:12px;font-family:"微软雅黑";}
+	.ym_loading{padding:10px 20px;border-radius:5px;box-shadow:1px 1px 50px rgba(0,0,0,.3);background:#fff;z-index:999;position:absolute;font-size:12px;font-family:"微软雅黑";animation:showAlert 0.3s;}
 	@-webkit-keyframes showAlert{
 		0%{
 			-webkit-transform:scale(0.7);
@@ -116,18 +119,21 @@
 			 }
 
 			win.ym_layer = {
-				alert : function(obj){
-					this.obj = obj;
-					this.template();
+				alert : function(msg,obj){
+					this.obj = obj || {};
+					this.template(msg);
 					this.bindEvent();
 				},
 				
-				template : function(){
+				template : function(message){
 					var title = "<div class='title'>信息</div>";
-					var content = "<div class='content'>你的钱忘记拿了</div>";
-					var loading = "<div class='ym_loading'>正在加载中</div>"
+					var content = "<div class='content'>"+ message +"</div>";
+					var loading = "<div class='ym_loading'>"+ message +"</div>";
+					this.loading = loading;
 					var btn_close = "<span class='btn_close'></span>";
-					var bottom = "<div class='bottom'><span id='btn'>确定</span></div>";
+					var bottom = "<div class='bottom'><span class='sure'>确定</span></div>";
+					var bottom2 = "<div class='bottom'><span class='sure'>确定</span><span class='close'>取消</span></div>";
+					bottom = this.obj.type == 2 ? bottom2 : bottom;
 					var alert_template = "<div class='ym_alert'>"+ title + content + bottom+"</div>";
 					var overlay = "<div class='ym_overlay'></div>";
 					if(this.obj.type == 1){
@@ -148,11 +154,40 @@
 				bindEvent : function(){
 					var dialog = this.dialog;
 					var overlay = this.overlay;
+					var obj = this.obj;
 					if(this.obj.type != 1){
-						var btn = this.dialog.querySelector("#btn");
-						btn.onclick = function(){
+						var sure = this.dialog.querySelector(".sure");
+						var cancel = this.dialog.querySelector(".close");
+						var loading= this.loading;
+						var timer = null;
+						sure.onclick = function(){
+							clearTimeout(timer);
+							if(obj.sure) obj.sure(dialog);
 							utils.remove("body", dialog);
-							utils.remove("body", overlay);
+							utils.append("body", loading);
+							var loading2 = document.querySelector(".ym_loading");
+							loading2.textContent = "确定了";
+							utils.center(loading2);
+							timer = setTimeout(function(){
+								utils.remove("body", loading2);
+								utils.remove("body", overlay);
+							},800);
+						};
+						
+						cancel.onclick = function(){
+							clearTimeout(timer);
+							if(obj.cancel) obj.cancel(dialog);
+							utils.remove("body", dialog);
+							utils.append("body", loading);
+							var loading2 = document.querySelector(".ym_loading");
+							loading2.textContent = "取消了";
+							utils.center(loading2);
+							timer = setTimeout(function(){
+								utils.remove("body", loading2);
+								utils.remove("body", overlay);
+							},1000);
+							
+							
 						}
 					}
 					this.overlay.onclick = function(){
@@ -166,7 +201,9 @@
 			
 		})(window,document);
 		document.querySelector("#show").onclick = function(){
-			ym_layer.alert({"type":1});
+			ym_layer.alert("正在加载中...",{type:2,sure:function(){
+				alert("你点击了删除按钮");
+			}});
 		}
 		
 	</script>
