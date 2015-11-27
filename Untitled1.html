@@ -81,10 +81,38 @@
 			transform:scale(1);
 		}
 	}
+
+	.box{width:240px;font-size:12px;text-align:center;background:#fff;box-shadow:1px 1px 50px rgba(0,0,0,.3);}
+	.box li, .box ul{margin:0;padding:0;}
+	.box li{list-style:none;}
+	.box li:last-child{padding-bottom:20px;}
+	.box .title{font-size:18px;font-weight:bold;padding:20px 0;}
+	.box input{width:200px;font-size:14px;padding:0 10px;outline:none;border:1px solid #e0e0e0;height:40px;line-height:40px;margin-bottom:14px;}
+	.box button{width:220px;height:40px;border:none;outline:none;color:#fff;background:#81bfef;font-size:14px;margin:20px 0;}
+	.box a{text-decoration:none;color:#757575;display:inline-block;padding:0 10px;}
   </style>
  </head>
  <body>
 	<div id="show">点击</div>
+
+	<div class="box" style="display:none;">
+		<ul>
+			<li class="title">优米账号登录</li>
+			<li>
+				<input type="text" placeholder="邮箱/手机号码/优米账号" />
+			</li>
+			<li>
+				<input type="password" placeholder="密码" />
+			</li>
+			<li>
+				<button>立即登录</button>
+			</li>
+			<li>
+				<a href="javascript:void(0)">注册账号</a>
+				<a href="javascript:void(0)">忘记密码？</a>
+			</li>
+		</ul>
+	</div>
 	<script type="text/javascript">
 		(function(win,doc){
 			 var utils = {
@@ -195,14 +223,35 @@
 						utils.remove("body",dialog);
 					}
 					
+				},
+
+				open : function(dom,obj){
+					obj = obj || {};
+					dom.style.animation = "showAlert 0.3s";
+					dom.style.position = "absolute";
+					dom.style.zIndex = "999";
+					dom.style.display = "block";
+					var overlay = "<div class='ym_overlay'></div>";
+					utils.append("body", overlay);
+					var overlayDom = document.querySelector(".ym_overlay");
+					utils.center(dom);
+					if(obj.callback) obj.callback(overlayDom);
 				}
 
 			};
 			
 		})(window,document);
 		document.querySelector("#show").onclick = function(){
-			ym_layer.alert("正在加载中...",{type:2,sure:function(){
+			/*ym_layer.alert("正在加载中...",{type:2,sure:function(){
 				alert("你点击了删除按钮");
+			}});*/
+			var login = document.querySelector(".box");
+			ym_layer.open(login,{callback:function(overlay){
+				overlay.onclick = function(){
+					login.style.display = "none";
+					document.querySelector("body").removeChild(this);
+				}
+				
 			}});
 		}
 		
