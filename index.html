@@ -22,7 +22,7 @@
 	.active{transform:scale(0.9);transition:0.3s all cubic-bezier(0.250, 0.460, 0.450, 0.940);transform-origin:center;}
 	.overlay{background:rgba( 0, 0, 0, 0.5 );position:fixed;width:100%;height:100%;left:0;top:0;z-index:1;visibility:hidden;opacity:0;}
 	.show{opacity:1;visibility:visible;}
-	.dialog{width:300px;height:200px;background:#fff;position:absolute;z-index:2;left:0;top:0;right:0;bottom:0;margin:auto;box-shadow:0px 0px 20px rgba( 0, 0, 0, 0.6 );border-radius:3px;transition:0.3s all cubic-bezier(0.250, 0.460, 0.450, 0.940);visibility:hidden;transform:scale(0);font-family:"微软雅黑";}
+	.dialog{width:300px;min-height:150px;max-height:197px;background:#fff;position:absolute;z-index:2;left:0;top:0;right:0;bottom:0;margin:auto;box-shadow:0px 0px 20px rgba( 0, 0, 0, 0.6 );border-radius:3px;transition:0.3s all cubic-bezier(0.250, 0.460, 0.450, 0.940);visibility:hidden;transform:scale(0);font-family:"微软雅黑";}
 	.dialog .title{height:35px;line-height:35px;text-align:left;text-indent:10px;font-size:12px;color:#000;-webkit-user-select:none;}
 	.dialog .content{height:120px;width:100%;text-align:center;display:-webkit-box;display:-moz-box;display:box;-webkit-box-align:center;-webkit-box-pack:center;}
 	.dialog .bottom{height:40px;width:100%;text-align:center;display:-webkit-box;display:-moz-box;display:box;-webkit-box-align:center;-webkit-box-pack:end;-webkit-user-select:none;}
@@ -41,25 +41,37 @@
 			<span class="cancel">取消</span>
 		</div>
 	</div>
-	<div class="overlay"></div>
+	<div class="overlay" id="overlay"></div>
 	<a href="javascript:void(0)" class="clickme">点击我</a>
 	<script type="text/javascript">
-		document.querySelector(".clickme").onclick = function(){
-			document.querySelector("body").className = "active";
-			document.querySelector(".overlay").className = "overlay show"
-			document.querySelector(".dialog").className = "dialog dialog-animate"
-
+		
+		//new YmDialog();
+		
+		var $ = function(dom){
+			return document.querySelector(dom);
 		}
 
-		function addClass(dom, className){
-			dom.className.replace(/\s+$/gi, '') + " " + name;
+		Object.prototype.html = function(){
+			return this.innerHTML;
 		}
+		
+		var $ = function(ele){
+			if(typeof document.querySelector !== "undefined" && typeof ele === "string"){
+				return document.querySelector(ele);
+			}else{
+				if(ele.indexOf("#") != -1){
+					return document.getElementById(ele.replace(/^#/,''));
+				}else if(ele.indexOf(".") != -1){
+					return document.querySelector(ele);
+				}
+			}
+		};
 
-		document.querySelector(".cancel").onclick = function(){
-			document.querySelector("body").className = "";
-			document.querySelector(".overlay").className = "overlay"
-			document.querySelector(".dialog").className = "dialog"
-		}
+		
+		var box = $(".overlay").html();
+		alert(box);
+
+		
 	</script>
  </body>
 </html>
