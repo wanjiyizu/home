@@ -51,13 +51,13 @@
 				}else if(i == 1 && currentPage != 1){
 					li.className = "item prev";
 					li.innerHTML = "&lt;";
-				}else if(i == penult && pageTotal > size){
+				}else if(i == length-1 && pageTotal > size){
 					li.className = "item dot";
 					li.innerText = "...";
-				}else if(i == penult && currentPage == pageTotal){
+				}else if(i == length && currentPage == pageTotal){
 					li.className = "item next next-disabled";
 					li.innerHTML = "&gt;";
-				}else if(i == penult && currentPage != pageTotal){
+				}else if(i == length && currentPage != pageTotal){
 					li.className = "item next";
 					li.innerHTML = "&gt;";
 				}else if(i-1 == currentPage){
@@ -74,13 +74,14 @@
 		
 		function repain(num){
 			page.innerHTML = "";
-			var total
+			var total;
 			if(pageTotal <= size){
 				total = pageTotal;
+			}else if(num+7 >= maxSize+2){
+				total = maxSize + 2;
 			}else{
 				total = num+7;
 			}
-			
 			penult = total-1;
 			for(var i = 0; i < total; i++){
 				var li = document.createElement("li");
@@ -91,7 +92,7 @@
 				}else if(i == 0 && num == 1){
 					li.className = "item prev prev-disabled";
 					li.innerHTML = "&lt;";
-				}else if(i == (total-2) && (totalPage > maxSize)){
+				}else if(i == (total-2) && (total != maxSize+2)){
 					li.className = "item dot";
 					li.innerText = "...";
 				}else if(i == total-1 && pageTotal == num){
