@@ -9,7 +9,8 @@
 .items .prev{margin-right:5px;margin-left:0px;}
 .items .next{margin-left:5px;margin-right:0px;}
 .items .active, .items .active:hover{position:relative;background:#f40;color:#fff;border-color:#f40;cursor:default;}
-.items .pre-disabled:hover{cursor:default;color:#3e3e3e;}
+.items .prev-disabled:hover{cursor:default;color:#3e3e3e;}
+.items .next-diabled:hover{cursor:default;color:#3e3e3e;}
 .ym_paging .total, .ym_paging .text{float:left;line-height:39px;margin-left:5px;}
 .ym_paging .input{width:35px;height:21px;border:solid 1px #ededed;text-align:center;}
 .ym_paging .btn{width:43px;height:23px;margin-left:5px;background:#f40;border-radius:2px;color:#fff;text-align:center;line-height:23px;cursor:pointer;}

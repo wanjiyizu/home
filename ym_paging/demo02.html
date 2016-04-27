@@ -18,9 +18,7 @@
  </head>
  <body>
 	<div class="ym_paging">
-		<ul class="items">
-			
-		</ul>
+		<ul class="items"></ul>
 		<div class="total">共 100页，</div>
 		<div class="form">
 			<span class="text">到第</span>
@@ -31,54 +29,78 @@
 	</div>
 	<script type="text/javascript">
 		var page = document.querySelector(".items");
-		var length = 10; // 总页数
-		var current = 1; // 当前页数
-		var penult = 7;  // 初始化默认倒数第二个是7;
-		var _san = 5;  // ...前的一个数也就是倒数第三个数
-		var global_index = 0; // 全局点击倒数第三个的次数;
+		var pageTotal = 9; // 总页数
+		var currentPage = 1; // 当前页数
+		var size = 5;  // 默认展示的页数
+		var maxSize = 9// 最大展示的页数
+		var penult = size+2;  // 初始化默认倒数第二个是7;
 		drawPage();
 		function drawPage(){
-			if(length > _san){
-				for(var i = 1; i <= (penult+1); i++){
-					var li = document.createElement("li");
-					if(i == 1){
-						li.className = "item prev";
-						li.innerHTML = "&lt;";
-					}else if(i == penult){
-						li.className = "item dot";
-						li.innerText = "...";
-					}else if(i == (penult+1)){
-						li.className = "item next";
-						li.innerHTML = "&gt;";
-					}else if(i-1 == current){
-						li.className = "item active";
-						li.innerText = i-1;
-					}else{
-						li.className = "item j_ajax";
-						li.innerText = i-1;
-					}
-					page.appendChild(li);
-				}
+			var length;
+			if(pageTotal <= size){
+				length = penult;
+			}else{
+				length = penult+1;
 			}
+			for(var i = 1; i <= length; i++){
+				var li = document.createElement("li");
+				li.index = i-1;
+				if(i == 1 && currentPage == 1){
+					li.className = "item prev prev-disabled";
+					li.innerHTML = "&lt;";
+				}else if(i == 1 && currentPage != 1){
+					li.className = "item prev";
+					li.innerHTML = "&lt;";
+				}else if(i == penult && pageTotal > size){
+					li.className = "item dot";
+					li.innerText = "...";
+				}else if(i == penult && currentPage == pageTotal){
+					li.className = "item next next-disabled";
+					li.innerHTML = "&gt;";
+				}else if(i == penult && currentPage != pageTotal){
+					li.className = "item next";
+					li.innerHTML = "&gt;";
+				}else if(i-1 == currentPage){
+					li.className = "item active";
+					li.innerText = i-1;
+				}else{
+					li.className = "item j_ajax";
+					li.innerText = i-1;
+				}
+				page.appendChild(li);
+			}
+			
 		}
 		
 		function repain(num){
 			page.innerHTML = "";
-			var total = num+7;
+			var total
+			if(pageTotal <= size){
+				total = pageTotal;
+			}else{
+				total = num+7;
+			}
+			
 			penult = total-1;
 			for(var i = 0; i < total; i++){
 				var li = document.createElement("li");
-				if(i == 0){
+				li.index = i;
+				if(i == 0 && num != 1){
 					li.className = "item prev";
 					li.innerHTML = "&lt;";
-				}else if(i == (total-2)){
+				}else if(i == 0 && num == 1){
+					li.className = "item prev prev-disabled";
+					li.innerHTML = "&lt;";
+				}else if(i == (total-2) && (totalPage > maxSize)){
 					li.className = "item dot";
 					li.innerText = "...";
-				}else if(i == total-1){
+				}else if(i == total-1 && pageTotal == num){
+					li.className = "item next next-disabled";
+					li.innerHTML = "&gt;";
+				}else if(i == total-1 && pageTotal != num){
 					li.className = "item next";
 					li.innerHTML = "&gt;";
 				}else if(i == num){
-					console.log("添加了");
 					li.className = "item active";
 					li.innerText = num;
 				}else{
@@ -90,14 +112,16 @@
 			initEvent();
 		}
 
-		function repain2(num){
+		function repain2(num, num2){
 			page.innerHTML = "";
 			var total = 12+3;
 			penult = total-1;
 			var numText = num;
 			var leftStep = 4;
+			var m = 4;
 			for(var i = 1; i <= total; i++){
 				var li = document.createElement("li");
+				li.index = i-1;
 				if(i == 1){
 					li.className = "item prev";
 					li.innerHTML = "&lt;";
@@ -108,20 +132,38 @@
 					li.className = "item next";
 					li.innerHTML = "&gt;";
 				}else if(i > 4 && i == 9){
-					console.log("添加了");
 					li.className = "item active";
-					li.innerText = num;
+					if(num2 != null){
+						li.innerText = num2;
+					}else{
+						li.innerText = num;
+					}
+					
 				}else if(i < 4){
 					li.className = "item j_ajax";
+					
 					li.innerText = i-1;				// 去掉第一个prev的数字1干扰
 				}else if(i > 4 && i < 9){
 					li.className = "item j_ajax";
-					li.innerText = numText-leftStep;;
-					leftStep--;
+					if(num2 != null){
+						li.innerText = num2-leftStep;
+						leftStep--;
+					}else{
+						li.innerText = numText-leftStep;;
+						leftStep--;
+					}
+					
 				}else if(i >= 9){
-					++numText;
 					li.className = "item j_ajax";
-					li.innerText = numText;
+					if(num2 != null){
+						++num2;
+						li.innerText = num2;
+					}else{
+						++numText;
+						li.innerText = numText;
+					}
+					
+
 				}
 				page.appendChild(li);
 			}
@@ -144,67 +186,95 @@
 			}
 		}
 
-		function initEvent2(){
-			var li = document.querySelectorAll(".item");
-			for(var i = 0; i < li.length; i++){
-				if(i == 0){
-					li[i].addEventListener("click", prev,false);
-				}else if(current != i && (penult-1) != i && i != (li.length - 1)){
-					li[i].addEventListener("click", activeHand,false);
-				}else if((i == (li.length - 1))){
-					li[i].addEventListener("click", next,false);
-				}
-			}
-		}
 		
 		var index;
 		function next(){
-			var current = Number(document.querySelector(".active").innerText);
+			var current =  document.querySelector(".active").index || 1;
+			var num = Number(document.querySelector(".active").innerText);
 			var next = document.querySelector(".active").nextElementSibling;
-			
 			var li = document.querySelectorAll(".item");
-			index = current;
-			index++;
-			console.log(index);
-			if(index+4 < 12){
+			index = Number(current);
+			++index;	// 当前下标
+			num++;		// 当前页数
+			if(num <= 4+2+1){
 				repain(index);
-				return;
-			}if(index+4 == 12){
+			}else if(num > 4+2+1 && li[3].classList[1] != "dot"){
+				console.log(current);
 				repain2(index);
-				return;
-			}else if(next.classList[1] == "dot"){
-				repain2(index);
-				return;
-			}else{
-				repain3(index)
+			}else if(li[3].classList[1] == "dot"){
+				var liLength = li.length;
+				centerLi = li[liLength-4-2-1];
+				center = Number(centerLi.innerText);
+				if((num >= (center+1) && num <=(center+4-1)) || (num >= (center-3)&& num <= (center -1))){
+					repain3(index);
+					console.log("中间两边的数字");
+				} else if(num == center){
+					repain3(index);
+					console.log("点了中间的数字");
+				}else{
+					console.log("点旁边的数字")
+					repain2(index, num);
+				}
 			}
-			
-
 		}
 
 		function prev(){
-			alert("上一页");
+			var current =  document.querySelector(".active").index || 1;
+			var num = Number(document.querySelector(".active").innerText);
+			var next = document.querySelector(".active").nextElementSibling;
+			var li = document.querySelectorAll(".item");
+			index = Number(current);
+			--index;	// 当前下标
+			num--;		// 当前页数
+			if(num <= 4+2+1){
+				repain(index);
+			}else if(num > 4+2+1 && li[3].classList[1] != "dot"){
+				console.log(current);
+				repain2(index);
+			}else if(li[3].classList[1] == "dot"){
+				var liLength = li.length;
+				centerLi = li[liLength-4-2-1];
+				center = Number(centerLi.innerText);
+				if((num >= (center+1) && num <=(center+4-1)) || (num >= (center-3)&& num <= (center -1))){
+					repain3(index);
+					console.log("中间两边的数字");
+				} else if(num == center){
+					repain3(index);
+					console.log("点了中间的数字");
+				}else{
+					console.log("点旁边的数字")
+					repain2(index, num);
+				}
+			}
 		}
 		function activeHand(e){
-			global_index++;
 			var num = Number(e.currentTarget.innerText);
-			if(num+4 <12){// 如果当前页数+4小于12，采用第一种画法
+			var lis = document.querySelectorAll("li");
+			var centerLi;
+			var center;
+			if(num <= 4+2+1){// 当小于m+p+1的情况下
 				repain(num);
-				return;
-			}if(num+4 == 12){
+				console.log("num < m+p+1");
+			}else if(num > 4+2+1 && num <= 4+2+4 && lis[3].classList[1] != "dot"){ // 当前面没有点的情况下
 				repain2(num);
-				return;
-			}else if(e.currentTarget.nextSibling.classList[1] == "dot" || e.currentTarget.previousElementSibling.classList[1] == "dot"){
-				num = Number(e.currentTarget.innerText);
-				if(global_index>1){
+				console.log("m+p+1 < num <= m+p+1+n-1");
+			}else if( lis[3].classList[1] == "dot" || e.currentTarget.nextElementSibling.classList[1] == "dot"){	// 当前面有点的情况下
+				console.log("前面有点的情况下");
+				var liLength = lis.length;
+				centerLi = lis[liLength-4-2-1];
+				center = Number(centerLi.innerText);
+				if((num >= (center+1) && num <=(center+4-1)) || (num >= (center-3)&& num <= (center -1))){
+					repain3(e);
+					console.log("中间两边的数字");
+				} else if(num == center){
+					repain3(e);
+					console.log("点了中间的数字");
+				}else{
+					console.log("点旁边的数字")
 					repain2(num);
-					return;
 				}
-				repain(num);
-				return;
+				
 			}
-			
-			repain3(e);
 		}
 
 		function repain3(e,index){
@@ -228,8 +298,10 @@
 					li[i].className = "item dot";
 				}
 			}
-			
-			if(arguments.length == 1){
+			if(typeof e != "number"){
+				e.target.className = e.target.className.replace("j_ajax", "active");
+			}else if(arguments.length == 1){
+				
 				var i = arguments[0];
 				li[i].className = li[i].className.replace("j_ajax", "active")
 			}
