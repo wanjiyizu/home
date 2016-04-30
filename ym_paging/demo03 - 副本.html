@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="MobileOptimized" content="320">
+  <meta name="HandheldFriendly" content="true">
+  <meta name="format-detection" content="telephone=no, email=no">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <link href="ym_paging.css" rel="stylesheet" type="text/css" />
+ </head>
+ <body>
+	<div class="ym_paging">
+		<ul class="items"></ul>
+		<div class="total">共 100页，</div>
+		<div class="form">
+			<span class="text">到第</span>
+			<input class="input" type="number" min="1" max="100" />
+			<span class="text">页</span>
+			<span class="btn">确定</span>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var page = document.querySelector(".items");
+		var pageTotal = 30; // 总页数
+		var currentPage = 1; // 当前页数
+		var size = 5;  // 默认展示的页数
+		var maxSize = 9// 最大展示的页数
+		var penult = size+2;  // 初始化默认倒数第二个是7;
+		drawPage();
+		function drawPage(){
+			var length;
+			if(pageTotal <= size){
+				length = penult;
+			}else{
+				length = penult+1;
+			}
+			for(var i = 1; i <= length; i++){
+				var li = document.createElement("li");
+				li.index = i-1;
+				if(i == 1 && currentPage == 1){
+					li.className = "item prev prev-disabled";
+					li.innerHTML = "&lt;";
+				}else if(i == 1 && currentPage != 1){
+					li.className = "item prev";
+					li.innerHTML = "&lt;";
+				}else if(i == length-1 && pageTotal > size){
+					li.className = "item dot";
+					li.innerText = "...";
+				}else if(i == length && currentPage == pageTotal){
+					li.className = "item next next-disabled";
+					li.innerHTML = "&gt;";
+				}else if(i == length && currentPage != pageTotal){
+					li.className = "item next";
+					li.innerHTML = "&gt;";
+				}else if(i-1 == currentPage){
+					li.className = "item active";
+					li.innerText = i-1;
+				}else{
+					li.className = "item j_ajax";
+					li.innerText = i-1;
+				}
+				page.appendChild(li);
+			}
+			
+		}
+		
+		function repain(num){
+			page.innerHTML = "";
+			var total;
+			console.log("dianl");
+			if(pageTotal <= size){
+				// 总页数小于登录默认显示页数的时候采用默认显示页数作为循环总数
+				total = pageTotal;
+			}else if(num+7 >= maxSize+2 && pageTotal <= maxSize){
+				// 总页数小于等于maxSize并且num+m+p+1大于最大显示页数+2
+				console.log("总页数小于等于maxSize并且num+m+p+1大于最大显示页数+2");
+				total = maxSize + 2;
+			}else{
+				total = num+7;
+			}
+			penult = total-1;
+			for(var i = 0; i < total; i++){
+				var li = document.createElement("li");
+				li.index = i;
+				if(i == 0 && num != 1){
+					li.className = "item prev";
+					li.innerHTML = "&lt;";
+				}else if(i == 0 && num == 1){
+					li.className = "item prev prev-disabled";
+					li.innerHTML = "&lt;";
+				}else if(i == (total-2) && (pageTotal > maxSize || (pageTotal > size && pageTotal <= maxSize))){
+					li.className = "item dot";
+					li.innerText = "...";
+				}else if(i == total-1 && pageTotal == num){
+					li.className = "item next next-disabled";
+					li.innerHTML = "&gt;";
+				}else if(i == total-1 && pageTotal != num){
+					li.className = "item next";
+					li.innerHTML = "&gt;";
+				}else if(i == num){
+					li.className = "item active";
+					li.innerText = num;
+				}else{
+					li.className = "item j_ajax";
+					li.innerText = i;
+				}
+				page.appendChild(li);
+			}
+			initEvent();
+		}
+		
+		// num = index, num2 = num;
+		function repain2(num, num2){
+			page.innerHTML = "";
+			var total;
+			if(num2 == null && num+4 >= pageTotal){
+				total = 1+2+4+1+num+4 - pageTotal; 
+			}else if(num2 != null && num2+4 >= pageTotal){
+				total = 1+2+1+4+num2+4 - pageTotal; 
+			}else{
+				total = 2+2+2+4+4+1;
+			}
+			penult = total-1;
+			var numText = num;
+			var leftStep = 4;
+			for(var i = 1; i <= total; i++){
+				var li = document.createElement("li");
+				li.index = i-1;
+				if(i == 1){
+					li.className = "item prev";
+					li.innerHTML = "&lt;";
+				}else if(i == 4){
+					li.className = "item dot";
+					li.innerText = "...";
+				}else if(num2 == null && i == (total-1) && num+4 < pageTotal){
+					li.className = "item dot";
+					li.innerText = "...";
+				}else if(num2 != null && i == (total-1) && num2+4 < pageTotal){
+					li.className = "item dot";
+					li.innerText = "...";
+				}else if(i == total){
+					li.className = "item next";
+					li.innerHTML = "&gt;";
+				}else if(i > 4 && i == 9){
+					li.className = "item active";
+					if(num2 != null){
+						li.innerText = num2;
+					}else{
+						li.innerText = num;
+					}
+				}else if(i < 4){
+					li.className = "item j_ajax";
+					li.innerText = i-1;				// 去掉第一个prev的数字1干扰
+				}else if(i > 4 && i < 9){
+					li.className = "item j_ajax";
+					if(num2 != null){
+						li.innerText = num2-leftStep;
+						leftStep--;
+					}else{
+						li.innerText = numText-leftStep;;
+						leftStep--;
+					}
+				}else if(i >= 9){
+					li.className = "item j_ajax";
+					if(num2 != null && num2 != pageTotal){
+						++num2;
+						li.innerText = num2;
+					}else if(num2 != null && num2 == pageTotal){
+						li.innerText = num2;
+					}else{
+						++numText;
+						li.innerText = numText;
+					}
+				}
+				page.appendChild(li);
+			}
+			initEvent();
+		}
+		
+		
+		initEvent();
+		function initEvent(){
+			var li = document.querySelectorAll(".item");
+			for(var i = 0; i < li.length; i++){
+				var active = li[i].classList[1];
+				var nextDisabled = li[i].classList[2];
+				var prevDisabled = li[i].classList[2];
+				var daoshu = Number(li[li.length-2].innerText);
+				if(i == 0 && prevDisabled != "prev-disabled"){
+					li[i].addEventListener("click", prev,false);
+				}else if(active == "j_ajax"){
+					li[i].addEventListener("click", activeHand,false);
+				}else if(i == li.length - 1 && nextDisabled != "next-disabled"){
+					li[i].addEventListener("click", next,false);
+				}
+			}
+		}
+
+		
+		var index;
+		function next(){
+			var current =  document.querySelector(".active").index || 1;
+			var num = Number(document.querySelector(".active").innerText);
+			var next = document.querySelector(".active").nextElementSibling;
+			var li = document.querySelectorAll(".item");
+			index = Number(current);
+			++index;	// 当前下标
+			num++;		// 当前页数
+			if(num == maxSize && pageTotal == maxSize){
+				repain(index);
+			}else if(num <= 4+2+1 || pageTotal <= maxSize){// 下一页小于m+p+1或者总页数小于等于最大显示页数的时候
+				repain(index);
+			}else if(num > 4+2+1 && li[3].classList[1] != "dot" && pageTotal > maxSize){
+				// 下一页大于m+p+1并且前面没有dot并且总页数要大于最大显示页数的时候
+				repain2(index);
+			}else if(li[3].classList[1] == "dot"){
+				var liLength = li.length;
+				centerLi = li[liLength-4-2-1];
+				center = Number(centerLi.innerText);
+				if((num >= (center+1) && num <=(center+4-1)) || (num >= (center-3)&& num <= (center -1)) || num == pageTotal){
+					repain3(index);
+					console.log("中间两边的数字"+index);
+				} else if(num == center){
+					repain3(index);
+					console.log("点了中间的数字");
+				}else if(num <= pageTotal){
+					console.log("点旁边的数字")
+					repain2(index, num);
+				}
+			}
+		}
+
+		function prev(){
+			var current =  document.querySelector(".active").index || 1;
+			var num = Number(document.querySelector(".active").innerText);
+			var next = document.querySelector(".active").nextElementSibling;
+			var li = document.querySelectorAll(".item");
+			index = Number(current);
+			--index;	// 当前下标
+			num--;		// 当前页数
+			if(pageTotal <= maxSize){
+				repain(index);
+			}else if(num <= 4+2+1){
+				repain(index);
+			}else if(num > 4+2+1 && li[3].classList[1] != "dot"){
+				console.log(current);
+				repain2(index);
+			}else if(li[3].classList[1] == "dot"){
+				var liLength = li.length;
+				centerLi = li[liLength-4-2-1];
+				center = Number(centerLi.innerText);
+				if((num >= (center+1) && num <=(center+4-1)) || (num >= (center-3)&& num <= (center -1))){
+					repain3(index);
+					console.log("中间两边的数字");
+				} else if(num == center){
+					repain3(index);
+					console.log("点了中间的数字");
+				}else{
+					console.log("点旁边的数字")
+					repain2(index, num);
+				}
+			}
+		}
+		function activeHand(e){
+			var num = Number(e.currentTarget.innerText);
+			var lis = document.querySelectorAll("li");
+			var centerLi;
+			var center;
+			if(num <= 4+2+1){// 当小于m+p+1的情况下
+				repain(num);
+				console.log("num < m+p+1");
+			}else if(num > 4+2+1 && num <= 4+2+4 && lis[3].classList[1] != "dot"){ // 当前面没有点的情况下
+				repain2(num);
+				console.log("m+p+1 < num <= m+p+1+n-1");
+			}else if( lis[3].classList[1] == "dot" || e.currentTarget.nextElementSibling.classList[1] == "dot"){	// 当前面有点的情况下
+				console.log("前面有点的情况下");
+				var liLength = lis.length;
+				centerLi = lis[liLength-4-2-1];
+				center = Number(centerLi.innerText);
+				if((num >= (center+1) && num <=(center+4-1)) || (num >= (center-3)&& num <= (center -1)) || num == pageTotal){
+					repain3(e);
+					console.log("中间两边的数字");
+				} else if(num == center){
+					repain3(e);
+					console.log("点了中间的数字");
+				}else{
+					console.log("点旁边的数字")
+					repain2(num);
+				}
+				
+			}
+		}
+
+		function repain3(e,index){
+			var li = document.querySelectorAll(".item");
+			var _index;
+			if(arguments.length == 1 && typeof e == "number"){
+				_index = arguments[0];
+			}
+			for(var i = 0; i < li.length; i++){
+				li[i].className = "";
+				li[i].removeEventListener("click", prev);
+				li[i].removeEventListener("click", activeHand);
+				li[i].removeEventListener("click", next);
+				var isDot;
+				var isTotal;
+				if(_index != null){
+					isDot = li[_index];
+					isTotal = Number(isDot.innerText);
+				}else{
+					isTotal = Number(e.currentTarget.innerText);
+				}
+				if(i == 0){// 第一个(prev)
+					li[i].className = "item prev";
+					li[i].addEventListener("click", prev,false);
+				}else if(i == 3){
+					li[i].className = "item dot";
+				}else if(isTotal == pageTotal && li.length-2 == i){
+					li[i].className = "item j_ajax";
+					li[i].index = i;
+					li[i].addEventListener("click", activeHand,false);
+				}else if((li.length-2) != i && i != (li.length - 1)){	// 除了当前页，其它页数重新邦定事件和重新定义className 5+1(倒数第二个...) li.length-1(倒数第一个next)
+					li[i].className = "item j_ajax";
+					li[i].index = i;
+					li[i].addEventListener("click", activeHand,false);
+				}else if(i == (li.length - 1) && isTotal == pageTotal){ // 最后一个(next)
+					li[i].className = "item next next-disabled";
+				}else if(i == (li.length - 1) && isTotal != pageTotal){
+					li[i].className = "item next";
+					li[i].addEventListener("click", next,false);
+				}else if(i == (li.length - 2) && isTotal != pageTotal){ // 倒数第二个(...)
+					li[i].className = "item dot";
+				}
+			}
+			if(typeof e != "number"){
+				e.target.className = e.target.className.replace("j_ajax", "active");
+			}else if(arguments.length == 1){
+				var i = arguments[0];
+				li[i].className = li[i].className.replace("j_ajax", "active")
+			}
+			
+		}
+	</script>
+ </body>
+</html>
+<head>

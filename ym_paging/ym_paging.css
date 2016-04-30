@@ -2,7 +2,7 @@
 .ym_paging:before{content:"";display:table;}
 .ym_paging:after, .items:after{content:"";display:table;line-height:0;height:0;visibility:hidden;clear:both;}
 .items{list-style:none;float:left;margin:0;padding:0;}
-.items .item{width:35px;height:35px;line-height:35px;text-align:center;border:solid 1px #ededed;float:left;margin-left:-1px;cursor:pointer;font-weight:700;color:#3e3e3e;}
+.items .item{-webkit-user-select:none;width:35px;height:35px;line-height:35px;text-align:center;border:solid 1px #ededed;float:left;margin-left:-1px;cursor:pointer;font-weight:700;color:#3e3e3e;}
 .items .item:hover{color:#f40;}
 .items .dot{border:none;cursor:default;line-height:37px;}
 .items .dot:hover{color:none;color:#3e3e3e;}
