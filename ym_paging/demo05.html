@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="MobileOptimized" content="320">
+  <meta name="HandheldFriendly" content="true">
+  <meta name="format-detection" content="telephone=no, email=no">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <link href="ym_paging.css" rel="stylesheet" type="text/css" />
+ </head>
+ <body>
+	<span class="ym_paging"></span>
+	<script type="text/javascript">
+		(function(window, document){
+			var utils = (function(){
+				var me = {};
+				me.addEvent = function(el, type, fn, capture){
+					el.addEventListener(type, fn, !!capture);
+				}
+				me.removeEvent = function(el, type, fn, capture){
+					el.removeEventListener(type, fn, !!capture);
+				}
+				me.hasClass = function(el, c){
+					var re = new RegExp("(^|\\s)" + c + "(\\s|$)");
+					return re.test(el.className);
+				}
+				me.addClass = function(el, c){
+					if(me.hasClass(el, c)){
+						return;
+					}
+					var classList = el.className.split(" ");
+					classList.push(c);
+					el.className = classList.join(" ");
+
+				}
+				me.removeClass = function(el, c){
+					if(!me.hasClass(el, c)){
+						return;
+					}
+					var re = RegExp("(^|\\s)" + c +"(\\s|$)", "g");
+					el.className = el.className.replace(re, "");
+				}
+				me.createElementByHtml = function(html){
+					var el = document.createElement("div");
+					el.innerHTML = html;
+					return el;
+				}
+				return me;
+			})();
+
+			function ym_page(el, options){
+				this.wrapper = typeof el == "string" ? document.querySelector(el) : el; 
+				this.options = {
+					total: 300,		// 总个数
+					perPage: 10,	// 每页个数
+					p: 2,			// 省略号左边显示的页数
+					left: 4,		// 左边展示的页数
+					right: 4,		// 右边显示的页数
+					initSize: 5,	// 初始化显示的页数
+					maxSize: 9,		// 最大显示页数
+					current: 1,		// 默认选中的页数
+					callback: function(){
+					
+					}
+				}
+				for(var i in options){
+					this.options[i] = options[i];
+				}
+				
+				this.totalPage = this.options.total % this.options.perPage == 0 ? this.totalPage = this.options.total / this.options.perPage : this.totalPage = Math.round(this.options.total / this.options.perPage);
+				console.log(this.totalPage);
+				if(this.totalPage > 1){
+					this.init();
+				}
+			}
+
+			ym_page.prototype = {
+				init : function(){
+					var newDiv = document.createElement("div");
+					this.wrapper.parentNode.insertBefore(newDiv, this.wrapper);
+					this.wrapper.parentNode.removeChild(this.wrapper);
+					var classList = this.wrapper.classList;
+					var className = "";
+					if(classList.length > 0){
+						className = classList[0];
+					}
+					if(this.wrapper.id){
+						newDiv.id = this.wrapper.id;
+						this.wrapper.removeAttribute('id');
+					}else if(className == "ym_paging"){
+						newDiv.className = className;
+						this.wrapper.removeAttribute('class');
+					}
+					this.wrapper = newDiv;
+					var wrapHtml = "<ul class='items'></ul>"+
+								"<div class='total'>共 "+this.totalPage+"页，</div>"+
+								"<div class='form'>"+
+								"	<span class='text'>到第</span>"+
+								"	<input class='input' type='number' value='"+this.options.current+"' min='1' max='"+this.totalPage+"' />"+
+								"	<span class='text'>页</span>"+
+								"	<span class='btn'>确定</span>"+
+								"</div>";
+					var el = utils.createElementByHtml(wrapHtml);
+					var length = el.children.length;
+					for(var i = 0; i < length; i++){
+						this.wrapper.appendChild(el.children[0]);
+					}
+					this.paging = this.wrapper.querySelector(".items");
+					this.button = this.wrapper.querySelector(".btn");
+					utils.addEvent(this.button, "click", this);
+					this.drawPage();
+					this.initEvents();
+					
+				},
+
+				drawPage : function(){
+					var length;
+					if(this.totalPage <= this.options.initSize){
+						length = this.totalPage + 2;
+					}else if(this.totalPage == this.options.initSize){
+						length = this.options.initSize+2;
+					}else{
+						length = this.options.initSize+3;
+					}
+					var current = this.options.current;
+					for(var i = 0; i < length; i++){
+						var li = document.createElement("li");
+						li.index = 0;
+						if(i == 0 && current == 1){
+							// 左箭头开始第一页是当前页的情况下，左箭头disabled
+							li.className = "item prev prev-disabled";
+							li.innerHTML = "&lt;";
+						}else if(i == 0 && current != 1){
+							// 左箭头开始第一页不是当前页的情况下，左箭头状态enabled
+							li.className = "item prev";
+							li.innerHTML = "&lt;";
+						}else if(i == length-2 && this.totalPage > length){
+							// 如果总页数大于初始页数，右箭头前一个为省略号
+							li.className = "item dot";
+							li.innerText = "...";
+						}else if(i == length-1 && current == this.totalPage){
+							// 如果右箭头前一页为当前页，右箭头状态disabled
+							li.className = "item next next-disabled";
+							li.innerHTML = "&gt;";
+						}else if(i == length-1 && current != this.totalPage){
+							// 如果右箭头前一页不是当前页，右箭头状态enabled
+							li.className = "item next";
+							li.innerHTML = "&gt;";
+						}else if(i == current){
+							// 当前页状态为active
+							li.className = "item active";
+							li.innerText = i;
+						}else{
+							li.className = "item j_ajax";
+							li.innerText = i;
+						}
+						this.paging.appendChild(li);
+					}
+				},
+
+				initEvents: function(){
+					var items = this.paging.querySelectorAll(".item");
+					var length = items.length;
+					var active;			// 点击页的className
+					var nextDisabled;	// 右箭头disabled的className
+					var prevDisabled;	// 左箭头disabled的className
+					var li;
+					for(var i = 0; i < length; i++){
+						li = items[i];
+						active = li.classList[1];
+						prevDisabled = li.classList[2];
+						nextDisabled = li.classList[2];
+						if(i == 0 && prevDisabled != "prev-disabled"){
+							utils.addEvent(li, "click", this, false);
+						}else if(active == "j_ajax"){
+							utils.addEvent(li, "click", this, false);
+						}else if(i == length - 1 && nextDisabled != "next-disabled"){
+							utils.addEvent(li, "click", this, false);
+						}
+					}
+					
+				},
+
+				handleEvent: function(e){
+					if(e.type != "click"){
+						return;
+					}
+					if(utils.hasClass(e.currentTarget, "next")){
+						this.next();
+					}else if(utils.hasClass(e.currentTarget, "prev")){
+						
+						this.prev();
+					}else if(!utils.hasClass(e.currentTarget, "active") && !utils.hasClass(e.currentTarget, "btn")){
+						this.active(e);
+					}else if(utils.hasClass(e.currentTarget, "btn")){
+						this.skip();
+					}
+				},
+
+				prev: function(){
+					this.goPage(2);
+				},
+
+				next: function(){
+					this.goPage(1);
+				},
+
+				skip: function(){
+					this.value = this.wrapper.querySelector(".input").value;
+					var activeEl = this.paging.querySelector(".active");
+					var active = Number(activeEl.innerText);
+					if(this.value == "" || this.value == active || this.value > this.totalPage || this.value == 0){
+						return;
+					}
+					this.goPage(0);
+				},
+
+				goPage: function(isNext){
+					
+					this.value = this.wrapper.querySelector(".input").value;
+					var index;
+					var items = this.paging.querySelectorAll(".item");
+					var activeEl = this.paging.querySelector(".active");
+					var length = items.length;
+					var num = this.value || Number(activeEl.innerText);
+					var centerEl;
+					var center;		// 中间的数字
+					var p = this.options.p;
+					var m = this.options.left;
+					var n = this.options.right;
+					var dot = items[this.options.p+1].classList[1];
+					index =  activeEl.index || 1;
+					if(isNext == 1){
+						++index;	// 当前下标
+						num++;		// 当前页数
+					}else if(isNext == 2){
+						--index;
+						num--;
+					}
+
+					for(var i = 0; i < length; i++){
+						if(items[i].innerText == this.value){
+							index = items[i].index;		// bug 2 10 next就会出现bug
+						}
+						if(utils.hasClass(items[i], "active")){
+							utils.removeClass(items[i], "active");
+							utils.addClass(items[i], "j_ajax");
+						}else if(utils.hasClass(items[i], "next-disabled")){
+							utils.removeClass(items[i], "next-disabled");
+						}else if(utils.hasClass(items[i], "prev-disabled")){
+							utils.removeClass(items[i], "prev-disabled");
+						}
+					}
+
+					
+					if(num <= (p+m+1)){
+						this.repaint(true, num);
+						utils.addClass(items[index], "active");
+					}else if(num > (p+m+1) && num <= (p+m+n) && dot != "dot" && this.totalPage > this.options.maxSize){
+						this.repaint(false, num);
+					}else if(num > (p+m+1) && this.totalPage == this.options.maxSize){
+						this.repaint(true, num);
+					}else if(num > (p+m+1) && dot != "dot"){
+						this.repaint(false, num);
+					}else if(dot == "dot"){
+						var i = p+m+2; // p+2+m+1
+						centerEl = items[i];
+						center = Number(centerEl.innerText);
+						if((num > (center-m) && num <= (center -1)) || (num >= (center+1) && num <= (center+n-1)) || num == this.totalPage){
+							utils.addClass(items[index], "active");
+							this.initEvents();
+							utils.removeEvent(items[index], "click", this);
+							if(this.value != ""){
+								this.wrapper.querySelector(".input").value = num;
+							}
+						}else{
+							this.repaint(false, num);
+						}
+					}
+					if(num == this.totalPage){
+						// 点击最后一个的时候
+						utils.addClass(items[length-1], "next-disabled");
+						utils.removeEvent(items[length-1], "click", this);
+					}else if(num == 1){
+						utils.addClass(items[0], "prev-disabled");
+						utils.removeEvent(items[0], "click", this);
+					}
+					if(this.options.callback){
+						this.options.callback(num,this.options.perPage);
+					}
+				},
+
+				active: function(e){
+					var target;
+					if(e != null){
+						target = e.currentTarget;
+					}
+					
+					var num = Number(target.innerText);	// 点击的当前页数
+					var items = this.paging.querySelectorAll("li");
+					var length = items.length;
+					var centerEl;
+					var center;		// 中间的数字
+					var p = this.options.p;
+					var m = this.options.left;
+					var n = this.options.right;
+					var dot = items[this.options.p+1].classList[1];	// 左箭头前面省略号的className
+					for(var i = 0; i < length; i++){
+						if(utils.hasClass(items[i], "active")){
+							utils.removeClass(items[i], "active");
+							utils.addClass(items[i], "j_ajax");
+						}else if(utils.hasClass(items[i], "next-disabled")){
+							utils.removeClass(items[i], "next-disabled");
+						}else if(utils.hasClass(items[i], "prev-disabled")){
+							utils.removeClass(items[i], "prev-disabled");
+						}
+					}
+					if(num <= (p+m+1)){
+						// 当小于m+p+1的情况下，左边没有出现省略号
+						this.repaint(true, num);
+						utils.addClass(target, "active");
+					}else if(num > (p+m+1) && num <= (p+m+n) && dot != "dot" && this.totalPage > this.options.maxSize){
+						// 当前面没有点的情况下
+						this.repaint(false, num);
+					}else if(num > (p+m+1) && this.totalPage == this.options.maxSize){
+						this.repaint(true, num);
+					}else if(num > (p+m+1) && dot != "dot"){
+						this.repaint(false, num);
+					}else if(dot == "dot"){
+						// 当前面有点的情况下
+						var i = p+m+2; // p+2+m+1
+						centerEl = items[i];
+						center = Number(centerEl.innerText);
+						if((num >= (center+1) && num <= (center+n-1)) || (num > (center-m) && num <= (center -1)) || num == this.totalPage){
+							// 中间旁边的数字或者点击最后的总数的时候
+							utils.addClass(target, "active");
+							this.initEvents();
+							utils.removeEvent(target, "click", this);
+							if(this.value != ""){
+								this.wrapper.querySelector(".input").value = num;
+							}
+						}else{
+							this.repaint(false, num);
+						}
+					}
+					if(num == this.totalPage){
+						// 点击最后一个的时候
+						utils.addClass(items[length-1], "next-disabled");
+						utils.removeEvent(items[length-1], "click", this);
+					}else if(num == 1){
+						utils.addClass(items[0], "prev-disabled");
+						utils.removeEvent(items[0], "click", this);
+					}
+					if(this.options.callback){
+						this.options.callback(num,this.options.perPage);
+					}
+				},
+
+				repaint: function(flag, num){
+					var	sum,
+						length,
+						_temp = num,
+						step = num - 1,
+						p = this.options.p,
+						left = this.options.left,
+						right = this.options.right,
+						maxSize = this.options.maxSize,
+						initSize = this.options.initSize,
+						total = this.totalPage,
+						center = p + left + 2;		// 减去一个箭头和两个数字再加上yi
+					
+					if(this.value != ""){
+						this.wrapper.querySelector(".input").value = num;
+					}
+					
+					if(flag){
+						sum = num + step;
+						if(this.totalPage <= this.options.initSize){
+							length = this.totalPage + 2;
+						}else if(num + step >= this.options.maxSize && this.totalPage == this.options.maxSize){
+							length = this.options.maxSize + 2;
+						}else{
+							length = this.options.initSize + step + 3;
+						}
+					}else{
+						sum = this.totalPage - num;
+						if(sum <= right){
+							length = p + left + (this.totalPage - num) + 4;
+						}else{
+							length = p + left + right + 5;
+						}
+					}
+
+					this.paging.innerHTML = "";
+					for(var i = 0; i < length; i++){
+						var li = document.createElement("li");
+						li.index = i;
+						if(i == 0 && num != 1){
+							li.className = "item prev";
+							li.innerHTML = "&lt;";
+						}else if(i == 0 && num == 1){
+							li.className = "item prev prev-disabled";
+							li.innerHTML = "&lt;";
+						}else if(i == (this.options.p+1) && !flag){
+							li.className = "item dot";
+							li.innerText = "...";
+						}else if(i == length-2 && total > initSize && total != maxSize && flag){
+							li.className = "item dot";
+							li.innerText = "...";
+						}else if(i == length-2 && total == maxSize && sum < maxSize && flag){
+							li.className = "item dot";
+							li.innerText = "...";
+						}else if(i == length - 2 && sum > right && !flag){
+							li.className = "item dot";
+							li.innerText = "...";
+						}else if(i == length-1 && this.totalPage == num){
+							li.className = "item next next-disabled";
+							li.innerHTML = "&gt;";
+						}else if(i == length-1 && this.totalPage != num){
+							li.className = "item next";
+							li.innerHTML = "&gt;";
+						}else if((i == center && !flag) || (i == num && flag)){
+							li.className = "item active";
+							li.innerText = num;
+						}else if(i > (this.options.p+1) && i < center && !flag){
+							li.className = "item j_ajax";
+							li.innerText = num - left;
+							left--;
+						}else if(i > center && i < length - 2 && sum > right && !flag){
+							li.className = "item j_ajax";
+							_temp++;
+							li.innerText = _temp;
+						}else if(i > center && sum <= right && !flag){
+							li.className = "item j_ajax";
+							_temp++;
+							li.innerText = _temp;
+						}else if(i < (this.options.p+1) && i > 0 && !flag){
+							li.className = "item j_ajax";
+							li.innerText = i;
+						}else{
+							li.className = "item j_ajax";
+							li.innerText = i;
+						}
+						this.paging.appendChild(li);
+					}
+					this.initEvents();
+				}
+			}
+
+			
+			window.ym_page = ym_page;
+		})(this, document);
+
+		new ym_page(".ym_paging",{callback:function(pageNum, pageSize){
+			console.log("当前页码为："+pageNum+",每页大小为："+pageSize);
+		}});
+		
+	</script>
+ </body>
+</html>
+<head>
