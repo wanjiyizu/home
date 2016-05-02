@@ -59,20 +59,27 @@
 			function ym_page(el, options){
 				this.wrapper = typeof el == "string" ? document.querySelector(el) : el; 
 				this.options = {
-					total: 50,		// 总个数
+					total: 300,		// 总个数
 					perPage: 10,	// 每页个数
 					p: 2,			// 省略号左边显示的页数
 					left: 4,		// 左边展示的页数
 					right: 4,		// 右边显示的页数
 					initSize: 5,	// 初始化显示的页数
-					maxSize: 9,		// 最大显示页数
-					current: 1		// 默认选中的页数
+					maxSize: 10,		// 最大显示页数
+					current: 1,		// 默认选中的页数
+					callback: function(){
+					
+					}
 				}
 				for(var i in options){
 					this.options[i] = options[i];
 				}
-				this.totalPage = this.options.total % this.options.perPage == 0 ? this.options.total / this.options.perPage : (this.options.total / this.options.perPage) + 1;
-				this.init();	
+				
+				this.totalPage = this.options.total % this.options.perPage == 0 ? this.totalPage = this.options.total / this.options.perPage : this.totalPage = Math.round(this.options.total / this.options.perPage);
+				console.log(this.totalPage);
+				if(this.totalPage > 1){
+					this.init();
+				}
 			}
 
 			ym_page.prototype = {
@@ -97,7 +104,7 @@
 								"<div class='total'>共 "+this.totalPage+"页，</div>"+
 								"<div class='form'>"+
 								"	<span class='text'>到第</span>"+
-								"	<input class='input' type='number' min='1' max='"+this.totalPage+"' />"+
+								"	<input class='input' type='number' value='"+this.options.current+"' min='1' max='"+this.totalPage+"' />"+
 								"	<span class='text'>页</span>"+
 								"	<span class='btn'>确定</span>"+
 								"</div>";
@@ -107,6 +114,8 @@
 						this.wrapper.appendChild(el.children[0]);
 					}
 					this.paging = this.wrapper.querySelector(".items");
+					this.button = this.wrapper.querySelector(".btn");
+					utils.addEvent(this.button, "click", this);
 					this.drawPage();
 					this.initEvents();
 					
@@ -115,6 +124,8 @@
 				drawPage : function(){
 					var length;
 					if(this.totalPage <= this.options.initSize){
+						length = this.totalPage + 2;
+					}else if(this.totalPage == this.options.initSize){
 						length = this.options.initSize+2;
 					}else{
 						length = this.options.initSize+3;
@@ -168,13 +179,14 @@
 						prevDisabled = li.classList[2];
 						nextDisabled = li.classList[2];
 						if(i == 0 && prevDisabled != "prev-disabled"){
-							utils.addEvent(li, "click", this);
+							utils.addEvent(li, "click", this, false);
 						}else if(active == "j_ajax"){
-							utils.addEvent(li, "click", this);
+							utils.addEvent(li, "click", this, false);
 						}else if(i == length - 1 && nextDisabled != "next-disabled"){
-							utils.addEvent(li, "click", this);
+							utils.addEvent(li, "click", this, false);
 						}
 					}
+					
 				},
 
 				handleEvent: function(e){
@@ -184,9 +196,12 @@
 					if(utils.hasClass(e.currentTarget, "next")){
 						this.next();
 					}else if(utils.hasClass(e.currentTarget, "prev")){
+						
 						this.prev();
-					}else if(!utils.hasClass(e.currentTarget, "active")){
+					}else if(!utils.hasClass(e.currentTarget, "active") && !utils.hasClass(e.currentTarget, "btn")){
 						this.active(e);
+					}else if(utils.hasClass(e.currentTarget, "btn")){
+						this.skip();
 					}
 				},
 
@@ -196,6 +211,74 @@
 
 				next: function(){
 					this.goPage(true);
+				},
+
+				skip: function(){
+					this.value = this.wrapper.querySelector(".input").value;
+					var items = this.paging.querySelectorAll(".item");
+					var length = items.length;
+					var active = Number(this.paging.querySelector(".active").innerText);
+					var centerEl;
+					var center;		// 中间的数字
+					var p = this.options.p;
+					var m = this.options.left;
+					var n = this.options.right;
+					var dot = items[3].classList[1];
+					if(this.value == "" || this.value == this.options.current || this.value == active || this.value > this.totalPage || this.value == 0){
+						return;
+					}
+					var index;
+					// 删除同级class
+					for(var i = 0; i < length; i++){
+						if(items[i].innerText == this.value){
+							index = items[i].index;
+						}
+						if(utils.hasClass(items[i], "active")){
+							utils.removeClass(items[i], "active");
+							utils.addClass(items[i], "j_ajax");
+						}else if(utils.hasClass(items[i], "next-disabled")){
+							utils.removeClass(items[i], "next-disabled");
+						}else if(utils.hasClass(items[i], "prev-disabled")){
+							utils.removeClass(items[i], "prev-disabled");
+						}
+					}
+					//if(this.value > )
+					if(this.value <= (p+m+1)){
+						// 当小于m+p+1的情况下，左边没有出现省略号
+						this.repaint(this.value);
+						utils.addClass(items[index], "active");
+					}else if(this.value > (p+m+1) && this.value <= (p+m+n) && dot != "dot" && this.totalPage > this.options.maxSize){
+						// 当前面没有点的情况下
+						this.repaint2(this.value);
+					}else if(this.value > (p+m+1) && this.totalPage == this.options.maxSize){
+						this.repaint(this.value);
+					}else if(this.value > (p+m+1)){
+						this.repaint2(this.value);
+					}else if(dot == "dot"){
+						// 当前面有点的情况下
+						var i = p+m+2; // p+2+m+1
+						centerEl = items[i];
+						center = Number(centerEl.innerText);
+						if((this.value >= (center+1) && this.value <= (center+n-1)) || (this.value > (center-m) && this.value <= (center -1)) || this.value == this.totalPage){
+							// 中间旁边的数字或者点击最后的总数的时候
+							utils.addClass(items[index], "active");
+							this.initEvents();
+							utils.removeEvent(items[index], "click", this);
+						}else{
+							this.repaint2(this.value);
+						}
+					}
+					if(this.value == this.totalPage){
+						// 点击最后一个的时候
+						utils.addClass(items[length-1], "next-disabled");
+						utils.removeEvent(items[length-1], "click", this);
+					}else if(this.value == 1){
+						utils.addClass(items[0], "prev-disabled");
+						utils.removeEvent(items[0], "click", this);
+					}
+					if(this.options.callback){
+						this.options.callback(this.value,this.options.perPage);
+					}
 				},
 
 				goPage: function(isNext){
@@ -233,6 +316,8 @@
 						this.repaint2(num);
 					}else if(num > (p+m+1) && this.totalPage == this.options.maxSize){
 						this.repaint(num);
+					}else if(num > (p+m+1) && dot != "dot"){
+						this.repaint2(num);
 					}else if(dot == "dot"){
 						var i = p+m+2; // p+2+m+1
 						centerEl = items[i];
@@ -241,6 +326,9 @@
 							utils.addClass(items[index], "active");
 							this.initEvents();
 							utils.removeEvent(items[index], "click", this);
+							if(this.value != ""){
+								this.wrapper.querySelector(".input").value = num;
+							}
 						}else{
 							this.repaint2(num);
 						}
@@ -253,10 +341,17 @@
 						utils.addClass(items[0], "prev-disabled");
 						utils.removeEvent(items[0], "click", this);
 					}
+					if(this.options.callback){
+						this.options.callback(num,this.options.perPage);
+					}
 				},
 
 				active: function(e){
-					var target = e.currentTarget;
+					var target;
+					if(e != null){
+						target = e.currentTarget;
+					}
+					
 					var num = Number(target.innerText);	// 点击的当前页数
 					var items = this.paging.querySelectorAll("li");
 					var length = items.length;
@@ -291,6 +386,8 @@
 						this.repaint2(num);
 					}else if(num > (p+m+1) && this.totalPage == this.options.maxSize){
 						this.repaint(num);
+					}else if(num > (p+m+1) && dot != "dot"){
+						this.repaint2(num);
 					}else if(dot == "dot"){
 						// 当前面有点的情况下
 						var i = p+m+2; // p+2+m+1
@@ -301,6 +398,9 @@
 							utils.addClass(target, "active");
 							this.initEvents();
 							utils.removeEvent(target, "click", this);
+							if(this.value != ""){
+								this.wrapper.querySelector(".input").value = num;
+							}
 						}else{
 							this.repaint2(num);
 						}
@@ -312,6 +412,9 @@
 					}else if(num == 1){
 						utils.addClass(items[0], "prev-disabled");
 						utils.removeEvent(items[0], "click", this);
+					}
+					if(this.options.callback){
+						this.options.callback(num,this.options.perPage);
 					}
 				},
 
@@ -327,6 +430,9 @@
 					var initSize = this.options.initSize;
 					var sum = num + step;
 					var total = this.totalPage;
+					if(this.value != ""){
+						this.wrapper.querySelector(".input").value = num;
+					}
 					if(this.totalPage <= this.options.initSize){
 						length = this.totalPage + 2;
 					}else if(num + step >= this.options.maxSize && this.totalPage == this.options.maxSize){
@@ -376,6 +482,10 @@
 					var left = this.options.left;
 					var right = this.options.right;
 					var sum = this.totalPage - num;
+					if(this.value != ""){
+						this.wrapper.querySelector(".input").value = num;
+					}
+
 					if(sum <= right){
 						length = p + left + (this.totalPage - num) + 4;
 					}else{
@@ -425,20 +535,9 @@
 			window.ym_page = ym_page;
 		})(this, document);
 
-		new ym_page(".ym_paging");
-		
-
-
-
-
-
-
-
-
-
-
-
-
+		new ym_page(".ym_paging",{callback:function(pageNum, pageSize){
+			console.log("当前页码为："+pageNum+",每页大小为："+pageSize);
+		}});
 		
 	</script>
  </body>
