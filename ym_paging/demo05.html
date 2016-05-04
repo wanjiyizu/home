@@ -17,12 +17,12 @@
   <link href="ym_paging.css" rel="stylesheet" type="text/css" />
  </head>
  <body>
-	<span class="ym_paging"></span>
+	<span id="ym_paging"></span>
 	<script type="text/javascript" src="ym_paging.js"></script>
 	<script type="text/javascript">
-		new ym_page(".ym_paging",{
-			total	: 500,				// 总记录数
-			perPage	: 20,				// 每页记录数
+		new ym_paging("#ym_paging",{
+			total	: 21,				// 总记录数
+			perPage	: 10,				// 每页记录数
 			callback:function(pageNum, pageSize){
 				console.log("当前页码为："+pageNum+",每页大小为："+pageSize);
 			}

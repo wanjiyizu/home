@@ -35,7 +35,7 @@
 		return me;
 	})();
 
-	function ym_page(el, options){
+	function ym_paging(el, options){
 		this.wrapper = typeof el == "string" ? document.querySelector(el) : el; 
 		this.options = {
 			total: 300,		// 总个数
@@ -54,14 +54,19 @@
 			this.options[i] = options[i];
 		}
 		
-		this.totalPage = this.options.total % this.options.perPage == 0 ? this.totalPage = this.options.total / this.options.perPage : this.totalPage = Math.round(this.options.total / this.options.perPage);
+		if(this.options.total / this.options.perPage > 0){
+			this.totalPage = parseInt(this.options.total / this.options.perPage);
+			if(this.options.total % this.options.perPage != 0){
+				this.totalPage++;
+			}
+		}
 		console.log(this.totalPage);
 		if(this.totalPage > 1){
 			this.init();
 		}
 	}
 
-	ym_page.prototype = {
+	ym_paging.prototype = {
 		init : function(){
 			var newDiv = document.createElement("div");
 			this.wrapper.parentNode.insertBefore(newDiv, this.wrapper);
@@ -74,10 +79,8 @@
 			if(this.wrapper.id){
 				newDiv.id = this.wrapper.id;
 				this.wrapper.removeAttribute('id');
-			}else if(className == "ym_paging"){
-				newDiv.className = className;
-				this.wrapper.removeAttribute('class');
 			}
+			newDiv.className = "ym_paging";
 			this.wrapper = newDiv;
 			var wrapHtml = "<ul class='items'></ul>"+
 						"<div class='total'>共 "+this.totalPage+"页，</div>"+
@@ -389,5 +392,5 @@
 			this.items = this.paging.querySelectorAll(".item");
 		}
 	}
-	window.ym_page = ym_page;
+	window.ym_paging = ym_paging;
 })(this, document);
