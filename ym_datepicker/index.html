@@ -1,0 +1,149 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>时间选择器</title>
+	<style type="text/css">
+		.pick-box{
+			width:240px;
+			padding:8px;
+			background:#fff;
+			border:1px solid #ccc;
+			border-bottom-color:#bbb;
+			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+			color:#333;
+			box-shadow:0 5px 15px -5px rgba(0,0,0,.5);
+		}
+		.pick-table{
+			width:240px;
+			border-collapse: collapse;
+			border-spacing: 0;
+			border:none;
+		}
+		.pick-table td{
+			width:14.285714285714286%;
+			padding:0;
+		}
+		.pick-table th{
+			color:#999;
+			font-size:12px;
+			line-height:25px;
+			font-weight:bold;
+			text-align:center;
+		}
+		.pick-btn{
+			width:100%;
+			height:25px;
+			background:#f5f5f5;
+			cursor:pointer;
+			border:none;
+			outline:none;
+			color:#666;
+		}
+		.pick-btn:hover{
+			background:#F08422;
+			color:#fff;
+		}
+		.pick-prev, .pick-next{
+			width:20px;
+			height:30px;
+			border:none;
+			padding:none;
+			outline:none;
+			text-indent: 20;
+			background-color:transparent;
+			background-repeat:no-repeat;
+			background-position:center;
+			background-size:75% 75%;
+		}
+		.pick-prev{
+			float:left;
+			background-image:url("pick-prev.png");
+		}
+		.pick-next{
+			float:right;
+			background-image: url("pick-next.png");
+		}
+		.pick-title{
+			text-align:center;
+		}
+		.pick-label{
+			display:inline-block;
+			padding: 5px 3px;
+		    font-size: 14px;
+		    line-height: 20px;
+		    font-weight: bold;
+		    background-color: #fff;
+		}
+	</style>
+</head>
+<body>
+	<div class="pick-box">
+		<div class="pick-title">
+			<span class="pick-label">06月</span>
+			<span class="pick-label">2016年</span>
+			<button class="pick-prev"></button>
+			<button class="pick-next"></button>
+		</div>
+		<table cellpadding="0" cellspacing="0" class="pick-table">
+			<thead>
+				<tr>
+					<th>日</th>
+					<th>一</th>
+					<th>二</th>
+					<th>三</th>
+					<th>四</th>
+					<th>五</th>
+					<th>六</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td></td>
+					<td></td>
+					<td><button class="pick-btn">1</button></td>
+					<td><button class="pick-btn">2</button></td>
+					<td><button class="pick-btn">3</button></td>
+					<td><button class="pick-btn">4</button></td>
+					<td><button class="pick-btn">5</button></td>			
+				</tr>
+				<tr>
+					<td><button class="pick-btn">6</button></td>
+					<td><button class="pick-btn">7</button></td>
+					<td><button class="pick-btn">8</button></td>
+					<td><button class="pick-btn">9</button></td>
+					<td><button class="pick-btn">10</button></td>
+					<td><button class="pick-btn">11</button></td>
+					<td><button class="pick-btn">12</button></td>			
+				</tr>
+				<tr>
+					<td><button class="pick-btn">13</button></td>
+					<td><button class="pick-btn">14</button></td>
+					<td><button class="pick-btn">15</button></td>
+					<td><button class="pick-btn">16</button></td>
+					<td><button class="pick-btn">17</button></td>
+					<td><button class="pick-btn">18</button></td>
+					<td><button class="pick-btn">19</button></td>			
+				</tr>
+				<tr>
+					<td><button class="pick-btn">20</button></td>
+					<td><button class="pick-btn">21</button></td>
+					<td><button class="pick-btn">22</button></td>
+					<td><button class="pick-btn">23</button></td>
+					<td><button class="pick-btn">24</button></td>
+					<td><button class="pick-btn">25</button></td>
+					<td><button class="pick-btn">26</button></td>			
+				</tr>
+				<tr>
+					<td><button class="pick-btn">27</button></td>
+					<td><button class="pick-btn">28</button></td>
+					<td><button class="pick-btn">29</button></td>
+					<td><button class="pick-btn">30</button></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

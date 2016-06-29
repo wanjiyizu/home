@@ -53,16 +53,16 @@
 		for(var i in options){
 			this.options[i] = options[i];
 		}
-		
-		if(this.options.total / this.options.perPage > 0){
+		if(this.options.total / this.options.perPage > 1){
 			this.totalPage = parseInt(this.options.total / this.options.perPage);
 			if(this.options.total % this.options.perPage != 0){
 				this.totalPage++;
 			}
 		}
-		console.log(this.totalPage);
 		if(this.totalPage > 1){
 			this.init();
+		}else if(this.wrapper != null){
+			this.wrapper.innerHTML = ""
 		}
 	}
 
@@ -83,7 +83,7 @@
 			newDiv.className = "ym_paging";
 			this.wrapper = newDiv;
 			var wrapHtml = "<ul class='items'></ul>"+
-						"<div class='total'>共 "+this.totalPage+"页，</div>"+
+						"<div class='total'>共 "+this.totalPage+" 页，</div>"+
 						"<div class='form'>"+
 						"	<span class='text'>到第</span>"+
 						"	<input class='input' type='number' value='"+this.options.current+"' min='1' max='"+this.totalPage+"' />"+
@@ -124,7 +124,7 @@
 					// 左箭头开始第一页不是当前页的情况下，左箭头状态enabled
 					li.className = "item prev";
 					li.innerHTML = "&lt;";
-				}else if(i == length-2 && this.totalPage > length){
+				}else if(i == length-2 && this.totalPage > this.options.initSize){
 					// 如果总页数大于初始页数，右箭头前一个为省略号
 					li.className = "item dot";
 					li.innerText = "...";
@@ -319,11 +319,13 @@
 			}
 			
 			if(flag){
-				sum = num + step;
+				sum = this.options.initSize + step;
 				if(this.totalPage <= this.options.initSize){
 					length = this.totalPage + 2;
 				}else if(num + step >= this.options.maxSize && this.totalPage == this.options.maxSize){
 					length = this.options.maxSize + 2;
+				}else if(this.options.initSize + step >= this.totalPage){
+					length = this.totalPage+2;
 				}else{
 					length = this.options.initSize + step + 3;
 				}
@@ -349,7 +351,7 @@
 				}else if(i == (this.options.p+1) && !flag){
 					li.className = "item dot";
 					li.innerText = "...";
-				}else if(i == length-2 && total > initSize && total != maxSize && flag){
+				}else if(i == length-2 && total > initSize && total != maxSize && total > sum && flag){
 					li.className = "item dot";
 					li.innerText = "...";
 				}else if(i == length-2 && total == maxSize && sum < maxSize && flag){
