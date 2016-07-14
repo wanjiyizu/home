@@ -96,54 +96,52 @@
 					<th>六</th>
 				</tr>
 			</thead>
-			<tbody>
-				<tr>
-					<td></td>
-					<td></td>
-					<td><button class="pick-btn">1</button></td>
-					<td><button class="pick-btn">2</button></td>
-					<td><button class="pick-btn">3</button></td>
-					<td><button class="pick-btn">4</button></td>
-					<td><button class="pick-btn">5</button></td>			
-				</tr>
-				<tr>
-					<td><button class="pick-btn">6</button></td>
-					<td><button class="pick-btn">7</button></td>
-					<td><button class="pick-btn">8</button></td>
-					<td><button class="pick-btn">9</button></td>
-					<td><button class="pick-btn">10</button></td>
-					<td><button class="pick-btn">11</button></td>
-					<td><button class="pick-btn">12</button></td>			
-				</tr>
-				<tr>
-					<td><button class="pick-btn">13</button></td>
-					<td><button class="pick-btn">14</button></td>
-					<td><button class="pick-btn">15</button></td>
-					<td><button class="pick-btn">16</button></td>
-					<td><button class="pick-btn">17</button></td>
-					<td><button class="pick-btn">18</button></td>
-					<td><button class="pick-btn">19</button></td>			
-				</tr>
-				<tr>
-					<td><button class="pick-btn">20</button></td>
-					<td><button class="pick-btn">21</button></td>
-					<td><button class="pick-btn">22</button></td>
-					<td><button class="pick-btn">23</button></td>
-					<td><button class="pick-btn">24</button></td>
-					<td><button class="pick-btn">25</button></td>
-					<td><button class="pick-btn">26</button></td>			
-				</tr>
-				<tr>
-					<td><button class="pick-btn">27</button></td>
-					<td><button class="pick-btn">28</button></td>
-					<td><button class="pick-btn">29</button></td>
-					<td><button class="pick-btn">30</button></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
+			<tbody id="tbody">
+				
 			</tbody>
 		</table>
 	</div>
+
+	<script type="text/javascript">
+		var datapicker = function(){
+			var now    = new Date(),
+				days   = 31
+				before = new Date(2016, 6, 1).getDay(), // = 5
+				data   = [],
+				row    = [];
+			var cells = days + before,
+				after = cells;
+			while(after > 7) {
+				after -= 7;
+			}
+			cells += 7 - after;
+			var td = "";
+			var tr = "";
+			for(var i = 0, j = 0; i < cells; i++){
+				var d = 1 + (i - before);
+				if(i < before || i >= days + before){
+					td = td+"<td></td>";
+				}else{
+					td = td+"<td><button class='pick-btn'>"+d+"</button></td>";
+				}
+				if(++j === 7){
+					tr += "<tr>"+td+"</tr>";
+					j = 0;
+					td="";
+					
+				}
+			}
+			console.log(tr);
+			document.getElementById("tbody").innerHTML = tr;
+			
+		}
+		
+		datapicker.prototype = {
+			init : function(){
+				
+			}
+		}
+		new datapicker();
+	</script>
 </body>
 </html>
