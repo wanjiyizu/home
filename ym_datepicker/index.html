@@ -18,6 +18,7 @@
 			border-collapse: collapse;
 			border-spacing: 0;
 			border:none;
+			自古深情留不住，总是套路留任心
 		}
 		.pick-table td{
 			width:14.285714285714286%;
@@ -40,6 +41,11 @@
 			color:#666;
 		}
 		.pick-btn:hover{
+			background:#F08422;
+			color:#fff;
+		}
+
+		.pick-is-today{
 			background:#F08422;
 			color:#fff;
 		}
@@ -70,75 +76,110 @@
 			display:inline-block;
 			padding: 5px 3px;
 		    font-size: 14px;
+			cursor:pointer;
 		    line-height: 20px;
 		    font-weight: bold;
 		    background-color: #fff;
 		}
+		.pick-label:hover{
+			background:#ccc;
+		}
 	</style>
 </head>
 <body>
-	<div class="pick-box">
-		<div class="pick-title">
-			<span class="pick-label">06月</span>
-			<span class="pick-label">2016年</span>
-			<button class="pick-prev"></button>
-			<button class="pick-next"></button>
-		</div>
-		<table cellpadding="0" cellspacing="0" class="pick-table">
-			<thead>
-				<tr>
-					<th>日</th>
-					<th>一</th>
-					<th>二</th>
-					<th>三</th>
-					<th>四</th>
-					<th>五</th>
-					<th>六</th>
-				</tr>
-			</thead>
-			<tbody id="tbody">
-				
-			</tbody>
-		</table>
-	</div>
+
 
 	<script type="text/javascript">
 		var datapicker = function(){
-			var now    = new Date(),
-				days   = 31
-				before = new Date(2016, 6, 1).getDay(), // = 5
-				data   = [],
-				row    = [];
-			var cells = days + before,
-				after = cells;
-			while(after > 7) {
-				after -= 7;
-			}
-			cells += 7 - after;
-			var td = "";
-			var tr = "";
-			for(var i = 0, j = 0; i < cells; i++){
-				var d = 1 + (i - before);
-				if(i < before || i >= days + before){
-					td = td+"<td></td>";
-				}else{
-					td = td+"<td><button class='pick-btn'>"+d+"</button></td>";
-				}
-				if(++j === 7){
-					tr += "<tr>"+td+"</tr>";
-					j = 0;
-					td="";
-					
-				}
-			}
-			console.log(tr);
-			document.getElementById("tbody").innerHTML = tr;
+			this.draw();
 			
 		}
 		
 		datapicker.prototype = {
+
 			init : function(){
+
+			},
+			render : function(){
+				var now    = new Date(),
+					days   = this.getDaysInMonth(2016, 6),
+					before = new Date(2016, 6, 1).getDay(), // = 5
+					data   = [],
+					row    = [];
+				var cells = days + before,
+					after = cells;
+				/*计算最后一周所占的天数*/
+				while(after > 7) {
+					after -= 7;
+				}
+				cells += 7 - after;
+				var td = "";
+				var tr = "";
+				for(var i = 0, j = 0; i < cells; i++){
+					var d = 1 + (i - before),
+						day = new Date(2016, 6, d);
+						isToday = this.compareDates(day, now),
+						isEmpty = i < before || i >= (days + before);
+
+					row.push(this.renderDay(d, isToday, isEmpty));
+					if(++j === 7){
+						data.push(this.renderRow(row));
+						j = 0;
+						row = [];
+						
+					}
+				}
+				return this.renderTable(data);
+			},
+			getDaysInMonth : function(year, month){
+				var arr = [31, this.isLeapYear(year), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+				return arr[month];
+			},
+			isLeapYear : function(year){
+				return year % 4 === 0 && year % 100 !== 0 || year % 400 === 0;
+			},
+			compareDates : function(a, b){
+				return a.getDate() === b.getDate();
+			},
+			renderDay : function(day, isToday, isEmpty){
 				
+				if(isEmpty){
+					return "<td></td>";
+				}
+				var classArr = ["pick-btn"];
+				if(isToday){
+					classArr.push("pick-is-today");
+				}
+				
+				return "<td><button class='"+ classArr.join(" ") +"'>"+day+"</button></td>";
+			},
+			renderRow : function(arr){
+				return "<tr>" + arr.join("") + "</tr>";
+			},
+			renderTable : function(arr){
+				return tableHTML = "<table cellpadding='0' cellspacing='0' class='pick-table'>" + this.renderHead() + this.renderBody(arr) + "</table>";
+			},
+			renderHead : function(){
+				var arr = [];
+				for(var i = 0; i < 7; i++){
+					arr.push("<th>" + this.renderDayName(i) +"</th>");
+				}
+				return "<thead><tr>" + arr.join("") + "</tr></thead>";
+			},
+			renderBody : function(arr){
+				return "<tbody>" + arr.join("") + "</tbody>";
+			},
+			renderDayName : function(i){
+				var weekdays = ["日", "一", "二", "三", "四", "五", "六"];
+				return weekdays[i];
+			},
+			renderTitle : function(){
+				return "<div class='pick-title'><span class='pick-label'>2016年7月</span><button class='pick-prev'></button><button class='pick-next'></button></div>";
+			},
+			draw : function(){
+				var html = "";
+				html = "<div class='pick-box'>" + this.renderTitle() + this.render() + "</div>";
+				document.querySelector("body").innerHTML = html;
 			}
 		}
 		new datapicker();
