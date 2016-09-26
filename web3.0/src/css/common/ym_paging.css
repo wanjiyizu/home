@@ -1,0 +1,135 @@
+.ym_paging {
+	font: 14px/1.5 Arial;
+	min-width: 600px;
+	color:#3E3A39;
+}
+
+.ym_paging:before {
+	content: "";
+	display: table;
+}
+
+.ym_paging:after, .items:after {
+	content: "";
+	display: table;
+	line-height: 0;
+	height: 0;
+	visibility: hidden;
+	clear: both;
+}
+
+.ym_paging .items {
+	list-style: none;
+	float: left;
+	margin: 0;
+	padding: 0;
+}
+
+.ym_paging .items .item {
+	-webkit-user-select: none;
+	width: 43px;
+	height: 43px;
+	line-height: 43px;
+	text-align: center;
+	border: 1px solid #DCDDDD;
+	float: left;
+	margin-left: 14px;
+	cursor: pointer;
+	font-size:19px;
+	color: #3E3A39;
+	border-radius:43px;
+}
+
+.ym_paging .items .item:hover {
+	color: #3E3A39;
+	border-color:#F08522;
+}
+
+.ym_paging .items .dot {
+	border: none;
+	cursor: default;
+	line-height: 37px;
+}
+
+.ym_paging .items .dot:hover {
+	color: none;
+	color: #3e3e3e;
+	background:none;
+}
+
+.ym_paging .items .prev, .ym_paging .items .next{
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.ym_paging .items .prev {
+	margin-left: 0px;
+	background-image:url("/images/icon_lt.png");
+}
+
+.ym_paging .items .next {
+	margin-right: 24px;
+	background-image:url("/images/icon_gt.png") ;
+}
+
+.ym_paging .items .active, .ym_paging .items .active:hover {
+	position: relative;
+	background: #F08522;
+	color: #fff;
+	border-color: #F08522;
+	cursor: default;
+}
+
+.ym_paging .items .prev-disabled:hover {
+	cursor: default;
+	color: #9F9FA0;
+	background:url("/images/icon_lt.png") no-repeat center;
+	border-color:#DCDDDD
+}
+
+.ym_paging .items .next-disabled:hover {
+	cursor: default;
+	color: #9F9FA0;
+	background:none;
+	border-color:#C9C9CA
+}
+
+.ym_paging .total, .ym_paging .text {
+	float: left;
+	line-height: 43px;
+	margin-left:5px;
+}
+
+.ym_paging .text{
+	margin-right:19px;
+}
+
+.ym_paging .input {
+	width: 43px;
+	height: 43px;
+	border-radius: 43px;
+	font-size:19px;
+	outline: none;
+	border: solid 1px #DCDDDD;
+	text-align: center;
+}
+
+.ym_paging .btn {
+	width: 43px;
+	height: 43px;
+	margin-left: 14px;
+	border-radius: 43px;
+	color: #3E3A39;
+	border:1px solid #DCDDDD;
+	text-align: center;
+	line-height: 43px;
+	cursor: pointer;
+}
+
+.ym_paging .input, .ym_paging .btn {
+	float: left;
+}
+
+.ym_paging .form {
+	float: left;
+}

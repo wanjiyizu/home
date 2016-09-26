@@ -1,0 +1,137 @@
+.ym_alert {
+	width: 250px;
+	border: 1px solid #ccc;
+	box-shadow: 1px 1px 50px rgba(0, 0, 0, .3);
+	background: #fff;
+	position: fixed;
+	font-size: 12px;
+	color: #666;
+	z-index: 99999;
+	-webkit-animation: showAlert 0.3s;
+	-moz-animation: showAlert 0.3s;
+	-o-animation: showAlert 0.3s;
+	animation: showAlert 0.3s;
+}
+
+.ym_alert .ym_title {
+	padding: 0 20px;
+	height: 40px;
+	line-height: 40px;
+	font-family: "微软雅黑";
+	color: #000;
+	font-size: 14px;
+}
+
+.ym_alert .ym_content {
+	padding: 20px;
+	font-size: 14px;
+	font-family: "微软雅黑";
+}
+
+.ym_alert .ym_bottom {
+	text-align: right;
+	padding: 20px 10px 10px 20px
+}
+
+.ym_alert .ym_bottom span {
+	display: inline-block;
+	padding: 0 20px;
+	height: 28px;
+	line-height: 28px;
+	border-radius: 4px;
+	font-size: 12px;
+	cursor: pointer;
+}
+
+.ym_alert .ym_bottom .close {
+	background: #ccc;
+}
+
+.ym_alert .ym_bottom .sure {
+	background: #2e8ded;
+	color: #fff;
+	margin-right: 10px;
+}
+
+.ym_overlay {
+	position: fixed;
+	left: 0;
+	top: 0;
+	background: #313232;
+	opacity: 0.6;
+	width: 100%;
+	height: 100%;
+	z-index: 99998;
+}
+
+.ym_loading {
+	padding: 10px 20px;
+	border-radius: 5px;
+	box-shadow: 1px 1px 50px rgba(0, 0, 0, .3);
+	background: #fff;
+	z-index: 99999;
+	position: absolute;
+	font-size: 12px;
+	font-family: "微软雅黑";
+	-webkit-animation: showAlert 0.3s;
+	-moz-animation: showAlert 0.3s;
+	-o-animation: showAlert 0.3s;
+	animation: showAlert 0.3s;
+}
+
+@-webkit-keyframes showAlert{
+	0%{
+		-webkit-transform:scale(0.7);
+	}
+	45%{
+		-webkit-transform:scale(1.05);
+	}
+	80%{
+		-webkit-transform:scale(0.95);
+	}
+	100%{
+		-webkit-transform:scale(1);
+	}
+}
+@-moz-keyframes showAlert{
+	0%{
+		-moz-transform:scale(0.7);
+	}
+	45%{
+		-moz-transform:scale(1.05);
+	}
+	80%{
+		-moz-transform:scale(0.95);
+	}
+	100%{
+		-moz-transform:scale(1);
+	}
+}
+@-o-keyframes showAlert{
+	0%{
+		-o-transform:scale(0.7);
+	}
+	45%{
+		-o-transform:scale(1.05);
+	}
+	80%{
+		-o-transform:scale(0.95);
+	}
+	100%{
+		-o-transform:scale(1);
+	}
+}
+@keyframes showAlert{
+	0%{
+		transform:scale(0.7);
+	}
+	45%{
+		transform:scale(1.05);
+	}
+	80%{
+		transform:scale(0.95);
+	}
+	100%{
+		transform:scale(1);
+	}
+}

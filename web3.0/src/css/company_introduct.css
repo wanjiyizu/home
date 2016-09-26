@@ -1,0 +1,101 @@
+@import url("common/base.css");
+@import url("common/header.css");
+@import url("common/footer.css");
+@import url("common/appointment.css");
+@import url("common/ym_layer.css");
+@import url("common/login_register.css");
+
+.page-about-nav-wrap{
+	background:#fff;
+}
+
+.page-about-nav{
+	margin:0 auto;
+	width:1200px;
+	height:91px;
+	border-top:1px solid #EFEFEF;
+	border-bottom:1px solid #EFEFEF;
+}
+
+.page-about-nav li{
+	list-style:none;
+	float:left;
+	margin-right:114px;
+}
+
+.page-about-nav li a{
+	display: block;
+	color:#9FA0A0;
+	text-decoration: none;
+}
+.page-about-nav li a:hover{
+	color:#231815;
+}
+
+.page-about-nav .active{
+	color:#231815;
+}
+
+.page-about-nav li:nth-of-type(1){
+	margin-left:15px;
+	margin-right:72px;
+}
+
+.page-about-nav li:nth-of-type(7){
+	margin-right:0px;
+}
+
+.nav-text-chinese, .nav-text-english{
+	display:block;
+}
+
+.nav-text-chinese{
+	margin-top:25px;
+	font-size:16px;
+}
+
+.nav-text-english{
+	margin-top:10px;
+	font-size:12px;
+}
+
+.about-box-title{
+	font-size:16px;
+	color:#231815;
+	margin-bottom:29px;
+}
+
+.page-about-box{
+	width:1200px;
+	margin:0 auto;
+	background:#fff;
+	padding:27px 18px 80px 18px;
+	margin-bottom: 100px;
+	box-sizing: border-box;
+}
+
+.page-about-box-item{
+	font-size:15px;
+	color:#595757;
+	margin-bottom:51px;
+}
+
+.about-box-title{
+	font-size:16px;
+	color:#231815;
+	margin-bottom:29px;
+}
+
+
+.page-about-box-item li{
+	list-style:none;
+}
+
+.page-about-box p{
+	margin-bottom:29px;
+	line-height:25px;
+}
+
+.page-about-box p:last-child{
+	margin-bottom:0;
+}

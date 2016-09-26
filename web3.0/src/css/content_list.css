@@ -1,0 +1,91 @@
+@import url("common/base.css");
+@import url("common/header.css");
+@import url("common/footer.css");
+@import url("common/ym_paging.css");
+@import url("common/appointment.css");
+@import url("common/ym_layer.css");
+@import url("common/login_register.css");
+
+.page-article-wrap{
+	width:1200px;
+	margin:31px auto 100px auto;
+	background:#fff;
+}
+
+.page-article-top{
+	font-size:20px;
+	font-weight: bold;
+	color:#231815;
+	height:94px;
+	box-sizing:border-box;
+	padding:50px 0 0 30px;
+	border-bottom:1px solid #DCDDDD;
+}
+
+.page-article-main{
+	padding:79px 0 0 30px;
+}
+
+.page-article-box{
+	padding:59px 0;
+	width:1022px;
+	border-bottom:2px dotted #DCDDDD;
+}
+
+.page-article-box:first-child{
+	padding-top:0;
+}
+
+.page-article-box:after{
+	display: table;
+	content: "";
+	height: 0;
+	clear: both;
+}
+
+.article-content{	
+	float:left;
+	width:580px;
+	height:134px;
+}
+
+.article-cover{
+	display: block;
+	float:left;
+	margin-right:42px;
+}
+
+.article-cover img{
+	border:none;
+}
+
+
+.article-title a{
+	display: block;
+	font-size:23px;
+	color:#231815;
+	max-width: 580px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	text-decoration: none;
+	font-weight: normal;
+}
+
+.artilce-source{
+	font-size:15px;
+	color:#231815;
+	margin:16px 0 28px;
+}
+
+.article-desc{
+	width:580px;
+	height:40px;
+	overflow: hidden;
+	font-size:15px;
+	color:#595757;
+}
+
+.paging-wrap{
+	padding:53px 0 162px 46px;
+}

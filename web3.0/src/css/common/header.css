@@ -1,0 +1,205 @@
+.page-header-wrap, .page-nav-wrap, .index-product-wrap, .index-dynamic-wrap, .page-footer-wrap{
+	background:#fff;
+}
+
+.page-header-wrap, .page-nav-wrap{
+	font-family: "微软雅黑";
+}
+
+.index-product-wrap, .index-dynamic-wrap{
+	box-shadow: 2px 2px 1px #E2DFDF;
+}
+
+/*.page-header-wrap, .page-nav-wrap{
+	z-index:1000;
+}*/
+
+.page-contain{
+	width:1200px;
+	margin:0 auto;
+}
+
+.page-header-wrap{
+	border-bottom:1px solid #595757;
+}
+
+.page-header{
+	height:40px;
+	font-size:14px;
+	color:#3E3A39;
+}
+
+.page-header:after, .nav:after, .page-nav:after, .page-feature:after, .page-contain:after, .index-product-main:after, .index-dynamic-hot:after, .index-dynamic-hot li:after, .index-news-wrap:after, .index-news-wrap li:after, .page-footer:after, .footer-row:after{
+	display:table;
+	content:"";
+	line-height:0;
+	height:0;
+	clear:both;
+}
+
+.page-header-left{
+	float:left;
+	line-height:40px;
+}
+
+.page-header-text{
+	display:inline-block;
+	margin-left:27px;
+}
+
+.page-header-icon{
+	display:inline-block;
+	width:17px;
+	height:16px;
+	vertical-align:middle;
+	background-repeat:no-repeat;
+}
+
+.header-weixin-wrap{
+	display:inline-block;
+	position:relative;
+}
+
+.wechat-code-hover-wrap{
+	position: absolute;
+	left: -38px;
+    top: 29px;
+    z-index: 2;
+    display: none;
+}
+
+.icon-phone{
+	background-image:url("../images/top_phone.png");
+}
+
+.icon-weixin, .icon-sina{
+	width:22px;
+	height:18px;
+	transition:all .2s ease;
+}
+
+.icon-weixin{
+	margin-left:25px;
+	cursor:pointer;
+	background-image:url("../images/top_weixin.png");
+}
+
+.icon-weixin:hover{
+	background-image:url("../images/top_weixin_hover.png");
+}
+
+.header-weixin-wrap:hover .wechat-code-hover-wrap{
+	display:block;
+}
+
+.icon-sina{
+	margin-left:22px;
+	background-image:url("../images/top_sina.png");
+}
+
+.icon-sina:hover{
+	background-image:url("../images/top_sina_hover.png");
+}
+
+.page-header-right{
+	float:right;
+}
+
+.nav li{
+	float:left;
+	padding:0 32px;
+	list-style:none;
+	line-height:40px;
+	position:relative;
+}
+
+.nav li:last-child{
+	padding:0 0 0 32px;
+}
+
+.nav li:last-child a:after{
+	border-right:none;
+}
+
+.nav li a:after{
+	display:inline-block;
+	content:"";
+	height:18px;
+	position:absolute;
+	right:0;
+	top:10px;
+	border-right:1px solid #ccc;
+}
+
+.nav li a{
+	box-sizing:border-box;
+	text-decoration:none;
+	color:#3E3A39;
+}
+
+.nav li a:hover{
+	color:#F39800;
+}
+
+.page-nav-wrap{
+	padding-bottom:44px;
+}
+
+.page-nav-logo, .page-nav-box{
+	display:inline-block;
+}
+
+.page-nav-logo{
+	padding-top:51px;
+	width:294px;
+	height:39px;
+	float:left;
+}
+.page-nav-logo a{
+	display:block;
+	width:294px;
+	height:39px;
+	background:url(../images/youmi_logo.png) no-repeat;
+}
+
+.page-nav-box{
+	/*margin-left:271px;*/
+	float:right;
+	height:92px;
+}
+
+.page-nav-main{
+	float:left;
+	padding-top:65px;
+}
+
+.page-nav-main:after{
+	display: table;
+	content: "";
+	height: 0;
+	clear: both;
+}
+
+.page-nav-main li{
+	float:left;
+	list-style:none;
+	margin-right:63px;
+}
+
+.page-nav-main li:last-child{
+	margin-right:0;
+}
+
+.page-nav-main li a{
+	text-decoration:none;
+	color:#3E3A39;
+	font-size:21px;
+}
+
+.page-nav-main li .nav-active{
+	color:#F39800;
+}
+
+.page-nav-main li a:hover{
+	color:#F39800;
+}
