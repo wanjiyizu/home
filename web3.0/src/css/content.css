@@ -1,0 +1,80 @@
+@import url("common/base_2.css");
+@import url("common/header.css");
+@import url("common/footer.css");
+@import url("common/appointment.css");
+@import url("common/ym_layer.css");
+@import url("common/login_register.css");
+
+.page-article-wrap{
+	width:1200px;
+	margin:31px auto 100px auto;
+	background:#fff;
+}
+
+.page-article-top{
+	font-size:20px;
+	font-weight: bold;
+	color:#231815;
+	height:94px;
+	box-sizing:border-box;
+	padding:50px 0 0 30px;
+	border-bottom:1px solid #DCDDDD;
+}
+
+.page-article-top, .article-title, .artilce-source{
+	font-family: "微软雅黑";
+}
+.page-article-main{
+	padding:61px 40px 180px 40px;
+}
+
+.page-article-box{
+	padding:59px 0;
+	width:1022px;
+	border-bottom:2px dotted #DCDDDD;
+}
+
+.page-article-box:first-child{
+	padding-top:0;
+}
+
+.page-article-box:after{
+	display: table;
+	content: "";
+	height: 0;
+	clear: both;
+}
+
+.article-content{	
+	float:left;
+	width:580px;
+	height:134px;
+}
+
+.article-cover{
+	display: block;
+	float:left;
+	margin-right:42px;
+}
+
+.article-cover img{
+	border:none;
+}
+
+.article-title{
+	font-size:23px;
+	color:#231815;
+	text-align: center;
+	font-weight: normal;
+}
+
+.artilce-source{
+	font-size:15px;
+	color:#231815;
+	text-align: center;
+	margin:17px 0 50px 0;
+}
+
+.artilce-time{
+	margin-left:30px;
+}

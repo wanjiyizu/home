@@ -135,20 +135,16 @@
 			switch(e.type){
 				case "click":
 				case "touchstart" : 
-					this.close(this.dialog,e);
+					this.close(this.dialog);
 			}
 		},
 		
 		// 关闭弹层函数
-		close : function(dialog,e){
+		close : function(dialog){
 			var timer = null;
+
 			clearTimeout(timer);
-			if(this.obj.sure && e.target.className == "sure"){
-				this.obj.sure(dialog);
-			}
-			if(this.obj.cancel && e.target.className == "close"){
-				this.obj.cancel(dialog);
-			}
+			if(this.obj.sure) this.obj.sure(dialog);
 			var loading2 = document.querySelector(".ym_loading");;
 			if(this.obj.showLoad == 'sure' && loading2 == null){
 				utils.append("body", this.loadingTemplate);

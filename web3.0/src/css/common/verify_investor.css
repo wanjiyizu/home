@@ -1,0 +1,39 @@
+
+.dialog_box {
+	width: 600px;
+	height: 455px;
+	position: relative;
+	background: url("../images/common/rz_bg.png") no-repeat;
+	font-family: "微软雅黑";
+	background-size: 100% 100%;
+}
+
+.dialog_box .btn_wrap {
+	position: absolute;
+	bottom: 40px;
+	left: 175px;
+}
+
+.dialog_box .btn_wrap a {
+	display: inline-block;
+	width: 100px;
+	height: 35px;
+	border-radius: 5px;
+	text-align: center;
+	line-height: 35px;
+	color: #FEFEFE;
+	font-size: 12px;
+	background: #F08422;
+	text-decoration: none;
+}
+
+.dialog_box .btn_wrap input {
+	margin: 0 10px;
+	height: 15px;
+	width: 15px;
+}
+
+.dialog_box .btn_wrap label {
+	font-size: 12px;
+	color: #717071;
+}

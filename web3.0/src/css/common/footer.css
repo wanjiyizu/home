@@ -1,0 +1,183 @@
+.page-footer-wrap{
+	height:350px;
+	font-family: "微软雅黑";
+}
+
+.page-footer{
+	padding-top:32px;
+	margin-bottom:11px;
+}
+
+.page-footer:after{
+	width:1200px;
+	border-bottom:1px solid #B5B5B6;
+}
+
+.page-footer:after{
+
+}
+
+.page-footer li{
+	float:left;
+	list-style:none;
+	font-size:18px;
+	color:#3E3A39;
+}
+
+.page-footer li:nth-of-type(1){
+	margin-right:157px;
+}
+
+.footer-row{
+	margin-bottom:24px;
+	width: 200px;
+}
+
+.footer-row span{
+	display:block;
+	float:left;
+}
+
+.footer-last-row{
+	margin:41px 0 12px 0;
+	font-size:15px;
+}
+
+.footer-last-row span{
+	color:#F39800;
+}
+
+.footer-row span:first-child{
+	width: 130px;
+}
+
+.footer-row span:last-child{
+	font-size:15px;
+	margin-top:2px;
+}
+
+.page-footer a{
+	margin:0 100px 24px 0;
+	text-decoration: none;
+	color:#3E3A39;
+	font-size:15px;
+	display:inline-block;
+	padding-right:100px;
+	border-right:1px solid #ccc;
+}
+
+.page-footer a:hover{
+	color:#F39800;
+}
+
+.page-footer li:nth-child(3) a{
+	/*padding-right:46px;*/
+	width:160px;
+	padding-right:0;
+}
+
+.page-footer .a-join-us{
+	margin:21px 100px 12px 0;
+	border-right:0;
+}
+
+.page-footer .a-border-right-none{
+	border-right:none;
+}
+
+.page-footer li:nth-child(4) a:nth-child(2){
+	border-right:0;
+}
+
+.contact-time{
+	margin-top:115px;
+	font-size:15px;
+}
+
+.page-footer li:last-child a{
+	padding-right: 0;
+    margin: 0;
+    border-right: 0;
+}
+
+.page-footer .footer-icon-weixin{
+	margin:0 100px 28px 0;
+	padding-right: 93px;
+	font-size:15px;
+    border-right: 1px solid #ccc;
+	background-image:url("../images/bot_weixin.png");
+	background-repeat: no-repeat;
+	padding-left:36px;
+	cursor:pointer;
+}
+
+.footer-icon-weixin:hover{
+	background-image: url("../images/bot_weixin_hover.png");
+	color:#F39800;
+}
+
+.wechat-code-click-wrap{
+	position: absolute;
+	display:none;
+	left: 80px;
+    top: 0;
+}
+
+.btn-wechat-close{
+	position: absolute;
+	display: block;
+    width: 18px;
+    height: 18px;
+    right: 15px;
+    top: 8px;
+    cursor: pointer;
+    z-index: 1;
+	background:url("../images/icon_wechat_close.png");
+
+}
+
+.page-footer li:nth-child(3) .footer-icon-sina{
+	width:125px;
+	line-height: 19px;
+}
+
+.page-footer .footer-icon-sina{
+	margin:0 100px 28px 0;
+	padding-left:35px;
+	cursor:pointer;
+	border-right: 1px solid #ccc;
+	background-image:url("../images/bot_sina.png");
+	background-repeat: no-repeat;
+}
+
+.page-footer .footer-icon-sina a{
+	margin:0;
+	border-right:0;
+	width: auto!important;
+}
+
+
+.footer-icon-sina:hover{
+	background-image: url("../images/bot_sina_hover.png");
+	color:#F39800;
+}
+
+.wechat-code-wrap {
+	right:0;
+	top:91px;
+}
+
+.wechat-code-1{
+	margin-right:12px;
+}
+
+.page-copyright{
+	text-align:center;
+	font-size:13px;
+	color:#595757;
+	letter-spacing: 1px;
+}
+
+.page-footer .footer-join{
+	margin-top:19px;
+}

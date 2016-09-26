@@ -1,0 +1,63 @@
+*{margin:0;padding:0;}
+body{
+	min-width:1300px;
+	background:#F3F3F3;
+}
+
+.f-fl{
+	float:left;
+}
+
+.f-color-6BC09C{
+	color:#6BC09C;
+}
+
+.f-color-E27162{
+	color:#E27162;
+}
+
+.f-position-retv{
+	position: relative;
+}
+
+.f-position-abs{
+	position:absolute;
+}
+
+.f-position-fixed{
+	position: fixed;
+}
+
+.f-bodr-none{
+	border-right:none;
+}
+
+.f-color-E371{
+	color:#E37163;
+}
+
+.f-display-b{
+	display: block;
+}
+
+.f-display-n{
+	display: none;
+}
+
+.page-overlay{
+	display:none;
+	width:100%;
+	height:100%;
+	position: fixed;
+	left:0;
+	top:177px;
+	z-index: 999;
+	background:#231815;
+	opacity: 0.5;
+}
+
+.page-header-wrap-fixed{
+	left: 0;
+    right: 0;
+    z-index: 1000;
+}

@@ -1,0 +1,190 @@
+
+.dialog {
+	width: 447px;
+	height: 338px;
+	font-family: "微软雅黑";
+	font-size:12px;
+	background: #fff;
+    border: 15px solid rgba(0, 0, 0, .3);
+    box-sizing: border-box;
+}
+
+.f-height-1{
+	height:365px;
+}
+
+.dialog .clear{
+	height:0px;
+}
+
+.dialog-top{
+	width: 98%;
+	height:57px;
+    margin: 0 auto;
+	background:#FCE0C8;
+	color: #F08422;
+	font-size: 14px;
+	padding: 19px 0 20px 24px;
+    box-sizing: border-box;
+    box-shadow: 0px 2px 1em #ebebeb;
+}
+
+.dialog-selected{
+	display:inline-block;
+	padding-bottom:20px;
+	color: #d9534f;
+    font-weight: 400;
+}
+
+.dialog-selected a{
+	color:blue;
+}
+
+.dialog-selected input, .dialog-selected span{
+	vertical-align:middle;
+}
+
+.dialog dt, .dialog dd {
+	display: inline-block;
+}
+
+.dialog dt {
+	margin-right: 14px;
+	color: #3E3A39;
+	height: 44px;
+    line-height: 44px;
+    float: left;
+}
+
+.dialog .realname, .dialog .cellphone {
+	margin: 20px auto 0 auto;
+	width: 300px;
+}
+
+.dialog .cellphone{
+	margin: 0 auto 0 auto;
+}
+
+.dialog .error{
+	display:block;
+	height:30px;
+	line-height:30px;
+	color:red;
+	text-align:left;
+	visibility:hidden;
+}
+
+.dialog dd input {
+	width: 230px;
+	height: 44px;
+	font-size: 14px;
+	color: #B4B5B5;
+	padding: 12px 0px 12px 25px;
+	box-sizing: border-box;
+	outline: none;
+	vertical-align:middle;
+}
+
+.dialog .yuyue_btn {
+	display: inline-block;
+	border: 1px solid #C9C9C9;
+	width: 144px;
+	height: 42px;
+	text-align: center;
+	line-height: 42px;
+	vertical-align: middle;
+	border-radius: 5px;
+	background: #F08422;
+	text-decoration: none;
+	color: #FEFEFE;
+	font-size: 18px;
+}
+
+.dialog .yuyue_btn:hover {
+	background: #E3751E;
+}
+
+.dialog-box {
+	text-align: center;
+}
+
+.dialog .close {
+	float:right;
+	margin-right:25px;
+	width: 15px;
+	height: 15px;
+	display: block;
+	background: url("../images/common/dialog_close.png") no-repeat;
+	cursor: pointer;
+}
+
+.dialog .close:hover{
+	border:1px solid #ccc;
+	border-radius:14px;
+}
+
+.dialog-3{
+	margin:0 auto;
+	width:300px;
+	background:#fff;
+	font-family:"微软雅黑";
+	font-size:14px;
+	box-shadow:0 5px 15px -5px rgba(0,0,0,.5)
+}
+.dialog-title{
+	padding:10px 15px 0 0;
+	text-align:right;
+	box-sizing:border-box;
+}
+.dialog-close-2{
+	display:inline-block;
+	height:15px;
+	width:15px;
+	border:1px solid #ccc;
+	cursor:pointer;
+	border-radius:15px;
+	text-align:center;
+	line-height:15px;
+	font-family: "Arial";
+ 	 		color: #777;
+ 	 		transition:all .2s ease;
+}
+.dialog-close-2:hover{
+	background:#F08422;
+	color:#fff;
+	border:1px solid #F08422;
+}
+.dialog-content{
+	padding:20px;
+    color: #666;
+    line-height: 22px;
+}
+.dialog-content span{
+	color:#f08422;
+}
+.dialog-content .dialog-color-1{
+	color:#d9534f;
+	font-weight:bold;
+}
+.dialog-btn-group{
+	padding-bottom:20px;
+	text-align:center;
+}
+.dialog-btn-group button{
+	background:#fff;
+	border:none;
+	outline:none;
+	cursor:pointer;
+	width:100px;
+	height:35px;
+	margin:0px 10px;
+	border:1px solid #F08422;
+	border-radius:5px;
+	color:#F08422;
+	font-weight:bold;
+	transition:all .8s ease;
+}
+.dialog-btn-group button:hover{
+	background:#F08422;
+	color:#fff;
+}

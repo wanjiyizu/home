@@ -1,0 +1,74 @@
+@import url("common/base.css");
+@import url("common/header.css");
+@import url("common/footer.css");
+@import url("common/appointment.css");
+@import url("common/ym_layer.css");
+@import url("common/login_register.css");
+.page-account-wrap{
+	width:1200px;
+	height:346px;
+	margin:31px auto 100px auto;
+	background:#fff;
+}
+
+.page-account-top{
+	padding:50px 0 0 29px;
+	height:94px;
+	box-sizing:border-box;
+	border-bottom: 1px solid #DCDDDD;
+}
+
+.top-text-max, .top-text-min{
+	font-size:20px;
+	color:#231815;
+}
+
+.top-text-max{
+	font-weight: bold;
+}
+
+.top-text-min{
+	text-decoration: none;
+}
+
+.page-account-main{
+	padding:50px 0 0 30px;
+}
+
+.page-account-main p{
+	font-size:15px;
+	color:#595757;
+}
+
+.page-account-main p a{
+	font-size:15px;
+	color:#595757;
+	text-decoration: none;
+}
+
+.page-account-main p:after{
+	display: table;
+	content: "";
+	height:0;
+	clear: both;
+}
+
+.page-account-main p:first-child{
+	margin-bottom:21px;
+}
+
+.account-key, .account-value{
+	float:left;
+	display: block;
+}
+
+.account-key{
+	width:150px;
+}
+
+.modify_box{padding:50px 80px;background:#FEFEFE;}
+.modify_box input{box-sizing:border-box;width:230px;height:35px;line-height:35px;border:1px solid #ccc;border-radius:5px;padding-left:10px;outline:none;font-size:12px;}
+.modify_box .error{width:230px;height:25px;line-height:25px;text-align:left;color:red;visibility:hidden;}
+.modify_box .confirm_btn, .modify_box .cancel_btn{font-size:14px;text-align:center;cursor:pointer;display:inline-block;width:46%;height:35px;line-height:35px;border-radius:5px;background:#F08422;color:#fff;}
+.modify_box .confirm_btn{margin-right:15px;}
+.modify_box .cancel_btn{background:#165B9D;}
