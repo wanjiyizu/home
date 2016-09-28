@@ -9,6 +9,10 @@ body{
 	float:left;
 }
 
+.f-level-center{
+	margin:0 auto;
+}
+
 .f-color-6BC09C{
 	color:#6BC09C;
 }

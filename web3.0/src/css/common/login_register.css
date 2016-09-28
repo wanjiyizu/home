@@ -2,7 +2,7 @@
 	width:920px;
 	height:584px;
 	background:#fff;
-	position: fixed;
+	position: absolute;
 	left:0;
 	top:177px;
 	right:0;
@@ -144,7 +144,6 @@
 .verifycode-img{
 	height:35px;
 	margin:22px 0 0 23px;
-	background:#ccc;
 }
 
 .img-code-text{
@@ -197,7 +196,6 @@
 
 .login-btn-submit, .login-box-right-btn{
 	display:block;
-	width:160px;
 	height:73px;
 	outline:none;
 	cursor:pointer;
@@ -207,6 +205,10 @@
 	text-decoration: none;
 	border:1px solid #727171;
 	-webkit-appearance: none;
+}
+
+.btn-submit-w160{
+	width:160px;
 }
 
 .login-btn-submit span, .login-box-right-btn span{
@@ -227,7 +229,7 @@
 	color:#F08522;
 }
 
-.login-btn-submit{
+.btn-submit-position{
 	position: absolute;
 	left:188px;
 	bottom:35px;
