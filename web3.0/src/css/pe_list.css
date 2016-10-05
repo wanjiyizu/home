@@ -5,240 +5,171 @@
 @import url("common/ym_paging.css");
 @import url("common/appointment.css");
 @import url("common/ym_layer.css");
+@import url("common/login_register.css");
 @import url("common/verify_investor.css");
 
-.page-login-wrap{
-	width:920px;
-	height:584px;
+.product-list-wrap{
+	width:1200px;
+	margin:0 auto 100px auto;
 	background:#fff;
-	position: fixed;
-	left:0;
-	top:177px;
-	right:0;
-	margin:auto;
-	border-top:1px solid #ccc;
-	z-index: 1000;
+	box-shadow: 2px 2px 1px #E2DFDF;
 }
 
-.page-login-top{
+.product-list-top{
+	height:70px;
+	line-height:70px;
+	font-size:20px;
+	color:#3E3A39;
+	border-top:1px solid #F08522;
+	background:url("../images/icon_shield.png") no-repeat 1144px center;
+}
+
+.product-list-top span{
+	margin-right:115px;
+}
+
+.product-list-top span:first-child{
+	margin:0 169px 0 93px;
+}
+
+.product-list-item{
 	position: relative;
-	height:44px;
+	margin-bottom:13px;
+	height:165px;
+	box-shadow: 0px 0px 10px #E2DFDF;
 }
 
-.login-btn-close{
+.product-item-wlty{
+	background:url("../images/icon-wlty.png") no-repeat;
+}
+
+.product-title-wrap{
 	position: absolute;
-	display: block;
-	width:44px;
-	height:44px;
-	background:url("../images/icon_login_close.png") no-repeat center;
-	left:876px;
-	cursor: pointer;
-}
-
-.login-box-left{
-	width:541px;
-	box-sizing: border-box;
-}
-
-.login-box-top{
-	font-size:18px;
-	line-height:20px;
-	text-align: center;
-}
-
-.login-box-left .active{
-	display: block;
-}
-
-
-.login-form-box{
-	position: relative;
-	margin-top:40px;
-}
-
-.login-form-box:after{
-	display: block;
-	content:"";
-	position: absolute;
-	height:381px;
-	border-right:1px solid #9A9B9B;
-	top:-15px;
-	right:0;
-}
-
-.login-form-item, .login-input-wrap{
-	width:428px;
-	margin: 0 auto 23px auto;
-}
-
-.login-form-item:after, .img-code-wrap:after, .page-login-main:after, .page-login-bottom:after{
-	display:table;
-	content:"";
-	height:0;
-	clear:both;
-}
-
-.login-input-wrap input, .form-item-btn, .login-input-wrap{
-	height:58px;
-	border:1px solid #E9E9E9;
-	background:#FCFCFC;
-	box-sizing: border-box;
-}
-
-.login-input-wrap{
-	position: relative;
-}
-
-.input-wrap-short{
-	margin-bottom:0;
-	width:189px;
-}
-
-.input-before, .input-after{
-	display: block;
-	z-index: 1;
-	position: absolute;
-	color:#B7B7B6;
-	left:31px;
-}
-
-.input-before{
-	top:12px;
-	content: "手机号码";
-	font-size:13px;
-}
-
-.input-after{
-	top:34px;
-	content: "cell phone number";
-	font-size:12px;
-}
-
-
-.login-input-wrap input{
-	position: absolute;
+	width:180px;
+	height:68px;
 	top:0;
-	left:0;
-	z-index: 12;
-	width:100%;
-	height:58px;
-	border:none;
-	font-size:13px;
-	color:#B7B7B6;
-	outline: none;
-	padding-left:31px;
-	box-sizing: border-box;
-	background:transparent;
+	bottom:0;
+	left:33px;
+	margin:auto;
+	overflow: hidden;
 }
 
-.form-desc a{
+.product-item-wlty .product-title-wrap{
+	left:43px;
+}
+
+.product-title-wrap:after, .product-desc-wrap li:after{
+	position: absolute;
 	display: block;
+	content: "";
+	border-right:1px solid #DCDDDD;
+}
+
+.product-title-wrap:after{
+	right:-37px;
+	top:-22px;
+	height:87px;
+}
+
+.product-item-wlty .product-title-wrap:after{
+	right:-27px;
+}
+
+.product-title{
+	font-size:22px;
+	color:#F08522;
 	text-decoration: none;
-	font-size:12px;
-	color:#231815;
-	margin:30px 0 0 86px;
 }
 
-.form-desc a span{
-	display: block;
+.product-desc-wrap li:after{
+	height:48px;
+	right:0;
+	top:16px;
 }
 
-.verifycode-img, .form-item-btn{
+.product-desc-wrap li:last-child:after{
+	border-right:none;
+}
+
+.product-desc-wrap:after{
+	display: table;
+	content: "";
+	height:0;
+	clear: both;
+}
+
+.product-desc-wrap{
+	position: absolute;
+	top:39px;
+	left:235px;
+}
+
+.product-item-wlty .product-desc-wrap{
+	left:245px;
+}
+
+.product-desc-wrap li{
+	position: relative;
+	height:83px;
+	float:left;
+	text-align: center;
+	padding-top:20px;
+	list-style: none;
+	overflow: hidden;
+	box-sizing: border-box;
+}
+
+.desc-num{
+	width:202px;
+	font-size:25px;
+	color:#C30D23;
+}
+
+.desc-text{
+	width:191px;
+	font-size:18px;
+	color:#3E3A39;
+}
+
+.product-highlights{
+	position: absolute;
+    top: 131px;
+    left: 291px;
+    max-width:509px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size:12px;
+    color:#727171;
+}
+
+.product-item-btn, .product-item-btn-disabled{
+	position: absolute;
+    right: 33px;
+    top: 61px;
 	width:100px;
-}
-
-.verifycode-img{
 	height:35px;
-	margin:22px 0 0 23px;
-	background:#ccc;
-}
-
-.img-code-text{
-	margin: 29px 0 0 32px;
-	font-size:12px;
-	color:#B7B7B6;
-}
-
-.img-code-text a{
-	color:#036EB8;
+	color:#fff;
+	line-height:35px;
+	font-size: 16px;
+	cursor: pointer;
+	text-align:center;
+	background:#F08522;
+	border-radius: 6px;
+	display:inline-block;
 	text-decoration:none;
 }
 
-.form-item-btn{
-	height:58px;
-	text-align:center;
-	line-height:58px;
-	font-size:13px;
-	color:#231815;
-	outline:none;
-	margin-left:23px;
-	cursor:pointer;
-	border-color:#9B9A9B;
-	-webkit-appearance: none;
+.product-item-btn-disabled{
+	background:#B5B5B6;
 }
 
-
-.login-box-right{
-	width:379px;
-	text-align: center;
-	font-size:12px;
-	color:#898989;
+.product-item-btn:hover{
+	background:#EB6100;
 }
 
-.login-icon-wechat{
-	margin-top:80px
-}
-
-.login-box-right p:nth-of-type(1){
-	margin-top:37px;
-}
-
-.login-box-right p:nth-of-type(2){
-	margin-top:69px;
-}
-
-.page-login-bottom{
-	margin-top:73px;
-}
-
-.login-btn-submit, .login-box-right-btn{
-	display:block;
-	width:160px;
-	height:73px;
-	outline:none;
-	cursor:pointer;
-	text-align:center;
-	background:#FCFCFC;
+.paging-wrap{
+	height:162px;
+	padding:53px 0 0 46px;
 	box-sizing: border-box;
-	text-decoration: none;
-	border:1px solid #727171;
-	-webkit-appearance: none;
-}
-
-.login-btn-submit span, .login-box-right-btn span{
-	display:block;
-	font-size:13px;
-	color:#727171;
-}
-
-.login-btn-submit span:first-child, .login-box-right-btn span:first-child{
-	line-height:20px;
-}
-
-.login-btn-submit:hover, .login-box-right-btn:hover{
-	border-color:#F08522;
-}
-
-.login-btn-submit:hover span, .login-box-right-btn:hover span{
-	color:#F08522;
-}
-
-.login-btn-submit{
-	position: absolute;
-	left:188px;
-	bottom:35px;
-}
-
-.login-box-right-btn{
-	margin:24px 0 0 112px;
 }
