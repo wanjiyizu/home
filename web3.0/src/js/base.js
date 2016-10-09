@@ -1,4 +1,4 @@
-(function(window, document){
+!(function(window, document){
 	$("#js-show-code").click(function(){
 		$("#js-wechat-click-wrap").show();
 	});

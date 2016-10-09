@@ -1,4 +1,4 @@
-(function(win,doc){
+!(function(win,doc){
 	 var utils = {
 		append : function(target, str){
 			var dom = typeof target === "string" ? document.querySelector(target) : target;

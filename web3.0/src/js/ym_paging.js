@@ -1,4 +1,4 @@
-(function(window, document){
+!(function(window, document){
 	var utils = (function(){
 		var me = {};
 		me.addEvent = function(el, type, fn, capture){
