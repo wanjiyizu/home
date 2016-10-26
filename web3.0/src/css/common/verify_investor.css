@@ -3,7 +3,7 @@
 	width: 600px;
 	height: 455px;
 	position: relative;
-	background: url("../images/common/rz_bg.png") no-repeat;
+	background: url("/images/common/rz_bg.png") no-repeat;
 	font-family: "微软雅黑";
 	background-size: 100% 100%;
 }

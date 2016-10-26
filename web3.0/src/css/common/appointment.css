@@ -114,7 +114,7 @@
 	width: 15px;
 	height: 15px;
 	display: block;
-	background: url("../images/common/dialog_close.png") no-repeat;
+	background: url("/images/common/dialog_close.png") no-repeat;
 	cursor: pointer;
 }
 

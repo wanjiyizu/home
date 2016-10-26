@@ -1,10 +1,10 @@
-@import url("common/base.css");
-@import url("common/header.css");
-@import url("common/footer.css");
-@import url("common/appointment.css");
-@import url("common/ym_layer.css");
-@import url("common/verify_investor.css");
-@import url("common/login_register.css");
+@import url("../common/base.css");
+@import url("../common/header.css");
+@import url("../common/footer.css");
+@import url("../common/appointment.css");
+@import url("../common/ym_layer.css");
+@import url("../common/verify_investor.css");
+@import url("../common/login_register.css");
 
 .page-banner-wrap{
 	width:1200px;
@@ -91,7 +91,7 @@
     top: 0;
 	width:85px;
 	height:102px;
-	background: url("../images/pe/icon_wlty.png") no-repeat;
+	background: url("/images/pe/icon_wlty.png") no-repeat;
 }
 
 .product-box-main{
@@ -151,14 +151,14 @@
 	box-sizing: border-box;
 	padding-right:24px;
 	text-decoration: none;
-	background-image:url("../images/pe/icon_detail.png");
+	background-image:url("/images/pe/icon_detail.png");
 	background-repeat: no-repeat;
 	background-position: right 5px;
 }
 
 .product-box-left a:hover{
 	color:#F08522;
-	background-image:url("../images/pe/icon_detail_hover.png")
+	background-image:url("/images/pe/icon_detail_hover.png")
 }
 
 .product-box-right{
@@ -264,14 +264,14 @@
 	color:#3E3A39;
 	font-size:21px;
 	padding-right:37px;
-	background:url("../images/icon_product_more.png");
+	background:url("/images/icon_product_more.png");
 	background-repeat:  no-repeat;
 	background-position: right center;
 }
 
 .product-more-wrap a:hover{
 	color:#F08522;
-	background-image: url("../images/icon_product_more_hover.png");
+	background-image: url("/images/icon_product_more_hover.png");
 }
 
 .page-school-wrap{

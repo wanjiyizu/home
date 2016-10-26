@@ -105,14 +105,14 @@
 	padding-right: 93px;
 	font-size:15px;
     border-right: 1px solid #ccc;
-	background-image:url("../images/bot_weixin.png");
+	background-image:url("/images/bot_weixin.png");
 	background-repeat: no-repeat;
 	padding-left:36px;
 	cursor:pointer;
 }
 
 .footer-icon-weixin:hover{
-	background-image: url("../images/bot_weixin_hover.png");
+	background-image: url("/images/bot_weixin_hover.png");
 	color:#F39800;
 }
 
@@ -132,7 +132,7 @@
     top: 8px;
     cursor: pointer;
     z-index: 1;
-	background:url("../images/icon_wechat_close.png");
+	background:url("/images/icon_wechat_close.png");
 
 }
 
@@ -146,7 +146,7 @@
 	padding-left:35px;
 	cursor:pointer;
 	border-right: 1px solid #ccc;
-	background-image:url("../images/bot_sina.png");
+	background-image:url("/images/bot_sina.png");
 	background-repeat: no-repeat;
 }
 
@@ -158,7 +158,7 @@
 
 
 .footer-icon-sina:hover{
-	background-image: url("../images/bot_sina_hover.png");
+	background-image: url("/images/bot_sina_hover.png");
 	color:#F39800;
 }
 

@@ -1,0 +1,102 @@
+@import url("../common/base.css");
+@import url("../common/header.css");
+@import url("../common/footer.css");
+@import url("../common/breadcrumb.css");
+@import url("../common/ym_paging.css");
+@import url("../common/appointment.css");
+@import url("../common/ym_layer.css");
+@import url("../common/login_register.css");
+
+.page-article-wrap{
+	width:1200px;
+	margin:31px auto 100px auto;
+	background:#fff;
+}
+
+.page-article-top{
+	font-size:20px;
+	color:#3E3A39;
+	box-sizing:border-box;
+	padding:26px 0 0 63px;
+	margin-bottom:30px;
+}
+
+.page-article-top:after{
+	display: block;
+	content:"财经资讯";
+	font-size:14px;
+}
+
+
+.page-article-main{
+	padding:0 63px;
+}
+
+.margin-right-142{
+	margin-right:142px;
+}
+
+
+.page-article-box{
+	margin-bottom:45px;
+}
+
+.page-article-main:after, .page-article-box:after{
+	display: table;
+	content: "";
+	height: 0;
+	clear: both;
+}
+
+.page-article-box:last-child{
+	margin-bottom:0px;
+}
+
+.article-content{	
+	float:left;
+	width:291px;
+	margin-right:25px;
+}
+
+.article-cover{
+	display: block;
+	float:left;
+	width:150px;
+	height:95px;
+	border:1px solid red;
+	box-sizing: border-box;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+}
+
+
+.article-title{
+	display: block;
+	font-size:16px;
+	color:#3E3A39;
+	max-width: 291px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	text-decoration: none;
+	font-weight: normal;
+}
+
+.artilce-source{
+	font-size:12px;
+	color:#727171;
+	margin:18px 0 8px;
+}
+
+.article-desc{
+	width:291px;
+	overflow: hidden;
+	font-size:12px;
+	color:#3E3A39;
+}
+
+.paging-wrap{
+	margin:109px 0 0 259px;
+	padding-bottom:100px;
+}

@@ -69,7 +69,7 @@
 }
 
 .icon-phone{
-	background-image:url("../images/top_phone.png");
+	background-image:url("/images/top_phone.png");
 }
 
 .icon-weixin, .icon-sina{
@@ -81,11 +81,11 @@
 .icon-weixin{
 	margin-left:25px;
 	cursor:pointer;
-	background-image:url("../images/top_weixin.png");
+	background-image:url("/images/top_weixin.png");
 }
 
 .icon-weixin:hover{
-	background-image:url("../images/top_weixin_hover.png");
+	background-image:url("/images/top_weixin_hover.png");
 }
 
 .header-weixin-wrap:hover .wechat-code-hover-wrap{
@@ -94,11 +94,11 @@
 
 .icon-sina{
 	margin-left:22px;
-	background-image:url("../images/top_sina.png");
+	background-image:url("/images/top_sina.png");
 }
 
 .icon-sina:hover{
-	background-image:url("../images/top_sina_hover.png");
+	background-image:url("/images/top_sina_hover.png");
 }
 
 .page-header-right{
@@ -159,7 +159,7 @@
 	display:block;
 	width:294px;
 	height:39px;
-	background:url(../images/youmi_logo.png) no-repeat;
+	background:url(/images/youmi_logo.png) no-repeat;
 }
 
 .page-nav-box{

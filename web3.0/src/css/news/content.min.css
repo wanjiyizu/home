@@ -1,9 +1,9 @@
-@import url("common/base_2.css");
-@import url("common/header.css");
-@import url("common/footer.css");
-@import url("common/appointment.css");
-@import url("common/ym_layer.css");
-@import url("common/login_register.css");
+@import url("../common/base_2.css");
+@import url("../common/header.css");
+@import url("../common/footer.css");
+@import url("../common/appointment.css");
+@import url("../common/ym_layer.css");
+@import url("../common/login_register.css");
 
 .page-article-wrap{
 	width:1200px;

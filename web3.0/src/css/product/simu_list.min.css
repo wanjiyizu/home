@@ -1,12 +1,12 @@
-@import url("common/base.css");
-@import url("common/header.css");
-@import url("common/footer.css");
-@import url("common/breadcrumb.css");
-@import url("common/ym_paging.css");
-@import url("common/appointment.css");
-@import url("common/ym_layer.css");
-@import url("common/verify_investor.css");
-@import url("common/login_register.css");
+@import url("../common/base.css");
+@import url("../common/header.css");
+@import url("../common/footer.css");
+@import url("../common/breadcrumb.css");
+@import url("../common/ym_paging.css");
+@import url("../common/appointment.css");
+@import url("../common/ym_layer.css");
+@import url("../common/verify_investor.css");
+@import url("../common/login_register.css");
 
 .product-list-wrap{
 	width:1200px;
@@ -21,7 +21,7 @@
 	font-size:20px;
 	color:#3E3A39;
 	border-top:1px solid #F08522;
-	background:url("../images/icon_shield.png") no-repeat 1144px center;
+	background:url("/images/icon_shield.png") no-repeat 1144px center;
 }
 
 .product-list-top span{
@@ -40,7 +40,7 @@
 }
 
 .product-item-wlty{
-	background:url("../images/icon-wlty.png") no-repeat;
+	background:url("/images/icon-wlty.png") no-repeat;
 }
 
 .product-title-wrap{
