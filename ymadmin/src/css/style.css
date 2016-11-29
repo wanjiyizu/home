@@ -1,0 +1,14 @@
+.sidebar{
+	position: fixed;
+	top:50px;
+	bottom:0;
+	background:#222;
+}
+
+.nav-sidebar{
+	margin-left:-20px;
+}
+
+.page-main{
+	top:50px;
+}
