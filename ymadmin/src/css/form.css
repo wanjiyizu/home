@@ -1,0 +1,123 @@
+html, body{
+	height:100%;
+	background:#e9ecf3;
+}
+
+.font-green{
+	color:#32c5d2!important;
+}
+
+.admin-main{
+	height:100%;
+}
+
+.admin-content{
+	background:#fff;
+	height:100%;
+}
+
+.admin-margin{
+	margin:20px;
+}
+
+.admin-padding{
+	padding:20px;
+	padding-bottom:0;
+}
+
+.tab-content{
+	border:1px solid #ddd;
+	border-top:none;
+}
+
+.panel-form, .panel-review{
+	margin:20px 30px;
+	padding-top:20px;
+	min-height:700px;
+	border:1px solid #ddd;
+}
+
+.nav-form{
+	width:80%;
+	margin:0 auto;
+}
+
+.nav-form li{
+	float:left;
+	width:50%;
+	box-sizing: border-box;
+	text-align: center;
+}
+
+.tab-content>.tab-pane{
+	background:#fff;
+}
+
+.from-panel{
+	margin-top:30px;
+}
+
+.form-table .form-group, .form-table .form-table-header{
+	margin-left:30px;
+}
+
+.form-table-header>div{
+	margin-bottom:15px;
+}
+
+.form-table-tr{
+	display: table;
+	margin-left:30px;
+	margin-bottom:20px;
+}
+
+.form-table-tr:before, .form-table-tr:after{
+	display: table;
+    content: " ";
+}
+
+.form-table-tr:after{
+	clear:both;
+}
+
+.form-group-addon{
+	display: table-cell;
+	padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    color: #555;
+    text-align: center;
+    background-color: #eee;
+    border-top: 1px solid #ccc;
+    border-bottom:1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-table-tr>.form-group{
+	display: table-cell;
+	margin-left:0;
+}
+
+.form-table-tr>.form-group:first-child .form-control{
+	border-right: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.form-table-tr>.form-group:last-child .form-control{
+	border-left: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.form-table-tr>.form-group-addon{
+	border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+
+}
+
+.input-move{
+	cursor:move;
+}
