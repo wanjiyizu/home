@@ -69,6 +69,7 @@ html, body{
 	display: table;
 	margin-left:30px;
 	margin-bottom:20px;
+	padding:5px;
 }
 
 .form-table-tr:before, .form-table-tr:after{
@@ -120,4 +121,14 @@ html, body{
 
 .input-move{
 	cursor:move;
+}
+
+.ghost{
+	opacity: 1;
+  	background: #C8EBFB;
+}
+
+.chosen {
+  color: #fff;
+  background-color: #c00;
 }
