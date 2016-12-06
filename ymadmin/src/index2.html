@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>首页</title>
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+	<style type="text/css">
+		.main-container{
+			padding:0;
+		}
+		.page-container{
+		}
+		.page-sidebar{
+			width:210px;
+			background:#fff;
+		}
+
+		.page-sidebar:before{
+			content: "";
+		    position: fixed;
+		    display: block;
+		    width: 210px;
+		    bottom: 0;
+		    top: 0;
+		    left: 0px;
+		    background-color: #fff;
+		    -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,.2);
+		    -moz-box-shadow: 0 0 10px 0 rgba(0,0,0,.2);
+		    box-shadow: 0 0 10px 0 rgba(0,0,0,.2);
+		    z-index: -1;
+		}
+		.sidebar-submenu{
+			list-style:none;
+		}
+		.sidebar-submenu>li>a:hover, .sidebar-submenu>li>a:focus{
+			text-decoration: none;
+		}
+	</style>
+</head>
+<body>
+
+	<!-- 加载层 -->
+	<div class="loading-container"></div>
+
+	<!-- 头部 -->
+	<nav class="navbar navbar-default" role="navigation">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#toolbar-collapse">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="#">优米金融</a>
+	    </div>
+
+	    <div class="collapse navbar-collapse" id="toolbar-collapse">
+	      <ul class="nav navbar-nav">
+	        <li class="active"><a href="#">提醒</a></li>
+	        <li><a href="#">消息</a></li>
+	        <li><a href="#">进度</a></li>
+	        <li><a href="#">开启全屏</a></li>
+	        <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">玩机e族<span class="caret"></span></a>
+	          <ul class="dropdown-menu" role="menu">
+	            <li><a href="#">修改密码</a></li>
+	            <li><a href="#">退出账号</a></li>
+	          </ul>
+	        </li>
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
+
+
+	<div class="main-container container-fluid">
+		<div class="page-container">
+			<div class="page-sidebar">
+				<ul class="nav">
+					<li>
+						<a class="sidebar-dropdown" href="javascript:void(0)">产品管理<span class="caret"></span></a>
+						<ul class="sidebar-submenu" role="menu">
+				            <li><a href="#">私募股权</a></li>
+				            <li><a href="#">阳光私募</a></li>
+				        </ul>
+					</li>
+					<li>
+						<a href="javascript:void(0)">预约管理</a>
+						<ul class="sidebar-submenu" role="menu">
+				            <li><a href="#">私募股权</a></li>
+				            <li><a href="#">阳光私募</a></li>
+				        </ul>
+					</li>
+					<li><a href="javascript:void(0)">新闻管理</a></li>
+					<li><a href="javascript:void(0)">用户管理</a></li>
+					<li>
+						<a href="javascript:void(0)">广告管理</a>
+						<ul class="sidebar-submenu" role="menu">
+				            <li><a href="#">私募股权</a></li>
+				            <li><a href="#">阳光私募</a></li>
+				        </ul>
+					</li>
+					<li><a href="javascript:void(0)">公众号管理</a></li>
+					<li>
+						<a href="javascript:void(0)">管理员管理</a>
+						<ul class="sidebar-submenu" role="menu">
+				            <li><a href="#">私募股权</a></li>
+				            <li><a href="#">阳光私募</a></li>
+				        </ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+</body>
+</html>

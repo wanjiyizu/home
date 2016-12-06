@@ -78,13 +78,140 @@
 					<!-- Nav tabs -->
 					<ul class="nav nav-tabs" role="tablist">
 						<li role="presentation" class="active"><a href="#basic-info" role="tab" data-toggle="tab">基本信息</a></li>
+						<li role="presentation"><a href="#histori-net" role="tab" data-toggle="tab">产品历史净值</a></li>
+						<li role="presentation"><a href="#month-return" role="tab" data-toggle="tab">产品月度汇报率</a></li>
+						<li role="presentation"><a href="#histori-performance" role="tab" data-toggle="tab">管理人历史业绩</a></li>
 						<li role="presentation"><a href="#pe-channel" role="tab" data-toggle="tab">私募股权页</a></li>
 					  	<li role="presentation"><a href="#pe-list" role="tab" data-toggle="tab">私募列表页</a></li>
 					  	<li role="presentation"><a href="#pe-details" role="tab" data-toggle="tab">私募详情页</a></li>
 					  	<li role="presentation"><a href="#index" role="tab" data-toggle="tab">首页</a></li>
 					</ul>
-
 					<div class="tab-content">
+						<div role="tabpanel" class="tab-pane panel-body" id="histori-net">
+							<div class="btn-toolbar">
+								<div class="btn-group">
+									<a href="javascript:void(0)" class="btn btn-default">导入excel</a>
+									<a href="javascript:void(0)" class="btn btn-default">添加净值</a>
+								</div>
+								<div class="btn-group">
+									<input type="email" class="form-control" id="inputEmail3" placeholder="请输入对比基准名称，如：沪深300">
+								</div>
+								<div class="btn-group col-md-4">
+									<div class="input-group">
+								      <input type="text" class="form-control">
+								      <span class="input-group-btn">
+								        <a class="btn btn-default" type="button">搜索</a>
+								      </span>
+								    </div>
+								</div>
+							</div>
+							<br>
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th>净值日期</th>
+										<th>单位净值</th>
+										<th>累计净值</th>
+										<th>周涨跌幅</th>
+										<th>基准数据</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+									</tr>
+									<tr>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div role="tabpanel" class="tab-pane panel-body" id="month-return">
+							<div class="btn-toolbar">
+								<div class="btn-group">
+									<a href="javascript:void(0)" class="btn btn-default">导入excel</a>
+									<a href="javascript:void(0)" class="btn btn-default">添加回报率</a>
+								</div>
+							</div>
+							<br>
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th>月份</th>
+										<th>汇报率</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+									</tr>
+									<tr>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div role="tabpanel" class="tab-pane panel-body" id="histori-performance">
+							<div class="btn-toolbar">
+								<div class="btn-group">
+									<a href="javascript:void(0)" class="btn btn-default">导入excel</a>
+									<a href="javascript:void(0)" class="btn btn-default">添加净值</a>
+								</div>
+								<div class="btn-group">
+									<input type="text" class="form-control" placeholder="请输入历史产品名称" name="">
+								</div>
+								<div class="btn-group">
+									<input type="text" class="form-control" id="inputEmail3" placeholder="请输入对比基准名称，如：沪深300">
+								</div>
+							</div>
+							<br>
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th>净值日期</th>
+										<th>单位净值</th>
+										<th>累计净值</th>
+										<th>周涨跌幅</th>
+										<th>基准数据</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+									</tr>
+									<tr>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
 						<div role="tabpanel" class="tab-pane panel-body active" id="basic-info">
 							<form class="form-horizontal">
 								<div class="form-group">
