@@ -272,11 +272,6 @@
 			line-height: 50px;
 		}
 
-		.sidebar>.active{
-			border-left:3px solid #44b549;
-			margin-left:-3px;
-		}
-
 
 	</style>
 </head>
@@ -342,20 +337,14 @@
 			<div class="page-sidebar">
 				
 				<ul class="nav sidebar">
-					<li class="active">
-						<a href="">
-							<i class="menu-icon glyphicon glyphicon-home"></i>
-							<span>首页</span>
-						</a>
-					</li>
-					<li>
+					<li class="down">
 						<a class="sidebar-dropdown" href="javascript:void(0)">
 							<i class="menu-icon glyphicon glyphicon-th-large"></i>
 							<span class="menu-text">产品管理</span>
 							<i class="menu-expand glyphicon glyphicon-chevron-right"></i>
 						</a>
 						<ul class="sidebar-submenu" role="menu">
-				            <li><a href="pe_list.html">私募股权</a></li>
+				            <li class="active"><a href="pe_list.html">私募股权</a></li>
 				            <li><a href="simu_list.html">阳光私募</a></li>
 				        </ul>
 					</li>
@@ -411,14 +400,38 @@
 			<div class="page-content">
 				<div class="page-breadcrumb">
 					<ol class="breadcrumb">
-					  <li class="active"><i class="glyphicon glyphicon-home"></i>&nbsp;首页</li>
+					  <li><i class="glyphicon glyphicon-home"></i>&nbsp;<a href="#">首页</a></li>
+					  <li class="active">私募股权</li>
 					</ol>
 				</div>
 				<div class="page-body">
 					<div class="container-fuild">
 						<div class="row">
 							<div class="col-md-12 main">
-								
+								<div id="toolbar-1">
+							  		<a class="btn btn-primary" href="add_pe.html">
+							            <i class="glyphicon glyphicon-plus"></i> 添加
+							        </a>
+							        <button id="remove" class="btn btn-danger" disabled>
+							            <i class="glyphicon glyphicon-remove"></i> Delete
+							        </button>
+							    </div>
+								<table id="table-1"
+							           data-toolbar="#toolbar-1"
+							           data-search="true"
+							           data-show-refresh="true"
+							           data-show-toggle="true"
+							           data-show-columns="true"
+							           data-minimum-count-columns="2"
+							           data-show-pagination-switch="true"
+							           data-pagination="true"
+							           data-id-field="id"
+							           data-page-list="[10, 25, 50, 100, ALL]"
+							           data-show-footer="false"
+							           data-side-pagination="server"
+							           data-url="/examples/bootstrap_table/data"
+							           data-response-handler="responseHandler">
+							    </table>
 						    </div>
 						</div>
 					</div>
