@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>填写信息</title>
+	<meta name="App-Config" content="fullscreen=yes,useHistoryState=yes,transition=yes">
+	<script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+	<style type="text/css">
+
+		*{margin:0;padding:0;}
+		html{
+		    -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+		}
+		body{
+			font-size:12px;
+			font-family: sans-serif;
+		}
+		.page{
+			width:10rem;
+		}
+		.page-box{
+			position: relative;
+		}
+		img{
+			max-width: 100%;
+			width:100%;
+			vertical-align: top;
+			border:none;
+		}
+
+		.form-group{
+			margin-bottom:0.296296rem;
+		}
+
+		.form-group:after{
+			display: table;
+			clear: both;
+			content: "";
+		}
+
+		.form-group>label, .form-group .form-control{
+			height:1rem;
+			float:left;
+		}
+
+		.form-group>label{
+			display: block;
+			width:3.379630rem;
+			font-size:0.425926rem;
+			color:#595757;
+			line-height: 1rem;
+			text-align: right;
+		}
+
+		.form-group .textarea{
+			height:2.388889rem;
+			resize: none;
+			padding-top:0.3rem;
+		}
+
+		.label-text{
+			margin-right:0.4rem;
+		}
+
+		.form-group .form-control{
+			width:5rem;
+			border:1px solid #B5B5B6;
+			padding-left:0.416667rem;
+			box-sizing: border-box;
+			font-size:0.277778rem;
+			color:#595757;
+		}
+		.input-requried{
+			display: inline-block;
+			width:0.157407rem;
+			height:0.175926rem;
+			background:url("images/qiandao/icon-requried.png") no-repeat;
+			background-size:contain;
+			margin-right:0.287037rem;
+			margin-bottom:0.1rem;
+		}
+
+		.radio-button-wrapper{
+			width:0.37037rem;
+			height:0.37037rem;
+			float:left;
+			position: relative;
+		}
+		.radio-button-wrapper input[type="radio"]+.selected-icon{
+			display: inline-block;
+			background:#fff;
+			border:1px solid #AAB2BD;
+			width:0.37037rem;
+			height:0.37037rem;
+			border-radius:100%;
+			position: absolute;
+			top:0;
+			left:0;
+		}
+
+		.radio-button-wrapper input[type="radio"]+.selected-icon:after{
+			position: absolute;
+			left:0;
+			top:0;
+			content: "";
+			background: #FFF;
+		    width:0.37037rem;
+			height:0.37037rem;
+			border-radius:100%;
+			transform: scale(0);
+		}
+
+		.radio-button-wrapper input[type="radio"]:checked+.selected-icon{
+			background:#F08522;
+			border-color:#F08522;
+		}
+
+		.radio-button-wrapper input[type="radio"]:checked+.selected-icon:after{
+			transform: scale(0.4);
+		}
+
+		.radio-button-wrapper input[type="radio"]{
+			visibility: hidden;
+		}
+
+		.choice-description{
+			margin-left:0.6rem;
+			font-size:0.37037rem;
+			letter-spacing: 0.2rem;
+		}
+
+		.checkbox label{
+			display: block;
+			padding:0.1rem;
+			margin-left:3.27963rem;
+		}
+
+		.submit-field{
+			position: absolute;
+			bottom: 0;
+		}
+
+		.btn{
+			display: inline-block;
+			width:2.12963rem;
+			height:0.87963rem;
+			background:#fff;
+			font-size:0.388889rem;
+			color:#F39800;
+			border:1px solid #B5B5B6;
+		}
+
+		.btn:hover{
+			background: #F39800;
+			color:#fff;
+			border-color:#F39800;
+		}
+
+		.confirm{
+			margin-left:2.055556rem;
+		}
+		.cancel{
+			margin-left:1.666667rem;
+		}
+	</style>
+</head>
+<body>
+	<div class="page">
+		<div class="page-box">
+			<img src="images/qiandao/1-01.png">
+		</div>
+		<div class="page-box" style="height:12.064815rem;">
+			<div class="" style="position:absolute;left:0;top:0;width:10rem;height:12.064815rem;">
+				<img src="images/qiandao/2-01.png">
+			</div>
+			<div class="form" style="position:absolute;left:0;top:0;width:10rem;height:12.064815rem;">
+				<div class="form-group">
+					<label>
+						<span class="label-text"><i class="input-requried"></i>姓名</span>
+					</label>
+					<input type="" class="form-control" name="">
+				</div>
+				<div class="form-group">
+					<label>
+						<span class="label-text"><i class="input-requried"></i>电话</span>
+					</label>
+					<input type="" class="form-control" name="">
+				</div>
+				<div class="form-group">
+					<label>
+						<span class="label-text"><i class="input-requried"></i>单位</span>
+					</label>
+					<input type="" class="form-control" name="">
+				</div>
+				<div class="form-group">
+					<label>
+						<span class="label-text">职务</span>
+					</label>
+					<input type="" class="form-control" name="">
+				</div>
+				<div class="form-group">
+					<label>
+						<span class="label-text">地址</span>
+					</label>
+					<input type="" class="form-control" name="">
+				</div>
+				<div class="form-group">
+					<label>
+						<span class="label-text">备注</span>
+					</label>
+					<textarea class="form-control textarea"></textarea>
+				</div>
+				<div class="checkbox">
+					<label>
+						<div class="radio-button-wrapper">
+							<input type="radio" name="">
+							<i class="selected-icon"></i>
+						</div>
+						<div class="choice-description">已核实无误</div>
+					</label>
+				</div>
+				<div class="submit-field">
+					<button class="btn confirm">确认</button>
+					<button class="btn cancel">取消</button>
+				</div>
+			</div>
+		</div>
+		<div class="page-box">
+			<img src="images/qiandao/3-01.png">
+		</div>
+	</div>
+	<script type="text/javascript">
+		//alert(window.devicePixelRatio);
+		//alert(window.innerWidth);
+		//alert(document.documentElement.clientWidth);
+	</script>
+</body>
+</html>
