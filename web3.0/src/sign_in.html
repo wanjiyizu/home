@@ -19,9 +19,20 @@
 		}
 		.page{
 			width:10rem;
+			margin: 0 auto;
 		}
 		.page-box{
 			position: relative;
+		}
+		input, select, textarea, button{
+			-webkit-appearance:none;
+		}
+
+		@media only screen and (-webkit-min-device-pixel-ratio: 2), not all, not all, not all, only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+		    body,body input,body textarea,body select,body button {
+		        -webkit-font-smoothing:antialiased;
+		        -moz-osx-font-smoothing: grayscale
+		    }
 		}
 		img{
 			max-width: 100%;
@@ -71,6 +82,8 @@
 			box-sizing: border-box;
 			font-size:0.277778rem;
 			color:#595757;
+			vertical-align: middle;
+			-webkit-tap-highlight-color: transparent;
 		}
 		.input-requried{
 			display: inline-block;
@@ -82,12 +95,7 @@
 			margin-bottom:0.1rem;
 		}
 
-		.radio-button-wrapper{
-			width:0.37037rem;
-			height:0.37037rem;
-			float:left;
-			position: relative;
-		}
+
 		.radio-button-wrapper input[type="radio"]+.selected-icon{
 			display: inline-block;
 			background:#fff;
@@ -125,16 +133,32 @@
 			visibility: hidden;
 		}
 
-		.choice-description{
-			margin-left:0.6rem;
-			font-size:0.37037rem;
-			letter-spacing: 0.2rem;
+		.checkbox label{
+			/*display: block;*/
+			display: -webkit-box;
+			/*padding:0.1rem;*/
+			height:1rem;
+			/*vertical-align: top;*/
+			margin-left:3.27963rem;
+			-webkit-box-align:center;
+			/*vertical-align: text-bottom;*/
 		}
 
-		.checkbox label{
-			display: block;
-			padding:0.1rem;
-			margin-left:3.27963rem;
+		.radio-button-wrapper{
+			display: inline-block;
+			width:0.37037rem;
+			height:0.37037rem;
+			/*float:left;*/
+			/*vertical-align: text-bottom;*/
+			position: relative;
+			
+		}
+
+		.choice-description{
+			margin-left:0.23rem;
+			font-size:0.37037rem;
+			letter-spacing: 0.2rem;
+			/*vertical-align: text-bottom;*/
 		}
 
 		.submit-field{
@@ -164,15 +188,78 @@
 		.cancel{
 			margin-left:1.666667rem;
 		}
+
+		.overlay{
+			width:100%;
+			height:100%;
+			position: fixed;
+			left:0;
+			top:0;
+			background:#595757;
+			opacity: 0.66;
+			z-index: 9999;
+			display: none;
+		}
+
+		.dialog-wrap{
+			display: none;
+			width:7.12963rem;
+			/*height:5.87963rem;*/
+			background:#fff;
+			position: absolute;
+			left:0;
+			right:0;
+			top:4.787039rem;
+			margin:auto;
+			z-index: 10000;
+		}
+		.dialog-top{
+			position: relative;
+			height:1.907407rem;
+		}
+		.dialog-main{
+			width:7.13889rem;
+			height:2.712963rem;
+			text-align: center;
+			color:#241A17;
+			font-size:0.351851rem;
+			padding-top:0.3rem;
+			line-height:0.67593rem;
+			background:url("images/qiandao/bg-1.png") no-repeat;
+			background-size: contain;
+			box-sizing: border-box;
+		}
+		.dialog-bottom{
+			width:100%;
+		}
 	</style>
 </head>
 <body>
+	<div class="overlay"></div>
+	<div class="dialog-wrap">
+		<div class="dialog-top">
+			<a class="icon-close" id="js-close" style="position:absolute;left:6.50926rem;top:0.157407rem;display:block;width:0.398148rem;height:0.398148rem;">
+				<img src="images/qiandao/icon-close.png">
+			</a>
+			<div style="position:absolute;left:1.333333rem;top:0.5rem;width:4.564815rem;height:0.611111rem;">
+				<img src="images/qiandao/logo-min.png">
+			</div>
+		</div>
+		<div class="dialog-main">
+			感谢你对我们的支持<br>
+			已将你的所提交信息提交客服审核<br>
+			客服将于24小时与你联系！
+		</div>
+		<div class="dialog-bottom">
+			<img src="images/qiandao/3-01.png">
+		</div>
+	</div>
 	<div class="page">
 		<div class="page-box">
 			<img src="images/qiandao/1-01.png">
 		</div>
 		<div class="page-box" style="height:12.064815rem;">
-			<div class="" style="position:absolute;left:0;top:0;width:10rem;height:12.064815rem;">
+			<div class="" style="position:absolute;left:0;top:0;width:10rem;height:12.064815rem;z-index:-1">
 				<img src="images/qiandao/2-01.png">
 			</div>
 			<div class="form" style="position:absolute;left:0;top:0;width:10rem;height:12.064815rem;">
@@ -180,7 +267,7 @@
 					<label>
 						<span class="label-text"><i class="input-requried"></i>姓名</span>
 					</label>
-					<input type="" class="form-control" name="">
+					<input type="" class="form-control" name="" value="刘意子">
 				</div>
 				<div class="form-group">
 					<label>
@@ -231,10 +318,19 @@
 			<img src="images/qiandao/3-01.png">
 		</div>
 	</div>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript">
-		//alert(window.devicePixelRatio);
-		//alert(window.innerWidth);
-		//alert(document.documentElement.clientWidth);
+		$("#js-close").on("touchend", function(e){
+			e.preventDefault();
+			$(".dialog-wrap").hide();
+			$(".overlay").hide();
+		});
+
+		$(".confirm").on("touchend", function(e){
+			e.preventDefault();
+			$(".overlay").show();
+			$(".dialog-wrap").show();
+		})
 	</script>
 </body>
 </html>
