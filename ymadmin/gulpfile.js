@@ -139,7 +139,7 @@ gulp.task('usemin', function() {
 
 
 gulp.task('js', function(){
-    return gulp.src("src/js/**/*.js")
+    return gulp.src(["src/js/**/*.js", "src/js/**/*.json"])
            .pipe(plumber())
            .pipe(gulp.dest("dist/js"));
 });
@@ -185,7 +185,7 @@ gulp.task('watch', function () {
 	}
   });
 
-  gulp.watch('src/js/**/*.js', function(e){
+  gulp.watch(['src/js/**/*.js', 'src/js/**/*.json'], function(e){
 	if(e.type == "deleted"){
 		var path = e.path.substring(e.path.indexOf("src")+4);
 		console.log(path);

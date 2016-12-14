@@ -4,7 +4,9 @@
 	<meta charset="utf-8">
 	<title>填写信息</title>
 	<meta name="App-Config" content="fullscreen=yes,useHistoryState=yes,transition=yes">
-	<script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+	<!-- <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script> -->
+	<script type="text/javascript" src="js/flexible.js"></script>
+	<!-- <meta name="viewport" content="width=device-width"> -->
 	<style type="text/css">
 
 		*{margin:0;padding:0;}
@@ -81,6 +83,7 @@
 			padding-left:0.416667rem;
 			box-sizing: border-box;
 			font-size:0.277778rem;
+			/*font-size:30px;*/
 			color:#595757;
 			vertical-align: middle;
 			-webkit-tap-highlight-color: transparent;
@@ -136,6 +139,7 @@
 		.checkbox label{
 			/*display: block;*/
 			display: -webkit-box;
+			display: box;
 			/*padding:0.1rem;*/
 			height:1rem;
 			/*vertical-align: top;*/
@@ -145,7 +149,7 @@
 		}
 
 		.radio-button-wrapper{
-			display: inline-block;
+			display: block;
 			width:0.37037rem;
 			height:0.37037rem;
 			/*float:left;*/
@@ -163,17 +167,21 @@
 
 		.submit-field{
 			position: absolute;
-			bottom: 0;
+			bottom: 1px;
 		}
 
 		.btn{
 			display: inline-block;
 			width:2.12963rem;
-			height:0.87963rem;
+			/*height:0.87963rem;*/
+			height:0.88rem;
 			background:#fff;
 			font-size:0.388889rem;
 			color:#F39800;
+			line-height:0.87963rem;
+			text-align:center;
 			border:1px solid #B5B5B6;
+			box-sizing: border-box;
 		}
 
 		.btn:hover{
@@ -204,7 +212,6 @@
 		.dialog-wrap{
 			display: none;
 			width:7.12963rem;
-			/*height:5.87963rem;*/
 			background:#fff;
 			position: absolute;
 			left:0;
@@ -262,47 +269,47 @@
 			<div class="" style="position:absolute;left:0;top:0;width:10rem;height:12.064815rem;z-index:-1">
 				<img src="images/qiandao/2-01.png">
 			</div>
-			<div class="form" style="position:absolute;left:0;top:0;width:10rem;height:12.064815rem;">
+			<div class="form" style="position:absolute;left:0;top:0;width:10rem;height:12.064815rem;border:none;">
 				<div class="form-group">
 					<label>
 						<span class="label-text"><i class="input-requried"></i>姓名</span>
 					</label>
-					<input type="" class="form-control" name="" value="刘意子">
+					<input type="" class="form-control" id="name" value="刘意子">
 				</div>
 				<div class="form-group">
 					<label>
 						<span class="label-text"><i class="input-requried"></i>电话</span>
 					</label>
-					<input type="" class="form-control" name="">
+					<input type="" class="form-control" id="phone" value="13324892742">
 				</div>
 				<div class="form-group">
 					<label>
 						<span class="label-text"><i class="input-requried"></i>单位</span>
 					</label>
-					<input type="" class="form-control" name="">
+					<input type="" class="form-control" id="company" value="优米金融">
 				</div>
 				<div class="form-group">
 					<label>
 						<span class="label-text">职务</span>
 					</label>
-					<input type="" class="form-control" name="">
+					<input type="" class="form-control" id="dutiles" value="UI设计师">
 				</div>
 				<div class="form-group">
 					<label>
 						<span class="label-text">地址</span>
 					</label>
-					<input type="" class="form-control" name="">
+					<input type="" class="form-control" id="addres" value="深圳市南海衣裤">
 				</div>
 				<div class="form-group">
 					<label>
 						<span class="label-text">备注</span>
 					</label>
-					<textarea class="form-control textarea"></textarea>
+					<textarea class="form-control textarea" id="remark">11</textarea>
 				</div>
 				<div class="checkbox">
 					<label>
 						<div class="radio-button-wrapper">
-							<input type="radio" name="">
+							<input type="radio" id="agree" value="1">
 							<i class="selected-icon"></i>
 						</div>
 						<div class="choice-description">已核实无误</div>
@@ -311,6 +318,7 @@
 				<div class="submit-field">
 					<button class="btn confirm">确认</button>
 					<button class="btn cancel">取消</button>
+					<div style="display:none;width:74px;text-align:center;height:26px;margin:10px auto;line-height:26px;font-size:14px;border:1px solid #dedede;color:#666;">摩托车</div>
 				</div>
 			</div>
 		</div>
@@ -328,9 +336,36 @@
 
 		$(".confirm").on("touchend", function(e){
 			e.preventDefault();
+
+			var name = $("#name").val(),
+				phone = $("#phone").val(),
+				company = $("#company").val(),
+				dutiles = $("#dutiles").val(),
+				addres = $("#addres").val(),
+				remark = $("#remark").val(),
+				agree = $("#agree:checked").val();
+			
+			if(name == null){
+				console.log("姓名不允许为空");
+			}else if(phone == null){
+				console.log("手机号不允许为空");
+			}else if(company == null){
+				console.log("公司不允许为空");
+			}
+
+
+
+
 			$(".overlay").show();
 			$(".dialog-wrap").show();
 		})
+
+
+		// alert(window.devicePixelRatio);
+		// alert(window.screen.height);
+		// alert(document.documentElement.clientWidth);
+		// alert(window.screen.width);
+		// alert(window.innerHeight);
 	</script>
 </body>
 </html>
