@@ -1,5 +1,5 @@
 (function(win, document){
-	$(".sidebar-toggle").on("click", function(){
+	$(".sidebar-toggle i").on("click", function(){
 		if($(this).data("toggle")){
 			$(this).data("toggle", false);
 			$(".page-sidebar").hide();

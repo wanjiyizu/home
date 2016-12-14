@@ -11,6 +11,19 @@
 		body{
 			background:#e7e8eb;
 		}
+		img{
+			max-width:100%;
+		}
+		.border-none{
+			border:none;
+		}
+		.sidebar-toggle{
+			font-size:20px;
+		}
+
+		.navbar-brand>img{
+			display: inline-block;
+		}
 		.main{
 			background: #fff;
 			padding:20px;
@@ -256,7 +269,7 @@
 		}
 
 		.sidebar-toggle{
-			width:210px;
+			width:255px;
 			font-size: 18px;
 			padding:0 0 0 15px;
 			height:50px;
@@ -295,7 +308,10 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </button>
-	      <a class="navbar-brand sidebar-toggle" data-toggle="true" href="#"><span>优米金融</span><i class="menu-icon glyphicon glyphicon-align-justify"></i></a>
+	      <a class="navbar-brand sidebar-toggle" data-toggle="true" href="javascript:void(0)">
+	      	<img src="images/logo.png" height="40" title="优米金融">
+	      	<i class="menu-icon glyphicon glyphicon-align-justify"></i>
+	      </a>
 	    </div>
 
 	    <div class="collapse navbar-collapse" id="toolbar-collapse">
@@ -340,10 +356,9 @@
 	<div class="main-container container-fluid">
 		<div class="page-container">
 			<div class="page-sidebar">
-				
 				<ul class="nav sidebar">
 					<li class="active">
-						<a href="">
+						<a href="javascript:void(0)">
 							<i class="menu-icon glyphicon glyphicon-home"></i>
 							<span>首页</span>
 						</a>
@@ -360,24 +375,19 @@
 				        </ul>
 					</li>
 					<li>
-						<a class="sidebar-dropdown" href="javascript:void(0)">
+						<a href="book_list.html">
 							<i class="menu-icon glyphicon glyphicon-time"></i>
 							<span class="menu-text">预约管理</span>
-							<i class="menu-expand glyphicon glyphicon-chevron-right"></i>
 						</a>
-						<ul class="sidebar-submenu" role="menu">
-				            <li><a href="#">私募股权</a></li>
-				            <li><a href="#">阳光私募</a></li>
-				        </ul>
 					</li>
 					<li>
-						<a href="javascript:void(0)">
+						<a href="news_list.html">
 							<i class="menu-icon glyphicon glyphicon-file"></i>
 							<span>新闻管理</span>
 						</a>
 					</li>
 					<li>
-						<a href="javascript:void(0)">
+						<a href="user_list.html">
 							<i class="menu-icon glyphicon glyphicon-user"></i>
 							<span>用户管理</span>
 						</a>
@@ -401,6 +411,12 @@
 							<span>签到管理</span>
 						</a>
 					</li>
+					<li>
+						<a href="javascript:void(0)">
+							<i class="menu-icon glyphicon glyphicon-check"></i>
+							<span>模板管理</span>
+						</a>
+					</li>
 					<li><a href="javascript:void(0)">公众号管理</a></li>
 					<li>
 						<a class="sidebar-dropdown" href="javascript:void(0)">
@@ -419,7 +435,35 @@
 					<div class="container-fuild">
 						<div class="row">
 							<div class="col-md-12 main">
-								<p></p>
+								<div class="panel panel-default">
+								  <div class="panel-heading">
+								    <h3 class="panel-title">欢迎使用优米金融管理系统</h3>
+								  </div>
+								  <div class="panel-body">
+								  	<ul class="list-group">
+									  	<li class="list-group-item border-none row">
+									  		<div class="col-md-1">登录IP</div>
+									  		<div class="col-md-1">192.168.1.1</div>
+									  	</li>
+									  	<li class="list-group-item border-none row">
+									  		<div class="col-md-1">注册IP</div>
+									  		<div class="col-md-1">192.168.1.1</div>
+									  	</li>
+									  	<li class="list-group-item border-none row">
+									  		<div class="col-md-1">注册时间</div>
+									  		<div class="col-md-1">192.168.1.1</div>
+									  	</li>
+									  	<li class="list-group-item border-none row">
+									  		<div class="col-md-1">上次登录时间</div>
+									  		<div class="col-md-1">192.168.1.1</div>
+									  	</li>
+									  	<li class="list-group-item border-none row">
+									  		<div class="col-md-1">用户组</div>
+									  		<div class="col-md-1">192.168.1.1</div>
+									  	</li>
+								  	</ul>
+								  </div>
+								</div>
 						    </div>
 						</div>
 					</div>

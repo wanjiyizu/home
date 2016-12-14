@@ -18,6 +18,9 @@
 		.form-left{
 			border-right:1px solid #ccc;
 		}
+		.page-content{
+			background:#fff;
+		}
 		iframe{
 			border:none;
 			padding:0;
@@ -360,7 +363,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="news_list.html">
+						<a href="javascript:void(0)">
 							<i class="menu-icon glyphicon glyphicon-file"></i>
 							<span>新闻管理</span>
 						</a>
@@ -413,37 +416,48 @@
 				<div class="page-breadcrumb">
 					<ol class="breadcrumb">
 					  <li><i class="glyphicon glyphicon-home"></i>&nbsp;<a href="#">首页</a></li>
-					  <li class="active">私募股权</li>
+					  <li class="active">新闻列表</li>
 					</ol>
 				</div>
 				<div class="page-body">
 					<div class="container-fuild">
 						<div class="row">
 							<div class="col-md-12 main">
-								<div id="toolbar-1">
-							  		<a class="btn btn-primary" href="add_simu.html">
+								<div id="toolbar">
+							  		<a class="btn btn-primary" href="add_pe.html">
 							            <i class="glyphicon glyphicon-plus"></i> 添加
 							        </a>
 							        <button id="remove" class="btn btn-danger" disabled>
 							            <i class="glyphicon glyphicon-remove"></i> Delete
 							        </button>
 							    </div>
-								<table id="table-1"
-							           data-toolbar="#toolbar-1"
-							           data-search="true"
-							           data-show-refresh="true"
-							           data-show-toggle="true"
-							           data-show-columns="true"
-							           data-minimum-count-columns="2"
-							           data-show-pagination-switch="true"
-							           data-pagination="true"
-							           data-id-field="id"
-							           data-page-list="[10, 25, 50, 100, ALL]"
-							           data-show-footer="false"
-							           data-side-pagination="server"
-							           data-url="/examples/bootstrap_table/data"
-							           data-response-handler="responseHandler">
-							    </table>
+								<table 	id="table"
+									 	data-toggle="table"
+										data-url="js/data/news.json"
+										data-id-field="productId"
+										data-pagination="true"
+										data-search="true"
+										data-halign="500"
+										data-search-on-enter-key="true"
+										data-search-align="left"
+										data-show-refresh="true"
+										data-toolbar="#toolbar"
+										data-show-columns="true"
+										data-show-export="true"
+										data-pagination-h-align="left"
+										data-click-to-select="true">
+								    <thead>
+								        <tr>
+								        	<th data-field="id" data-checkbox="true"></th>
+								            <th data-field="title" data-align="center">标	题</th>
+								            <th data-field="uploader" data-align="center">发布者</th>
+								            <th data-filed="createTime" data-sortable="true" data-align="center">创建时间</th>
+								            <th data-field="isTop" data-align="center">置顶状态</th>
+								            <th data-field="status" data-align="center">发布状态</th>
+								            <th data-formatter="operateFormatter" data-align="center">操作</th>
+								        </tr>
+								    </thead>
+								</table>
 						    </div>
 						</div>
 					</div>
@@ -472,70 +486,69 @@
 	<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap-select.js"></script>
 	<script src="js/bootstrap-table.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap-table-zh-CN.min.js"></script>
 	<script type="text/javascript" src="js/admin.js"></script>
 	<script type="text/javascript">
 
-		$('#table-1').bootstrapTable({
-		    columns: [{
-		        field: 'id',
-		        checkbox: true,
-		        align: 'center',
-		        title: '产品ID'
-		    }, {
-		        field: 'name',
-		        align: 'center',
-		        title: '产品名称'
-		    }, {
-		        field: 'price',
-		        align: 'center',
-		        title: '管理机构'
-		    }, {
-		        field: 'price',
-		        align: 'center',
-		        title: '基金经理'
-		    }, {
-		        field: 'price',
-		        align: 'center',
-		        title: '募集规模'
-		    }, {
-		        field: 'price',
-		        align: 'center',
-		        title: '起投金额'
-		    }, {
-		        field: 'price',
-		        align: 'center',
-		        title: '成立时间'
-		    }, {
-		        field: 'price',
-		        align: 'center',
-		        title: '累计收益'
-		    },  {
-		        field: 'price',
-		        align: 'center',
-		        title: '最新净值'
-		    }, {
-		        field: 'operate',
-		        align: 'center',
-		        title: '操作',
-		        formatter: operateFormatter
-		    }],
-		    data: [{
-		        id: 1,
-		        name: 'Item 1',
-		        price: '肿瘤诊疗领域龙头企业新三板定增'
-		    }, {
-		        id: 2,
-		        name: 'Item 2',
-		        price: '$2'
-		    }]
-		});
-		function operateFormatter(value, row, index) {
-	        return [
-	            '<a class="editor" href="javascript:void(0)" title="Remove">',
-	            '<i class="glyphicon glyphicon-pencil"></i>',
-	            '</a>'
-	        ].join('');
-	    }
+		(function(window, document){
+
+			var navbarH = $(".navbar").outerHeight(true),
+				windowH = $(window).height(),
+				contentH = windowH - navbarH,
+				breadcrumbH = $(".page-breadcrumb").outerHeight(true),
+				tableH = contentH - breadcrumbH,
+				$table = $("#table");
+
+			$(".page-content").height(contentH);
+
+			// $table.bootstrapTable('resetView', {
+   //              height: 800
+   //          });
+   			$table.data("height", getTableHeight());
+
+   			$(window).resize(function () {
+   				$table.bootstrapTable('resetView', {
+                	height: getTableHeight()
+            	});
+            });
+
+	        function getTableHeight(){
+	        	var navbarH = $(".navbar").outerHeight(true),
+					windowH = $(window).height(),
+					contentH = windowH - navbarH,
+					breadcrumbH = $(".page-breadcrumb").outerHeight(true),
+					tableH = contentH - breadcrumbH - 40;
+				return tableH;
+	        }
+
+         //     setTimeout(function () {
+	        //     $table.bootstrapTable('resetView');
+	        // }, 200);
+
+		    function responseHandler(res) {
+		        $.each(res.rows, function (i, row) {
+		            row.state = $.inArray(row.id, selections) !== -1;
+		        });
+		        return res;
+		    }
+
+		
+			
+		    function operateFormatter(value, row, index) {
+		        return [
+		            '<a class="editor" href="add_pe.html" title="Remove">',
+		            '<i class="glyphicon glyphicon-pencil"></i>',
+		            '</a>'
+		        ].join('');
+		    }
+
+		    window.operateFormatter = operateFormatter;
+		})(this, document);
+
+
+		
+
+
 	</script>
 </body>
 </html>
