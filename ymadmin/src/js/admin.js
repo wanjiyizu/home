@@ -14,6 +14,12 @@
 
 	$(".sidebar-dropdown").on("click", function(){
 		$(this).parent().find(".sidebar-submenu").slideToggle(200);
+		$(this).parent().toggleClass("down");
 		$(this).parent().siblings().find(".sidebar-submenu").slideUp(200);
+	});
+
+	$(".admin-menu").on("click", function(){
+		$(".page-sidebar").addClass("offcanvas-active");
+		$(".page-sidebar .sidebar").wrap("<div class='offcanvas-bar offcanvas-bar-active'></div>");
 	});
 })(this, document);

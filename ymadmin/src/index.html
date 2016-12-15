@@ -6,292 +6,7 @@
 	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/bootstrap-select.css">
 	<link rel="stylesheet" href="css/bootstrap-table.min.css">
-	<link rel="stylesheet" type="text/css" href="css/form.css">
-	<style type="text/css">
-		body{
-			background:#e7e8eb;
-		}
-		img{
-			max-width:100%;
-		}
-		.border-none{
-			border:none;
-		}
-		.sidebar-toggle{
-			font-size:20px;
-		}
-
-		.navbar-brand>img{
-			display: inline-block;
-		}
-		.main{
-			background: #fff;
-			padding:20px;
-		}
-		.form-left{
-			border-right:1px solid #ccc;
-		}
-		iframe{
-			border:none;
-			padding:0;
-			margin:0;
-		}
-		.table-top{
-			margin-bottom:0;
-		}
-		.form-list-group{
-			padding:10px 0;
-			border:none;
-		}
-		.th-group{
-			vertical-align: middle;
-		}
-
-		.th-group input, span{
-			vertical-align: middle;
-		}
-
-		.th-group input{
-			margin-right:5px;
-		}
-		.list-grou-form{
-			margin-top:10px;
-			margin-bottom:0;
-			padding-bottom:10px;
-			border-bottom:1px solid #ccc;
-		}
-		.input-content:focus{
-			border-color: #ccc;
-		    outline: 0;
-		    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-		    box-shadow: inset 0 1px 1px rgba(0,0,0,.075)
-		}
-		.input-content[readonly]{
-			cursor: pointer;
-		}
-		.textarea{
-			width:100%;
-			height:300px;
-			resize: none;
-			outline: none;
-		}
-
-		.main-container{
-			padding:0;
-		}
-		.page-container{
-			position: relative;
-		}
-		.page-sidebar{
-			width:210px;
-			background:#fff;
-			position: absolute;
-			left:10px;
-			padding:20px 0;
-			border-radius:6px;
-		}
-
-		/*.page-sidebar:before{
-			content: "";
-		    position: fixed;
-		    display: block;
-		    width: 210px;
-		    bottom: 0;
-		    top: 0;
-		    left: 0px;
-		    background-color: #fff;
-		    -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,.2);
-		    -moz-box-shadow: 0 0 10px 0 rgba(0,0,0,.2);
-		    box-shadow: 0 0 10px 0 rgba(0,0,0,.2);
-		    z-index: -1;
-		}*/
-		.sidebar-submenu{
-			list-style:none;
-		}
-
-		.sidebar-submenu>li>a:hover, .sidebar-submenu>li>a:focus{
-			text-decoration: none;
-		}
-
-		.sidebar{
-			padding:0;
-			margin:0;
-			list-style:none;
-			/*margin-left:5px;*/
-		}
-
-		.sidebar li{
-			padding:0;
-			margin:0;
-			border:0;
-		}
-
-		/*.sidebar>li:before{
-			display: none;
-		    content: "";
-		    position: absolute;
-		    top: 0;
-		    bottom: 0;
-		    left: -4px;
-		    width: 4px;
-		    max-width: 4px;
-		    overflow: hidden;
-		    background-color: #44b549;
-		}*/
-
-		.sidebar>.active:before{
-			display: block;
-		}
-
-		.sidebar .down .sidebar-submenu{
-			display: block;
-		}
-
-		.sidebar li a{
-			height: 50px;
-		    line-height: 50px;
-		    padding: 0 15px;
-		    font-size: 14px;
-		    color: #222;
-		    display: block;
-
-		}
-
-		/*.sidebar>li>a{
-			color:#8d8d8d;
-		}*/
-
-		.sidebar>li>a{
-			border-top:1px solid #e7e7eb;
-		}
-
-		.sidebar>li:first-child>a{
-			border-top:0;
-		}
-
-		.sidebar .down{
-
-		}
-
-		.sidebar li:not(.active)>a:hover{
-			background-color: #f4f5f9;
-			border-left:3px solid #44b549;
-			margin-left:-3px;
-
-		}
-
-		.sidebar>li>a:focus{
-			background:none;
-		}
-
-		.menu-expand{
-			display: block;
-			height:10px;
-			width:10px;
-			position: absolute;
-		    top: 0;
-		    right: 15px;
-		    bottom: 0;
-		    margin: auto;
-		    font-size:12px;
-		    font-style: normal;
-		    font-weight: normal;
-		}
-
-		.sidebar-submenu{
-			padding: 0;
-			margin:0;
-			display: none;
-			background: #fbfbfb;
-		}
-
-
-
-		/*.sidebar-submenu>li{
-			margin-left:10px;
-		}*/
-
-		.sidebar-submenu>li>a{
-			height:40px;
-			line-height:40px;
-			padding-left:35px;
-		}
-
-		.sidebar-submenu .active{
-			/*background-color: #f4f5f9;
-			border-left:3px solid #44b549;
-			margin-left:-3px;*/
-			/*background: #44b549;*/
-		}
-
-		.sidebar-submenu .active a{
-			color:#fff;
-			background: #44b549;
-    		margin-left: 3px;
-		}
-
-		.menu-icon{
-			margin-right:4px;
-			color:#B2B2B2;
-		}
-
-		.page-content{
-			margin-left:235px;
-		}
-
-		.navbar{
-			background:#fff;
-			border:none;
-		}
-
-		.navbar a{
-			color:#999;
-		}
-
-		.navbar .glyphicon{
-			vertical-align: middle;
-		}
-
-		.navbar .nav-text{
-			vertical-align: middle;
-		}
-
-		.navbar .badge{
-			vertical-align: middle;
-		}
-
-		.page-breadcrumb .breadcrumb{
-			margin-bottom:0;
-		}
-
-		.page-body>.container-fuild>.row{
-			margin:0;
-		}
-
-		.sidebar-toggle{
-			width:255px;
-			font-size: 18px;
-			padding:0 0 0 15px;
-			height:50px;
-			line-height:50px;
-			position: relative;
-		}
-
-		.sidebar-toggle .menu-icon{
-			position: absolute;
-			right:0;
-			display: block;
-			height:50px;
-			line-height: 50px;
-		}
-
-		.sidebar>.active{
-			border-left:3px solid #44b549;
-			margin-left:-3px;
-		}
-
-
-	</style>
+	<link rel="stylesheet" type="text/css" href="css/admin.css">
 </head>
 <body>
 
@@ -302,20 +17,24 @@
 	<nav class="navbar" role="navigation">
 	  <div class="container-fluid">
 	    <div class="navbar-header">
-	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#toolbar-collapse">
+	      <button type="button" class="navbar-toggle collapsed admin-btn-primary" data-toggle="collapse" data-target="#toolbar-collapse">
 	        <span class="sr-only">Toggle navigation</span>
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </button>
 	      <a class="navbar-brand sidebar-toggle" data-toggle="true" href="javascript:void(0)">
-	      	<img src="images/logo.png" height="40" title="优米金融">
-	      	<i class="menu-icon glyphicon glyphicon-align-justify"></i>
+	      	<img src="images/logo.png" height="30" title="优米金融">
 	      </a>
 	    </div>
 
 	    <div class="collapse navbar-collapse" id="toolbar-collapse">
 	      <ul class="nav navbar-nav">
+	      	<li class="hidden-xs">
+	      		<a href="javascript:void(0)">
+	      			<i class="menu-icon glyphicon glyphicon-align-justify"></i>
+	      		</a>
+	      	</li>
 	        <li class="active">
 	        	<a href="#">
 	        		<i class="glyphicon glyphicon-bell"></i>
@@ -331,7 +50,7 @@
 	        	</a>
 	        </li>
 	        <li><a href="#"><span class="nav-text">进度</span></a></li>
-	        <li>
+	        <li class="hidden-xs">
 	        	<a href="javascript:void(0)" id="admin-fullscreen">
 	        		<i class="glyphicon glyphicon-fullscreen"></i>
 	        		<span class="nav-text">开启全屏</span>
@@ -354,123 +73,122 @@
 
 
 	<div class="main-container container-fluid">
-		<div class="page-container">
-			<div class="page-sidebar">
-				<ul class="nav sidebar">
-					<li class="active">
-						<a href="javascript:void(0)">
-							<i class="menu-icon glyphicon glyphicon-home"></i>
-							<span>首页</span>
-						</a>
-					</li>
-					<li>
-						<a class="sidebar-dropdown" href="javascript:void(0)">
-							<i class="menu-icon glyphicon glyphicon-th-large"></i>
-							<span class="menu-text">产品管理</span>
-							<i class="menu-expand glyphicon glyphicon-chevron-right"></i>
-						</a>
-						<ul class="sidebar-submenu" role="menu">
-				            <li><a href="pe_list.html">私募股权</a></li>
-				            <li><a href="simu_list.html">阳光私募</a></li>
-				        </ul>
-					</li>
-					<li>
-						<a href="book_list.html">
-							<i class="menu-icon glyphicon glyphicon-time"></i>
-							<span class="menu-text">预约管理</span>
-						</a>
-					</li>
-					<li>
-						<a href="news_list.html">
-							<i class="menu-icon glyphicon glyphicon-file"></i>
-							<span>新闻管理</span>
-						</a>
-					</li>
-					<li>
-						<a href="user_list.html">
-							<i class="menu-icon glyphicon glyphicon-user"></i>
-							<span>用户管理</span>
-						</a>
-					</li>
-					<li>
-						<a class="sidebar-dropdown" href="javascript:void(0)">
-							<i class="menu-icon glyphicon glyphicon-picture"></i>
-							<span class="menu-text">广告管理</span>
-							<i class="menu-expand glyphicon glyphicon-chevron-right"></i>
-						</a>
-						<ul class="sidebar-submenu" role="menu">
-							<li><a href="">首页</a></li>
-				            <li><a href="#">私募股权</a></li>
-				            <li><a href="#">阳光私募</a></li>
-				            <li><a href="">企业理财</a></li>
-				        </ul>
-					</li>
-					<li>
-						<a href="javascript:void(0)">
-							<i class="menu-icon glyphicon glyphicon-check"></i>
-							<span>签到管理</span>
-						</a>
-					</li>
-					<li>
-						<a href="javascript:void(0)">
-							<i class="menu-icon glyphicon glyphicon-check"></i>
-							<span>模板管理</span>
-						</a>
-					</li>
-					<li><a href="javascript:void(0)">公众号管理</a></li>
-					<li>
-						<a class="sidebar-dropdown" href="javascript:void(0)">
-							<span class="menu-text">管理员管理</span>
-							<i class="menu-expand glyphicon glyphicon-chevron-right"></i>
-						</a>
-						<ul class="sidebar-submenu" role="menu">
-				            <li><a href="#">角色管理</a></li>
-				            <li><a href="#">权限管理</a></li>
-				        </ul>
-					</li>
-				</ul>
-			</div>
-			<div class="page-content">
-				<div class="page-body">
-					<div class="container-fuild">
-						<div class="row">
-							<div class="col-md-12 main">
-								<div class="panel panel-default">
-								  <div class="panel-heading">
-								    <h3 class="panel-title">欢迎使用优米金融管理系统</h3>
-								  </div>
-								  <div class="panel-body">
-								  	<ul class="list-group">
-									  	<li class="list-group-item border-none row">
-									  		<div class="col-md-1">登录IP</div>
-									  		<div class="col-md-1">192.168.1.1</div>
-									  	</li>
-									  	<li class="list-group-item border-none row">
-									  		<div class="col-md-1">注册IP</div>
-									  		<div class="col-md-1">192.168.1.1</div>
-									  	</li>
-									  	<li class="list-group-item border-none row">
-									  		<div class="col-md-1">注册时间</div>
-									  		<div class="col-md-1">192.168.1.1</div>
-									  	</li>
-									  	<li class="list-group-item border-none row">
-									  		<div class="col-md-1">上次登录时间</div>
-									  		<div class="col-md-1">192.168.1.1</div>
-									  	</li>
-									  	<li class="list-group-item border-none row">
-									  		<div class="col-md-1">用户组</div>
-									  		<div class="col-md-1">192.168.1.1</div>
-									  	</li>
-								  	</ul>
-								  </div>
-								</div>
-						    </div>
-						</div>
+		<div class="page-sidebar hidden-x offcanvas">
+			<ul class="sidebar">
+				<li>
+					<a href="javascript:void(0)">
+						<i class="menu-icon iconfont icon-zhuye"></i>
+						首页
+					</a>
+				</li>
+				<li class="down">
+					<a class="sidebar-dropdown" href="javascript:void(0)">
+						<i class="menu-icon glyphicon glyphicon-th-large"></i>
+						<span class="menu-text">产品管理</span>
+						<i class="menu-expand glyphicon glyphicon-chevron-right"></i>
+					</a>
+					<ul class="sidebar-submenu" role="menu">
+			            <li class="active"><a href="pe_list.html">私募股权</a></li>
+			            <li><a href="simu_list.html">阳光私募</a></li>
+			        </ul>
+				</li>
+				<li>
+					<a href="book_list.html">
+						<i class="menu-icon glyphicon glyphicon-time"></i>
+						<span class="menu-text">预约管理</span>
+					</a>
+				</li>
+				<li>
+					<a href="news_list.html">
+						<i class="menu-icon glyphicon glyphicon-file"></i>
+						<span>新闻管理</span>
+					</a>
+				</li>
+				<li>
+					<a href="user_list.html">
+						<i class="menu-icon glyphicon glyphicon-user"></i>
+						<span>用户管理</span>
+					</a>
+				</li>
+				<li>
+					<a class="sidebar-dropdown" href="javascript:void(0)">
+						<i class="menu-icon glyphicon glyphicon-picture"></i>
+						<span class="menu-text">广告管理</span>
+						<i class="menu-expand glyphicon glyphicon-chevron-right"></i>
+					</a>
+					<ul class="sidebar-submenu" role="menu">
+						<li><a href="">首页</a></li>
+			            <li><a href="#">私募股权</a></li>
+			            <li><a href="#">阳光私募</a></li>
+			            <li><a href="">企业理财</a></li>
+			        </ul>
+				</li>
+				<li>
+					<a href="javascript:void(0)">
+						<i class="menu-icon glyphicon glyphicon-check"></i>
+						<span>签到管理</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)">
+						<i class="menu-icon glyphicon glyphicon-check"></i>
+						<span>模板管理</span>
+					</a>
+				</li>
+				<li><a href="javascript:void(0)">公众号管理</a></li>
+				<li>
+					<a class="sidebar-dropdown" href="javascript:void(0)">
+						<span class="menu-text">管理员管理</span>
+						<i class="menu-expand glyphicon glyphicon-chevron-right"></i>
+					</a>
+					<ul class="sidebar-submenu" role="menu">
+			            <li><a href="#">角色管理</a></li>
+			            <li><a href="#">权限管理</a></li>
+			        </ul>
+				</li>
+			</ul>
+		</div>
+		<div class="page-content">
+			<div class="page-body">
+				<div class="container-fuild">
+					<div class="row">
+						<div class="col-md-12 main">
+							<div class="panel panel-default">
+							  <div class="panel-heading">
+							    <h3 class="panel-title">欢迎使用优米金融管理系统</h3>
+							  </div>
+							  <div class="panel-body">
+							  	<ul class="list-group">
+								  	<li class="list-group-item border-none row">
+								  		<div class="col-md-1">登录IP</div>
+								  		<div class="col-md-1">192.168.1.1</div>
+								  	</li>
+								  	<li class="list-group-item border-none row">
+								  		<div class="col-md-1">注册IP</div>
+								  		<div class="col-md-1">192.168.1.1</div>
+								  	</li>
+								  	<li class="list-group-item border-none row">
+								  		<div class="col-md-1">注册时间</div>
+								  		<div class="col-md-1">192.168.1.1</div>
+								  	</li>
+								  	<li class="list-group-item border-none row">
+								  		<div class="col-md-1">上次登录时间</div>
+								  		<div class="col-md-1">192.168.1.1</div>
+								  	</li>
+								  	<li class="list-group-item border-none row">
+								  		<div class="col-md-1">用户组</div>
+								  		<div class="col-md-1">192.168.1.1</div>
+								  	</li>
+							  	</ul>
+							  </div>
+							</div>
+					    </div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	  <div class="modal-dialog">
 	    <div class="modal-content">
@@ -488,70 +206,10 @@
 	    </div>
 	  </div>
 	</div>
+
+	<div class="admin-menu visible-xs-block"></div>
+
 	<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 	<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap-select.js"></script>
-	<script src="js/bootstrap-table.min.js"></script>
 	<script type="text/javascript" src="js/admin.js"></script>
-	<script type="text/javascript">
-
-		$('#table-1').bootstrapTable({
-		    columns: [{
-		        field: 'id',
-		        checkbox: true,
-		        align: 'center',
-		        title: '产品ID'
-		    }, {
-		        field: 'name',
-		        align: 'center',
-		        title: '产品名称'
-		    }, {
-		        field: 'price',
-		        align: 'center',
-		        title: '管理机构'
-		    }, {
-		        field: 'price',
-		        align: 'center',
-		        title: '基金经理'
-		    }, {
-		        field: 'price',
-		        align: 'center',
-		        title: '募集规模'
-		    }, {
-		        field: 'price',
-		        align: 'center',
-		        title: '起投金额'
-		    }, {
-		        field: 'price',
-		        align: 'center',
-		        title: '成立时间'
-		    }, {
-		        field: 'price',
-		        align: 'center',
-		        title: '产品状态'
-		    }, {
-		        field: 'operate',
-		        align: 'center',
-		        title: '操作',
-		        formatter: operateFormatter
-		    }],
-		    data: [{
-		        id: 1,
-		        name: 'Item 1',
-		        price: '肿瘤诊疗领域龙头企业新三板定增'
-		    }, {
-		        id: 2,
-		        name: 'Item 2',
-		        price: '$2'
-		    }]
-		});
-		function operateFormatter(value, row, index) {
-	        return [
-	            '<a class="editor" href="javascript:void(0)" title="Remove">',
-	            '<i class="glyphicon glyphicon-pencil"></i>',
-	            '</a>'
-	        ].join('');
-	    }
-	</script>
-</body>
 </html>
