@@ -33,6 +33,10 @@ img{
     font-family: 'Glyphicons Halflings';
 }
 
+.admin-menu:hover, .admin-menu:focus{
+	background:#F08522;
+}
+
 .admin-menu:before{
 	content:"\e012";
 }
@@ -44,27 +48,33 @@ img{
 	left:0;
 	right:0;
 	bottom:0;
-	background: rgba(0,0,0,.15);
-	z-index: 999;
+	z-index: 1090;
 }
 
 .offcanvas-active{
 	display: block;
+	z-index: 1600;
+	touch-action: pan-y;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .offcanvas-bar{
 	position: fixed;
-	top:0;
-	left:0;
-	z-index:1000;
-	width:210px;
-	max-width: 100%;
-    overflow-y: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1091;
+    width: 270px;
+    padding:20px 0;
+    max-width: 100%;
+    background: #fff;
     -webkit-overflow-scrolling: touch;
     -webkit-transition: -webkit-transform .3s ease-in-out;
-    transition: -webkit-transform .3s ease-in-out;
-    transition: transform .3s ease-in-out;
-    transition: transform .3s ease-in-out,-webkit-transform .3s ease-in-out;
+     transition: -webkit-transform .3s ease-in-out; 
+     transition: transform .3s ease-in-out; 
+     transition: transform .3s ease-in-out,-webkit-transform .3s ease-in-out; 
     -webkit-transform: translateX(-100%);
     -ms-transform: translateX(-100%);
     transform: translateX(-100%);
@@ -75,6 +85,8 @@ img{
     -ms-transform: translateX(0);
     transform: translateX(0);
 }
+
+
 
 .border-none{
 	border:none;
@@ -143,9 +155,33 @@ img{
 
 .page-sidebar{
 	width:210px;
-	background:#fff;
 	float:left;
-	padding:20px 0;
+}
+
+@media only screen and (min-width:768px){
+	.page-sidebar{
+		display: block;
+		position: static;
+	}
+	.offcanvas-bar{
+		position: static;
+    	transform: translate3d(0, 0, 0);
+	}
+}
+
+@media only screen and (max-width:767px){
+	.page-sidebar{
+		width: inherit;
+		padding:0;
+		background: rgba(0,0,0,.15);
+	}
+
+	.offcanvas-bar{
+		// padding:0;
+	}
+	.navbar-nav{
+		margin:7.5px 0;
+	}
 }
 
 .sidebar-submenu{
@@ -215,15 +251,11 @@ img{
 }
 
 .menu-expand{
-	display: block;
-	height:10px;
-	width:10px;
 	position: absolute;
     top: 0;
-    right: 15px;
+    right: 5px;
     bottom: 0;
     margin: auto;
-    font-size:12px;
     font-style: normal;
     font-weight: normal;
     transition:all 0.5s ease;
@@ -273,21 +305,7 @@ img{
    	flex-direction: column; 
 }
 
-@media only screen and (min-width:641px){
-	.page-sidebar{
-		display: block;
-		position: static;
-	}
-}
 
-@media only screen and (max-width:640px){
-	.page-sidebar{
-		display: inherit;
-	}
-	.navbar-nav{
-		margin:7.5px 0;
-	}
-}
 
 
 

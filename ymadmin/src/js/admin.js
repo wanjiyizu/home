@@ -16,10 +16,22 @@
 		$(this).parent().find(".sidebar-submenu").slideToggle(200);
 		$(this).parent().toggleClass("down");
 		$(this).parent().siblings().find(".sidebar-submenu").slideUp(200);
+
 	});
 
 	$(".admin-menu").on("click", function(){
 		$(".page-sidebar").addClass("offcanvas-active");
-		$(".page-sidebar .sidebar").wrap("<div class='offcanvas-bar offcanvas-bar-active'></div>");
+		setTimeout(function(){
+			$(".page-sidebar .offcanvas-bar").addClass("offcanvas-bar-active");
+		},1);
+		
 	});
+
+	$(".offcanvas").on("click", function(){
+		$(".page-sidebar .offcanvas-bar").removeClass("offcanvas-bar-active");
+		setTimeout(function(){
+			$(".page-sidebar").removeClass("offcanvas-active");
+		},200);
+		
+	})
 })(this, document);
