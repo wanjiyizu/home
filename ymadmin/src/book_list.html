@@ -3,280 +3,11 @@
 <head>
 	<meta charset="utf-8">
 	<title>首页</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/bootstrap-select.css">
 	<link rel="stylesheet" href="css/bootstrap-table.min.css">
-	<link rel="stylesheet" type="text/css" href="css/form.css">
-	<style type="text/css">
-		body{
-			background:#e7e8eb;
-		}
-		.main{
-			background: #fff;
-			padding:20px;
-		}
-		.form-left{
-			border-right:1px solid #ccc;
-		}
-		.page-content{
-			background:#fff;
-		}
-		iframe{
-			border:none;
-			padding:0;
-			margin:0;
-		}
-		.table-top{
-			margin-bottom:0;
-		}
-		.form-list-group{
-			padding:10px 0;
-			border:none;
-		}
-		.th-group{
-			vertical-align: middle;
-		}
-
-		.th-group input, span{
-			vertical-align: middle;
-		}
-
-		.th-group input{
-			margin-right:5px;
-		}
-		.list-grou-form{
-			margin-top:10px;
-			margin-bottom:0;
-			padding-bottom:10px;
-			border-bottom:1px solid #ccc;
-		}
-		.input-content:focus{
-			border-color: #ccc;
-		    outline: 0;
-		    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-		    box-shadow: inset 0 1px 1px rgba(0,0,0,.075)
-		}
-		.input-content[readonly]{
-			cursor: pointer;
-		}
-		.textarea{
-			width:100%;
-			height:300px;
-			resize: none;
-			outline: none;
-		}
-
-		.main-container{
-			padding:0;
-		}
-		.page-container{
-			position: relative;
-		}
-		.page-sidebar{
-			width:210px;
-			background:#fff;
-			position: absolute;
-			left:10px;
-			padding:20px 0;
-			border-radius:6px;
-		}
-
-		/*.page-sidebar:before{
-			content: "";
-		    position: fixed;
-		    display: block;
-		    width: 210px;
-		    bottom: 0;
-		    top: 0;
-		    left: 0px;
-		    background-color: #fff;
-		    -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,.2);
-		    -moz-box-shadow: 0 0 10px 0 rgba(0,0,0,.2);
-		    box-shadow: 0 0 10px 0 rgba(0,0,0,.2);
-		    z-index: -1;
-		}*/
-		.sidebar-submenu{
-			list-style:none;
-		}
-
-		.sidebar-submenu>li>a:hover, .sidebar-submenu>li>a:focus{
-			text-decoration: none;
-		}
-
-		.sidebar{
-			padding:0;
-			margin:0;
-			list-style:none;
-			/*margin-left:5px;*/
-		}
-
-		.sidebar li{
-			padding:0;
-			margin:0;
-			border:0;
-		}
-
-		/*.sidebar>li:before{
-			display: none;
-		    content: "";
-		    position: absolute;
-		    top: 0;
-		    bottom: 0;
-		    left: -4px;
-		    width: 4px;
-		    max-width: 4px;
-		    overflow: hidden;
-		    background-color: #44b549;
-		}*/
-
-		.sidebar>.active:before{
-			display: block;
-		}
-
-		.sidebar .down .sidebar-submenu{
-			display: block;
-		}
-
-		.sidebar li a{
-			height: 50px;
-		    line-height: 50px;
-		    padding: 0 15px;
-		    font-size: 14px;
-		    color: #222;
-		    display: block;
-
-		}
-
-		/*.sidebar>li>a{
-			color:#8d8d8d;
-		}*/
-
-		.sidebar>li>a{
-			border-top:1px solid #e7e7eb;
-		}
-
-		.sidebar>li:first-child>a{
-			border-top:0;
-		}
-
-		.sidebar .down{
-
-		}
-
-		.sidebar li:not(.active)>a:hover{
-			background-color: #f4f5f9;
-			border-left:3px solid #44b549;
-			margin-left:-3px;
-
-		}
-
-		.sidebar>li>a:focus{
-			background:none;
-		}
-
-		.menu-expand{
-			display: block;
-			height:10px;
-			width:10px;
-			position: absolute;
-		    top: 0;
-		    right: 15px;
-		    bottom: 0;
-		    margin: auto;
-		    font-size:12px;
-		    font-style: normal;
-		    font-weight: normal;
-		}
-
-		.sidebar-submenu{
-			padding: 0;
-			margin:0;
-			display: none;
-			background: #fbfbfb;
-		}
-
-
-
-		/*.sidebar-submenu>li{
-			margin-left:10px;
-		}*/
-
-		.sidebar-submenu>li>a{
-			height:40px;
-			line-height:40px;
-			padding-left:35px;
-		}
-
-		.sidebar-submenu .active{
-			/*background-color: #f4f5f9;
-			border-left:3px solid #44b549;
-			margin-left:-3px;*/
-			/*background: #44b549;*/
-		}
-
-		.sidebar-submenu .active a{
-			color:#fff;
-			background: #44b549;
-    		margin-left: 3px;
-		}
-
-		.menu-icon{
-			margin-right:4px;
-			color:#B2B2B2;
-		}
-
-		.page-content{
-			margin-left:235px;
-		}
-
-		.navbar{
-			background:#fff;
-			border:none;
-		}
-
-		.navbar a{
-			color:#999;
-		}
-
-		.navbar .glyphicon{
-			vertical-align: middle;
-		}
-
-		.navbar .nav-text{
-			vertical-align: middle;
-		}
-
-		.navbar .badge{
-			vertical-align: middle;
-		}
-
-		.page-breadcrumb .breadcrumb{
-			margin-bottom:0;
-		}
-
-		.page-body>.container-fuild>.row{
-			margin:0;
-		}
-
-		.sidebar-toggle{
-			width:210px;
-			font-size: 18px;
-			padding:0 0 0 15px;
-			height:50px;
-			line-height:50px;
-			position: relative;
-		}
-
-		.sidebar-toggle .menu-icon{
-			position: absolute;
-			right:0;
-			display: block;
-			height:50px;
-			line-height: 50px;
-		}
-
-
-	</style>
+	<link rel="stylesheet" type="text/css" href="css/admin.css">
 </head>
 <body>
 
@@ -287,35 +18,41 @@
 	<nav class="navbar" role="navigation">
 	  <div class="container-fluid">
 	    <div class="navbar-header">
-	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#toolbar-collapse">
+	      <button type="button" class="navbar-toggle collapsed admin-btn-primary" data-toggle="collapse" data-target="#toolbar-collapse">
 	        <span class="sr-only">Toggle navigation</span>
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </button>
-	      <a class="navbar-brand sidebar-toggle" data-toggle="true" href="#"><span>优米金融</span><i class="menu-icon glyphicon glyphicon-align-justify"></i></a>
+	      <a class="navbar-brand sidebar-toggle" data-toggle="true" href="index.html">
+	      	<img src="images/logo.png" height="30" title="优米金融">
+	      	<span class="menu-icon hidden-xs sidebar-closed" data-toggle="true">
+	      		<i class="glyphicon glyphicon-align-justify"></i>
+	      	</span>
+	      	
+	      </a>
 	    </div>
 
 	    <div class="collapse navbar-collapse" id="toolbar-collapse">
-	      <ul class="nav navbar-nav">
+	      <ul class="nav navbar-nav navbar-admin">
 	        <li class="active">
 	        	<a href="#">
-	        		<i class="glyphicon glyphicon-bell"></i>
+	        		<i class="iconfont icon-tixing"></i>
 	        		<span class="nav-text">提醒</span>
 	        		<span class="badge">4</span>
 	        	</a>
 	        </li>
 	        <li>
 	        	<a href="#">
-	        		<i class="glyphicon glyphicon-comment"></i>
+	        		<i class="iconfont icon-iconfontmark"></i>
 	        		<span class="nav-text">消息</span>
 	        		<span class="badge">4</span>
 	        	</a>
 	        </li>
 	        <li><a href="#"><span class="nav-text">进度</span></a></li>
-	        <li>
+	        <li class="hidden-xs">
 	        	<a href="javascript:void(0)" id="admin-fullscreen">
-	        		<i class="glyphicon glyphicon-fullscreen"></i>
+	        		<i class="iconfont icon-quanping"></i>
 	        		<span class="nav-text">开启全屏</span>
 	        	</a>
 	        </li>
@@ -325,8 +62,18 @@
 	          	<span class="caret"></span>
 	          </a>
 	          <ul class="dropdown-menu" role="menu">
-	            <li><a href="#">修改密码</a></li>
-	            <li><a href="#">退出账号</a></li>
+	            <li>
+	            	<a href="#">
+	            		<i class="iconfont icon-xiugaimima"></i>
+	            		修改密码
+	            	</a>
+	            </li>
+	            <li>
+	            	<a href="#">
+	            		<i class="iconfont icon-logout"></i>
+	            		退出账号
+	            	</a>
+	            </li>
 	          </ul>
 	        </li>
 	      </ul>
@@ -336,49 +83,49 @@
 
 
 	<div class="main-container container-fluid">
-		<div class="page-container">
-			<div class="page-sidebar">
-				<ul class="nav sidebar">
-					<li class="active">
+		<div class="page-sidebar offcanvas">
+			<div class="offcanvas-bar">
+				<ul class="sidebar">
+					<li>
 						<a href="index.html">
-							<i class="menu-icon glyphicon glyphicon-home"></i>
-							<span>首页</span>
+							<i class="menu-icon iconfont icon-zhuye"></i>
+							首页
 						</a>
 					</li>
 					<li>
 						<a class="sidebar-dropdown" href="javascript:void(0)">
-							<i class="menu-icon glyphicon glyphicon-th-large"></i>
+							<i class="menu-icon iconfont icon-chanpinguanli"></i>
 							<span class="menu-text">产品管理</span>
-							<i class="menu-expand glyphicon glyphicon-chevron-right"></i>
+							<i class="menu-expand iconfont icon-icon07"></i>
 						</a>
 						<ul class="sidebar-submenu" role="menu">
 				            <li><a href="pe_list.html">私募股权</a></li>
 				            <li><a href="simu_list.html">阳光私募</a></li>
 				        </ul>
 					</li>
-					<li>
-						<a href="javascript:void(0)">
-							<i class="menu-icon glyphicon glyphicon-time"></i>
+					<li class="active">
+						<a href="book_list.html">
+							<i class="menu-icon iconfont icon-yuyue"></i>
 							<span class="menu-text">预约管理</span>
 						</a>
 					</li>
 					<li>
 						<a href="news_list.html">
-							<i class="menu-icon glyphicon glyphicon-file"></i>
+							<i class="menu-icon iconfont icon-xinwenguanli"></i>
 							<span>新闻管理</span>
 						</a>
 					</li>
 					<li>
 						<a href="user_list.html">
-							<i class="menu-icon glyphicon glyphicon-user"></i>
+							<i class="menu-icon iconfont icon-kehuguanli"></i>
 							<span>用户管理</span>
 						</a>
 					</li>
 					<li>
 						<a class="sidebar-dropdown" href="javascript:void(0)">
-							<i class="menu-icon glyphicon glyphicon-picture"></i>
+							<i class="menu-icon iconfont icon-banner"></i>
 							<span class="menu-text">广告管理</span>
-							<i class="menu-expand glyphicon glyphicon-chevron-right"></i>
+							<i class="menu-expand iconfont icon-icon07"></i>
 						</a>
 						<ul class="sidebar-submenu" role="menu">
 							<li><a href="">首页</a></li>
@@ -389,21 +136,27 @@
 					</li>
 					<li>
 						<a href="javascript:void(0)">
-							<i class="menu-icon glyphicon glyphicon-check"></i>
+							<i class="menu-icon iconfont icon-qiandao"></i>
 							<span>签到管理</span>
 						</a>
 					</li>
 					<li>
 						<a href="javascript:void(0)">
-							<i class="menu-icon glyphicon glyphicon-check"></i>
+							<i class="menu-icon iconfont icon-mobanguanli"></i>
 							<span>模板管理</span>
 						</a>
 					</li>
-					<li><a href="javascript:void(0)">公众号管理</a></li>
+					<li>
+						<a href="javascript:void(0)">
+							<i class="menu-icon iconfont icon-icon88"></i>
+							公众号管理
+						</a>
+					</li>
 					<li>
 						<a class="sidebar-dropdown" href="javascript:void(0)">
+							<i class="menu-icon iconfont icon-guanliyuan"></i>
 							<span class="menu-text">管理员管理</span>
-							<i class="menu-expand glyphicon glyphicon-chevron-right"></i>
+							<i class="menu-expand iconfont icon-icon07"></i>
 						</a>
 						<ul class="sidebar-submenu" role="menu">
 				            <li><a href="#">角色管理</a></li>
@@ -412,57 +165,57 @@
 					</li>
 				</ul>
 			</div>
-			<div class="page-content">
-				<div class="page-breadcrumb">
-					<ol class="breadcrumb">
-					  <li><i class="glyphicon glyphicon-home"></i>&nbsp;<a href="#">首页</a></li>
-					  <li class="active">预约列表</li>
-					</ol>
-				</div>
-				<div class="page-body">
-					<div class="container-fuild">
-						<div class="row">
-							<div class="col-md-12 main">
-								<div id="toolbar">
-							  		<a class="btn btn-primary" href="add_pe.html">
-							            <i class="glyphicon glyphicon-plus"></i> 添加
-							        </a>
-							        <button id="remove" class="btn btn-danger" disabled>
-							            <i class="glyphicon glyphicon-remove"></i> Delete
-							        </button>
-							    </div>
-								<table 	id="table"
-									 	data-toggle="table"
-										data-url="js/data/books.json"
-										data-id-field="productId"
-										data-pagination="true"
-										data-search="true"
-										data-halign="500"
-										data-search-on-enter-key="true"
-										data-search-align="left"
-										data-show-refresh="true"
-										data-toolbar="#toolbar"
-										data-show-columns="true"
-										data-show-export="true"
-										data-pagination-h-align="left"
-										data-click-to-select="true">
-								    <thead>
-								        <tr>
-								        	<th data-field="bookId" data-checkbox="true"></th>
-								            <th data-field="userCellphone">客户手机</th>
-								            <th data-field="userNickname" data-align="center">客户姓名</th>
-								            <th data-filed="userId">注册状态</th>
-								            <th data-field="productName" data-align="center">产品名称</th>
-								            <th data-field="amount" data-sortable="true" data-align="center">预约金额</th>
-								            <th data-field="bookDate" data-sortable="true" data-align="center">预约时间</th>
-								            <th data-field="remarks" data-align="center">备注</th>
-								            <th data-field="address" data-align="center">来源地址</th>
-								            <th data-formatter="operateFormatter" data-align="center">操作</th>
-								        </tr>
-								    </thead>
-								</table>
+		</div>
+		<div class="page-content">
+			<div class="page-breadcrumb">
+				<ol class="breadcrumb">
+				  <li><i class="glyphicon glyphicon-home"></i>&nbsp;<a href="index.html">首页</a></li>
+				  <li class="active">预约列表</li>
+				</ol>
+			</div>
+			<div class="page-body">
+				<div class="container-fuild">
+					<div class="row">
+						<div class="col-md-12 main">
+							<div id="toolbar">
+						  		<a class="btn btn-primary" href="add_pe.html">
+						            <i class="glyphicon glyphicon-plus"></i> 添加
+						        </a>
+						        <button id="remove" class="btn btn-danger" disabled>
+						            <i class="glyphicon glyphicon-remove"></i> Delete
+						        </button>
 						    </div>
-						</div>
+							<table 	id="table"
+								 	data-toggle="table"
+									data-url="js/data/books.json"
+									data-id-field="productId"
+									data-pagination="true"
+									data-search="true"
+									data-halign="500"
+									data-search-on-enter-key="true"
+									data-search-align="left"
+									data-show-refresh="true"
+									data-toolbar="#toolbar"
+									data-show-columns="true"
+									data-show-export="true"
+									data-pagination-h-align="left"
+									data-click-to-select="true">
+							    <thead>
+							        <tr>
+							        	<th data-field="bookId" data-checkbox="true"></th>
+							            <th data-field="userCellphone">客户手机</th>
+							            <th data-field="userNickname" data-align="center">客户姓名</th>
+							            <th data-filed="userId">注册状态</th>
+							            <th data-field="productName" data-align="center">产品名称</th>
+							            <th data-field="amount" data-sortable="true" data-align="center">预约金额</th>
+							            <th data-field="bookDate" data-sortable="true" data-align="center">预约时间</th>
+							            <th data-field="remarks" data-align="center">备注</th>
+							            <th data-field="address" data-align="center">来源地址</th>
+							            <th data-formatter="operateFormatter" data-align="center">操作</th>
+							        </tr>
+							    </thead>
+							</table>
+					    </div>
 					</div>
 				</div>
 			</div>
@@ -485,6 +238,9 @@
 	    </div>
 	  </div>
 	</div>
+
+	<div class="admin-menu visible-xs-block" id="admin-menu"></div>
+	
 	<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 	<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap-select.js"></script>

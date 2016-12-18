@@ -116,7 +116,7 @@ gulp.task('usemin', function() {
 
 
 gulp.task('js', function(){
-    return gulp.src(["src/js/**/*.js", "src/js/**/*.json"])
+    return gulp.src(["src/js/**/*.js", "src/js/**/*.json", "src/js/**/*.css", "src/js/**/*.*"])
            .pipe(plumber())
            .pipe(gulp.dest("dist/js"));
 });

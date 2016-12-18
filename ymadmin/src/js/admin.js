@@ -1,4 +1,6 @@
 (function(win, document){
+
+	/*侧边栏展开*/
 	$(".sidebar-closed").on("click", function(){
 		if($(this).data("toggle")){
 			$(this).data("toggle", false);
@@ -45,6 +47,13 @@
 	$(".offcanvas-bar").on("click", function(e){
 		e.stopImmediatePropagation();
 	});
+
+	/*求内容区域宽度*/
+	var navbarH = $(".navbar").outerHeight(true),
+		windowH = $(window).height(),
+		breadcrumbH = $(".page-breadcrumb").outerHeight(true),
+		toolbarH = $(".editor-toobar").outerHeight(true);
+
 
 
 	var startX, startY, $this = $("body"), _left, _top, left, top, active = true;
