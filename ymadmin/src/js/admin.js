@@ -1,7 +1,8 @@
 (function(win, document){
 
 	/*侧边栏展开*/
-	$(".sidebar-closed").on("click", function(){
+	$(".sidebar-closed").on("click", function(e){
+		console.log($(this).data("toggle"));
 		if($(this).data("toggle")){
 			$(this).data("toggle", false);
 			$(".offcanvas-bar").removeClass("open").addClass("closed")
@@ -23,9 +24,19 @@
 	});
 
 	$(".sidebar-dropdown").on("click", function(){
-		$(this).parent().find(".sidebar-submenu").slideToggle(200);
-		$(this).parent().toggleClass("down");
-		$(this).parent().siblings().find(".sidebar-submenu").slideUp(200);
+		if($(this).parent().hasClass("down")){
+			$(this).parent().removeClass("down");
+			$(this).parent().find(".sidebar-submenu").slideUp(400);
+		}else{
+			$(this).parent().addClass("down");
+			$(this).parent().find(".sidebar-submenu").slideDown(400);
+		}
+		//$(this).parent().find(".sidebar-submenu").slideToggle(200);
+		// $(this).parent().toggleClass("down");
+		// $(this).parent().siblings().toggleClass("down");
+		$(this).parent().siblings().removeClass("down");
+		// $(this).parent().siblings().find(".sidebar-submenu").slideUp(200);
+
 
 	});
 

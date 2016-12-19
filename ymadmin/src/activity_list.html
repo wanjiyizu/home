@@ -95,14 +95,14 @@
 							首页
 						</a>
 					</li>
-					<li class="down">
+					<li>
 						<a class="sidebar-dropdown" href="javascript:void(0)">
 							<i class="menu-icon iconfont icon-chanpinguanli"></i>
 							<span class="menu-text">产品管理</span>
 							<i class="menu-expand iconfont icon-icon07"></i>
 						</a>
 						<ul class="sidebar-submenu" role="menu">
-				            <li class="active"><a href="javascript:void(0)">私募股权</a></li>
+				            <li><a href="javascript:void(0)">私募股权</a></li>
 				            <li><a href="simu_list.html">阳光私募</a></li>
 				        </ul>
 					</li>
@@ -137,7 +137,7 @@
 				            <li><a href="">企业理财</a></li>
 				        </ul>
 					</li>
-					<li>
+					<li class="active">
 						<a href="javascript:void(0)">
 							<i class="menu-icon iconfont icon-qiandao"></i>
 							<span>签到管理</span>
@@ -162,8 +162,8 @@
 							<i class="menu-expand iconfont icon-icon07"></i>
 						</a>
 						<ul class="sidebar-submenu" role="menu">
-				            <li><a href="#">角色管理</a></li>
-				            <li><a href="#">权限管理</a></li>
+				            <li><a href="#">用户</a></li>
+				            <li><a href="#">角色</a></li>
 				        </ul>
 					</li>
 				</ul>
@@ -173,7 +173,7 @@
 			<div class="page-breadcrumb">
 				<ol class="breadcrumb">
 				  <li><i class="glyphicon glyphicon-home"></i>&nbsp;<a href="index.html">首页</a></li>
-				  <li class="active">私募股权</li>
+				  <li class="active">签到列表</li>
 				</ol>
 			</div>
 			<div class="page-body">
@@ -181,13 +181,12 @@
 					<div class="row">
 						<div class="col-md-12 main">
 							<div id="toolbar" class=" hidden-xs">
-						  		<a class="btn btn-primary" href="add_pe.html">添加产品</a>
 						        <button id="remove" class="btn btn-danger" disabled>删除</button>
 						    </div>
 							<table 	id="table"
 								 	data-toggle="table"
-									data-url="js/data/products.json"
-									data-id-field="productId"
+									data-url="js/data/activity.json"
+									data-id-field="activityId"
 									data-pagination="true"
 									data-search="true"
 									data-halign="500"
@@ -202,14 +201,15 @@
 							    <thead>
 							        <tr>
 							            <th data-field="state" class="hidden-xs" data-checkbox="true"></th>
-							            <th data-field="productName" data-align="center">产品名称</th>
-							            <th data-field="managerMentOrg" class="hidden-xs" data-align="center">管理机构</th>
-							            <th data-field="fundManager" class="hidden-xs" data-align="center">基金经理</th>
-							            <th data-field="quoca" class="hidden-xs" data-sortable="true" data-align="center">募集额度</th>
-							            <th data-field="investMinAmout" class="hidden-xs" data-sortable="true" data-align="center">起投金额</th>
-							            <th data-field="extablishedDate" class="hidden-xs" data-sortable="true" data-align="center">成立时间</th>
-							            <th data-field="status" class="hidden-xs" data-align="center" data-formatter="statusFormatter">产品状态</th>
-							            <th data-field="areTop" class="hidden-xs" data-align="center" data-formatter="topFormatter">置顶/取消置顶</th>
+							            <th data-field="name" data-align="center">姓名</th>
+							            <th data-field="telephone" class="hidden-xs" data-align="center">电话</th>
+							            <th data-field="unit" class="hidden-xs" data-align="center">公司</th>
+							            <th data-field="post" class="hidden-xs" data-align="center">职位</th>
+							            <th data-field="invitationCode" class="hidden-xs" data-align="center">邀请码</th>
+							            <th data-field="adds" class="hidden-xs">地址</th>
+							            <th data-field="appointmentDate" class="hidden-xs" data-sortable="true" data-align="center">预约时间</th>
+							            <th data-field="approval" class="hidden-xs" data-align="center" data-formatter="statusFormatter">审核状态</th>
+							            <th data-field="remarks" class="hidden-xs" data-align="center">备注</th>
 							            <th data-formatter="operateFormatter" class="hidden-xs" data-align="center">操作</th>
 							        </tr>
 							    </thead>
