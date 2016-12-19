@@ -11,6 +11,17 @@ img{
 	max-width:100%;
 }
 
+/*操作状态颜色*/
+.status-off{
+	color:#a94442;
+	text-decoration: none;
+}
+
+.status-on{
+	color:#3c763d;
+	text-decoration: none;
+}
+
 .admin-menu{
 	width:48px;
 	height:48px;
@@ -326,15 +337,12 @@ img{
    	flex-direction: column; 
 }
 
-
-
-
-
-
 .main{
 	background: #fff;
 	padding:20px;
 }
+
+
 
 .form-left{
 	border-right:1px solid #ccc;
@@ -396,3 +404,23 @@ iframe{
 
 
 @import "add_news.less";
+
+
+/*bootstrap table*/
+.fixed-table-toolbar:after{
+	display: table;
+	content: "";
+	clear: both;
+}
+
+.fixed-table-toolbar .bs-bars, .fixed-table-toolbar .columns, .fixed-table-toolbar .search{
+	margin-top:0;
+}
+
+.fixed-table-toolbar .bs-bars{
+	margin-right:10px;
+}
+
+ .fixed-table-toolbar .search{
+ 	width:400px;
+ }

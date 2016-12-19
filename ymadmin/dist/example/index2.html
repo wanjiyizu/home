@@ -1,0 +1,337 @@
+<!doctype html>
+<html>
+	<head>
+		<!--声明当前页面的编码集-->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<!--当前页面的三要素-->
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="description" content="">
+		<title>系统首页</title>
+		<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/bootstrap-table.min.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+	</head>
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav navbar-left">
+				<li><a href="javascript:void(0);">系统设置</a></li>
+				<li class="dropdown">
+					<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">玩机e族<span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="javascript:void(0);">修改密码</a></li>
+						<li><a href="javascript:void(0);">退出</a></li>
+					</ul>
+				</li>
+			</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-3 col-md-2 sidebar">
+				<!-- <ul class="nav nav-sidebar">
+					<li class="active"><a href="javascript:void(0)">产品管理</a></li>
+					<li><a href="javascript:void(0)">产品管理</a></li>
+					<li><a href="javascript:void(0)">产品管理</a></li>
+					<li><a href="javascript:void(0)">产品管理</a></li>
+					<li><a href="javascript:void(0)">产品管理</a></li>
+				</ul> -->
+				<div class="list-group">
+				  <a href="#" class="list-group-item active">产品管理</a>
+				  <a href="#" class="list-group-item">新闻管理</a>
+				  <a href="#" class="list-group-item">预约管理</a>
+				  <a href="#" class="list-group-item">用户管理</a>
+				  <a href="#" class="list-group-item">广告管理</a>
+				  <a href="#" class="list-group-item">公众号管理</a>
+				  <a href="#" class="list-group-item">权限管理</a>
+				</div>
+			</div>
+			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 page-main">
+				<ol class="breadcrumb">
+				  <li><a href="#">首页</a></li>
+				  <li><a href="#">产品管理</a></li>
+				  <li class="active">私募股权</li>
+				</ol>
+				<ul class="nav nav-tabs" role="tablist">
+				  <li role="presentation" class="active"><a href="#pe" role="tab" data-toggle="tab">私募股权</a></li>
+				  <li role="presentation"><a href="#simu" role="tab" data-toggle="tab">阳光私募</a></li>
+				  <li role="presentation"><a href="#enterprise" role="tab" data-toggle="tab">企业理财</a></li>
+				</ul>
+
+				<!-- Tab panes -->
+				<div class="tab-content">
+				  <div role="tabpanel" class="tab-pane active" id="pe">
+			  		<div class="panel panel-default">
+					  <div class="panel-heading">私募股权产品列表</div>
+					  	<div class="panel-body">
+						  	<div id="toolbar-1">
+						  		<a class="btn btn-primary" href="add_pe.html">
+						            <i class="glyphicon glyphicon-plus"></i> 添加
+						        </a>
+						        <button id="remove" class="btn btn-danger" disabled>
+						            <i class="glyphicon glyphicon-remove"></i> Delete
+						        </button>
+						    </div>
+							<table id="table-1"
+						           data-toolbar="#toolbar-1"
+						           data-search="true"
+						           data-show-refresh="true"
+						           data-show-toggle="true"
+						           data-show-columns="true"
+						           data-minimum-count-columns="2"
+						           data-show-pagination-switch="true"
+						           data-pagination="true"
+						           data-id-field="id"
+						           data-page-list="[10, 25, 50, 100, ALL]"
+						           data-show-footer="false"
+						           data-side-pagination="server"
+						           data-url="/examples/bootstrap_table/data"
+						           data-response-handler="responseHandler">
+						    </table>
+						</div>				  
+					</div>
+				  </div>
+				  <div role="tabpanel" class="tab-pane" id="simu">
+				  	<div class="panel panel-default">
+					  <div class="panel-heading">阳光私募产品列表</div>
+					  	<div class="panel-body">
+						  	<div id="toolbar-2">
+						  		<button class="btn btn-primary">
+						            <i class="glyphicon glyphicon-plus"></i> 添加
+						        </button>
+						        <button id="remove" class="btn btn-danger" disabled>
+						            <i class="glyphicon glyphicon-remove"></i> Delete
+						        </button>
+						    </div>
+							<table id="table-2"
+						           data-toolbar="#toolbar-2"
+						           data-search="true"
+						           data-show-refresh="true"
+						           data-show-toggle="true"
+						           data-show-columns="true"
+						           data-minimum-count-columns="2"
+						           data-show-pagination-switch="true"
+						           data-pagination="true"
+						           data-id-field="id"
+						           data-page-list="[10, 25, 50, 100, ALL]"
+						           data-show-footer="false"
+						           data-side-pagination="server"
+						           data-url="/examples/bootstrap_table/data"
+						           data-response-handler="responseHandler">
+						    </table>
+						</div>					  
+					</div>
+				  </div>
+				  <div role="tabpanel" class="tab-pane" id="enterprise">
+				  	<div class="panel panel-default">
+					  <div class="panel-heading">企业理财产品列表</div>
+					  	<div class="panel-body">
+						  	<div id="toolbar-3">
+						  		<button class="btn btn-primary">
+						            <i class="glyphicon glyphicon-plus"></i> 添加
+						        </button>
+						        <button id="remove" class="btn btn-danger" disabled>
+						            <i class="glyphicon glyphicon-remove"></i> Delete
+						        </button>
+						    </div>
+							<table id="table-3"
+						           data-toolbar="#toolbar-3"
+						           data-search="true"
+						           data-show-refresh="true"
+						           data-show-toggle="true"
+						           data-show-columns="true"
+						           data-minimum-count-columns="2"
+						           data-show-pagination-switch="true"
+						           data-pagination="true"
+						           data-id-field="id"
+						           data-page-list="[10, 25, 50, 100, ALL]"
+						           data-show-footer="false"
+						           data-side-pagination="server"
+						           data-url="/examples/bootstrap_table/data"
+						           data-response-handler="responseHandler">
+						    </table>
+						</div>				  
+					</div>	
+				  </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	<script src="js/bootstrap-table.min.js"></script>
+	<script type="text/javascript">
+
+		$('#table-1').bootstrapTable({
+		    columns: [{
+		        field: 'id',
+		        checkbox: true,
+		        align: 'center',
+		        title: '产品ID'
+		    }, {
+		        field: 'name',
+		        align: 'center',
+		        title: '产品名称'
+		    }, {
+		        field: 'price',
+		        align: 'center',
+		        title: '管理机构'
+		    }, {
+		        field: 'price',
+		        align: 'center',
+		        title: '基金经理'
+		    }, {
+		        field: 'price',
+		        align: 'center',
+		        title: '募集规模'
+		    }, {
+		        field: 'price',
+		        align: 'center',
+		        title: '起投金额'
+		    }, {
+		        field: 'price',
+		        align: 'center',
+		        title: '成立时间'
+		    }, {
+		        field: 'price',
+		        align: 'center',
+		        title: '产品状态'
+		    }, {
+		        field: 'operate',
+		        align: 'center',
+		        title: '操作',
+		        formatter: operateFormatter
+		    }],
+		    data: [{
+		        id: 1,
+		        name: 'Item 1',
+		        price: '肿瘤诊疗领域龙头企业新三板定增'
+		    }, {
+		        id: 2,
+		        name: 'Item 2',
+		        price: '$2'
+		    }]
+		});
+		$('#table-2').bootstrapTable({
+		    columns: [{
+		        field: 'id',
+		        checkbox: true,
+		        align: 'center',
+		        title: '产品ID'
+		    }, {
+		        field: 'name',
+		        align: 'center',
+		        title: '产品名称'
+		    }, {
+		        field: 'price',
+		        align: 'center',
+		        title: '管理机构'
+		    }, {
+		        field: 'price',
+		        align: 'center',
+		        title: '基金经理'
+		    }, {
+		        field: 'price',
+		        align: 'center',
+		        title: '募集规模'
+		    }, {
+		        field: 'price',
+		        align: 'center',
+		        title: '起投金额'
+		    }, {
+		        field: 'price',
+		        align: 'center',
+		        title: '成立时间'
+		    },{
+		        field: 'price',
+		        align: 'center',
+		        title: '累计收益'
+		    }, {
+		        field: 'price',
+		        align: 'center',
+		        title: '最新净值'
+		    },{
+		        field: 'price',
+		        align: 'center',
+		        title: '产品状态'
+		    }, {
+		        field: 'operate',
+		        align: 'center',
+		        title: '操作',
+		        formatter: operateFormatter
+		    }],
+		    data: [{
+		        id: 1,
+		        name: 'Item 1',
+		        price: '$1'
+		    }, {
+		        id: 2,
+		        name: 'Item 2',
+		        price: '$2'
+		    }]
+		});
+
+		$('#table-3').bootstrapTable({
+		    columns: [{
+		        field: 'id',
+		        checkbox: true,
+		        align: 'center',
+		        title: '产品ID'
+		    }, {
+		        field: 'name',
+		        align: 'center',
+		        title: '产品名称'
+		    }, {
+		        field: 'price',
+		        align: 'center',
+		        title: '管理机构'
+		    }, {
+		        field: 'price',
+		        align: 'center',
+		        title: '基金经理'
+		    }, {
+		        field: 'price',
+		        align: 'center',
+		        title: '募集规模'
+		    }, {
+		        field: 'price',
+		        align: 'center',
+		        title: '起投金额'
+		    }, {
+		        field: 'price',
+		        align: 'center',
+		        title: '成立时间'
+		    }, {
+		        field: 'price',
+		        align: 'center',
+		        title: '产品状态'
+		    }, {
+		        field: 'operate',
+		        align: 'center',
+		        title: '操作',
+		        formatter: operateFormatter
+		    }],
+		    data: [{
+		        id: 1,
+		        name: 'Item 1',
+		        price: '$1'
+		    }, {
+		        id: 2,
+		        name: 'Item 2',
+		        price: '$2'
+		    }]
+		});
+
+		function operateFormatter(value, row, index) {
+	        return [
+	            '<a class="editor" href="javascript:void(0)" title="Remove">',
+	            '<i class="glyphicon glyphicon-pencil"></i>',
+	            '</a>'
+	        ].join('');
+	    }
+
+	</script>
+</body>
+</html>

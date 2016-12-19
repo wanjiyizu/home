@@ -1,0 +1,680 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="description" content="">
+		<title>添加私募股权产品</title>
+		<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/bootstrap-select.css">
+		<link rel="stylesheet" type="text/css" href="css/form.css">
+		<style type="text/css">
+			.main{
+				background: #fff;
+				padding:20px;
+			}
+			.form-left{
+				border-right:1px solid #ccc;
+			}
+			iframe{
+				border:none;
+				padding:0;
+				margin:0;
+			}
+			.table-top{
+				margin-bottom:0;
+			}
+			.form-list-group{
+				padding:10px 0;
+				border:none;
+			}
+			.th-group{
+				vertical-align: middle;
+			}
+
+			.th-group input, span{
+				vertical-align: middle;
+			}
+
+			.th-group input{
+				margin-right:5px;
+			}
+			.list-grou-form{
+				margin-top:10px;
+				margin-bottom:0;
+				padding-bottom:10px;
+				border-bottom:1px solid #ccc;
+			}
+			.input-content:focus{
+				border-color: #ccc;
+			    outline: 0;
+			    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+			    box-shadow: inset 0 1px 1px rgba(0,0,0,.075)
+			}
+			.input-content[readonly]{
+				cursor: pointer;
+			}
+			.textarea{
+				width:100%;
+				height:300px;
+				resize: none;
+				outline: none;
+			}
+		</style>
+	</head>
+<body>
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 main">
+				<div class="btn-toolbar">
+					<div class="btn-group">
+						<a href="javascript:void(0)" class="btn btn-default">保存</a>
+						<a href="javascript:void(0)" class="btn btn-default">发布</a>
+					</div>
+				</div>
+				<hr>
+				<div class="form-wrap">
+					<!-- Nav tabs -->
+					<ul class="nav nav-tabs" role="tablist">
+						<li role="presentation" class="active"><a href="#basic-info" role="tab" data-toggle="tab">基本信息</a></li>
+						<li role="presentation"><a href="#pe-channel" role="tab" data-toggle="tab">私募股权页</a></li>
+					  	<li role="presentation"><a href="#pe-list" role="tab" data-toggle="tab">私募列表页</a></li>
+					  	<li role="presentation"><a href="#pe-details" role="tab" data-toggle="tab">私募详情页</a></li>
+					  	<li role="presentation"><a href="#index" role="tab" data-toggle="tab">首页</a></li>
+					</ul>
+
+					<div class="tab-content">
+						<div role="tabpanel" class="tab-pane panel-body active" id="basic-info">
+							<form class="form-horizontal">
+								<div class="form-group">
+								    <label for="inputEmail3" class="col-sm-2 control-label">产品名称</label>
+								    <div class="col-sm-6">
+								      <input type="text" class="form-control" id="inputEmail3" placeholder="Email">
+								    </div>
+								</div>
+								<div class="form-group">
+								    <label for="inputEmail3" class="col-sm-2 control-label">货币类型</label>
+								    <div class="col-sm-6">
+								      <select class="form-control selectpicker">
+								      	<option>人名币</option>
+								      	<option>美元</option>
+								      </select>
+								    </div>
+								</div>
+								<div class="form-group">
+								    <label for="inputEmail3" class="col-sm-2 control-label">参加活动</label>
+								    <div class="col-sm-6">
+								      <select class="form-control selectpicker">
+								      	<option>万里挑一</option>
+								      	<option>双11</option>
+								      </select>
+								    </div>
+								</div>
+								<div class="form-group">
+								    <label for="inputEmail3" class="col-sm-2 control-label">募集金额</label>
+								    <div class="col-sm-6">
+								    	<div class="input-group">
+								    		<input type="number" class="form-control" id="inputEmail3" placeholder="Email">
+								    		<span class="input-group-addon">万</span>
+								    	</div>
+								    </div>
+								</div>
+								<div class="form-group">
+								    <label for="inputEmail3" class="col-sm-2 control-label">起投金额</label>
+								    <div class="col-sm-6">
+								    	<div class="input-group">
+								    		<input type="number" class="form-control" id="inputEmail3" placeholder="Email">
+								    		<span class="input-group-addon">万</span>	
+								    	</div>
+								    </div>
+								</div>
+								<div class="form-group">
+								    <label for="inputEmail3" class="col-sm-2 control-label">存续时间</label>
+								    <div class="col-sm-6">
+								    	<div class="input-group">
+								    		<input type="number" class="form-control" id="inputEmail3" placeholder="Email">
+								    		<span class="input-group-addon">月</span>	
+								    	</div>
+								    </div>
+								</div>
+								<div class="form-group">
+								    <label for="inputEmail3" class="col-sm-2 control-label">管理机构</label>
+								    <div class="col-sm-6">
+								      <input type="text" class="form-control" id="inputEmail3" placeholder="Email">
+								    </div>
+								</div>
+								<div class="form-group">
+								    <label for="inputEmail3" class="col-sm-2 control-label">管理费率</label>
+								    <div class="col-sm-6">
+								    	<div class="input-group">
+								    		<input type="number" class="form-control" id="inputEmail3" placeholder="Email">
+								    		<span class="input-group-addon">%</span>	
+								    	</div>
+								    </div>
+								</div>
+								<div class="form-group">
+								    <label for="inputEmail3" class="col-sm-2 control-label">分类级别</label>
+								    <div class="col-sm-6">
+								      	<select class="form-control selectpicker" name="productClass" id="productClass">
+											<option value="1">A</option>
+											<option value="2">B</option>
+											<option value="4">结构化</option>
+											<option value="3">其他</option>
+										</select>
+								    </div>
+								</div>
+								<div class="form-group">
+								    <label for="inputEmail3" class="col-sm-2 control-label">产品状态</label>
+								    <div class="col-sm-6">
+								      	<select class="form-control selectpicker" name="status" id="status">
+											<option value="0">未发布</option>
+											<option value="1">预约中</option>
+											<option value="2">运行中</option>
+										</select>
+								    </div>
+								</div>
+								<div class="form-group">
+								    <label for="inputEmail3" class="col-sm-2 control-label">认购费率</label>
+								    <div class="col-sm-6">
+								    	<div class="input-group">
+								    		<input type="number" class="form-control" id="inputEmail3" placeholder="Email">
+								    		<span class="input-group-addon">%</span>	
+								    	</div>
+								    </div>
+								</div>
+								<div class="form-group">
+								    <label for="inputEmail3" class="col-sm-2 control-label">基金全称</label>
+								    <div class="col-sm-6">
+								      <input type="text" class="form-control" id="inputEmail3" placeholder="Email">
+								    </div>
+								</div>
+								<div class="form-group">
+								    <label for="inputEmail3" class="col-sm-2 control-label">托管平台</label>
+								    <div class="col-sm-6">
+								      <input type="text" class="form-control" id="inputEmail3" placeholder="Email">
+								    </div>
+								</div>
+								<div class="form-group">
+								    <label for="inputEmail3" class="col-sm-2 control-label">基金策略</label>
+								    <div class="col-sm-6">
+								      <input type="text" class="form-control" id="inputEmail3" placeholder="Email">
+								    </div>
+								</div>
+								<div class="form-group">
+								    <label for="inputEmail3" class="col-sm-2 control-label">追加金额</label>
+								    <div class="col-sm-6">
+								    	<div class="input-group">
+								    		<input type="number" class="form-control" id="inputEmail3" placeholder="Email">
+								    		<span class="input-group-addon">万</span>	
+								    	</div>
+								    </div>
+								</div>
+								<div class="form-group">
+								    <label for="inputEmail3" class="col-sm-2 control-label">基金类型</label>
+								    <div class="col-sm-6">
+								      <input type="text" class="form-control" id="inputEmail3" placeholder="Email">
+								    </div>
+								</div>
+								<div class="form-group">
+								    <label for="inputEmail3" class="col-sm-2 control-label">成立时间</label>
+								    <div class="col-sm-6">
+								      <input type="date" class="form-control" id="inputEmail3" placeholder="Email">
+								    </div>
+								</div>
+								<div class="form-group">
+								    <label for="inputEmail3" class="col-sm-2 control-label">最大收益率</label>
+								    <div class="col-sm-6">
+								    	<div class="input-group">
+								    		<input type="number" class="form-control" id="inputEmail3" placeholder="Email">
+								    		<span class="input-group-addon">%</span>	
+								    	</div>
+								    </div>
+								</div>
+								<div class="form-group">
+								    <label for="inputEmail3" class="col-sm-2 control-label">最小收益率</label>
+								    <div class="col-sm-6">
+								    	<div class="input-group">
+								    		<input type="number" class="form-control" id="inputEmail3" placeholder="Email">
+								    		<span class="input-group-addon">%</span>	
+								    	</div>
+								    </div>
+								</div>
+								<div class="form-group">
+								    <label for="inputEmail3" class="col-sm-2 control-label">基金经理</label>
+								    <div class="col-sm-6">
+								      <input type="text" class="form-control" id="inputEmail3" placeholder="Email">
+								    </div>
+								</div>
+							</form>
+					  	</div>
+					  	<div role="tabpanel" class="tab-pane panel-body" id="pe-channel">
+					  		<div class="row">
+					  			<div class="col-md-5 form-left">
+					  				<div class="btn-group">
+					  					<a class="btn btn-default">添加字段</a>
+					  					<a class="btn btn-default">全选</a>
+					  					<a class="btn btn-default">删除字段</a>
+					  					<a class="btn btn-default">预览</a>
+					  				</div>
+					  				<table class="table table-top">
+					  					<thead>
+					  						<tr>
+					  							<th>字段名</th>
+					  							<th>字段值</th>
+					  						</tr>
+					  					</thead>
+					  				</table>
+					  				<ul class="list-group">
+									  	<li class="list-group-item form-group form-list-group">
+									  		<div class="input-group">
+									  			<span class="input-group-addon">
+									  				<input type="checkbox" name="">
+										  		</span>
+										  		<input type="text" class="form-control" name="">
+										  		<span class="input-group-addon">:</span>
+										  		<input type="text" class="form-control input-content" name="" readonly="">
+										  		<span class="input-group-addon input-move">
+										  			<i class="glyphicon glyphicon-move"></i>
+										  		</span>
+									  		</div>
+									  	</li>
+									  	<li class="list-group-item form-group form-list-group">
+									  		<div class="input-group">
+									  			<span class="input-group-addon">
+									  				<input type="checkbox" name="">
+										  		</span>
+										  		<input type="text" class="form-control" name="">
+										  		<span class="input-group-addon">:</span>
+										  		<input type="text" class="form-control" name="">
+										  		<span class="input-group-addon input-move">
+										  			<i class="glyphicon glyphicon-move"></i>
+										  		</span>
+									  		</div>
+									  	</li>
+									  	<li class="list-group-item form-group form-list-group">
+									  		<div class="input-group">
+									  			<span class="input-group-addon">
+									  				<input type="checkbox" name="">
+										  		</span>
+										  		<input type="text" class="form-control" name="">
+										  		<span class="input-group-addon">:</span>
+										  		<input type="text" class="form-control" name="">
+										  		<span class="input-group-addon input-move">
+										  			<i class="glyphicon glyphicon-move"></i>
+										  		</span>
+									  		</div>
+									  	</li>
+									  	<li class="list-group-item form-group form-list-group">
+									  		<div class="input-group">
+									  			<span class="input-group-addon">
+									  				<input type="checkbox" name="">
+										  		</span>
+										  		<input type="text" class="form-control" name="">
+										  		<span class="input-group-addon">:</span>
+										  		<input type="text" class="form-control" name="">
+										  		<span class="input-group-addon input-move">
+										  			<i class="glyphicon glyphicon-move"></i>
+										  		</span>
+									  		</div>
+									  	</li>
+									  	<li class="list-group-item form-group form-list-group">
+									  		<div class="input-group">
+									  			<span class="input-group-addon">
+									  				<input type="checkbox" name="">
+										  		</span>
+										  		<input type="text" class="form-control" name="">
+										  		<span class="input-group-addon">:</span>
+										  		<input type="text" class="form-control" name="">
+										  		<span class="input-group-addon input-move">
+										  			<i class="glyphicon glyphicon-move"></i>
+										  		</span>
+									  		</div>
+									  	</li>
+									</ul>
+					  			</div>
+					  			<div class="col-md-7">
+					  				<iframe src="about:blank" width="100%" frameborder="0" height="450px" scrolling="auto"></iframe>
+					  			</div>
+					  		</div>
+					  	</div>
+					  	<div role="tabpanel" class="tab-pane panel-body" id="pe-list">
+					  		<div class="row">
+					  			<div class="col-md-5 form-left">
+					  				<div class="btn-group">
+					  					<a class="btn btn-default">添加字段</a>
+					  					<a class="btn btn-default">全选</a>
+					  					<a class="btn btn-default">删除字段</a>
+					  					<a class="btn btn-default">预览</a>
+					  					<select class="btn-select selectpicker">
+					  						<option>默认模板</option>
+					  						<option>1号模板</option>
+					  					</select>
+					  				</div>
+					  				<table class="table table-top">
+					  					<thead>
+					  						<tr>
+					  							<th>字段名</th>
+					  							<th>字段值</th>
+					  						</tr>
+					  					</thead>
+					  				</table>
+					  				<ul class="list-group">
+									  	<li class="list-group-item form-group form-list-group">
+									  		<div class="input-group">
+									  			<span class="input-group-addon">
+									  				<input type="checkbox" name="">
+										  		</span>
+										  		<input type="text" class="form-control" name="">
+										  		<span class="input-group-addon">:</span>
+										  		<input type="text" class="form-control" name="">
+										  		<span class="input-group-addon input-move">
+										  			<i class="glyphicon glyphicon-move"></i>
+										  		</span>
+									  		</div>
+									  	</li>
+									  	<li class="list-group-item form-group form-list-group">
+									  		<div class="input-group">
+									  			<span class="input-group-addon">
+									  				<input type="checkbox" name="">
+										  		</span>
+										  		<input type="text" class="form-control" name="">
+										  		<span class="input-group-addon">:</span>
+										  		<input type="text" class="form-control" name="">
+										  		<span class="input-group-addon input-move">
+										  			<i class="glyphicon glyphicon-move"></i>
+										  		</span>
+									  		</div>
+									  	</li>
+									  	<li class="list-group-item form-group form-list-group">
+									  		<div class="input-group">
+									  			<span class="input-group-addon">
+									  				<input type="checkbox" name="">
+										  		</span>
+										  		<input type="text" class="form-control" name="">
+										  		<span class="input-group-addon">:</span>
+										  		<input type="text" class="form-control" name="">
+										  		<span class="input-group-addon input-move">
+										  			<i class="glyphicon glyphicon-move"></i>
+										  		</span>
+									  		</div>
+									  	</li>
+									  	<li class="list-group-item form-group form-list-group">
+									  		<div class="input-group">
+									  			<span class="input-group-addon">
+									  				<input type="checkbox" name="">
+										  		</span>
+										  		<input type="text" class="form-control" name="">
+										  		<span class="input-group-addon">:</span>
+										  		<input type="text" class="form-control" name="">
+										  		<span class="input-group-addon input-move">
+										  			<i class="glyphicon glyphicon-move"></i>
+										  		</span>
+									  		</div>
+									  	</li>
+									</ul>
+					  			</div>
+					  			<div class="col-md-7">
+					  				<iframe src="about:blank" width="100%" frameborder="0" height="450px" scrolling="auto"></iframe>
+					  			</div>
+					  		</div>
+					  	</div>
+					  	<div role="tabpanel" class="tab-pane panel-body" id="pe-details">
+					  		<div class="row">
+					  			<div class="col-md-5 form-left">
+					  				<div class="btn-group">
+					  					<a class="btn btn-default">添加字段</a>
+					  					<a class="btn btn-default">全选</a>
+					  					<a class="btn btn-default">删除字段</a>
+					  					<a class="btn btn-default">预览</a>
+					  					<select class="btn-select selectpicker">
+					  						<option>默认模板</option>
+					  						<option>1号模板</option>
+					  					</select>
+					  				</div>
+					  				<table class="table table-top">
+					  					<thead>
+					  						<tr>
+					  							<th>字段名</th>
+					  							<th>字段值</th>
+					  						</tr>
+					  					</thead>
+					  				</table>
+					  				<ul class="list-group">
+									  	<li class="list-group-item form-group form-list-group">
+									  		<div class="input-group">
+									  			<span class="input-group-addon">
+									  				<input type="checkbox" name="">
+										  		</span>
+										  		<input type="text" class="form-control" name="">
+										  		<span class="input-group-addon">:</span>
+										  		<input type="text" class="form-control" name="">
+										  		<span class="input-group-addon input-move">
+										  			<i class="glyphicon glyphicon-move"></i>
+										  		</span>
+									  		</div>
+									  	</li>
+									  	<li class="list-group-item form-group form-list-group">
+									  		<div class="input-group">
+									  			<span class="input-group-addon">
+									  				<input type="checkbox" name="">
+										  		</span>
+										  		<input type="text" class="form-control" name="">
+										  		<span class="input-group-addon">:</span>
+										  		<input type="text" class="form-control" name="">
+										  		<span class="input-group-addon input-move">
+										  			<i class="glyphicon glyphicon-move"></i>
+										  		</span>
+									  		</div>
+									  	</li>
+									  	<li class="list-group-item form-group form-list-group">
+									  		<div class="input-group">
+									  			<span class="input-group-addon">
+									  				<input type="checkbox" name="">
+										  		</span>
+										  		<input type="text" class="form-control" name="">
+										  		<span class="input-group-addon">:</span>
+										  		<input type="text" class="form-control" name="">
+										  		<span class="input-group-addon input-move">
+										  			<i class="glyphicon glyphicon-move"></i>
+										  		</span>
+									  		</div>
+									  	</li>
+									  	<li class="list-group-item form-group form-list-group">
+									  		<div class="input-group">
+									  			<span class="input-group-addon">
+									  				<input type="checkbox" name="">
+										  		</span>
+										  		<input type="text" class="form-control" name="">
+										  		<span class="input-group-addon">:</span>
+										  		<input type="text" class="form-control" name="">
+										  		<span class="input-group-addon input-move">
+										  			<i class="glyphicon glyphicon-move"></i>
+										  		</span>
+									  		</div>
+									  	</li>
+									  	<li class="list-group-item form-group form-list-group">
+									  		<div class="input-group">
+									  			<span class="input-group-addon">
+									  				<input type="checkbox" name="">
+										  		</span>
+										  		<input type="text" class="form-control" name="">
+										  		<span class="input-group-addon">:</span>
+										  		<input type="text" class="form-control" name="">
+										  		<span class="input-group-addon input-move">
+										  			<i class="glyphicon glyphicon-move"></i>
+										  		</span>
+									  		</div>
+									  	</li>
+									  	<li class="list-group-item form-group form-list-group">
+									  		<div class="input-group">
+									  			<span class="input-group-addon">
+									  				<input type="checkbox" name="">
+										  		</span>
+										  		<input type="text" class="form-control" name="">
+										  		<span class="input-group-addon">:</span>
+										  		<input type="text" class="form-control" name="">
+										  		<span class="input-group-addon input-move">
+										  			<i class="glyphicon glyphicon-move"></i>
+										  		</span>
+									  		</div>
+									  	</li>
+									  	<li class="list-group-item form-group form-list-group">
+									  		<div class="input-group">
+									  			<span class="input-group-addon">
+									  				<input type="checkbox" name="">
+										  		</span>
+										  		<input type="text" class="form-control" name="">
+										  		<span class="input-group-addon">:</span>
+										  		<input type="text" class="form-control" name="">
+										  		<span class="input-group-addon input-move">
+										  			<i class="glyphicon glyphicon-move"></i>
+										  		</span>
+									  		</div>
+									  	</li>
+									  	<li class="list-group-item form-group form-list-group">
+									  		<div class="input-group">
+									  			<span class="input-group-addon">
+									  				<input type="checkbox" name="">
+										  		</span>
+										  		<input type="text" class="form-control" name="">
+										  		<span class="input-group-addon">:</span>
+										  		<input type="text" class="form-control" name="">
+										  		<span class="input-group-addon input-move">
+										  			<i class="glyphicon glyphicon-move"></i>
+										  		</span>
+									  		</div>
+									  	</li>
+									  	<li class="list-group-item form-group form-list-group">
+									  		<div class="input-group">
+									  			<span class="input-group-addon">
+									  				<input type="checkbox" name="">
+										  		</span>
+										  		<input type="text" class="form-control" name="">
+										  		<span class="input-group-addon">:</span>
+										  		<input type="text" class="form-control" name="">
+										  		<span class="input-group-addon input-move">
+										  			<i class="glyphicon glyphicon-move"></i>
+										  		</span>
+									  		</div>
+									  	</li>
+									</ul>
+					  			</div>
+					  			<div class="col-md-7">
+					  				<iframe src="about:blank" width="100%" frameborder="0" height="450px" scrolling="auto"></iframe>
+					  			</div>
+					  		</div>
+					  	</div>
+					  	<div role="tabpanel" class="tab-pane panel-body" id="index">
+					  		<div class="row">
+					  			<div class="col-md-5 form-left">
+					  				<div class="btn-group">
+					  					<a class="btn btn-default">添加字段</a>
+					  					<a class="btn btn-default">全选</a>
+					  					<a class="btn btn-default">删除字段</a>
+					  					<a class="btn btn-default">预览</a>
+					  					<select class="btn-select selectpicker">
+					  						<option>默认模板</option>
+					  						<option>1号模板</option>
+					  					</select>
+					  				</div>
+					  				<table class="table table-top">
+					  					<thead>
+					  						<tr>
+					  							<th>字段名</th>
+					  							<th>字段值</th>
+					  						</tr>
+					  					</thead>
+					  				</table>
+					  				<ul class="list-group">
+									  	<li class="list-group-item form-group form-list-group">
+									  		<div class="input-group">
+									  			<span class="input-group-addon">
+									  				<input type="checkbox" name="">
+										  		</span>
+										  		<input type="text" class="form-control" name="">
+										  		<span class="input-group-addon">:</span>
+										  		<input type="text" class="form-control input-content" name="" readonly="" data-toggle="modal" data-target="#myModal">
+										  		<span class="input-group-addon input-move">
+										  			<i class="glyphicon glyphicon-move"></i>
+										  		</span>
+									  		</div>
+									  	</li>
+									  	<li class="list-group-item form-group form-list-group">
+									  		<div class="input-group">
+									  			<span class="input-group-addon">
+									  				<input type="checkbox" name="">
+										  		</span>
+										  		<input type="text" class="form-control" name="">
+										  		<span class="input-group-addon">:</span>
+										  		<input type="text" class="form-control input-content" name="" readonly="" data-toggle="modal" data-target="#myModal">
+										  		<span class="input-group-addon input-move">
+										  			<i class="glyphicon glyphicon-move"></i>
+										  		</span>
+									  		</div>
+									  	</li>
+									  	<li class="list-group-item form-group form-list-group">
+									  		<div class="input-group">
+									  			<span class="input-group-addon">
+									  				<input type="checkbox" name="">
+										  		</span>
+										  		<input type="text" class="form-control" name="">
+										  		<span class="input-group-addon">:</span>
+										  		<input type="text" class="form-control input-content" name="" readonly="" data-toggle="modal" data-target="#myModal">
+										  		<span class="input-group-addon input-move">
+										  			<i class="glyphicon glyphicon-move"></i>
+										  		</span>
+									  		</div>
+									  	</li>
+									  	<li class="list-group-item form-group form-list-group">
+									  		<div class="input-group">
+									  			<span class="input-group-addon">
+									  				<input type="checkbox" name="">
+										  		</span>
+										  		<input type="text" class="form-control" name="">
+										  		<span class="input-group-addon">:</span>
+										  		<input type="text" class="form-control input-content" name="" readonly="" data-toggle="modal" data-target="#myModal">
+										  		<span class="input-group-addon input-move">
+										  			<i class="glyphicon glyphicon-move"></i>
+										  		</span>
+									  		</div>
+									  	</li>
+									</ul>
+					  			</div>
+					  			<div class="col-md-7">
+					  				<iframe src="about:blank" width="100%" frameborder="0" height="450px" scrolling="auto"></iframe>
+					  			</div>
+					  		</div>
+					  	</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	        <h4 class="modal-title" id="myModalLabel">填写内容</h4>
+	      </div>
+	      <div class="modal-body">
+	      	<textarea class="textarea" spellcheck="false"></textarea>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+	        <button type="button" class="btn btn-primary">确定</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap-select.js"></script>
+	<script type="text/javascript" src="js/Sortable.min.js"></script>
+	<script type="text/javascript">
+    	$('.selectpicker').selectpicker();
+	</script>
+</body>
+</html>
