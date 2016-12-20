@@ -181,8 +181,8 @@
 						<div class="col-md-12 main">
 							<div class="btn-toolbar">
 								<div class="btn-group">
-									<a href="javascript:void(0)" class="btn btn-default">保存</a>
-									<a href="javascript:void(0)" class="btn btn-default">发布</a>
+									<a href="javascript:void(0)" class="btn btn-default" id="save">保存</a>
+									<a href="javascript:void(0)" class="btn btn-default" id="release">发布</a>
 								</div>
 							</div>
 							<hr>
@@ -199,75 +199,75 @@
 									<div role="tabpanel" class="tab-pane panel-body active" id="basic-info">
 										<form class="form-horizontal">
 											<div class="form-group">
-											    <label for="inputEmail3" class="col-sm-2 control-label">产品名称</label>
+											    <label for="productName" class="col-sm-2 control-label">产品名称</label>
 											    <div class="col-sm-6">
-											      <input type="text" class="form-control" id="inputEmail3" placeholder="Email">
+											      <input type="text" class="form-control" id="productName" placeholder="请输入产品的名称">
 											    </div>
 											</div>
 											<div class="form-group">
-											    <label for="inputEmail3" class="col-sm-2 control-label">货币类型</label>
+											    <label for="amountType" class="col-sm-2 control-label">货币类型</label>
 											    <div class="col-sm-6">
-											      <select class="form-control selectpicker">
+											      <select class="form-control selectpicker" id="amountType">
 											      	<option>人名币</option>
 											      	<option>美元</option>
 											      </select>
 											    </div>
 											</div>
 											<div class="form-group">
-											    <label for="inputEmail3" class="col-sm-2 control-label">参加活动</label>
+											    <label for="isSelected" class="col-sm-2 control-label">参加活动</label>
 											    <div class="col-sm-6">
-											      <select class="form-control selectpicker">
+											      <select class="form-control selectpicker" id="isSelected">
 											      	<option>万里挑一</option>
 											      	<option>双11</option>
 											      </select>
 											    </div>
 											</div>
 											<div class="form-group">
-											    <label for="inputEmail3" class="col-sm-2 control-label">募集金额</label>
+											    <label for="quoca" class="col-sm-2 control-label">募集金额</label>
 											    <div class="col-sm-6">
 											    	<div class="input-group">
-											    		<input type="number" class="form-control" id="inputEmail3" placeholder="Email">
+											    		<input type="number" class="form-control" id="quoca" placeholder="请输入募集的金额">
 											    		<span class="input-group-addon">万</span>
 											    	</div>
 											    </div>
 											</div>
 											<div class="form-group">
-											    <label for="inputEmail3" class="col-sm-2 control-label">起投金额</label>
+											    <label for="investMinAmout" class="col-sm-2 control-label">起投金额</label>
 											    <div class="col-sm-6">
 											    	<div class="input-group">
-											    		<input type="number" class="form-control" id="inputEmail3" placeholder="Email">
+											    		<input type="number" class="form-control" id="investMinAmout" placeholder="请输入起投金额">
 											    		<span class="input-group-addon">万</span>	
 											    	</div>
 											    </div>
 											</div>
 											<div class="form-group">
-											    <label for="inputEmail3" class="col-sm-2 control-label">存续时间</label>
+											    <label for="lockPeriod" class="col-sm-2 control-label">存续时间</label>
 											    <div class="col-sm-6">
 											    	<div class="input-group">
-											    		<input type="number" class="form-control" id="inputEmail3" placeholder="Email">
+											    		<input type="number" class="form-control" id="lockPeriod" placeholder="请输入存续的时间">
 											    		<span class="input-group-addon">月</span>	
 											    	</div>
 											    </div>
 											</div>
 											<div class="form-group">
-											    <label for="inputEmail3" class="col-sm-2 control-label">管理机构</label>
+											    <label for="managerMentOrg" class="col-sm-2 control-label">管理机构</label>
 											    <div class="col-sm-6">
-											      <input type="text" class="form-control" id="inputEmail3" placeholder="Email">
+											      <input type="text" class="form-control" id="managerMentOrg" placeholder="请输入管理机构">
 											    </div>
 											</div>
 											<div class="form-group">
-											    <label for="inputEmail3" class="col-sm-2 control-label">管理费率</label>
+											    <label for="managementFeeRate" class="col-sm-2 control-label">管理费率</label>
 											    <div class="col-sm-6">
 											    	<div class="input-group">
-											    		<input type="number" class="form-control" id="inputEmail3" placeholder="Email">
+											    		<input type="number" class="form-control" id="managementFeeRate" placeholder="请输入管理费率">
 											    		<span class="input-group-addon">%</span>	
 											    	</div>
 											    </div>
 											</div>
 											<div class="form-group">
-											    <label for="inputEmail3" class="col-sm-2 control-label">分类级别</label>
+											    <label for="productClass" class="col-sm-2 control-label">分类级别</label>
 											    <div class="col-sm-6">
-											      	<select class="form-control selectpicker" name="productClass" id="productClass">
+											      	<select class="form-control selectpicker" id="productClass">
 														<option value="1">A</option>
 														<option value="2">B</option>
 														<option value="4">结构化</option>
@@ -276,7 +276,7 @@
 											    </div>
 											</div>
 											<div class="form-group">
-											    <label for="inputEmail3" class="col-sm-2 control-label">产品状态</label>
+											    <label for="status" class="col-sm-2 control-label">产品状态</label>
 											    <div class="col-sm-6">
 											      	<select class="form-control selectpicker" name="status" id="status">
 														<option value="0">未发布</option>
@@ -286,87 +286,88 @@
 											    </div>
 											</div>
 											<div class="form-group">
-											    <label for="inputEmail3" class="col-sm-2 control-label">认购费率</label>
+											    <label for="purchaseFeeRate" class="col-sm-2 control-label">认购费率</label>
 											    <div class="col-sm-6">
 											    	<div class="input-group">
-											    		<input type="number" class="form-control" id="inputEmail3" placeholder="Email">
+											    		<input type="number" class="form-control" id="purchaseFeeRate" placeholder="请输入认购的费率">
 											    		<span class="input-group-addon">%</span>	
 											    	</div>
 											    </div>
 											</div>
 											<div class="form-group">
-											    <label for="inputEmail3" class="col-sm-2 control-label">基金全称</label>
+											    <label for="productWholeName" class="col-sm-2 control-label">基金全称</label>
 											    <div class="col-sm-6">
-											      <input type="text" class="form-control" id="inputEmail3" placeholder="Email">
+											      <input type="text" class="form-control" id="productWholeName" placeholder="请输入基金全称">
 											    </div>
 											</div>
 											<div class="form-group">
-											    <label for="inputEmail3" class="col-sm-2 control-label">托管平台</label>
+											    <label for="trustOrg" class="col-sm-2 control-label">托管平台</label>
 											    <div class="col-sm-6">
-											      <input type="text" class="form-control" id="inputEmail3" placeholder="Email">
+											      <input type="text" class="form-control" id="trustOrg" placeholder="请输入托管平台">
 											    </div>
 											</div>
 											<div class="form-group">
-											    <label for="inputEmail3" class="col-sm-2 control-label">基金策略</label>
+											    <label for="investStrategy" class="col-sm-2 control-label">基金策略</label>
 											    <div class="col-sm-6">
-											      <input type="text" class="form-control" id="inputEmail3" placeholder="Email">
+											      <input type="text" class="form-control" id="investStrategy" placeholder="请输入基金策略">
 											    </div>
 											</div>
 											<div class="form-group">
-											    <label for="inputEmail3" class="col-sm-2 control-label">追加金额</label>
+											    <label for="investUnit" class="col-sm-2 control-label">追加金额</label>
 											    <div class="col-sm-6">
 											    	<div class="input-group">
-											    		<input type="number" class="form-control" id="inputEmail3" placeholder="Email">
+											    		<input type="number" class="form-control" id="investUnit" placeholder="请输入追加金额">
 											    		<span class="input-group-addon">万</span>	
 											    	</div>
 											    </div>
 											</div>
 											<div class="form-group">
-											    <label for="inputEmail3" class="col-sm-2 control-label">基金类型</label>
+											    <label for="fundCatagory" class="col-sm-2 control-label">基金类型</label>
 											    <div class="col-sm-6">
-											      <input type="text" class="form-control" id="inputEmail3" placeholder="Email">
+											      <input type="text" class="form-control" id="fundCatagory" placeholder="请输入基金类型">
 											    </div>
 											</div>
 											<div class="form-group">
-											    <label for="inputEmail3" class="col-sm-2 control-label">成立时间</label>
+											    <label for="extablishedDate" class="col-sm-2 control-label">成立时间</label>
 											    <div class="col-sm-6">
-											      <input type="date" class="form-control" id="inputEmail3" placeholder="Email">
+											      <input type="date" class="form-control" id="extablishedDate">
 											    </div>
 											</div>
 											<div class="form-group">
-											    <label for="inputEmail3" class="col-sm-2 control-label">最大收益率</label>
+											    <label for="expectedMaxRate" class="col-sm-2 control-label">最大收益率</label>
 											    <div class="col-sm-6">
 											    	<div class="input-group">
-											    		<input type="number" class="form-control" id="inputEmail3" placeholder="Email">
+											    		<input type="number" class="form-control" id="expectedMaxRate" placeholder="请输入最大收益率">
 											    		<span class="input-group-addon">%</span>	
 											    	</div>
 											    </div>
 											</div>
 											<div class="form-group">
-											    <label for="inputEmail3" class="col-sm-2 control-label">最小收益率</label>
+											    <label for="expectedMinRate" class="col-sm-2 control-label">最小收益率</label>
 											    <div class="col-sm-6">
 											    	<div class="input-group">
-											    		<input type="number" class="form-control" id="inputEmail3" placeholder="Email">
+											    		<input type="number" class="form-control" id="expectedMinRate" placeholder="请输入最小收益率">
 											    		<span class="input-group-addon">%</span>	
 											    	</div>
 											    </div>
 											</div>
 											<div class="form-group">
-											    <label for="inputEmail3" class="col-sm-2 control-label">基金经理</label>
+											    <label for="fundManager" class="col-sm-2 control-label">基金经理</label>
 											    <div class="col-sm-6">
-											      <input type="text" class="form-control" id="inputEmail3" placeholder="Email">
+											      <input type="text" class="form-control" id="fundManager" placeholder="请输入基金经理">
 											    </div>
 											</div>
 										</form>
+										<div class="text-right col-md-8"><button class="btn btn-primary btn-lg">下一步</button></div>
 								  	</div>
+
 								  	<div role="tabpanel" class="tab-pane panel-body" id="pe-channel">
 								  		<div class="row">
-								  			<div class="col-md-5 form-left">
+								  			<div class="col-md-4 form-left">
 								  				<div class="btn-group">
-								  					<a class="btn btn-default">添加字段</a>
+								  					<a class="btn btn-default add-field">添加字段</a>
 								  					<a class="btn btn-default">全选</a>
 								  					<a class="btn btn-default">删除字段</a>
-								  					<a class="btn btn-default">预览</a>
 								  				</div>
 								  				<table class="table table-top">
 								  					<thead>
@@ -376,67 +377,67 @@
 								  						</tr>
 								  					</thead>
 								  				</table>
-								  				<ul class="list-group">
-												  	<li class="list-group-item form-group form-list-group">
+								  				<ul class="list-group" id="simpleList1" data-group="200">
+												  	<li class="list-group-item form-group form-list-group" data-id="1">
 												  		<div class="input-group">
 												  			<span class="input-group-addon">
-												  				<input type="checkbox" name="">
+												  				<input type="checkbox">
 													  		</span>
-													  		<input type="text" class="form-control" name="">
+													  		<input type="text" class="form-control field-key">
 													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control input-content" name="" readonly="">
+													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal">
 													  		<span class="input-group-addon input-move">
 													  			<i class="glyphicon glyphicon-move"></i>
 													  		</span>
 												  		</div>
 												  	</li>
-												  	<li class="list-group-item form-group form-list-group">
+												  	<li class="list-group-item form-group form-list-group" data-id="2">
 												  		<div class="input-group">
 												  			<span class="input-group-addon">
-												  				<input type="checkbox" name="">
+												  				<input type="checkbox">
 													  		</span>
-													  		<input type="text" class="form-control" name="">
+													  		<input type="text" class="form-control field-key">
 													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control" name="">
+													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal">
 													  		<span class="input-group-addon input-move">
 													  			<i class="glyphicon glyphicon-move"></i>
 													  		</span>
 												  		</div>
 												  	</li>
-												  	<li class="list-group-item form-group form-list-group">
+												  	<li class="list-group-item form-group form-list-group" data-id="3">
 												  		<div class="input-group">
 												  			<span class="input-group-addon">
 												  				<input type="checkbox" name="">
 													  		</span>
-													  		<input type="text" class="form-control" name="">
+													  		<input type="text" class="form-control field-key">
 													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control" name="">
+													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal">
 													  		<span class="input-group-addon input-move">
 													  			<i class="glyphicon glyphicon-move"></i>
 													  		</span>
 												  		</div>
 												  	</li>
-												  	<li class="list-group-item form-group form-list-group">
+												  	<li class="list-group-item form-group form-list-group" data-id="4">
 												  		<div class="input-group">
 												  			<span class="input-group-addon">
 												  				<input type="checkbox" name="">
 													  		</span>
-													  		<input type="text" class="form-control" name="">
+													  		<input type="text" class="form-control field-key">
 													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control" name="">
+													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal">
 													  		<span class="input-group-addon input-move">
 													  			<i class="glyphicon glyphicon-move"></i>
 													  		</span>
 												  		</div>
 												  	</li>
-												  	<li class="list-group-item form-group form-list-group">
+												  	<li class="list-group-item form-group form-list-group" data-id="5">
 												  		<div class="input-group">
 												  			<span class="input-group-addon">
 												  				<input type="checkbox" name="">
 													  		</span>
-													  		<input type="text" class="form-control" name="">
+													  		<input type="text" class="form-control field-key">
 													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control" name="">
+													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal">
 													  		<span class="input-group-addon input-move">
 													  			<i class="glyphicon glyphicon-move"></i>
 													  		</span>
@@ -444,23 +445,19 @@
 												  	</li>
 												</ul>
 								  			</div>
-								  			<div class="col-md-7">
+								  			<div class="col-md-8">
 								  				<iframe src="about:blank" width="100%" frameborder="0" height="450px" scrolling="auto"></iframe>
 								  			</div>
 								  		</div>
 								  	</div>
+
 								  	<div role="tabpanel" class="tab-pane panel-body" id="pe-list">
 								  		<div class="row">
-								  			<div class="col-md-5 form-left">
+								  			<div class="col-md-4 form-left">
 								  				<div class="btn-group">
 								  					<a class="btn btn-default">添加字段</a>
 								  					<a class="btn btn-default">全选</a>
 								  					<a class="btn btn-default">删除字段</a>
-								  					<a class="btn btn-default">预览</a>
-								  					<select class="btn-select selectpicker">
-								  						<option>默认模板</option>
-								  						<option>1号模板</option>
-								  					</select>
 								  				</div>
 								  				<table class="table table-top">
 								  					<thead>
@@ -470,15 +467,15 @@
 								  						</tr>
 								  					</thead>
 								  				</table>
-								  				<ul class="list-group">
+								  				<ul class="list-group" id="simpleList2" data-group="201">
 												  	<li class="list-group-item form-group form-list-group">
 												  		<div class="input-group">
 												  			<span class="input-group-addon">
 												  				<input type="checkbox" name="">
 													  		</span>
-													  		<input type="text" class="form-control" name="">
+													  		<input type="text" class="form-control field-key">
 													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control" name="">
+													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal">
 													  		<span class="input-group-addon input-move">
 													  			<i class="glyphicon glyphicon-move"></i>
 													  		</span>
@@ -489,9 +486,9 @@
 												  			<span class="input-group-addon">
 												  				<input type="checkbox" name="">
 													  		</span>
-													  		<input type="text" class="form-control" name="">
+													  		<input type="text" class="form-control field-key">
 													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control" name="">
+													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal">
 													  		<span class="input-group-addon input-move">
 													  			<i class="glyphicon glyphicon-move"></i>
 													  		</span>
@@ -502,9 +499,9 @@
 												  			<span class="input-group-addon">
 												  				<input type="checkbox" name="">
 													  		</span>
-													  		<input type="text" class="form-control" name="">
+													  		<input type="text" class="form-control field-key">
 													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control" name="">
+													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal">
 													  		<span class="input-group-addon input-move">
 													  			<i class="glyphicon glyphicon-move"></i>
 													  		</span>
@@ -515,9 +512,9 @@
 												  			<span class="input-group-addon">
 												  				<input type="checkbox" name="">
 													  		</span>
-													  		<input type="text" class="form-control" name="">
+													  		<input type="text" class="form-control field-key">
 													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control" name="">
+													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal">
 													  		<span class="input-group-addon input-move">
 													  			<i class="glyphicon glyphicon-move"></i>
 													  		</span>
@@ -525,158 +522,13 @@
 												  	</li>
 												</ul>
 								  			</div>
-								  			<div class="col-md-7">
+								  			<div class="col-md-8">
 								  				<iframe src="about:blank" width="100%" frameborder="0" height="450px" scrolling="auto"></iframe>
 								  			</div>
 								  		</div>
 								  	</div>
+
 								  	<div role="tabpanel" class="tab-pane panel-body" id="pe-details">
-								  		<div class="row">
-								  			<div class="col-md-5 form-left">
-								  				<div class="btn-group">
-								  					<a class="btn btn-default">添加字段</a>
-								  					<a class="btn btn-default">全选</a>
-								  					<a class="btn btn-default">删除字段</a>
-								  					<a class="btn btn-default">预览</a>
-								  					<select class="btn-select selectpicker">
-								  						<option>默认模板</option>
-								  						<option>1号模板</option>
-								  					</select>
-								  				</div>
-								  				<table class="table table-top">
-								  					<thead>
-								  						<tr>
-								  							<th>字段名</th>
-								  							<th>字段值</th>
-								  						</tr>
-								  					</thead>
-								  				</table>
-								  				<ul class="list-group">
-												  	<li class="list-group-item form-group form-list-group">
-												  		<div class="input-group">
-												  			<span class="input-group-addon">
-												  				<input type="checkbox" name="">
-													  		</span>
-													  		<input type="text" class="form-control" name="">
-													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control" name="">
-													  		<span class="input-group-addon input-move">
-													  			<i class="glyphicon glyphicon-move"></i>
-													  		</span>
-												  		</div>
-												  	</li>
-												  	<li class="list-group-item form-group form-list-group">
-												  		<div class="input-group">
-												  			<span class="input-group-addon">
-												  				<input type="checkbox" name="">
-													  		</span>
-													  		<input type="text" class="form-control" name="">
-													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control" name="">
-													  		<span class="input-group-addon input-move">
-													  			<i class="glyphicon glyphicon-move"></i>
-													  		</span>
-												  		</div>
-												  	</li>
-												  	<li class="list-group-item form-group form-list-group">
-												  		<div class="input-group">
-												  			<span class="input-group-addon">
-												  				<input type="checkbox" name="">
-													  		</span>
-													  		<input type="text" class="form-control" name="">
-													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control" name="">
-													  		<span class="input-group-addon input-move">
-													  			<i class="glyphicon glyphicon-move"></i>
-													  		</span>
-												  		</div>
-												  	</li>
-												  	<li class="list-group-item form-group form-list-group">
-												  		<div class="input-group">
-												  			<span class="input-group-addon">
-												  				<input type="checkbox" name="">
-													  		</span>
-													  		<input type="text" class="form-control" name="">
-													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control" name="">
-													  		<span class="input-group-addon input-move">
-													  			<i class="glyphicon glyphicon-move"></i>
-													  		</span>
-												  		</div>
-												  	</li>
-												  	<li class="list-group-item form-group form-list-group">
-												  		<div class="input-group">
-												  			<span class="input-group-addon">
-												  				<input type="checkbox" name="">
-													  		</span>
-													  		<input type="text" class="form-control" name="">
-													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control" name="">
-													  		<span class="input-group-addon input-move">
-													  			<i class="glyphicon glyphicon-move"></i>
-													  		</span>
-												  		</div>
-												  	</li>
-												  	<li class="list-group-item form-group form-list-group">
-												  		<div class="input-group">
-												  			<span class="input-group-addon">
-												  				<input type="checkbox" name="">
-													  		</span>
-													  		<input type="text" class="form-control" name="">
-													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control" name="">
-													  		<span class="input-group-addon input-move">
-													  			<i class="glyphicon glyphicon-move"></i>
-													  		</span>
-												  		</div>
-												  	</li>
-												  	<li class="list-group-item form-group form-list-group">
-												  		<div class="input-group">
-												  			<span class="input-group-addon">
-												  				<input type="checkbox" name="">
-													  		</span>
-													  		<input type="text" class="form-control" name="">
-													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control" name="">
-													  		<span class="input-group-addon input-move">
-													  			<i class="glyphicon glyphicon-move"></i>
-													  		</span>
-												  		</div>
-												  	</li>
-												  	<li class="list-group-item form-group form-list-group">
-												  		<div class="input-group">
-												  			<span class="input-group-addon">
-												  				<input type="checkbox" name="">
-													  		</span>
-													  		<input type="text" class="form-control" name="">
-													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control" name="">
-													  		<span class="input-group-addon input-move">
-													  			<i class="glyphicon glyphicon-move"></i>
-													  		</span>
-												  		</div>
-												  	</li>
-												  	<li class="list-group-item form-group form-list-group">
-												  		<div class="input-group">
-												  			<span class="input-group-addon">
-												  				<input type="checkbox" name="">
-													  		</span>
-													  		<input type="text" class="form-control" name="">
-													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control" name="">
-													  		<span class="input-group-addon input-move">
-													  			<i class="glyphicon glyphicon-move"></i>
-													  		</span>
-												  		</div>
-												  	</li>
-												</ul>
-								  			</div>
-								  			<div class="col-md-7">
-								  				<iframe src="about:blank" width="100%" frameborder="0" height="450px" scrolling="auto"></iframe>
-								  			</div>
-								  		</div>
-								  	</div>
-								  	<div role="tabpanel" class="tab-pane panel-body" id="index">
 								  		<div class="row">
 								  			<div class="col-md-4 form-left">
 								  				<div class="btn-group">
@@ -697,15 +549,15 @@
 								  						</tr>
 								  					</thead>
 								  				</table>
-								  				<ul class="list-group">
+								  				<ul class="list-group" id="simpleList3" data-group="202">
 												  	<li class="list-group-item form-group form-list-group">
 												  		<div class="input-group">
 												  			<span class="input-group-addon">
 												  				<input type="checkbox" name="">
 													  		</span>
-													  		<input type="text" class="form-control" name="">
+													  		<input type="text" class="form-control field-key">
 													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control input-content" name="" readonly="" data-toggle="modal" data-target="#myModal">
+													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal">
 													  		<span class="input-group-addon input-move">
 													  			<i class="glyphicon glyphicon-move"></i>
 													  		</span>
@@ -716,9 +568,9 @@
 												  			<span class="input-group-addon">
 												  				<input type="checkbox" name="">
 													  		</span>
-													  		<input type="text" class="form-control" name="">
+													  		<input type="text" class="form-control field-key">
 													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control input-content" name="" readonly="" data-toggle="modal" data-target="#myModal">
+													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal">
 													  		<span class="input-group-addon input-move">
 													  			<i class="glyphicon glyphicon-move"></i>
 													  		</span>
@@ -729,9 +581,9 @@
 												  			<span class="input-group-addon">
 												  				<input type="checkbox" name="">
 													  		</span>
-													  		<input type="text" class="form-control" name="">
+													  		<input type="text" class="form-control field-key">
 													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control input-content" name="" readonly="" data-toggle="modal" data-target="#myModal">
+													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal">
 													  		<span class="input-group-addon input-move">
 													  			<i class="glyphicon glyphicon-move"></i>
 													  		</span>
@@ -742,9 +594,152 @@
 												  			<span class="input-group-addon">
 												  				<input type="checkbox" name="">
 													  		</span>
-													  		<input type="text" class="form-control" name="">
+													  		<input type="text" class="form-control field-key">
 													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control input-content" name="" readonly="" data-toggle="modal" data-target="#myModal">
+													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal">
+													  		<span class="input-group-addon input-move">
+													  			<i class="glyphicon glyphicon-move"></i>
+													  		</span>
+												  		</div>
+												  	</li>
+												  	<li class="list-group-item form-group form-list-group">
+												  		<div class="input-group">
+												  			<span class="input-group-addon">
+												  				<input type="checkbox" name="">
+													  		</span>
+													  		<input type="text" class="form-control field-key">
+													  		<span class="input-group-addon">:</span>
+													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal">
+													  		<span class="input-group-addon input-move">
+													  			<i class="glyphicon glyphicon-move"></i>
+													  		</span>
+												  		</div>
+												  	</li>
+												  	<li class="list-group-item form-group form-list-group">
+												  		<div class="input-group">
+												  			<span class="input-group-addon">
+												  				<input type="checkbox" name="">
+													  		</span>
+													  		<input type="text" class="form-control field-key">
+													  		<span class="input-group-addon">:</span>
+													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal">
+													  		<span class="input-group-addon input-move">
+													  			<i class="glyphicon glyphicon-move"></i>
+													  		</span>
+												  		</div>
+												  	</li>
+												  	<li class="list-group-item form-group form-list-group">
+												  		<div class="input-group">
+												  			<span class="input-group-addon">
+												  				<input type="checkbox" name="">
+													  		</span>
+													  		<input type="text" class="form-control field-key">
+													  		<span class="input-group-addon">:</span>
+													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal">
+													  		<span class="input-group-addon input-move">
+													  			<i class="glyphicon glyphicon-move"></i>
+													  		</span>
+												  		</div>
+												  	</li>
+												  	<li class="list-group-item form-group form-list-group">
+												  		<div class="input-group">
+												  			<span class="input-group-addon">
+												  				<input type="checkbox" name="">
+													  		</span>
+													  		<input type="text" class="form-control field-key">
+													  		<span class="input-group-addon">:</span>
+													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal">
+													  		<span class="input-group-addon input-move">
+													  			<i class="glyphicon glyphicon-move"></i>
+													  		</span>
+												  		</div>
+												  	</li>
+												  	<li class="list-group-item form-group form-list-group">
+												  		<div class="input-group">
+												  			<span class="input-group-addon">
+												  				<input type="checkbox" name="">
+													  		</span>
+													  		<input type="text" class="form-control field-key">
+													  		<span class="input-group-addon">:</span>
+													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal">
+													  		<span class="input-group-addon input-move">
+													  			<i class="glyphicon glyphicon-move"></i>
+													  		</span>
+												  		</div>
+												  	</li>
+												</ul>
+								  			</div>
+								  			<div class="col-md-8">
+								  				<iframe src="about:blank" width="100%" frameborder="0" height="450px" scrolling="auto"></iframe>
+								  			</div>
+								  		</div>
+								  	</div>
+
+								  	<div role="tabpanel" class="tab-pane panel-body" id="index">
+								  		<div class="row">
+								  			<div class="col-md-4 form-left">
+								  				<div class="btn-group">
+								  					<a class="btn btn-default">添加字段</a>
+								  					<a class="btn btn-default">全选</a>
+								  					<a class="btn btn-default">删除字段</a>
+								  					<a class="btn btn-default">预览</a>
+								  				</div>
+								  				<table class="table table-top">
+								  					<thead>
+								  						<tr>
+								  							<th>字段名</th>
+								  							<th>字段值</th>
+								  						</tr>
+								  					</thead>
+								  				</table>
+								  				<ul class="list-group" id="simpleList4" data-group="100">
+												  	<li class="list-group-item form-group form-list-group">
+												  		<div class="input-group">
+												  			<span class="input-group-addon">
+												  				<input type="checkbox" name="">
+													  		</span>
+													  		<input type="text" class="form-control field-key">
+													  		<span class="input-group-addon">:</span>
+													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal">
+													  		<span class="input-group-addon input-move">
+													  			<i class="glyphicon glyphicon-move"></i>
+													  		</span>
+												  		</div>
+												  	</li>
+												  	<li class="list-group-item form-group form-list-group">
+												  		<div class="input-group">
+												  			<span class="input-group-addon">
+												  				<input type="checkbox" name="">
+													  		</span>
+													  		<input type="text" class="form-control field-key">
+													  		<span class="input-group-addon">:</span>
+													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal">
+													  		<span class="input-group-addon input-move">
+													  			<i class="glyphicon glyphicon-move"></i>
+													  		</span>
+												  		</div>
+												  	</li>
+												  	<li class="list-group-item form-group form-list-group">
+												  		<div class="input-group">
+												  			<span class="input-group-addon">
+												  				<input type="checkbox" name="">
+													  		</span>
+													  		<input type="text" class="form-control field-key">
+													  		<span class="input-group-addon">:</span>
+													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal">
+													  		<span class="input-group-addon input-move">
+													  			<i class="glyphicon glyphicon-move"></i>
+													  		</span>
+												  		</div>
+												  	</li>
+												  	<li class="list-group-item form-group form-list-group">
+												  		<div class="input-group">
+												  			<span class="input-group-addon">
+												  				<input type="checkbox" name="">
+													  		</span>
+													  		<input type="text" class="form-control field-key">
+													  		<span class="input-group-addon">:</span>
+													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal">
 													  		<span class="input-group-addon input-move">
 													  			<i class="glyphicon glyphicon-move"></i>
 													  		</span>
@@ -784,19 +779,87 @@
 	</div>
 	
 	<div class="admin-menu visible-xs-block" id="admin-menu"></div>
-
+	<script type="text/x-template" id="fieldListItem">
+		<li class="list-group-item form-group form-list-group" data-priority="{priority}">
+	  		<div class="input-group">
+	  			<span class="input-group-addon">
+	  				<input type="checkbox" name="">
+		  		</span>
+		  		<input type="text" class="form-control" name="">
+		  		<span class="input-group-addon">:</span>
+		  		<input type="text" class="form-control input-content" readonly="" data-toggle="modal" data-target="#myModal">
+		  		<span class="input-group-addon input-move">
+		  			<i class="glyphicon glyphicon-move"></i>
+		  		</span>
+	  		</div>
+	  	</li>
+	</script>
 	<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 	<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap-select.js"></script>
+	<script type="text/javascript" src="js/Sortable.min.js"></script>
 	<script type="text/javascript" src="js/admin.js"></script>
 	<script type="text/javascript">
 
 		$('.selectpicker').selectpicker();
+		var sortableOpts = {
+	    		handle: '.input-move',
+	    		//sort: true,
+	    		/*delay: 500,*/
+	    		ghostClass: 'ghost',
+	    		chosenClass: 'chosen',
+	    		forceFallback: true,	//生成拖动副本
+	    		scroll: true,
+	    		dataIdAttr: 'data-id'
+	    	},
+	    	sortables = [];
 
-		 $('#admin-fullscreen').on('click', function() {
-            //$.AMUI.fullscreen.toggle();
-        });
+	  	sortables.push(Sortable.create(simpleList1, sortableOpts));
+	  	sortables.push(Sortable.create(simpleList2, sortableOpts));
+	  	sortables.push(Sortable.create(simpleList3, sortableOpts));
+	  	sortables.push(Sortable.create(simpleList4, sortableOpts));
 
+    	$(".add-field").on("click", function(){
+    		var parent = $(this).parents(".form-left"),
+    			listGroup = parent.find(".list-group"),
+    			index = listGroup.children().length || 0,
+    			fieldListItem = $("#fieldListItem").html();
+    		index = index + 1;
+    		fieldListItem = fieldListItem.replace(/{priority}/, index);
+    		listGroup.append(fieldListItem);
+    	});
+
+    	var product = {};
+    	$("#save").on("click", function(){
+    		
+    		var fieldListGroup = $(".list-group");
+
+    		sortables.forEach(function(sortable){
+
+    			var order = sortable.toArray();
+    			//console.log(order);
+    			for(var i = 0, length = fieldListGroup.length; i < length; i++){
+
+	    			var fieldList = fieldListGroup.get(i),
+	    				fieldKeys = $(fieldList).find(".field-key"),
+	    				fieldValues = $(fieldList).find(".field-value");
+	    			console.log(fieldKeys);
+	    			order.forEach(function(item, index){
+	    				//console.log(fieldKeys.get(index));
+		    			// product["descriptions["+ index +"].group"] = $(fieldListGroup[i]).data("group");
+		    			// product["descriptions["+ index +"].descKey"] = fieldKeys.get(index).value;
+		    			// product["descriptions["+ index +"].descValue"] = fieldValues.get(index).value;
+		    			// product["descriptions["+ index +"].priority"] = index;
+
+		    		});
+	    		}
+
+    		});
+
+    		
+    		
+    		console.log(product);
+    	});
 		
 	</script>
 </body>

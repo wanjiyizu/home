@@ -1,25 +1,29 @@
 @import	 "variable.less";
-.nav>li>a:hover{
+.navbar-admin>li>a:hover{
+	background:rgba(0,0,0,.3);
+}
+
+.navbar-admin>li>a:focus{
 	background:transparent;
 }
 
-.nav>li>a:focus{
-	background:transparent;
-}
-
-.nav .open>a, .nav .open>a:hover, .nav .open>a:focus{
+.navbar-admin .open>a, .navbar-admin .open>a:hover, .navbar-admin .open>a:focus{
 	background-color: rgba(0,0,0,.3);
 }
 
-.dropdown-menu{
+.navbar-admin .dropdown-menu{
 	background-color:@navbar-bg;
 }
 
-.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus{
+.navbar-admin .dropdown-menu>li>a:hover, .navbar-admin .dropdown-menu>li>a:focus{
 	background-color: rgba(0,0,0,.3);
 	color:#fff;
 }
 
-.dropdown-menu>li>a{
+.navbar-admin .dropdown-menu>li>a{
 	color:#F39800;
 }
+
+// .nav-tabs>li>a:hover{
+// 	background-color: transparent;
+// }
