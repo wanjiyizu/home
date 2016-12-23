@@ -123,12 +123,3 @@ html, body{
 	cursor:move;
 }
 
-.ghost{
-	opacity: 1;
-  	background: #C8EBFB;
-}
-
-.chosen {
-  color: #fff;
-  background-color: #c00;
-}

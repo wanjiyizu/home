@@ -27,16 +27,19 @@
 	      </button>
 	      <a class="navbar-brand sidebar-toggle" data-toggle="true" href="index.html">
 	      	<img src="images/logo.png" height="30" title="优米金融">
-	      	<span class="menu-icon hidden-xs sidebar-closed" data-toggle="true">
-	      		<i class="glyphicon glyphicon-align-justify"></i>
-	      	</span>
-	      	
 	      </a>
 	    </div>
 
 	    <div class="collapse navbar-collapse" id="toolbar-collapse">
 	      <ul class="nav navbar-nav navbar-admin">
-	        <li class="active">
+	      	<li>
+	      		<a href="javascript:void(0)" class="sidebar-closed" data-toggle="true">
+	      			<span class="menu-icon hidden-xs">
+			      		<i class="glyphicon glyphicon-align-justify"></i>
+			      	</span>
+	      		</a>
+	      	</li>
+	        <li>
 	        	<a href="#">
 	        		<i class="iconfont icon-tixing"></i>
 	        		<span class="nav-text">提醒</span>
@@ -179,7 +182,7 @@
 				<div class="container-fuild">
 					<div class="row">
 						<div class="col-md-12 main">
-							<a href="javascript:void(0)" class="btn btn-default" id="save">保存</a>
+							<a href="javascript:void(0)" class="btn btn-default" id="save" data-loading-text="保存中..." autocomplete="off">保存</a>
 							<hr>
 							<div class="form-wrap">
 								<!-- Nav tabs -->
@@ -361,9 +364,9 @@
 								  			<div class="col-md-4 form-left">
 								  				<div class="btn-group">
 								  					<a class="btn btn-default add-field">添加字段</a>
-								  					<a class="btn btn-default">全选</a>
-								  					<a class="btn btn-default">删除字段</a>
-								  					<a class="btn btn-default">预览</a>
+								  					<a class="btn btn-default check-all">全选</a>
+								  					<button class="btn btn-danger remove-field" disabled="">删除字段</button>
+								  					<a class="btn btn-default preview" data-target="#preview1">预览</a>
 								  				</div>
 								  				<table class="table table-top">
 								  					<thead>
@@ -416,7 +419,10 @@
 												</ul>
 								  			</div>
 								  			<div class="col-md-8">
-								  				<iframe src="about:blank" width="100%" frameborder="0" height="450px" scrolling="auto"></iframe>
+								  				<div class="embed-responsive embed-responsive-16by9">
+												  <iframe class="embed-responsive-item" id="preview1" src="..."></iframe>
+												</div>
+								  				<!-- <iframe src="about:blank" width="100%" frameborder="0" height="450px" scrolling="auto"></iframe> -->
 								  			</div>
 								  		</div>
 								  	</div>
@@ -425,10 +431,10 @@
 								  		<div class="row">
 								  			<div class="col-md-4 form-left">
 								  				<div class="btn-group">
-								  					<a class="btn btn-default">添加字段</a>
-								  					<a class="btn btn-default">全选</a>
-								  					<a class="btn btn-default">删除字段</a>
-								  					<a class="btn btn-default">预览</a>
+								  					<a class="btn btn-default add-field">添加字段</a>
+								  					<a class="btn btn-default check-all">全选</a>
+								  					<button class="btn btn-danger remove-field" disabled="">删除字段</button>
+								  					<a class="btn btn-default preview" data-target="#preview2">预览</a>
 								  				</div>
 								  				<table class="table table-top">
 								  					<thead>
@@ -442,7 +448,7 @@
 												  	<li class="list-group-item form-group form-list-group">
 												  		<div class="input-group">
 												  			<span class="input-group-addon">
-												  				<input type="checkbox" name="">
+												  				<input type="checkbox">
 													  		</span>
 													  		<input type="text" class="form-control field-key" placeholder="存续时间">
 													  		<span class="input-group-addon">:</span>
@@ -455,7 +461,7 @@
 												  	<li class="list-group-item form-group form-list-group">
 												  		<div class="input-group">
 												  			<span class="input-group-addon">
-												  				<input type="checkbox" name="">
+												  				<input type="checkbox">
 													  		</span>
 													  		<input type="text" class="form-control field-key" placeholder="点评">
 													  		<span class="input-group-addon">:</span>
@@ -468,7 +474,9 @@
 												</ul>
 								  			</div>
 								  			<div class="col-md-8">
-								  				<iframe src="about:blank" width="100%" frameborder="0" height="450px" scrolling="auto"></iframe>
+								  				<div class="embed-responsive embed-responsive-16by9">
+												  <iframe class="embed-responsive-item" id="preview1" src="..."></iframe>
+												</div>
 								  			</div>
 								  		</div>
 								  	</div>
@@ -477,10 +485,10 @@
 								  		<div class="row">
 								  			<div class="col-md-4 form-left">
 								  				<div class="btn-group">
-								  					<a class="btn btn-default">添加字段</a>
-								  					<a class="btn btn-default">全选</a>
-								  					<a class="btn btn-default">删除字段</a>
-								  					<a class="btn btn-default">预览</a>
+								  					<a class="btn btn-default add-field">添加字段</a>
+								  					<a class="btn btn-default check-all">全选</a>
+								  					<button class="btn btn-danger remove-field" disabled="">删除字段</button>
+								  					<a class="btn btn-default preview" data-target="#preview3">预览</a>
 								  					<select class="btn-select selectpicker" id="pageStyleField">
 								  						<option value="1">默认模板</option>
 								  						<option value="2">1号模板</option>
@@ -499,7 +507,7 @@
 												  	<li class="list-group-item form-group form-list-group">
 												  		<div class="input-group">
 												  			<span class="input-group-addon">
-												  				<input type="checkbox" name="">
+												  				<input type="checkbox">
 													  		</span>
 													  		<input type="text" class="form-control field-key" value="预约截止">
 													  		<span class="input-group-addon">:</span>
@@ -512,7 +520,7 @@
 												  	<li class="list-group-item form-group form-list-group">
 												  		<div class="input-group">
 												  			<span class="input-group-addon">
-												  				<input type="checkbox" name="">
+												  				<input type="checkbox">
 													  		</span>
 													  		<input type="text" class="form-control field-key" value="存续时间">
 													  		<span class="input-group-addon">:</span>
@@ -525,7 +533,7 @@
 												  	<li class="list-group-item form-group form-list-group">
 												  		<div class="input-group">
 												  			<span class="input-group-addon">
-												  				<input type="checkbox" name="">
+												  				<input type="checkbox">
 													  		</span>
 													  		<input type="text" class="form-control field-key" value="资本类型">
 													  		<span class="input-group-addon">:</span>
@@ -538,7 +546,7 @@
 												  	<li class="list-group-item form-group form-list-group">
 												  		<div class="input-group">
 												  			<span class="input-group-addon">
-												  				<input type="checkbox" name="">
+												  				<input type="checkbox">
 													  		</span>
 													  		<input type="text" class="form-control field-key" value="组织形式">
 													  		<span class="input-group-addon">:</span>
@@ -551,7 +559,7 @@
 												  	<li class="list-group-item form-group form-list-group">
 												  		<div class="input-group">
 												  			<span class="input-group-addon">
-												  				<input type="checkbox" name="">
+												  				<input type="checkbox">
 													  		</span>
 													  		<input type="text" class="form-control field-key" value="投资方向">
 													  		<span class="input-group-addon">:</span>
@@ -564,7 +572,7 @@
 												  	<li class="list-group-item form-group form-list-group">
 												  		<div class="input-group">
 												  			<span class="input-group-addon">
-												  				<input type="checkbox" name="">
+												  				<input type="checkbox">
 													  		</span>
 													  		<input type="text" class="form-control field-key" value="产品描述">
 													  		<span class="input-group-addon">:</span>
@@ -577,7 +585,7 @@
 												  	<li class="list-group-item form-group form-list-group">
 												  		<div class="input-group">
 												  			<span class="input-group-addon">
-												  				<input type="checkbox" name="">
+												  				<input type="checkbox">
 													  		</span>
 													  		<input type="text" class="form-control field-key" value="基金亮点">
 													  		<span class="input-group-addon">:</span>
@@ -590,7 +598,7 @@
 												  	<li class="list-group-item form-group form-list-group">
 												  		<div class="input-group">
 												  			<span class="input-group-addon">
-												  				<input type="checkbox" name="">
+												  				<input type="checkbox">
 													  		</span>
 													  		<input type="text" class="form-control field-key" value="管理机构">
 													  		<span class="input-group-addon">:</span>
@@ -603,7 +611,9 @@
 												</ul>
 								  			</div>
 								  			<div class="col-md-8">
-								  				<iframe src="about:blank" width="100%" frameborder="0" height="450px" scrolling="auto"></iframe>
+								  				<div class="embed-responsive embed-responsive-16by9">
+												  <iframe class="embed-responsive-item" id="preview1" src="..."></iframe>
+												</div>
 								  			</div>
 								  		</div>
 								  	</div>
@@ -612,10 +622,10 @@
 								  		<div class="row">
 								  			<div class="col-md-4 form-left">
 								  				<div class="btn-group">
-								  					<a class="btn btn-default">添加字段</a>
-								  					<a class="btn btn-default">全选</a>
-								  					<a class="btn btn-default">删除字段</a>
-								  					<a class="btn btn-default">预览</a>
+								  					<a class="btn btn-default add-field">添加字段</a>
+								  					<a class="btn btn-default check-all">全选</a>
+								  					<button class="btn btn-danger remove-field" disabled="">删除字段</button>
+								  					<a class="btn btn-default preview" data-target="#preview3">预览</a>
 								  				</div>
 								  				<table class="table table-top">
 								  					<thead>
@@ -629,7 +639,7 @@
 												  	<li class="list-group-item form-group form-list-group">
 												  		<div class="input-group">
 												  			<span class="input-group-addon">
-												  				<input type="checkbox" name="">
+												  				<input type="checkbox">
 													  		</span>
 													  		<input type="text" class="form-control field-key" value="PE投资之中概股回归（A级）">
 													  		<span class="input-group-addon">:</span>
@@ -642,7 +652,7 @@
 												  	<li class="list-group-item form-group form-list-group">
 												  		<div class="input-group">
 												  			<span class="input-group-addon">
-												  				<input type="checkbox" name="">
+												  				<input type="checkbox">
 													  		</span>
 													  		<input type="text" class="form-control field-key" value="存续时间">
 													  		<span class="input-group-addon">:</span>
@@ -655,7 +665,9 @@
 												</ul>
 								  			</div>
 								  			<div class="col-md-8">
-								  				<iframe src="about:blank" width="100%" frameborder="0" height="450px" scrolling="auto"></iframe>
+								  				<div class="embed-responsive embed-responsive-16by9">
+												  <iframe class="embed-responsive-item" id="preview1" src="..."></iframe>
+												</div>
 								  			</div>
 								  		</div>
 								  	</div>
@@ -675,11 +687,11 @@
 	        <h4 class="modal-title" id="myModalLabel">填写内容</h4>
 	      </div>
 	      <div class="modal-body">
-	      	<textarea class="textarea" spellcheck="false"></textarea>
+	      	<textarea class="textarea" spellcheck="false" id="modal-editor"></textarea>
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-	        <button type="button" class="btn btn-primary">确定</button>
+	        <button type="button" class="btn btn-default" data-dismiss="modal" id="modal-cancel">关闭</button>
+	        <button type="button" class="btn btn-primary" id="modal-sure">确定</button>
 	      </div>
 	    </div>
 	  </div>
@@ -729,9 +741,10 @@
     	$(".add-field").on("click", function(){
     		var parent = $(this).parents(".form-left"),
     			listGroup = parent.find(".list-group"),
-    			index = listGroup.children().length || 0,
+    			index = listGroup.children(".list-group-item").length || 0,
     			fieldListItem = $("#fieldListItem").html();
     		index = index + 1;
+    		listGroup.find(".list-group-no-data").hide();
     		fieldListItem = fieldListItem.replace(/{priority}/, index);
     		listGroup.append(fieldListItem);
     	});
@@ -740,7 +753,7 @@
     	$("#save").on("click", save);
 
 		function save(){
-
+			var $btn = $(this).button('loading');
     		var index = 0,
     			product = {
     				productName : $("#productName").val(),
@@ -784,6 +797,57 @@
 
     		console.log(product);
     	}
+
+    	var relatedTarget;
+    	$("#myModal").on("show.bs.modal", function(e){
+    		relatedTarget = e.relatedTarget;
+    		$("#modal-editor").val(relatedTarget.value);
+    	});
+
+    	$("#modal-sure").on("click", function(){
+    		relatedTarget.value = $("#modal-editor").val();
+    		$('#myModal').modal('hide');
+    	});
+
+    	$(".list-group").on("check.bs.table", function(){
+    		var length = $(this).find("input[type=checkbox]:checked").length;
+
+    		if(length > 0){
+    			$(this).parent().find(".remove-field").prop("disabled", false);
+    		}else{
+    			$(this).parent().find(".remove-field").prop("disabled", true);
+    		}
+    		
+    		
+    	});
+
+    	$("input[type=checkbox]").click(function(e){
+			$(this).parents(".list-group").trigger("check.bs.table");
+		});
+
+		$(".check-all").click(function(e){
+			$(this).parents(".form-left").find("input[type=checkbox]").prop("checked", true);
+			$(this).parents(".form-left").find(".list-group").trigger("check.bs.table");
+		});
+
+		$(".remove-field").click(function(e){
+
+			var length,
+				$listGroup = $(this).parents(".form-left").find(".list-group");
+
+			$listGroup.find("input[type=checkbox]:checked").parents("li").remove();
+			$(this).prop("disabled", true);
+			length = $listGroup.find(".list-group-item").length;
+			if(length == 0){
+				$listGroup.html("<li class='list-group-no-data'>暂时没有字段，请点击添加字段按钮添加</li>");
+			}
+		});
+
+		$(".preview").click(function(){
+			var target = $(this).data("target");
+			// $(target).attr("src", "http://www.youmilc.com");
+		});
+
 	</script>
 </body>
 </html>
