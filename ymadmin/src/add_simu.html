@@ -24,18 +24,20 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </button>
-	      <a class="navbar-brand sidebar-toggle" data-toggle="true" href="index.html">
-	      	<img src="images/logo.png" height="30" title="优米金融">
-	      	<span class="menu-icon hidden-xs sidebar-closed" data-toggle="true">
-	      		<i class="glyphicon glyphicon-align-justify"></i>
-	      	</span>
-	      	
-	      </a>
+	      <a class="navbar-brand sidebar-toggle" href="index.html">
+	      	<img src="images/logo.png" height="30" title="优米金融"></a>
 	    </div>
 
 	    <div class="collapse navbar-collapse" id="toolbar-collapse">
 	      <ul class="nav navbar-nav navbar-admin">
-	        <li class="active">
+	      	<li>
+	      		<a href="javascript:void(0)" class="hidden-xs sidebar-closed" data-toggle="true">
+	      			<span class="menu-icon">
+			      		<i class="glyphicon glyphicon-align-justify"></i>
+			      	</span>
+	      		</a>
+	      	</li>
+	        <li>
 	        	<a href="#">
 	        		<i class="iconfont icon-tixing"></i>
 	        		<span class="nav-text">提醒</span>
@@ -199,120 +201,6 @@
 								  	<li role="presentation"><a href="#index" role="tab" data-toggle="tab">首页</a></li>
 								</ul>
 								<div class="tab-content">
-									<div role="tabpanel" class="tab-pane panel-body" id="histori-net">
-										<div class="row">
-											<div class="form-group col-md-2">
-											    <label for="benchmarks">基准名称</label>
-											    <input type="text" class="form-control" id="benchmarks" placeholder="请输入基准名称：如沪深300">
-											</div>
-										</div>
-										<div class="btn-toolbar" id="toolbar1">
-											<div class="btn-group">
-												<a href="javascript:void(0)" class="btn btn-default">导入excel</a>
-												<a href="javascript:void(0)" class="btn btn-default">添加净值</a>
-												<button class="btn btn-danger" disabled="">删除</button>
-											</div>
-										</div>
-										<div class="col-md-8 padding-none">
-											<table class="table table-bordered" data-toggle="table" data-search="true" data-search-align="left" data-toolbar="#toolbar1">
-												<thead>
-													<tr>
-														<th data-field="state" data-checkbox="true"></th>
-														<th>净值日期</th>
-														<th>单位净值</th>
-														<th>累计净值</th>
-														<th>周涨跌幅(%)</th>
-														<th>基准数据</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td></td>
-														<td><input type="month" class="form-control form-control-1"></td>
-														<td><input type="number" class="form-control form-control-1"></td>
-														<td><input type="number" class="form-control form-control-1"></td>
-														<td><input type="number" class="form-control form-control-1"></td>
-														<td><input type="number" class="form-control form-control-1"></td>
-													</tr>
-												</tbody>
-											</table>
-										</div>
-									</div>
-									<div role="tabpanel" class="tab-pane panel-body" id="month-return">
-										<div class="btn-toolbar">
-											<div class="btn-group">
-												<a href="javascript:void(0)" class="btn btn-default">导入excel</a>
-												<a href="javascript:void(0)" class="btn btn-default">添加回报率</a>
-											</div>
-										</div>
-										<br>
-										<table class="table table-bordered">
-											<thead>
-												<tr>
-													<th>月份</th>
-													<th>汇报率</th>
-													<th>操作</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>&nbsp;</td>
-													<td>&nbsp;</td>
-													<td>&nbsp;</td>
-												</tr>
-												<tr>
-													<td>&nbsp;</td>
-													<td>&nbsp;</td>
-													<td>&nbsp;</td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-									<div role="tabpanel" class="tab-pane panel-body" id="histori-performance">
-										<div class="btn-toolbar">
-											<div class="btn-group">
-												<a href="javascript:void(0)" class="btn btn-default">导入excel</a>
-												<a href="javascript:void(0)" class="btn btn-default">添加净值</a>
-											</div>
-											<div class="btn-group">
-												<input type="text" class="form-control" placeholder="请输入历史产品名称" name="">
-											</div>
-											<div class="btn-group">
-												<input type="text" class="form-control" id="inputEmail3" placeholder="请输入对比基准名称，如：沪深300">
-											</div>
-										</div>
-										<br>
-										<table class="table table-bordered">
-											<thead>
-												<tr>
-													<th>净值日期</th>
-													<th>单位净值</th>
-													<th>累计净值</th>
-													<th>周涨跌幅</th>
-													<th>基准数据</th>
-													<th>操作</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>&nbsp;</td>
-													<td>&nbsp;</td>
-													<td>&nbsp;</td>
-													<td>&nbsp;</td>
-													<td>&nbsp;</td>
-													<td>&nbsp;</td>
-												</tr>
-												<tr>
-													<td>&nbsp;</td>
-													<td>&nbsp;</td>
-													<td>&nbsp;</td>
-													<td>&nbsp;</td>
-													<td>&nbsp;</td>
-													<td>&nbsp;</td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
 									<div role="tabpanel" class="tab-pane panel-body active" id="basic-info">
 										<form class="form-horizontal">
 											<div class="form-group">
@@ -476,6 +364,124 @@
 											</div>
 										</form>
 								  	</div>
+									<div role="tabpanel" class="tab-pane panel-body" id="histori-net">
+										<div class="row">
+											<div class="form-group col-md-2">
+											    <label for="benchmark1">基准名称</label>
+											    <input type="text" class="form-control" id="benchmark1" placeholder="请输入基准名称：如沪深300">
+											</div>
+										</div>
+										<div class="btn-toolbar" id="toolbar1">
+											<div class="btn-group">
+												<a class="btn btn-default add-tr" data-target="#table1" data-template="#template1">添加净值</a>
+												<a class="btn btn-default">导入excel</a>
+												<button class="btn btn-danger" id="remove-table1" disabled="">删除</button>
+											</div>
+										</div>
+										<div class="col-md-8 padding-none">
+											<table class="table table-bordered" id="table1" data-toggle="table" data-search-align="left" data-toolbar="#toolbar1">
+												<thead>
+													<tr>
+														<th data-field="state" data-checkbox="true"></th>
+														<th data-filed="date">净值日期</th>
+														<th>单位净值</th>
+														<th>累计净值</th>
+														<th>周涨跌幅(%)</th>
+														<th>基准数据</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td></td>
+														<td><input type="date" class="form-control form-control-1"></td>
+														<td><input type="number" class="form-control form-control-1"></td>
+														<td><input type="number" class="form-control form-control-1"></td>
+														<td><input type="number" class="form-control form-control-1"></td>
+														<td><input type="number" class="form-control form-control-1"></td>
+													</tr>
+													<tr>
+														<td></td>
+														<td><input type="date" class="form-control form-control-1"></td>
+														<td><input type="number" class="form-control form-control-1"></td>
+														<td><input type="number" class="form-control form-control-1"></td>
+														<td><input type="number" class="form-control form-control-1"></td>
+														<td><input type="number" class="form-control form-control-1"></td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+									<div role="tabpanel" class="tab-pane panel-body" id="month-return">
+										<div class="btn-toolbar" id="toolbar2">
+											<div class="btn-group">
+												<a class="btn btn-default add-tr" data-target="#table2" data-template="#template2">添加回报率</a>
+												<a class="btn btn-default">导入excel</a>
+												<button class="btn btn-danger" id="remove-table2" disabled="">删除</button>
+											</div>
+										</div>
+										<div class="col-md-5 padding-none">
+											<table class="table table-bordered" id="table2" data-toggle="table" data-search-align="left" data-toolbar="#toolbar2">
+												<thead>
+													<tr>
+														<th data-field="state" data-checkbox="true"></th>
+														<th>月份</th>
+														<th>回报率</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td></td>
+														<td><input type="month" class="form-control form-control-1"></td>
+														<td><input type="number" class="form-control form-control-1"></td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+									<div role="tabpanel" class="tab-pane panel-body" id="histori-performance">
+										<div class="row">
+											<div class="form-group col-md-2">
+											    <label for="brotherProductName">产品名称</label>
+											    <input type="text" class="form-control" id="brotherProductName" placeholder="请输入历史产品名称">
+											</div>
+											<div class="btn-group col-md-2">
+												<label for="benchmark2">基准名称</label>
+												<input type="text" class="form-control" id="benchmark2" placeholder="请输入对比基准名称，如：沪深300">
+											</div>
+										</div>
+										<div class="btn-toolbar" id="toolbar3">
+											<div class="btn-group">
+												<a class="btn btn-default add-tr" data-target="#table3" data-template="#template3">添加净值</a>
+												<a class="btn btn-default">导入excel</a>
+												<button class="btn btn-danger" id="remove-table3" disabled="">删除</button>
+											</div>
+										</div>
+										<div class="col-md-8 padding-none">
+											<table class="table table-bordered" id="table3" data-toggle="table" data-search-align="left" data-toolbar="#toolbar3">
+												<thead>
+													<tr>
+														<th data-field="state" data-checkbox="true"></th>
+														<th>净值日期</th>
+														<th>单位净值</th>
+														<th>累计净值</th>
+														<th>周涨跌幅</th>
+														<th>基准数据</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td></td>
+														<td><input type="date" class="form-control form-control-1"></td>
+														<td><input type="number" class="form-control form-control-1"></td>
+														<td><input type="number" class="form-control form-control-1"></td>
+														<td><input type="number" class="form-control form-control-1"></td>
+														<td><input type="number" class="form-control form-control-1"></td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+									
 								  	<div role="tabpanel" class="tab-pane panel-body" id="pe-channel">
 								  		<div class="row">
 								  			<div class="col-md-5 form-left">
@@ -902,6 +908,34 @@
 
 	<div class="admin-menu visible-xs-block" id="admin-menu"></div>
 
+	<script type="text/x-template" id="template1">
+		<tr data-index="{index}">
+			<td class="bs-checkbox"><input data-index="{index}" name="btSelectItem" type="checkbox"></td>
+			<td><input type="date" class="form-control form-control-1"></td>
+			<td><input type="number" class="form-control form-control-1"></td>
+			<td><input type="number" class="form-control form-control-1"></td>
+			<td><input type="number" class="form-control form-control-1"></td>
+			<td><input type="number" class="form-control form-control-1"></td>
+		</tr>
+	</script>
+	<script type="text/x-template" id="template2">
+		<tr data-index="{index}">
+			<td class="bs-checkbox"><input data-index="{index}" name="btSelectItem" type="checkbox"></td>
+			<td><input type="month" class="form-control form-control-1"></td>
+			<td><input type="number" class="form-control form-control-1"></td>
+		</tr>
+	</script>
+	<script type="text/x-template" id="template3">
+		<tr data-index="{index}">
+			<td class="bs-checkbox"><input data-index="{index}" name="btSelectItem" type="checkbox"></td>
+			<td><input type="date" class="form-control form-control-1"></td>
+			<td><input type="number" class="form-control form-control-1"></td>
+			<td><input type="number" class="form-control form-control-1"></td>
+			<td><input type="number" class="form-control form-control-1"></td>
+			<td><input type="number" class="form-control form-control-1"></td>
+		</tr>
+	</script>
+
 	<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 	<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap-select.js"></script>
@@ -910,29 +944,54 @@
 	<script type="text/javascript" src="js/admin.js"></script>
 	<script type="text/javascript">
 
-		$('.selectpicker').selectpicker();
-
-		 $('#admin-fullscreen').on('click', function() {
-            //$.AMUI.fullscreen.toggle();
-        });
-
-		$(".sidebar-toggle").on("click", function(){
-			if($(this).data("toggle")){
-				$(this).data("toggle", false);
-				$(".page-sidebar").hide();
-				$(".page-content").css("margin-left", 0);
-			}else{
-				$(this).data("toggle", true);
-				$(".page-sidebar").show();
-				$(".page-content").css("margin-left", 235);
-			}
-			
+		$(".add-tr").on("click", function(){
+			var target = $(this).data("target"),
+				template = $(this).data("template"),
+				html = $(template).html(),
+				length = $(target).find("tbody").children().length || 0;
+			console.log(template);
+			html = html.replace(/{index}/, length);
+			$(target).find("tbody").prepend(html);
 		});
 
-		$(".sidebar-dropdown").on("click", function(){
-			$(this).parent().find(".sidebar-submenu").slideToggle(200);
-			$(this).parent().siblings().find(".sidebar-submenu").slideUp(200);
+		var $table1 = $("#table1"),
+			$table2 = $("#table2"),
+			$table3 = $("#table3"),
+			$remove1 = $("#remove-table1"),
+			$remove2 = $("#remove-table2"),
+			$remove3 = $("#remove-table3");
+
+		$table1.on("check.bs.table uncheck.bs.table check-all.bs.table uncheck-all.bs.table", function(){
+			$remove1.prop("disabled", !$(this).bootstrapTable("getSelections").length);
 		});
+
+		$table2.on("check.bs.table uncheck.bs.table check-all.bs.table uncheck-all.bs.table", function(){
+			$remove2.prop("disabled", !$(this).bootstrapTable("getSelections").length);
+		});
+
+		$table3.on("check.bs.table uncheck.bs.table check-all.bs.table uncheck-all.bs.table", function(){
+			$remove3.prop("disabled", !$(this).bootstrapTable("getSelections").length);
+		});
+
+		$remove1.click(function(){
+			var ids = getIdSelections.call($table1);
+	    	console.log(ids);
+	        // $table.bootstrapTable('remove', {
+	        //     field: 'date',
+	        //     values: ids
+	        // });
+	        // $remove.prop('disabled', true);
+		});
+
+		function getIdSelections(){
+			var arr = this.bootstrapTable("getSelections");
+			console.log(arr);
+			return $.map(arr, function(row){
+				console.log(row);
+				row;
+			});
+		}
+
 	</script>
 </body>
 </html>

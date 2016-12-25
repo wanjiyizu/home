@@ -60,7 +60,9 @@
     });
 
     function getIdSelections(){
-    	return $.map($table.bootstrapTable('getSelections'), function (row) {
+        var arr = $table.bootstrapTable('getSelections');
+        console.log(arr);
+    	return $.map(arr, function (row) {
             return row.productName;
         });
     }
