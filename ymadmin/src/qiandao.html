@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+	<style type="text/css">
+		.box{
+			width:70%;
+
+			margin:100px auto;
+			font-size:30px;
+			font-weight: bold;
+			border:1px solid #333;
+			border-radius:5px;
+			display: none;
+		}
+		.box-item{
+			padding:20px;
+		}
+
+		.wait-box{
+			padding:50px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="box visible-lg-block wait-box" id="wait-box">Loding...</div>
+		<div class="box" id="success-box">
+			<div class="row box-item">
+				<div class="col-md-2">姓名</div>
+				<div class="col-md-7">雷雁</div>
+			</div>
+			<div class="row box-item">
+				<div class="col-md-2">手机</div>
+				<div class="col-md-7">17000211916</div>
+			</div>
+			<div class="row box-item">
+				<div class="col-md-2">职位</div>
+				<div class="col-md-7">WEB前端</div>
+			</div>
+			<div class="row box-item">
+				<div class="col-md-2">公司</div>
+				<div class="col-md-10">深圳市前海优米互联网金融服务有限责任公司</div>
+			</div>
+		</div>
+		<div class="box" id="fail-box">
+			<h1 class="text-center"><img src="images/sign_fail.png">&nbsp;&nbsp;不好意思，您未在邀请名单上</h1>
+		</div>
+	</div>
+</body>
+</html>
