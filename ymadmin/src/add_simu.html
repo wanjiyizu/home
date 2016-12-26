@@ -181,12 +181,7 @@
 				<div class="container-fuild">
 					<div class="row">
 						<div class="col-md-12 main">
-							<div class="btn-toolbar">
-								<div class="btn-group">
-									<a href="javascript:void(0)" class="btn btn-default">保存</a>
-									<a href="javascript:void(0)" class="btn btn-default">发布</a>
-								</div>
-							</div>
+							<a href="javascript:void(0)" class="btn btn-default" id="save" data-loading-text="保存中..." autocomplete="off">保存</a>
 							<hr>
 							<div class="form-wrap">
 								<!-- Nav tabs -->
@@ -551,7 +546,7 @@
 													  		</span>
 													  		<input type="text" class="form-control field-key" placeholder="左边描述">
 													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal" value="行业龙头潜力可期" placeholder="1">
+													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal" value="多管齐下风险分散" placeholder="1">
 													  		<span class="input-group-addon input-move">
 													  			<i class="glyphicon glyphicon-move"></i>
 													  		</span>
@@ -562,9 +557,9 @@
 												  			<span class="input-group-addon">
 												  				<input type="checkbox">
 													  		</span>
-													  		<input type="text" class="form-control field-key" placeholder="左边描述">
+													  		<input type="text" class="form-control field-key" placeholder="锁定期">
 													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal" value="行业龙头潜力可期" placeholder="1">
+													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal" value="6个月" placeholder="1">
 													  		<span class="input-group-addon input-move">
 													  			<i class="glyphicon glyphicon-move"></i>
 													  		</span>
@@ -575,9 +570,9 @@
 												  			<span class="input-group-addon">
 												  				<input type="checkbox">
 													  		</span>
-													  		<input type="text" class="form-control field-key" placeholder="左边描述">
+													  		<input type="text" class="form-control field-key" placeholder="产品亮点">
 													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal" value="行业龙头潜力可期" placeholder="1">
+													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal" value="五大策略，分散风险，回撤小，捕捉跨市场跨品种套利机会" placeholder="1">
 													  		<span class="input-group-addon input-move">
 													  			<i class="glyphicon glyphicon-move"></i>
 													  		</span>
@@ -599,7 +594,7 @@
 								  					<a class="btn btn-default add-field">添加字段</a>
 								  					<a class="btn btn-default check-all">全选</a>
 								  					<button class="btn btn-danger remove-field" disabled="">删除字段</button>
-								  					<a class="btn btn-default preview" data-target="#preview1">预览</a>
+								  					<a class="btn btn-default preview" data-target="#preview2">预览</a>
 								  				</div>
 								  				<table class="table table-top">
 								  					<thead>
@@ -615,9 +610,9 @@
 												  			<span class="input-group-addon">
 												  				<input type="checkbox">
 													  		</span>
-													  		<input type="text" class="form-control field-key" placeholder="左边描述">
+													  		<input type="text" class="form-control field-key" placeholder="产品亮点">
 													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal" value="行业龙头潜力可期" placeholder="1">
+													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal" value="精选策略，分散危险，收益稳健，尽享多市场" placeholder="1">
 													  		<span class="input-group-addon input-move">
 													  			<i class="glyphicon glyphicon-move"></i>
 													  		</span>
@@ -636,156 +631,15 @@
 								  		<div class="row">
 								  			<div class="col-md-4 form-left">
 								  				<div class="btn-group">
-								  					<a class="btn btn-default">添加字段</a>
-								  					<a class="btn btn-default">全选</a>
-								  					<a class="btn btn-default">删除字段</a>
-								  					<a class="btn btn-default">预览</a>
-								  					<select class="btn-select selectpicker">
-								  						<option>默认模板</option>
-								  						<option>1号模板</option>
-								  					</select>
-								  				</div>
-								  				<table class="table table-top">
-								  					<thead>
-								  						<tr>
-								  							<th>字段名</th>
-								  							<th>字段值</th>
-								  						</tr>
-								  					</thead>
-								  				</table>
-								  				<ul class="list-group">
-												  	<li class="list-group-item form-group form-list-group">
-												  		<div class="input-group">
-												  			<span class="input-group-addon">
-												  				<input type="checkbox" name="">
-													  		</span>
-													  		<input type="text" class="form-control" name="">
-													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control" name="">
-													  		<span class="input-group-addon input-move">
-													  			<i class="glyphicon glyphicon-move"></i>
-													  		</span>
-												  		</div>
-												  	</li>
-												  	<li class="list-group-item form-group form-list-group">
-												  		<div class="input-group">
-												  			<span class="input-group-addon">
-												  				<input type="checkbox" name="">
-													  		</span>
-													  		<input type="text" class="form-control" name="">
-													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control" name="">
-													  		<span class="input-group-addon input-move">
-													  			<i class="glyphicon glyphicon-move"></i>
-													  		</span>
-												  		</div>
-												  	</li>
-												  	<li class="list-group-item form-group form-list-group">
-												  		<div class="input-group">
-												  			<span class="input-group-addon">
-												  				<input type="checkbox" name="">
-													  		</span>
-													  		<input type="text" class="form-control" name="">
-													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control" name="">
-													  		<span class="input-group-addon input-move">
-													  			<i class="glyphicon glyphicon-move"></i>
-													  		</span>
-												  		</div>
-												  	</li>
-												  	<li class="list-group-item form-group form-list-group">
-												  		<div class="input-group">
-												  			<span class="input-group-addon">
-												  				<input type="checkbox" name="">
-													  		</span>
-													  		<input type="text" class="form-control" name="">
-													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control" name="">
-													  		<span class="input-group-addon input-move">
-													  			<i class="glyphicon glyphicon-move"></i>
-													  		</span>
-												  		</div>
-												  	</li>
-												  	<li class="list-group-item form-group form-list-group">
-												  		<div class="input-group">
-												  			<span class="input-group-addon">
-												  				<input type="checkbox" name="">
-													  		</span>
-													  		<input type="text" class="form-control" name="">
-													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control" name="">
-													  		<span class="input-group-addon input-move">
-													  			<i class="glyphicon glyphicon-move"></i>
-													  		</span>
-												  		</div>
-												  	</li>
-												  	<li class="list-group-item form-group form-list-group">
-												  		<div class="input-group">
-												  			<span class="input-group-addon">
-												  				<input type="checkbox" name="">
-													  		</span>
-													  		<input type="text" class="form-control" name="">
-													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control" name="">
-													  		<span class="input-group-addon input-move">
-													  			<i class="glyphicon glyphicon-move"></i>
-													  		</span>
-												  		</div>
-												  	</li>
-												  	<li class="list-group-item form-group form-list-group">
-												  		<div class="input-group">
-												  			<span class="input-group-addon">
-												  				<input type="checkbox" name="">
-													  		</span>
-													  		<input type="text" class="form-control" name="">
-													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control" name="">
-													  		<span class="input-group-addon input-move">
-													  			<i class="glyphicon glyphicon-move"></i>
-													  		</span>
-												  		</div>
-												  	</li>
-												  	<li class="list-group-item form-group form-list-group">
-												  		<div class="input-group">
-												  			<span class="input-group-addon">
-												  				<input type="checkbox" name="">
-													  		</span>
-													  		<input type="text" class="form-control" name="">
-													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control" name="">
-													  		<span class="input-group-addon input-move">
-													  			<i class="glyphicon glyphicon-move"></i>
-													  		</span>
-												  		</div>
-												  	</li>
-												  	<li class="list-group-item form-group form-list-group">
-												  		<div class="input-group">
-												  			<span class="input-group-addon">
-												  				<input type="checkbox" name="">
-													  		</span>
-													  		<input type="text" class="form-control" name="">
-													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control" name="">
-													  		<span class="input-group-addon input-move">
-													  			<i class="glyphicon glyphicon-move"></i>
-													  		</span>
-												  		</div>
-												  	</li>
-												</ul>
-								  			</div>
-								  			<div class="col-md-7">
-								  				<iframe src="about:blank" width="100%" frameborder="0" height="450px" scrolling="auto"></iframe>
-								  			</div>
-								  		</div>
-								  	</div>
-								  	<div role="tabpanel" class="tab-pane panel-body" id="index">
-								  		<div class="row">
-								  			<div class="col-md-4 form-left">
-								  				<div class="btn-group">
 								  					<a class="btn btn-default add-field">添加字段</a>
 								  					<a class="btn btn-default check-all">全选</a>
 								  					<button class="btn btn-danger remove-field" disabled="">删除字段</button>
-								  					<a class="btn btn-default preview" data-target="#preview1">预览</a>
+								  					<a class="btn btn-default preview" data-target="#preview3">预览</a>
+								  					<select class="btn-select selectpicker" id="pageStyleField">
+								  						<option value="1">默认模板</option>
+								  						<option value="2">1号模板</option>
+								  						<option value="3">2号模板</option>
+								  					</select>
 								  				</div>
 								  				<table class="table table-top">
 								  					<thead>
@@ -801,9 +655,9 @@
 												  			<span class="input-group-addon">
 												  				<input type="checkbox">
 													  		</span>
-													  		<input type="text" class="form-control field-key" placeholder="左边描述">
+													  		<input type="text" class="form-control field-key" placeholder="预约截止">
 													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal" value="行业龙头潜力可期" placeholder="1">
+													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal" value="2016/05/31" placeholder="1">
 													  		<span class="input-group-addon input-move">
 													  			<i class="glyphicon glyphicon-move"></i>
 													  		</span>
@@ -814,9 +668,9 @@
 												  			<span class="input-group-addon">
 												  				<input type="checkbox">
 													  		</span>
-													  		<input type="text" class="form-control field-key" placeholder="左边描述">
+													  		<input type="text" class="form-control field-key" placeholder="存续时间">
 													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal" value="行业龙头潜力可期" placeholder="1">
+													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal" value="3+2" placeholder="1">
 													  		<span class="input-group-addon input-move">
 													  			<i class="glyphicon glyphicon-move"></i>
 													  		</span>
@@ -827,9 +681,9 @@
 												  			<span class="input-group-addon">
 												  				<input type="checkbox">
 													  		</span>
-													  		<input type="text" class="form-control field-key" placeholder="左边描述">
+													  		<input type="text" class="form-control field-key" placeholder="资本类型">
 													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal" value="行业龙头潜力可期" placeholder="1">
+													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal" value="人民币" placeholder="1">
 													  		<span class="input-group-addon input-move">
 													  			<i class="glyphicon glyphicon-move"></i>
 													  		</span>
@@ -840,9 +694,9 @@
 												  			<span class="input-group-addon">
 												  				<input type="checkbox">
 													  		</span>
-													  		<input type="text" class="form-control field-key" placeholder="左边描述">
+													  		<input type="text" class="form-control field-key" placeholder="组织形式">
 													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal" value="行业龙头潜力可期" placeholder="1">
+													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal" value="有限合伙" placeholder="1">
 													  		<span class="input-group-addon input-move">
 													  			<i class="glyphicon glyphicon-move"></i>
 													  		</span>
@@ -853,7 +707,7 @@
 												  			<span class="input-group-addon">
 												  				<input type="checkbox">
 													  		</span>
-													  		<input type="text" class="form-control field-key" placeholder="左边描述">
+													  		<input type="text" class="form-control field-key" placeholder="基金公司">
 													  		<span class="input-group-addon">:</span>
 													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal" value="行业龙头潜力可期" placeholder="1">
 													  		<span class="input-group-addon input-move">
@@ -864,7 +718,62 @@
 												</ul>
 								  			</div>
 								  			<div class="col-md-8">
-								  				<iframe src="about:blank" width="100%" frameborder="0" height="450px" scrolling="auto"></iframe>
+								  				<div class="embed-responsive embed-responsive-16by9">
+												  <iframe class="embed-responsive-item" id="preview3" src="..."></iframe>
+												</div>
+								  			</div>
+								  		</div>
+								  	</div>
+								  	<div role="tabpanel" class="tab-pane panel-body" id="index">
+								  		<div class="row">
+								  			<div class="col-md-4 form-left">
+								  				<div class="btn-group">
+								  					<a class="btn btn-default add-field">添加字段</a>
+								  					<a class="btn btn-default check-all">全选</a>
+								  					<button class="btn btn-danger remove-field" disabled="">删除字段</button>
+								  					<a class="btn btn-default preview" data-target="#preview4">预览</a>
+								  				</div>
+								  				<table class="table table-top">
+								  					<thead>
+								  						<tr>
+								  							<th>字段名</th>
+								  							<th>字段值</th>
+								  						</tr>
+								  					</thead>
+								  				</table>
+								  				<ul class="list-group" id="simpleList4" data-group="100">
+												  	<li class="list-group-item form-group form-list-group" data-index="1">
+												  		<div class="input-group">
+												  			<span class="input-group-addon">
+												  				<input type="checkbox">
+													  		</span>
+													  		<input type="text" class="form-control field-key" placeholder="PE投资之中概股回归（A级）">
+													  		<span class="input-group-addon">:</span>
+													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal" value="健康管理龙头企业私有化基金项目" placeholder="1">
+													  		<span class="input-group-addon input-move">
+													  			<i class="glyphicon glyphicon-move"></i>
+													  		</span>
+												  		</div>
+												  	</li>
+												  	<li class="list-group-item form-group form-list-group" data-index="2">
+												  		<div class="input-group">
+												  			<span class="input-group-addon">
+												  				<input type="checkbox">
+													  		</span>
+													  		<input type="text" class="form-control field-key" placeholder="存续时间">
+													  		<span class="input-group-addon">:</span>
+													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal" value="4+1+1" placeholder="1">
+													  		<span class="input-group-addon input-move">
+													  			<i class="glyphicon glyphicon-move"></i>
+													  		</span>
+												  		</div>
+												  	</li>
+												</ul>
+								  			</div>
+								  			<div class="col-md-8">
+								  				<div class="embed-responsive embed-responsive-16by9">
+												  <iframe class="embed-responsive-item" id="preview4" src="..."></iframe>
+												</div>
 								  			</div>
 								  		</div>
 								  	</div>
@@ -876,6 +785,7 @@
 			</div>
 		</div>
 	</div>
+
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	  <div class="modal-dialog">
 	    <div class="modal-content">
@@ -884,11 +794,11 @@
 	        <h4 class="modal-title" id="myModalLabel">填写内容</h4>
 	      </div>
 	      <div class="modal-body">
-	      	<textarea class="textarea" spellcheck="false"></textarea>
+	      	<textarea class="textarea" spellcheck="false" id="modal-editor"></textarea>
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-	        <button type="button" class="btn btn-primary">确定</button>
+	        <button type="button" class="btn btn-default" data-dismiss="modal" id="modal-cancel">关闭</button>
+	        <button type="button" class="btn btn-primary" id="modal-sure">确定</button>
 	      </div>
 	    </div>
 	  </div>
@@ -921,12 +831,28 @@
 			"beachmarkIndex": "<input type='number' class='form-control form-control-1'>"
 		}
 	</script>
+	<script type="text/x-template" id="fieldListItem">
+		<li class="list-group-item form-group form-list-group" data-priority="{priority}">
+	  		<div class="input-group">
+	  			<span class="input-group-addon">
+	  				<input type="checkbox" name="">
+		  		</span>
+		  		<input type="text" class="form-control" name="">
+		  		<span class="input-group-addon">:</span>
+		  		<input type="text" class="form-control input-content" readonly="" data-toggle="modal" data-target="#myModal">
+		  		<span class="input-group-addon input-move">
+		  			<i class="glyphicon glyphicon-move"></i>
+		  		</span>
+	  		</div>
+	  	</li>
+	</script>
 
-	<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-	<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript" src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap-select.js"></script>
-	<script src="js/bootstrap-table.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap-table.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap-table-zh-CN.min.js"></script>
+	<script type="text/javascript" src="js/Sortable.min.js"></script>
 	<script type="text/javascript" src="js/admin.js"></script>
 	<script type="text/javascript">
 
@@ -966,8 +892,6 @@
 		$table1.on("check.bs.table uncheck.bs.table check-all.bs.table uncheck-all.bs.table", function(){
 			$remove1.prop("disabled", !$(this).bootstrapTable("getSelections").length);
 		});
-
-
 
 		$table2.on("check.bs.table uncheck.bs.table check-all.bs.table uncheck-all.bs.table", function(){
 			$remove2.prop("disabled", !$(this).bootstrapTable("getSelections").length);
@@ -1010,6 +934,132 @@
 				return row.state;
 			});
 		}
+
+		var sortableOpts = {
+	    		handle: '.input-move',
+	    		//sort: true,
+	    		/*delay: 500,*/
+	    		ghostClass: 'ghost',
+	    		chosenClass: 'chosen',
+	    		forceFallback: true,	//生成拖动副本
+	    		scroll: true,
+	    		dataIdAttr: 'data-id'
+	    	},
+	    	sortables = [];
+
+	  	sortables.push(Sortable.create(simpleList1, sortableOpts));
+	  	sortables.push(Sortable.create(simpleList2, sortableOpts));
+	  	sortables.push(Sortable.create(simpleList3, sortableOpts));
+	  	sortables.push(Sortable.create(simpleList4, sortableOpts));
+
+	  	$(".add-field").on("click", function(){
+    		var parent = $(this).parents(".form-left"),
+    			listGroup = parent.find(".list-group"),
+    			index = listGroup.children(".list-group-item").length || 0,
+    			fieldListItem = $("#fieldListItem").html();
+    		index = index + 1;
+    		listGroup.find(".list-group-no-data").hide();
+    		fieldListItem = fieldListItem.replace(/{priority}/, index);
+    		listGroup.append(fieldListItem);
+    	});
+
+    	$("#save").on("click", save);
+
+    	function save(){
+    		var $btn = $(this).button('loading'),
+    			index = 0,
+    			product = {
+					productName : $("#productName").val(),
+					quoca		: $("#quoca").val(),
+					lockPeriod 	: $("#lockPeriod").val(),
+					managerMentOrg : $("#managerMentOrg").val(),
+					fundCatagory : $("#fundCatagory").val(),
+					investMinAmout : $("#investMinAmout").val(),
+					trustOrg : $("#trustOrg").val(),
+					investUnit : $("#investUnit").val(),
+					productClass : $("#productClass").val(),
+					redeemFeeRate : $("#redeemFeeRate").val(),
+					purchaseFeeRate : $("#purchaseFeeRate").val(),
+					managementFeeRate : $("#managementFeeRate").val(),
+					productWholeName : $("#productWholeName").val(),
+					investStrategy : $("#investStrategy").val(),
+					fundCompany: $("#fundCompany").val(),
+					status : $("#status").val(),
+					amountType : $("#amountType").val(),
+					type: $("#type").val(),
+					isSelected: $("#isSelected:checked").val(),
+					investmentAdviser: $("#investmentAdviser").val(),
+					pageStyleField: $("#pageStyleField").val(),
+					motherFundCompany: $("#motherFundCompany").val(),
+					subFundFeeRate: $("#subFundFeeRate").val(),
+					trusteeFeeRate: $("#trusteeFeeRate").val()
+				}
+				
+			for(var i = 0; i < 4; i++){
+    			var sortable = sortables[i],
+    				fieldList = $(sortable.el),
+    				fieldKeys = $(fieldList).find(".field-key"),
+	    			fieldValues = $(fieldList).find(".field-value"),
+	    			order = sortable.toArray();
+	    			for(var j = 0, length = order.length; j < length; j++){
+	    				product["descriptions["+ index +"].group"] = $(fieldList).data("group");
+		    			product["descriptions["+ index +"].descKey"] = fieldKeys.get(j).value;
+		    			product["descriptions["+ index +"].descValue"] = fieldValues.get(j).value;
+		    			product["descriptions["+ index +"].priority"] = j;
+		    			index++;
+	    			}
+    		}
+
+    		console.log(product);
+    	}
+
+    	var relatedTarget;
+    	$("#myModal").on("show.bs.modal", function(e){
+    		relatedTarget = e.relatedTarget;
+    		$("#modal-editor").val(relatedTarget.value);
+    	});
+
+    	$("#modal-sure").on("click", function(){
+    		relatedTarget.value = $("#modal-editor").val();
+    		$('#myModal').modal('hide');
+    	});
+
+    	$(".list-group").on("check.bs.table", function(){
+    		var length = $(this).find("input[type=checkbox]:checked").length;
+
+    		if(length > 0){
+    			$(this).parent().find(".remove-field").prop("disabled", false);
+    		}else{
+    			$(this).parent().find(".remove-field").prop("disabled", true);
+    		}
+    	});
+
+    	$("input[type=checkbox]").click(function(e){
+			$(this).parents(".list-group").trigger("check.bs.table");
+		});
+
+		$(".check-all").click(function(e){
+			$(this).parents(".form-left").find("input[type=checkbox]").prop("checked", true);
+			$(this).parents(".form-left").find(".list-group").trigger("check.bs.table");
+		});
+
+		$(".remove-field").click(function(e){
+
+			var length,
+				$listGroup = $(this).parents(".form-left").find(".list-group");
+
+			$listGroup.find("input[type=checkbox]:checked").parents("li").remove();
+			$(this).prop("disabled", true);
+			length = $listGroup.find(".list-group-item").length;
+			if(length == 0){
+				$listGroup.html("<li class='list-group-no-data'>暂时没有字段，请点击添加字段按钮添加</li>");
+			}
+		});
+
+		$(".preview").click(function(){
+			var target = $(this).data("target");
+			$(target).attr("src", "http://www.youmilc.com");
+		});
 
 	</script>
 </body>
