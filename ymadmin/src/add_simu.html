@@ -204,75 +204,93 @@
 									<div role="tabpanel" class="tab-pane panel-body active" id="basic-info">
 										<form class="form-horizontal">
 											<div class="form-group">
-											    <label for="inputEmail3" class="col-sm-2 control-label">产品名称</label>
+											    <label for="productName" class="col-sm-2 control-label">产品名称</label>
 											    <div class="col-sm-6">
-											      <input type="text" class="form-control" id="inputEmail3" placeholder="Email">
+											      <input type="text" class="form-control" id="productName" placeholder="请输入产品名称">
 											    </div>
 											</div>
 											<div class="form-group">
-											    <label for="inputEmail3" class="col-sm-2 control-label">货币类型</label>
+											    <label for="extablishedDate" class="col-sm-2 control-label">成立时间</label>
 											    <div class="col-sm-6">
-											      <select class="form-control selectpicker">
-											      	<option>人名币</option>
-											      	<option>美元</option>
+											      <input type="date" class="form-control" id="extablishedDate">
+											    </div>
+											</div>
+											<div class="form-group">
+											    <label for="productWholeName" class="col-sm-2 control-label">基金全称</label>
+											    <div class="col-sm-6">
+											      <input type="text" class="form-control" id="productWholeName" placeholder="请输入基金全称">
+											    </div>
+											</div>
+											<div class="form-group">
+											    <label for="investmentAdviser" class="col-sm-2 control-label">投资顾问</label>
+											    <div class="col-sm-6">
+											      <input type="text" class="form-control" id="investmentAdviser" placeholder="请输入投资顾问">
+											    </div>
+											</div>
+											<div class="form-group">
+											    <label for="amountType" class="col-sm-2 control-label">货币类型</label>
+											    <div class="col-sm-6">
+											      <select class="form-control selectpicker" id="amountType">
+											      	<option value="10">人名币</option>
+											      	<option value="20">美元</option>
 											      </select>
 											    </div>
 											</div>
 											<div class="form-group">
-											    <label for="inputEmail3" class="col-sm-2 control-label">参加活动</label>
+											    <label for="isSelected" class="col-sm-2 control-label">参加活动</label>
 											    <div class="col-sm-6">
-											      <select class="form-control selectpicker">
-											      	<option>万里挑一</option>
-											      	<option>双11</option>
+											      <select class="form-control selectpicker" id="isSelected">
+											      	<option value="1">万里挑一</option>
+											      	<option value="2">双11</option>
 											      </select>
 											    </div>
 											</div>
 											<div class="form-group">
-											    <label for="inputEmail3" class="col-sm-2 control-label">募集金额</label>
+											    <label for="investMinAmout" class="col-sm-2 control-label">起投金额</label>
 											    <div class="col-sm-6">
 											    	<div class="input-group">
-											    		<input type="number" class="form-control" id="inputEmail3" placeholder="Email">
-											    		<span class="input-group-addon">万</span>
-											    	</div>
-											    </div>
-											</div>
-											<div class="form-group">
-											    <label for="inputEmail3" class="col-sm-2 control-label">起投金额</label>
-											    <div class="col-sm-6">
-											    	<div class="input-group">
-											    		<input type="number" class="form-control" id="inputEmail3" placeholder="Email">
+											    		<input type="number" class="form-control" id="investMinAmout" placeholder="">
 											    		<span class="input-group-addon">万</span>	
 											    	</div>
 											    </div>
 											</div>
 											<div class="form-group">
-											    <label for="inputEmail3" class="col-sm-2 control-label">存续时间</label>
+											    <label for="quoca" class="col-sm-2 control-label">募集金额</label>
 											    <div class="col-sm-6">
 											    	<div class="input-group">
-											    		<input type="number" class="form-control" id="inputEmail3" placeholder="Email">
-											    		<span class="input-group-addon">月</span>	
+											    		<input type="number" class="form-control" id="quoca" placeholder="">
+											    		<span class="input-group-addon">万</span>
 											    	</div>
 											    </div>
 											</div>
 											<div class="form-group">
-											    <label for="inputEmail3" class="col-sm-2 control-label">管理机构</label>
-											    <div class="col-sm-6">
-											      <input type="text" class="form-control" id="inputEmail3" placeholder="Email">
-											    </div>
-											</div>
-											<div class="form-group">
-											    <label for="inputEmail3" class="col-sm-2 control-label">管理费率</label>
+											    <label for="investUnit" class="col-sm-2 control-label">追加金额</label>
 											    <div class="col-sm-6">
 											    	<div class="input-group">
-											    		<input type="number" class="form-control" id="inputEmail3" placeholder="Email">
+											    		<input type="number" class="form-control" id="investUnit" placeholder="">
 											    		<span class="input-group-addon">%</span>	
 											    	</div>
 											    </div>
 											</div>
 											<div class="form-group">
-											    <label for="inputEmail3" class="col-sm-2 control-label">分类级别</label>
+											    <label for="lockPeriod" class="col-sm-2 control-label">存续时间</label>
 											    <div class="col-sm-6">
-											      	<select class="form-control selectpicker" name="productClass" id="productClass">
+											    	<div class="input-group">
+											    		<input type="number" class="form-control" id="lockPeriod" placeholder="">
+											    		<span class="input-group-addon">月</span>	
+											    	</div>
+											    </div>
+											</div>
+											<div class="form-group">
+											    <label for="fundManager" class="col-sm-2 control-label">基金经理</label>
+											    <div class="col-sm-6">
+											      <input type="text" class="form-control" id="fundManager" placeholder="">
+											    </div>
+											</div>
+											<div class="form-group">
+											    <label for="productClass" class="col-sm-2 control-label">分类级别</label>
+											    <div class="col-sm-6">
+											      	<select class="form-control selectpicker" id="productClass">
 														<option value="1">A</option>
 														<option value="2">B</option>
 														<option value="4">结构化</option>
@@ -281,9 +299,9 @@
 											    </div>
 											</div>
 											<div class="form-group">
-											    <label for="inputEmail3" class="col-sm-2 control-label">产品状态</label>
+											    <label for="status" class="col-sm-2 control-label">产品状态</label>
 											    <div class="col-sm-6">
-											      	<select class="form-control selectpicker" name="status" id="status">
+											      	<select class="form-control selectpicker" id="status">
 														<option value="0">未发布</option>
 														<option value="1">预约中</option>
 														<option value="2">运行中</option>
@@ -291,77 +309,105 @@
 											    </div>
 											</div>
 											<div class="form-group">
-											    <label for="inputEmail3" class="col-sm-2 control-label">认购费率</label>
+											    <label for="managerMentOrg" class="col-sm-2 control-label">管理机构</label>
+											    <div class="col-sm-6">
+											      <input type="text" class="form-control" id="managerMentOrg" placeholder="">
+											    </div>
+											</div>
+											<div class="form-group">
+											    <label for="managementFeeRate" class="col-sm-2 control-label">管理费率</label>
 											    <div class="col-sm-6">
 											    	<div class="input-group">
-											    		<input type="number" class="form-control" id="inputEmail3" placeholder="Email">
+											    		<input type="number" class="form-control" id="managementFeeRate" placeholder="">
 											    		<span class="input-group-addon">%</span>	
 											    	</div>
 											    </div>
 											</div>
 											<div class="form-group">
-											    <label for="inputEmail3" class="col-sm-2 control-label">基金全称</label>
-											    <div class="col-sm-6">
-											      <input type="text" class="form-control" id="inputEmail3" placeholder="Email">
-											    </div>
-											</div>
-											<div class="form-group">
-											    <label for="inputEmail3" class="col-sm-2 control-label">托管平台</label>
-											    <div class="col-sm-6">
-											      <input type="text" class="form-control" id="inputEmail3" placeholder="Email">
-											    </div>
-											</div>
-											<div class="form-group">
-											    <label for="inputEmail3" class="col-sm-2 control-label">基金策略</label>
-											    <div class="col-sm-6">
-											      <input type="text" class="form-control" id="inputEmail3" placeholder="Email">
-											    </div>
-											</div>
-											<div class="form-group">
-											    <label for="inputEmail3" class="col-sm-2 control-label">追加金额</label>
+											    <label for="purchaseFeeRate" class="col-sm-2 control-label">认购费率</label>
 											    <div class="col-sm-6">
 											    	<div class="input-group">
-											    		<input type="number" class="form-control" id="inputEmail3" placeholder="Email">
-											    		<span class="input-group-addon">万</span>	
-											    	</div>
-											    </div>
-											</div>
-											<div class="form-group">
-											    <label for="inputEmail3" class="col-sm-2 control-label">基金类型</label>
-											    <div class="col-sm-6">
-											      <input type="text" class="form-control" id="inputEmail3" placeholder="Email">
-											    </div>
-											</div>
-											<div class="form-group">
-											    <label for="inputEmail3" class="col-sm-2 control-label">成立时间</label>
-											    <div class="col-sm-6">
-											      <input type="date" class="form-control" id="inputEmail3" placeholder="Email">
-											    </div>
-											</div>
-											<div class="form-group">
-											    <label for="inputEmail3" class="col-sm-2 control-label">最大收益率</label>
-											    <div class="col-sm-6">
-											    	<div class="input-group">
-											    		<input type="number" class="form-control" id="inputEmail3" placeholder="Email">
+											    		<input type="number" class="form-control" id="purchaseFeeRate" placeholder="">
 											    		<span class="input-group-addon">%</span>	
 											    	</div>
 											    </div>
 											</div>
 											<div class="form-group">
-											    <label for="inputEmail3" class="col-sm-2 control-label">最小收益率</label>
+											    <label for="trusteeFeeRate" class="col-sm-2 control-label">托管费率</label>
 											    <div class="col-sm-6">
 											    	<div class="input-group">
-											    		<input type="number" class="form-control" id="inputEmail3" placeholder="Email">
+											    		<input type="number" class="form-control" id="trusteeFeeRate" placeholder="">
 											    		<span class="input-group-addon">%</span>	
 											    	</div>
 											    </div>
 											</div>
 											<div class="form-group">
-											    <label for="inputEmail3" class="col-sm-2 control-label">基金经理</label>
+											    <label for="subFundFeeRate" class="col-sm-2 control-label">子基金管理费</label>
 											    <div class="col-sm-6">
-											      <input type="text" class="form-control" id="inputEmail3" placeholder="Email">
+											    	<div class="input-group">
+											    		<input type="number" class="form-control" id="subFundFeeRate" placeholder="">
+											    		<span class="input-group-addon">%</span>	
+											    	</div>
 											    </div>
 											</div>
+											<div class="form-group">
+											    <label for="redeemFeeRate" class="col-sm-2 control-label">赎回费率</label>
+											    <div class="col-sm-6">
+											    	<div class="input-group">
+											    		<input type="number" class="form-control" id="redeemFeeRate" placeholder="">
+											    		<span class="input-group-addon">%</span>	
+											    	</div>
+											    </div>
+											</div>
+											<div class="form-group">
+											    <label for="trustOrg" class="col-sm-2 control-label">托管平台</label>
+											    <div class="col-sm-6">
+											      <input type="text" class="form-control" id="trustOrg" placeholder="">
+											    </div>
+											</div>
+											<div class="form-group">
+											    <label for="fundCompany" class="col-sm-2 control-label">基金公司</label>
+											    <div class="col-sm-6">
+											      <input type="text" class="form-control" id="fundCompany" placeholder="">
+											    </div>
+											</div>
+											<div class="form-group">
+											    <label for="motherFundCompany" class="col-sm-2 control-label">母基金公司</label>
+											    <div class="col-sm-6">
+											      <input type="text" class="form-control" id="motherFundCompany" placeholder="">
+											    </div>
+											</div>
+											<div class="form-group">
+											    <label for="investStrategy" class="col-sm-2 control-label">投资策略</label>
+											    <div class="col-sm-6">
+											      <input type="text" class="form-control" id="investStrategy" placeholder="">
+											    </div>
+											</div>
+											<div class="form-group">
+											    <label for="fundCatagory" class="col-sm-2 control-label">基金类型</label>
+											    <div class="col-sm-6">
+											      <input type="text" class="form-control" id="fundCatagory" placeholder="">
+											    </div>
+											</div>
+											<div class="form-group">
+											    <label for="expectedMaxRate" class="col-sm-2 control-label">最大收益率</label>
+											    <div class="col-sm-6">
+											    	<div class="input-group">
+											    		<input type="number" class="form-control" id="expectedMaxRate" placeholder="">
+											    		<span class="input-group-addon">%</span>	
+											    	</div>
+											    </div>
+											</div>
+											<div class="form-group">
+											    <label for="expectedMinRate" class="col-sm-2 control-label">最小收益率</label>
+											    <div class="col-sm-6">
+											    	<div class="input-group">
+											    		<input type="number" class="form-control" id="expectedMinRate" placeholder="">
+											    		<span class="input-group-addon">%</span>	
+											    	</div>
+											    </div>
+											</div>
+											
 										</form>
 								  	</div>
 									<div role="tabpanel" class="tab-pane panel-body" id="histori-net">
@@ -379,15 +425,15 @@
 											</div>
 										</div>
 										<div class="col-md-8 padding-none">
-											<table class="table table-bordered" id="table1" data-toggle="table" data-search-align="left" data-toolbar="#toolbar1">
+											<table class="table table-bordered" data-height="550" id="table1" data-toggle="table" data-toolbar="#toolbar1">
 												<thead>
 													<tr>
 														<th data-field="state" data-checkbox="true"></th>
-														<th data-filed="date">净值日期</th>
-														<th>单位净值</th>
-														<th>累计净值</th>
-														<th>周涨跌幅(%)</th>
-														<th>基准数据</th>
+														<th data-field="netValueDate">净值日期</th>
+														<th data-field="netAssetValue">单位净值</th>
+														<th data-field="netValueAccu">累计净值</th>
+														<th data-field="netValueUpdateRate">周涨跌幅</th>
+														<th data-field="beachmarkIndex">基准数据</th>
 													</tr>
 												</thead>
 												<tbody>
@@ -396,15 +442,12 @@
 														<td><input type="date" class="form-control form-control-1"></td>
 														<td><input type="number" class="form-control form-control-1"></td>
 														<td><input type="number" class="form-control form-control-1"></td>
-														<td><input type="number" class="form-control form-control-1"></td>
-														<td><input type="number" class="form-control form-control-1"></td>
-													</tr>
-													<tr>
-														<td></td>
-														<td><input type="date" class="form-control form-control-1"></td>
-														<td><input type="number" class="form-control form-control-1"></td>
-														<td><input type="number" class="form-control form-control-1"></td>
-														<td><input type="number" class="form-control form-control-1"></td>
+														<td>
+															<div class="input-group">
+																<input type="number" class="form-control form-control-1">
+																<span class="input-group-addon input-group-addon2">%</span>	
+															</div>
+														</td>
 														<td><input type="number" class="form-control form-control-1"></td>
 													</tr>
 												</tbody>
@@ -419,20 +462,25 @@
 												<button class="btn btn-danger" id="remove-table2" disabled="">删除</button>
 											</div>
 										</div>
-										<div class="col-md-5 padding-none">
-											<table class="table table-bordered" id="table2" data-toggle="table" data-search-align="left" data-toolbar="#toolbar2">
+										<div class="col-md-4 padding-none">
+											<table class="table table-bordered" id="table2" data-toggle="table" data-height="600" data-toolbar="#toolbar2">
 												<thead>
 													<tr>
 														<th data-field="state" data-checkbox="true"></th>
-														<th>月份</th>
-														<th>回报率</th>
+														<th data-field="date">月份</th>
+														<th data-field="updateRate">回报率</th>
 													</tr>
 												</thead>
 												<tbody>
 													<tr>
 														<td></td>
 														<td><input type="month" class="form-control form-control-1"></td>
-														<td><input type="number" class="form-control form-control-1"></td>
+														<td>
+															<div class="input-group">
+																<input type="number" class="form-control form-control-1">
+																<span class="input-group-addon input-group-addon2">%</span>	
+															</div>
+														</td>
 													</tr>
 												</tbody>
 											</table>
@@ -456,24 +504,20 @@
 												<button class="btn btn-danger" id="remove-table3" disabled="">删除</button>
 											</div>
 										</div>
-										<div class="col-md-8 padding-none">
-											<table class="table table-bordered" id="table3" data-toggle="table" data-search-align="left" data-toolbar="#toolbar3">
+										<div class="col-md-5 padding-none">
+											<table class="table table-bordered" id="table3" data-height="550" data-toggle="table" data-toolbar="#toolbar3">
 												<thead>
 													<tr>
 														<th data-field="state" data-checkbox="true"></th>
-														<th>净值日期</th>
-														<th>单位净值</th>
-														<th>累计净值</th>
-														<th>周涨跌幅</th>
-														<th>基准数据</th>
+														<th data-field="netValueDate">净值日期</th>
+														<th data-field="netAssetValue">单位净值</th>
+														<th data-field="beachmarkIndex">基准数据</th>
 													</tr>
 												</thead>
 												<tbody>
 													<tr>
 														<td></td>
 														<td><input type="date" class="form-control form-control-1"></td>
-														<td><input type="number" class="form-control form-control-1"></td>
-														<td><input type="number" class="form-control form-control-1"></td>
 														<td><input type="number" class="form-control form-control-1"></td>
 														<td><input type="number" class="form-control form-control-1"></td>
 													</tr>
@@ -484,12 +528,12 @@
 									
 								  	<div role="tabpanel" class="tab-pane panel-body" id="pe-channel">
 								  		<div class="row">
-								  			<div class="col-md-5 form-left">
+								  			<div class="col-md-4 form-left">
 								  				<div class="btn-group">
-								  					<a class="btn btn-default">添加字段</a>
-								  					<a class="btn btn-default">全选</a>
-								  					<a class="btn btn-default">删除字段</a>
-								  					<a class="btn btn-default">预览</a>
+								  					<a class="btn btn-default add-field">添加字段</a>
+								  					<a class="btn btn-default check-all">全选</a>
+								  					<button class="btn btn-danger remove-field" disabled="">删除字段</button>
+								  					<a class="btn btn-default preview" data-target="#preview1">预览</a>
 								  				</div>
 								  				<table class="table table-top">
 								  					<thead>
@@ -499,67 +543,41 @@
 								  						</tr>
 								  					</thead>
 								  				</table>
-								  				<ul class="list-group">
-												  	<li class="list-group-item form-group form-list-group">
+								  				<ul class="list-group" id="simpleList1" data-group="300">
+												  	<li class="list-group-item form-group form-list-group" data-id="1">
 												  		<div class="input-group">
 												  			<span class="input-group-addon">
-												  				<input type="checkbox" name="">
+												  				<input type="checkbox">
 													  		</span>
-													  		<input type="text" class="form-control" name="">
+													  		<input type="text" class="form-control field-key" placeholder="左边描述">
 													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control input-content" name="" readonly="">
+													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal" value="行业龙头潜力可期" placeholder="1">
 													  		<span class="input-group-addon input-move">
 													  			<i class="glyphicon glyphicon-move"></i>
 													  		</span>
 												  		</div>
 												  	</li>
-												  	<li class="list-group-item form-group form-list-group">
+												  	<li class="list-group-item form-group form-list-group" data-index="2">
 												  		<div class="input-group">
 												  			<span class="input-group-addon">
-												  				<input type="checkbox" name="">
+												  				<input type="checkbox">
 													  		</span>
-													  		<input type="text" class="form-control" name="">
+													  		<input type="text" class="form-control field-key" placeholder="左边描述">
 													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control" name="">
+													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal" value="行业龙头潜力可期" placeholder="1">
 													  		<span class="input-group-addon input-move">
 													  			<i class="glyphicon glyphicon-move"></i>
 													  		</span>
 												  		</div>
 												  	</li>
-												  	<li class="list-group-item form-group form-list-group">
+												  	<li class="list-group-item form-group form-list-group" data-index="3">
 												  		<div class="input-group">
 												  			<span class="input-group-addon">
-												  				<input type="checkbox" name="">
+												  				<input type="checkbox">
 													  		</span>
-													  		<input type="text" class="form-control" name="">
+													  		<input type="text" class="form-control field-key" placeholder="左边描述">
 													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control" name="">
-													  		<span class="input-group-addon input-move">
-													  			<i class="glyphicon glyphicon-move"></i>
-													  		</span>
-												  		</div>
-												  	</li>
-												  	<li class="list-group-item form-group form-list-group">
-												  		<div class="input-group">
-												  			<span class="input-group-addon">
-												  				<input type="checkbox" name="">
-													  		</span>
-													  		<input type="text" class="form-control" name="">
-													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control" name="">
-													  		<span class="input-group-addon input-move">
-													  			<i class="glyphicon glyphicon-move"></i>
-													  		</span>
-												  		</div>
-												  	</li>
-												  	<li class="list-group-item form-group form-list-group">
-												  		<div class="input-group">
-												  			<span class="input-group-addon">
-												  				<input type="checkbox" name="">
-													  		</span>
-													  		<input type="text" class="form-control" name="">
-													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control" name="">
+													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal" value="行业龙头潜力可期" placeholder="1">
 													  		<span class="input-group-addon input-move">
 													  			<i class="glyphicon glyphicon-move"></i>
 													  		</span>
@@ -567,23 +585,21 @@
 												  	</li>
 												</ul>
 								  			</div>
-								  			<div class="col-md-7">
-								  				<iframe src="about:blank" width="100%" frameborder="0" height="450px" scrolling="auto"></iframe>
+								  			<div class="col-md-8">
+								  				<div class="embed-responsive embed-responsive-16by9">
+												  <iframe class="embed-responsive-item" id="preview1" src="..."></iframe>
+												</div>
 								  			</div>
 								  		</div>
 								  	</div>
 								  	<div role="tabpanel" class="tab-pane panel-body" id="pe-list">
 								  		<div class="row">
-								  			<div class="col-md-5 form-left">
+								  			<div class="col-md-4 form-left">
 								  				<div class="btn-group">
-								  					<a class="btn btn-default">添加字段</a>
-								  					<a class="btn btn-default">全选</a>
-								  					<a class="btn btn-default">删除字段</a>
-								  					<a class="btn btn-default">预览</a>
-								  					<select class="btn-select selectpicker">
-								  						<option>默认模板</option>
-								  						<option>1号模板</option>
-								  					</select>
+								  					<a class="btn btn-default add-field">添加字段</a>
+								  					<a class="btn btn-default check-all">全选</a>
+								  					<button class="btn btn-danger remove-field" disabled="">删除字段</button>
+								  					<a class="btn btn-default preview" data-target="#preview1">预览</a>
 								  				</div>
 								  				<table class="table table-top">
 								  					<thead>
@@ -593,54 +609,15 @@
 								  						</tr>
 								  					</thead>
 								  				</table>
-								  				<ul class="list-group">
-												  	<li class="list-group-item form-group form-list-group">
+								  				<ul class="list-group" id="simpleList2" data-group="301">
+												  	<li class="list-group-item form-group form-list-group" data-index="1">
 												  		<div class="input-group">
 												  			<span class="input-group-addon">
-												  				<input type="checkbox" name="">
+												  				<input type="checkbox">
 													  		</span>
-													  		<input type="text" class="form-control" name="">
+													  		<input type="text" class="form-control field-key" placeholder="左边描述">
 													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control" name="">
-													  		<span class="input-group-addon input-move">
-													  			<i class="glyphicon glyphicon-move"></i>
-													  		</span>
-												  		</div>
-												  	</li>
-												  	<li class="list-group-item form-group form-list-group">
-												  		<div class="input-group">
-												  			<span class="input-group-addon">
-												  				<input type="checkbox" name="">
-													  		</span>
-													  		<input type="text" class="form-control" name="">
-													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control" name="">
-													  		<span class="input-group-addon input-move">
-													  			<i class="glyphicon glyphicon-move"></i>
-													  		</span>
-												  		</div>
-												  	</li>
-												  	<li class="list-group-item form-group form-list-group">
-												  		<div class="input-group">
-												  			<span class="input-group-addon">
-												  				<input type="checkbox" name="">
-													  		</span>
-													  		<input type="text" class="form-control" name="">
-													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control" name="">
-													  		<span class="input-group-addon input-move">
-													  			<i class="glyphicon glyphicon-move"></i>
-													  		</span>
-												  		</div>
-												  	</li>
-												  	<li class="list-group-item form-group form-list-group">
-												  		<div class="input-group">
-												  			<span class="input-group-addon">
-												  				<input type="checkbox" name="">
-													  		</span>
-													  		<input type="text" class="form-control" name="">
-													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control" name="">
+													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal" value="行业龙头潜力可期" placeholder="1">
 													  		<span class="input-group-addon input-move">
 													  			<i class="glyphicon glyphicon-move"></i>
 													  		</span>
@@ -648,14 +625,16 @@
 												  	</li>
 												</ul>
 								  			</div>
-								  			<div class="col-md-7">
-								  				<iframe src="about:blank" width="100%" frameborder="0" height="450px" scrolling="auto"></iframe>
+								  			<div class="col-md-8">
+								  				<div class="embed-responsive embed-responsive-16by9">
+												  <iframe class="embed-responsive-item" id="preview2" src="..."></iframe>
+												</div>
 								  			</div>
 								  		</div>
 								  	</div>
 								  	<div role="tabpanel" class="tab-pane panel-body" id="pe-details">
 								  		<div class="row">
-								  			<div class="col-md-5 form-left">
+								  			<div class="col-md-4 form-left">
 								  				<div class="btn-group">
 								  					<a class="btn btn-default">添加字段</a>
 								  					<a class="btn btn-default">全选</a>
@@ -803,14 +782,10 @@
 								  		<div class="row">
 								  			<div class="col-md-4 form-left">
 								  				<div class="btn-group">
-								  					<a class="btn btn-default">添加字段</a>
-								  					<a class="btn btn-default">全选</a>
-								  					<a class="btn btn-default">删除字段</a>
-								  					<a class="btn btn-default">预览</a>
-								  					<select class="btn-select selectpicker">
-								  						<option>默认模板</option>
-								  						<option>1号模板</option>
-								  					</select>
+								  					<a class="btn btn-default add-field">添加字段</a>
+								  					<a class="btn btn-default check-all">全选</a>
+								  					<button class="btn btn-danger remove-field" disabled="">删除字段</button>
+								  					<a class="btn btn-default preview" data-target="#preview1">预览</a>
 								  				</div>
 								  				<table class="table table-top">
 								  					<thead>
@@ -820,54 +795,67 @@
 								  						</tr>
 								  					</thead>
 								  				</table>
-								  				<ul class="list-group">
-												  	<li class="list-group-item form-group form-list-group">
+								  				<ul class="list-group" id="simpleList3" data-group="302">
+												  	<li class="list-group-item form-group form-list-group" data-index="1">
 												  		<div class="input-group">
 												  			<span class="input-group-addon">
-												  				<input type="checkbox" name="">
+												  				<input type="checkbox">
 													  		</span>
-													  		<input type="text" class="form-control" name="">
+													  		<input type="text" class="form-control field-key" placeholder="左边描述">
 													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control input-content" name="" readonly="" data-toggle="modal" data-target="#myModal">
+													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal" value="行业龙头潜力可期" placeholder="1">
 													  		<span class="input-group-addon input-move">
 													  			<i class="glyphicon glyphicon-move"></i>
 													  		</span>
 												  		</div>
 												  	</li>
-												  	<li class="list-group-item form-group form-list-group">
+												  	<li class="list-group-item form-group form-list-group" data-index="2">
 												  		<div class="input-group">
 												  			<span class="input-group-addon">
-												  				<input type="checkbox" name="">
+												  				<input type="checkbox">
 													  		</span>
-													  		<input type="text" class="form-control" name="">
+													  		<input type="text" class="form-control field-key" placeholder="左边描述">
 													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control input-content" name="" readonly="" data-toggle="modal" data-target="#myModal">
+													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal" value="行业龙头潜力可期" placeholder="1">
 													  		<span class="input-group-addon input-move">
 													  			<i class="glyphicon glyphicon-move"></i>
 													  		</span>
 												  		</div>
 												  	</li>
-												  	<li class="list-group-item form-group form-list-group">
+												  	<li class="list-group-item form-group form-list-group" data-index="3">
 												  		<div class="input-group">
 												  			<span class="input-group-addon">
-												  				<input type="checkbox" name="">
+												  				<input type="checkbox">
 													  		</span>
-													  		<input type="text" class="form-control" name="">
+													  		<input type="text" class="form-control field-key" placeholder="左边描述">
 													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control input-content" name="" readonly="" data-toggle="modal" data-target="#myModal">
+													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal" value="行业龙头潜力可期" placeholder="1">
 													  		<span class="input-group-addon input-move">
 													  			<i class="glyphicon glyphicon-move"></i>
 													  		</span>
 												  		</div>
 												  	</li>
-												  	<li class="list-group-item form-group form-list-group">
+												  	<li class="list-group-item form-group form-list-group" data-index="4">
 												  		<div class="input-group">
 												  			<span class="input-group-addon">
-												  				<input type="checkbox" name="">
+												  				<input type="checkbox">
 													  		</span>
-													  		<input type="text" class="form-control" name="">
+													  		<input type="text" class="form-control field-key" placeholder="左边描述">
 													  		<span class="input-group-addon">:</span>
-													  		<input type="text" class="form-control input-content" name="" readonly="" data-toggle="modal" data-target="#myModal">
+													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal" value="行业龙头潜力可期" placeholder="1">
+													  		<span class="input-group-addon input-move">
+													  			<i class="glyphicon glyphicon-move"></i>
+													  		</span>
+												  		</div>
+												  	</li>
+												  	<li class="list-group-item form-group form-list-group" data-index="5">
+												  		<div class="input-group">
+												  			<span class="input-group-addon">
+												  				<input type="checkbox">
+													  		</span>
+													  		<input type="text" class="form-control field-key" placeholder="左边描述">
+													  		<span class="input-group-addon">:</span>
+													  		<input type="text" class="form-control input-content field-value" readonly="" data-toggle="modal" data-target="#myModal" value="行业龙头潜力可期" placeholder="1">
 													  		<span class="input-group-addon input-move">
 													  			<i class="glyphicon glyphicon-move"></i>
 													  		</span>
@@ -909,31 +897,29 @@
 	<div class="admin-menu visible-xs-block" id="admin-menu"></div>
 
 	<script type="text/x-template" id="template1">
-		<tr data-index="{index}">
-			<td class="bs-checkbox"><input data-index="{index}" name="btSelectItem" type="checkbox"></td>
-			<td><input type="date" class="form-control form-control-1"></td>
-			<td><input type="number" class="form-control form-control-1"></td>
-			<td><input type="number" class="form-control form-control-1"></td>
-			<td><input type="number" class="form-control form-control-1"></td>
-			<td><input type="number" class="form-control form-control-1"></td>
-		</tr>
+		{
+        	"state": "",
+			"netValueDate": "<input type='date' class='form-control form-control-1'>",
+			"netAssetValue": "<input type='number' class='form-control form-control-1'>",
+			"netValueAccu": "<input type='number' class='form-control form-control-1'>",
+			"netValueUpdateRate": "<div class='input-group'><input type='number' class='form-control form-control-1'><span class='input-group-addon input-group-addon2'>%</span></div>",
+			"beachmarkIndex": "<input type='number' class='form-control form-control-1'>"
+        }
 	</script>
 	<script type="text/x-template" id="template2">
-		<tr data-index="{index}">
-			<td class="bs-checkbox"><input data-index="{index}" name="btSelectItem" type="checkbox"></td>
-			<td><input type="month" class="form-control form-control-1"></td>
-			<td><input type="number" class="form-control form-control-1"></td>
-		</tr>
+		{
+			"state": "",
+			"date": "<input type='month' class='form-control form-control-1'>",
+			"updateRate": "<div class='input-group'><input type='number' class='form-control form-control-1'><span class='input-group-addon input-group-addon2'>%</span></div>"
+		}
 	</script>
 	<script type="text/x-template" id="template3">
-		<tr data-index="{index}">
-			<td class="bs-checkbox"><input data-index="{index}" name="btSelectItem" type="checkbox"></td>
-			<td><input type="date" class="form-control form-control-1"></td>
-			<td><input type="number" class="form-control form-control-1"></td>
-			<td><input type="number" class="form-control form-control-1"></td>
-			<td><input type="number" class="form-control form-control-1"></td>
-			<td><input type="number" class="form-control form-control-1"></td>
-		</tr>
+		{
+			"state": "",
+			"netValueDate": "<input type='date' class='form-control form-control-1'>",
+			"netAssetValue": "<input type='number' class='form-control form-control-1'>",
+			"beachmarkIndex": "<input type='number' class='form-control form-control-1'>"
+		}
 	</script>
 
 	<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
@@ -944,16 +930,6 @@
 	<script type="text/javascript" src="js/admin.js"></script>
 	<script type="text/javascript">
 
-		$(".add-tr").on("click", function(){
-			var target = $(this).data("target"),
-				template = $(this).data("template"),
-				html = $(template).html(),
-				length = $(target).find("tbody").children().length || 0;
-			console.log(template);
-			html = html.replace(/{index}/, length);
-			$(target).find("tbody").prepend(html);
-		});
-
 		var $table1 = $("#table1"),
 			$table2 = $("#table2"),
 			$table3 = $("#table3"),
@@ -961,9 +937,37 @@
 			$remove2 = $("#remove-table2"),
 			$remove3 = $("#remove-table3");
 
+		$('.selectpicker').selectpicker();
+
+		$(".add-tr").on("click", function(){
+			var data,
+				target = $(this).data("target"),
+				template = $(this).data("template"),
+			data = randomData.call($(template));
+			if(data != null){
+				$(target).bootstrapTable("prepend", data);
+			}
+		});
+
+	    function randomData() {
+	        var rows = [],
+	        	html = this.html(),
+	        	data = null;
+	        try{
+	        	data = JSON.parse(html);
+	        	rows.push(data);
+	        	return rows;
+	        }catch(err){
+	        	return null;
+	        }
+	        
+	    }
+		
 		$table1.on("check.bs.table uncheck.bs.table check-all.bs.table uncheck-all.bs.table", function(){
 			$remove1.prop("disabled", !$(this).bootstrapTable("getSelections").length);
 		});
+
+
 
 		$table2.on("check.bs.table uncheck.bs.table check-all.bs.table uncheck-all.bs.table", function(){
 			$remove2.prop("disabled", !$(this).bootstrapTable("getSelections").length);
@@ -975,20 +979,35 @@
 
 		$remove1.click(function(){
 			var ids = getIdSelections.call($table1);
-	    	console.log(ids);
-	        // $table.bootstrapTable('remove', {
-	        //     field: 'date',
-	        //     values: ids
-	        // });
-	        // $remove.prop('disabled', true);
+	        $table1.bootstrapTable('remove', {
+	            field: 'state',
+	            values: ids
+	        });
+	        $remove1.prop('disabled', true);
+		});
+
+		$remove2.click(function(){
+			var ids = getIdSelections.call($table2);
+	        $table2.bootstrapTable('remove', {
+	            field: 'state',
+	            values: ids
+	        });
+	        $remove2.prop('disabled', true);
+		});
+
+		$remove3.click(function(){
+			var ids = getIdSelections.call($table3);
+	        $table3.bootstrapTable('remove', {
+	            field: 'state',
+	            values: ids
+	        });
+	        $remove3.prop('disabled', true);
 		});
 
 		function getIdSelections(){
 			var arr = this.bootstrapTable("getSelections");
-			console.log(arr);
 			return $.map(arr, function(row){
-				console.log(row);
-				row;
+				return row.state;
 			});
 		}
 
