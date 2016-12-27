@@ -187,6 +187,7 @@
 								<!-- Nav tabs -->
 								<ul class="nav nav-tabs" role="tablist">
 									<li role="presentation" class="active"><a href="#basic-info" role="tab" data-toggle="tab">基本信息</a></li>
+									<li role="presentation"><a href="#income" role="tab" data-toggle="tab">收益信息</a></li>
 									<li role="presentation"><a href="#histori-net" role="tab" data-toggle="tab">产品历史净值</a></li>
 									<li role="presentation"><a href="#month-return" role="tab" data-toggle="tab">产品月度汇报率</a></li>
 									<li role="presentation"><a href="#histori-performance" role="tab" data-toggle="tab">管理人历史业绩</a></li>
@@ -405,6 +406,49 @@
 											
 										</form>
 								  	</div>
+								  	<div role="tabpanel" class="tab-pane panel-body" id="income">
+								  		<form class="form-horizontal">
+								  			<div class="form-group">
+											    <label for="actProfitThisRcteYear" class="col-sm-2 control-label">今年收益</label>
+											    <div class="col-sm-6">
+											    	<div class="input-group">
+											    		<input type="text" class="form-control" id="actProfitThisRcteYear" placeholder="">
+											    		<span class="input-group-addon">%</span>
+											    	</div>
+											    </div>
+											</div>
+											<div class="form-group">
+											    <label for="actProfitThisOneYear" class="col-sm-2 control-label">累计年化收益</label>
+											    <div class="col-sm-6">
+											      	<div class="input-group">
+											    		<input type="text" class="form-control" id="actProfitThisOneYear" placeholder="">
+											    		<span class="input-group-addon">%</span>
+											    	</div>
+											    </div>
+											</div>
+											<div class="form-group">
+											    <label for="actProfitRateTotal" class="col-sm-2 control-label">累计收益</label>
+											    <div class="col-sm-6">
+											     	<div class="input-group">
+											    		<input type="text" class="form-control" id="actProfitRateTotal" placeholder="">
+											    		<span class="input-group-addon">%</span>
+											    	</div>
+											    </div>
+											</div>
+											<div class="form-group">
+											    <label for="netValeCur" class="col-sm-2 control-label">最新净值</label>
+											    <div class="col-sm-6">
+											      <input type="number" class="form-control" id="netValeCur" placeholder="">
+											    </div>
+											</div>
+											<div class="form-group">
+											    <label for="netPriceCurAccu" class="col-sm-2 control-label">累计净值</label>
+											    <div class="col-sm-6">
+											      <input type="number" class="form-control" id="netPriceCurAccu" placeholder="">
+											    </div>
+											</div>
+								  		</form>
+								  	</div>
 									<div role="tabpanel" class="tab-pane panel-body" id="histori-net">
 										<div class="row">
 											<div class="form-group col-md-2">
@@ -434,13 +478,13 @@
 												<tbody>
 													<tr>
 														<td></td>
-														<td><input type="date" class="form-control form-control-1"></td>
-														<td><input type="number" class="form-control form-control-1"></td>
-														<td><input type="number" class="form-control form-control-1"></td>
+														<td><input type="date" class="form-control form-control-1" value="2016-01-05"></td>
+														<td><input type="number" class="form-control form-control-1 js-setnext"></td>
+														<td><input type="number" class="form-control form-control-1 js-setprev"></td>
 														<td>
 															<div class="input-group">
-																<input type="number" class="form-control form-control-1">
-																<span class="input-group-addon input-group-addon2">%</span>	
+																<input type="number" class="form-control form-control-1 js-last-input">
+																<span class="input-group-addon input-group-addon2">%</span>
 															</div>
 														</td>
 														<td><input type="number" class="form-control form-control-1"></td>
@@ -469,10 +513,10 @@
 												<tbody>
 													<tr>
 														<td></td>
-														<td><input type="month" class="form-control form-control-1"></td>
+														<td><input type="month" class="form-control form-control-1" value="2015-02"></td>
 														<td>
 															<div class="input-group">
-																<input type="number" class="form-control form-control-1">
+																<input type="number" class="form-control form-control-1 js-last-input">
 																<span class="input-group-addon input-group-addon2">%</span>	
 															</div>
 														</td>
@@ -514,7 +558,7 @@
 														<td></td>
 														<td><input type="date" class="form-control form-control-1"></td>
 														<td><input type="number" class="form-control form-control-1"></td>
-														<td><input type="number" class="form-control form-control-1"></td>
+														<td><input type="number" class="form-control form-control-1 js-last-input"></td>
 													</tr>
 												</tbody>
 											</table>
@@ -809,18 +853,18 @@
 	<script type="text/x-template" id="template1">
 		{
         	"state": "",
-			"netValueDate": "<input type='date' class='form-control form-control-1'>",
-			"netAssetValue": "<input type='number' class='form-control form-control-1'>",
-			"netValueAccu": "<input type='number' class='form-control form-control-1'>",
+			"netValueDate": "<input type='date' class='form-control form-control-1' value='_date'>",
+			"netAssetValue": "<input type='number' class='form-control form-control-1 js-setnext'>",
+			"netValueAccu": "<input type='number' class='form-control form-control-1 js-setprev'>",
 			"netValueUpdateRate": "<div class='input-group'><input type='number' class='form-control form-control-1'><span class='input-group-addon input-group-addon2'>%</span></div>",
-			"beachmarkIndex": "<input type='number' class='form-control form-control-1'>"
+			"beachmarkIndex": "<input type='number' class='form-control form-control-1 js-last-input'>"
         }
 	</script>
 	<script type="text/x-template" id="template2">
 		{
 			"state": "",
-			"date": "<input type='month' class='form-control form-control-1'>",
-			"updateRate": "<div class='input-group'><input type='number' class='form-control form-control-1'><span class='input-group-addon input-group-addon2'>%</span></div>"
+			"date": "<input type='month' class='form-control form-control-1 js-first-input' value='_date'>",
+			"updateRate": "<div class='input-group'><input type='number' class='form-control form-control-1 js-last-input'><span class='input-group-addon input-group-addon2'>%</span></div>"
 		}
 	</script>
 	<script type="text/x-template" id="template3">
@@ -828,7 +872,7 @@
 			"state": "",
 			"netValueDate": "<input type='date' class='form-control form-control-1'>",
 			"netAssetValue": "<input type='number' class='form-control form-control-1'>",
-			"beachmarkIndex": "<input type='number' class='form-control form-control-1'>"
+			"beachmarkIndex": "<input type='number' class='form-control form-control-1 js-last-input'>"
 		}
 	</script>
 	<script type="text/x-template" id="fieldListItem">
@@ -854,114 +898,8 @@
 	<script type="text/javascript" src="js/bootstrap-table-zh-CN.min.js"></script>
 	<script type="text/javascript" src="js/Sortable.min.js"></script>
 	<script type="text/javascript" src="js/admin.js"></script>
+	<script type="text/javascript" src="js/add_product.js"></script>
 	<script type="text/javascript">
-
-		var $table1 = $("#table1"),
-			$table2 = $("#table2"),
-			$table3 = $("#table3"),
-			$remove1 = $("#remove-table1"),
-			$remove2 = $("#remove-table2"),
-			$remove3 = $("#remove-table3");
-
-		$('.selectpicker').selectpicker();
-
-		$(".add-tr").on("click", function(){
-			var data,
-				target = $(this).data("target"),
-				template = $(this).data("template"),
-			data = randomData.call($(template));
-			if(data != null){
-				$(target).bootstrapTable("prepend", data);
-			}
-		});
-
-	    function randomData() {
-	        var rows = [],
-	        	html = this.html(),
-	        	data = null;
-	        try{
-	        	data = JSON.parse(html);
-	        	rows.push(data);
-	        	return rows;
-	        }catch(err){
-	        	return null;
-	        }
-	        
-	    }
-		
-		$table1.on("check.bs.table uncheck.bs.table check-all.bs.table uncheck-all.bs.table", function(){
-			$remove1.prop("disabled", !$(this).bootstrapTable("getSelections").length);
-		});
-
-		$table2.on("check.bs.table uncheck.bs.table check-all.bs.table uncheck-all.bs.table", function(){
-			$remove2.prop("disabled", !$(this).bootstrapTable("getSelections").length);
-		});
-
-		$table3.on("check.bs.table uncheck.bs.table check-all.bs.table uncheck-all.bs.table", function(){
-			$remove3.prop("disabled", !$(this).bootstrapTable("getSelections").length);
-		});
-
-		$remove1.click(function(){
-			var ids = getIdSelections.call($table1);
-	        $table1.bootstrapTable('remove', {
-	            field: 'state',
-	            values: ids
-	        });
-	        $remove1.prop('disabled', true);
-		});
-
-		$remove2.click(function(){
-			var ids = getIdSelections.call($table2);
-	        $table2.bootstrapTable('remove', {
-	            field: 'state',
-	            values: ids
-	        });
-	        $remove2.prop('disabled', true);
-		});
-
-		$remove3.click(function(){
-			var ids = getIdSelections.call($table3);
-	        $table3.bootstrapTable('remove', {
-	            field: 'state',
-	            values: ids
-	        });
-	        $remove3.prop('disabled', true);
-		});
-
-		function getIdSelections(){
-			var arr = this.bootstrapTable("getSelections");
-			return $.map(arr, function(row){
-				return row.state;
-			});
-		}
-
-		var sortableOpts = {
-	    		handle: '.input-move',
-	    		//sort: true,
-	    		/*delay: 500,*/
-	    		ghostClass: 'ghost',
-	    		chosenClass: 'chosen',
-	    		forceFallback: true,	//生成拖动副本
-	    		scroll: true,
-	    		dataIdAttr: 'data-id'
-	    	},
-	    	sortables = [];
-
-	  	sortables.push(Sortable.create(simpleList1, sortableOpts));
-	  	sortables.push(Sortable.create(simpleList2, sortableOpts));
-	  	sortables.push(Sortable.create(simpleList3, sortableOpts));
-	  	sortables.push(Sortable.create(simpleList4, sortableOpts));
-
-	  	$(".add-field").on("click", function(){
-    		var parent = $(this).parents(".form-left"),
-    			listGroup = parent.find(".list-group"),
-    			index = listGroup.children(".list-group-item").length || 0,
-    			fieldListItem = $("#fieldListItem").html();
-    		index = index + 1;
-    		listGroup.find(".list-group-no-data").hide();
-    		fieldListItem = fieldListItem.replace(/{priority}/, index);
-    		listGroup.append(fieldListItem);
-    	});
 
     	$("#save").on("click", save);
 
@@ -992,7 +930,16 @@
 					pageStyleField: $("#pageStyleField").val(),
 					motherFundCompany: $("#motherFundCompany").val(),
 					subFundFeeRate: $("#subFundFeeRate").val(),
-					trusteeFeeRate: $("#trusteeFeeRate").val()
+					trusteeFeeRate: $("#trusteeFeeRate").val(),
+					actProfitThisRcteYear: $("#actProfitThisRcteYear").val(),
+					actProfitThisOneYear: $("#actProfitThisOneYear").val(),
+					actProfitRateTotal: $("#actProfitRateTotal").val(),
+					extablishedDate: $("#extablishedDate").val(),
+					fundManager: $("#fundManager").val(),
+					expectedMaxRate: $("#expectedMaxRate").val(),
+					expectedMinRate: $("#expectedMinRate").val(),
+					netValeCur: $("#netValeCur").val(),
+					netPriceCurAccu: $("#netPriceCurAccu").val()
 				}
 				
 			for(var i = 0; i < 4; i++){
@@ -1012,54 +959,6 @@
 
     		console.log(product);
     	}
-
-    	var relatedTarget;
-    	$("#myModal").on("show.bs.modal", function(e){
-    		relatedTarget = e.relatedTarget;
-    		$("#modal-editor").val(relatedTarget.value);
-    	});
-
-    	$("#modal-sure").on("click", function(){
-    		relatedTarget.value = $("#modal-editor").val();
-    		$('#myModal').modal('hide');
-    	});
-
-    	$(".list-group").on("check.bs.table", function(){
-    		var length = $(this).find("input[type=checkbox]:checked").length;
-
-    		if(length > 0){
-    			$(this).parent().find(".remove-field").prop("disabled", false);
-    		}else{
-    			$(this).parent().find(".remove-field").prop("disabled", true);
-    		}
-    	});
-
-    	$("input[type=checkbox]").click(function(e){
-			$(this).parents(".list-group").trigger("check.bs.table");
-		});
-
-		$(".check-all").click(function(e){
-			$(this).parents(".form-left").find("input[type=checkbox]").prop("checked", true);
-			$(this).parents(".form-left").find(".list-group").trigger("check.bs.table");
-		});
-
-		$(".remove-field").click(function(e){
-
-			var length,
-				$listGroup = $(this).parents(".form-left").find(".list-group");
-
-			$listGroup.find("input[type=checkbox]:checked").parents("li").remove();
-			$(this).prop("disabled", true);
-			length = $listGroup.find(".list-group-item").length;
-			if(length == 0){
-				$listGroup.html("<li class='list-group-no-data'>暂时没有字段，请点击添加字段按钮添加</li>");
-			}
-		});
-
-		$(".preview").click(function(){
-			var target = $(this).data("target");
-			$(target).attr("src", "http://www.youmilc.com");
-		});
 
 	</script>
 </body>

@@ -1,5 +1,8 @@
 (function(win, document){
 
+	/*美化下拉列表*/
+	$('.selectpicker').selectpicker();
+
 	/*侧边栏展开*/
 	$(".sidebar-closed").on("click", function(e){
 		console.log($(this).data("toggle"));

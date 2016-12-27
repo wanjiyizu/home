@@ -718,38 +718,9 @@
 	<script type="text/javascript" src="js/bootstrap-select.js"></script>
 	<script type="text/javascript" src="js/Sortable.min.js"></script>
 	<script type="text/javascript" src="js/admin.js"></script>
+	<script type="text/javascript" src="js/add_product.js"></script>
 	<script type="text/javascript">
 
-		$('.selectpicker').selectpicker();
-		var sortableOpts = {
-	    		handle: '.input-move',
-	    		//sort: true,
-	    		/*delay: 500,*/
-	    		ghostClass: 'ghost',
-	    		chosenClass: 'chosen',
-	    		forceFallback: true,	//生成拖动副本
-	    		scroll: true,
-	    		dataIdAttr: 'data-id'
-	    	},
-	    	sortables = [];
-
-	  	sortables.push(Sortable.create(simpleList1, sortableOpts));
-	  	sortables.push(Sortable.create(simpleList2, sortableOpts));
-	  	sortables.push(Sortable.create(simpleList3, sortableOpts));
-	  	sortables.push(Sortable.create(simpleList4, sortableOpts));
-
-    	$(".add-field").on("click", function(){
-    		var parent = $(this).parents(".form-left"),
-    			listGroup = parent.find(".list-group"),
-    			index = listGroup.children(".list-group-item").length || 0,
-    			fieldListItem = $("#fieldListItem").html();
-    		index = index + 1;
-    		listGroup.find(".list-group-no-data").hide();
-    		fieldListItem = fieldListItem.replace(/{priority}/, index);
-    		listGroup.append(fieldListItem);
-    	});
-
-    	
     	$("#save").on("click", save);
 
 		function save(){
@@ -798,55 +769,6 @@
     		console.log(product);
     	}
 
-    	var relatedTarget;
-    	$("#myModal").on("show.bs.modal", function(e){
-    		relatedTarget = e.relatedTarget;
-    		$("#modal-editor").val(relatedTarget.value);
-    	});
-
-    	$("#modal-sure").on("click", function(){
-    		relatedTarget.value = $("#modal-editor").val();
-    		$('#myModal').modal('hide');
-    	});
-
-    	$(".list-group").on("check.bs.table", function(){
-    		var length = $(this).find("input[type=checkbox]:checked").length;
-
-    		if(length > 0){
-    			$(this).parent().find(".remove-field").prop("disabled", false);
-    		}else{
-    			$(this).parent().find(".remove-field").prop("disabled", true);
-    		}
-    		
-    		
-    	});
-
-    	$("input[type=checkbox]").click(function(e){
-			$(this).parents(".list-group").trigger("check.bs.table");
-		});
-
-		$(".check-all").click(function(e){
-			$(this).parents(".form-left").find("input[type=checkbox]").prop("checked", true);
-			$(this).parents(".form-left").find(".list-group").trigger("check.bs.table");
-		});
-
-		$(".remove-field").click(function(e){
-
-			var length,
-				$listGroup = $(this).parents(".form-left").find(".list-group");
-
-			$listGroup.find("input[type=checkbox]:checked").parents("li").remove();
-			$(this).prop("disabled", true);
-			length = $listGroup.find(".list-group-item").length;
-			if(length == 0){
-				$listGroup.html("<li class='list-group-no-data'>暂时没有字段，请点击添加字段按钮添加</li>");
-			}
-		});
-
-		$(".preview").click(function(){
-			var target = $(this).data("target");
-			// $(target).attr("src", "http://www.youmilc.com");
-		});
 
 	</script>
 </body>
