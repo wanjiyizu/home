@@ -184,21 +184,144 @@
 						  		<a class="btn btn-primary" href="add_simu.html">添加产品</a>
 						        <button id="remove" class="btn btn-danger" disabled>删除</button>
 						    </div>
-							<table id="table-1"
-						           data-toolbar="#toolbar-1"
-						           data-search="true"
-						           data-show-refresh="true"
-						           data-show-toggle="true"
-						           data-show-columns="true"
-						           data-minimum-count-columns="2"
-						           data-show-pagination-switch="true"
-						           data-pagination="true"
-						           data-id-field="id"
-						           data-page-list="[10, 25, 50, 100, ALL]"
-						           data-show-footer="false"
-						           data-side-pagination="server"
-						           data-url="/examples/bootstrap_table/data"
-						           data-response-handler="responseHandler">
+							<table id="table"
+								   data-toggle="table"
+								   data-height="600"
+								   data-search="true"
+								   data-pagination="true"
+								   data-search-align="left"
+						           data-toolbar="#toolbar-1">
+						        <thead>
+						        	<tr>
+										<th data-field="state" class="hidden-xs" data-checkbox="true"></th>
+										<th data-field="productName">产品名称</th>
+										<th data-field="managerMentOrg">管理机构</th>
+										<th data-field="fundManager">基金经理</th>
+										<th data-field="quoca">募集规模</th>
+										<th data-field="investMinAmout">起投金额</th>
+										<th data-field="extablishedDate">成立时间</th>
+										<th data-field="actProfitRateTotal">累计收益</th>
+										<th data-field="netValeCur">最新净值</th>
+										<th data-field="status">产品状态</th>
+										<th data-field="areTop" data-formatter="topFormatter">置顶/取消置顶</th>
+										<th data-formatter="operateFormatter">操作</th>
+									</tr>
+						        </thead>
+						        <tbody>
+									<tr>
+										<td></td>
+										<td>肿瘤诊疗领域龙头企业新三板定增</td>
+										<td>蓝海资本</td>
+										<td>——</td>
+										<td>7500万</td>
+										<td>100万</td>
+										<td>0002-11-30</td>
+										<td></td>
+										<td>0.0</td>
+										<td>运行中</td>
+										<td>1</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td></td>
+										<td>健康管理龙头美股私有化（A级）</td>
+										<td>蓝海资本</td>
+										<td>——</td>
+										<td>7500万</td>
+										<td>500万</td>
+										<td>2002-11-30</td>
+										<td></td>
+										<td>0.0</td>
+										<td>运行中</td>
+										<td>1</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td><input type="checkbox" data-opid="3"></td>
+										<td>健康管理龙头美股私有化（B级）</td>
+										<td>蓝海资本</td>
+										<td>——</td>
+										<td>5000万</td>
+										<td>500万</td>
+										<td>2002-11-30</td>
+										<td></td>
+										<td>0.0</td>
+										<td>运行中</td>
+										<td>1</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td></td>
+										<td>中国脐带血库美股私有化</td>
+										<td>蓝海资本</td>
+										<td>——</td>
+										<td>7500万</td>
+										<td>500万</td>
+										<td>2002-11-30</td>
+										<td></td>
+										<td>0.0</td>
+										<td>运行中</td>
+										<td>1</td>
+										<td></td>
+									</tr>
+								
+									<tr>
+										<td></td>
+										<td>泓信泓晟8号多策略基金</td>
+										<td>——</td>
+										<td>尹克</td>
+										<td>0万</td>
+										<td>100万</td>
+										<td>2015-09-10</td>
+										<td>18.9</td>
+										<td>1.189</td>
+										<td>预约中</td>
+										<td>1></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td></td>
+										<td>领望本征基金1期</td>
+										<td>——</td>
+										<td>熊赟</td>
+										<td>0万</td>
+										<td>100万</td>
+										<td>2016-03-18</td>
+										<td>0.0</td>
+										<td>0.0</td>
+										<td>预约中</td>
+										<td>1</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td></td>
+										<td>顺时国际-天利长盈FOF2期</td>
+										<td>顺时国际投资管理有限公司</td>
+										<td>赖忠良/杨晓</td>
+										<td>1000万</td>
+										<td>100万</td>
+										<td>2016-07-11</td>
+										<td>1.23</td>
+										<td>1.0123</td>
+										<td>预约中</td>
+										<td>1</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td></td>
+										<td>知名肿瘤诊疗机构美股私有化</td>
+										<td>蓝海资本</td>
+										<td>——</td>
+										<td>12000万</td>
+										<td>100万</td>
+										<td>2016-10-15</td>
+										<td></td>
+										<td>0.0</td>
+										<td>预约中</td>
+										<td>1</td>
+										<td></td>
+									</tr>
+								</tbody>
 						    </table>
 					    </div>
 					</div>

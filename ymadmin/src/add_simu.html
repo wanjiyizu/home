@@ -198,35 +198,35 @@
 								</ul>
 								<div class="tab-content">
 									<div role="tabpanel" class="tab-pane panel-body active" id="basic-info">
-										<form class="form-horizontal">
+										<form class="form-horizontal" id="basic-info-form">
 											<div class="form-group">
 											    <label for="productName" class="col-sm-2 control-label">产品名称</label>
 											    <div class="col-sm-6">
-											      <input type="text" class="form-control" id="productName" placeholder="请输入产品名称">
+											      <input type="text" class="form-control" name="productName" id="productName" placeholder="请输入产品名称">
 											    </div>
 											</div>
 											<div class="form-group">
 											    <label for="extablishedDate" class="col-sm-2 control-label">成立时间</label>
 											    <div class="col-sm-6">
-											      <input type="date" class="form-control" id="extablishedDate">
+											      <input type="date" class="form-control" name="extablishedDate" id="extablishedDate">
 											    </div>
 											</div>
 											<div class="form-group">
 											    <label for="productWholeName" class="col-sm-2 control-label">基金全称</label>
 											    <div class="col-sm-6">
-											      <input type="text" class="form-control" id="productWholeName" placeholder="请输入基金全称">
+											      <input type="text" class="form-control" id="productWholeName" name="productWholeName" placeholder="请输入基金全称">
 											    </div>
 											</div>
 											<div class="form-group">
 											    <label for="investmentAdviser" class="col-sm-2 control-label">投资顾问</label>
 											    <div class="col-sm-6">
-											      <input type="text" class="form-control" id="investmentAdviser" placeholder="请输入投资顾问">
+											      <input type="text" class="form-control" id="investmentAdviser" name="investmentAdviser" placeholder="请输入投资顾问">
 											    </div>
 											</div>
 											<div class="form-group">
 											    <label for="amountType" class="col-sm-2 control-label">货币类型</label>
 											    <div class="col-sm-6">
-											      <select class="form-control selectpicker" id="amountType">
+											      <select class="form-control selectpicker" id="amountType" name="amountType">
 											      	<option value="10">人名币</option>
 											      	<option value="20">美元</option>
 											      </select>
@@ -235,7 +235,7 @@
 											<div class="form-group">
 											    <label for="isSelected" class="col-sm-2 control-label">参加活动</label>
 											    <div class="col-sm-6">
-											      <select class="form-control selectpicker" id="isSelected">
+											      <select class="form-control selectpicker" id="isSelected" name="isSelected">
 											      	<option value="1">万里挑一</option>
 											      	<option value="2">双11</option>
 											      </select>
@@ -245,7 +245,7 @@
 											    <label for="investMinAmout" class="col-sm-2 control-label">起投金额</label>
 											    <div class="col-sm-6">
 											    	<div class="input-group">
-											    		<input type="number" class="form-control" id="investMinAmout" placeholder="">
+											    		<input type="number" class="form-control" id="investMinAmout" name="investMinAmout" placeholder="">
 											    		<span class="input-group-addon">万</span>	
 											    	</div>
 											    </div>
@@ -254,7 +254,7 @@
 											    <label for="quoca" class="col-sm-2 control-label">募集金额</label>
 											    <div class="col-sm-6">
 											    	<div class="input-group">
-											    		<input type="number" class="form-control" id="quoca" placeholder="">
+											    		<input type="number" class="form-control" id="quoca" name="quoca" placeholder="">
 											    		<span class="input-group-addon">万</span>
 											    	</div>
 											    </div>
@@ -263,7 +263,7 @@
 											    <label for="investUnit" class="col-sm-2 control-label">追加金额</label>
 											    <div class="col-sm-6">
 											    	<div class="input-group">
-											    		<input type="number" class="form-control" id="investUnit" placeholder="">
+											    		<input type="number" class="form-control" id="investUnit" name="investUnit" placeholder="">
 											    		<span class="input-group-addon">%</span>	
 											    	</div>
 											    </div>
@@ -272,7 +272,7 @@
 											    <label for="lockPeriod" class="col-sm-2 control-label">存续时间</label>
 											    <div class="col-sm-6">
 											    	<div class="input-group">
-											    		<input type="number" class="form-control" id="lockPeriod" placeholder="">
+											    		<input type="number" class="form-control" id="lockPeriod" name="lockPeriod" placeholder="">
 											    		<span class="input-group-addon">月</span>	
 											    	</div>
 											    </div>
@@ -280,13 +280,13 @@
 											<div class="form-group">
 											    <label for="fundManager" class="col-sm-2 control-label">基金经理</label>
 											    <div class="col-sm-6">
-											      <input type="text" class="form-control" id="fundManager" placeholder="">
+											      <input type="text" class="form-control" id="fundManager" name="fundManager" placeholder="">
 											    </div>
 											</div>
 											<div class="form-group">
 											    <label for="productClass" class="col-sm-2 control-label">分类级别</label>
 											    <div class="col-sm-6">
-											      	<select class="form-control selectpicker" id="productClass">
+											      	<select class="form-control selectpicker" id="productClass" name="productClass">
 														<option value="1">A</option>
 														<option value="2">B</option>
 														<option value="4">结构化</option>
@@ -297,7 +297,7 @@
 											<div class="form-group">
 											    <label for="status" class="col-sm-2 control-label">产品状态</label>
 											    <div class="col-sm-6">
-											      	<select class="form-control selectpicker" id="status">
+											      	<select class="form-control selectpicker" id="status" name="status">
 														<option value="0">未发布</option>
 														<option value="1">预约中</option>
 														<option value="2">运行中</option>
@@ -307,14 +307,14 @@
 											<div class="form-group">
 											    <label for="managerMentOrg" class="col-sm-2 control-label">管理机构</label>
 											    <div class="col-sm-6">
-											      <input type="text" class="form-control" id="managerMentOrg" placeholder="">
+											      <input type="text" class="form-control" id="managerMentOrg" name="managerMentOrg" placeholder="">
 											    </div>
 											</div>
 											<div class="form-group">
 											    <label for="managementFeeRate" class="col-sm-2 control-label">管理费率</label>
 											    <div class="col-sm-6">
 											    	<div class="input-group">
-											    		<input type="number" class="form-control" id="managementFeeRate" placeholder="">
+											    		<input type="number" class="form-control" id="managementFeeRate" name="managementFeeRate" placeholder="">
 											    		<span class="input-group-addon">%</span>	
 											    	</div>
 											    </div>
@@ -323,7 +323,7 @@
 											    <label for="purchaseFeeRate" class="col-sm-2 control-label">认购费率</label>
 											    <div class="col-sm-6">
 											    	<div class="input-group">
-											    		<input type="number" class="form-control" id="purchaseFeeRate" placeholder="">
+											    		<input type="number" class="form-control" id="purchaseFeeRate" name="purchaseFeeRate" placeholder="">
 											    		<span class="input-group-addon">%</span>	
 											    	</div>
 											    </div>
@@ -332,7 +332,7 @@
 											    <label for="trusteeFeeRate" class="col-sm-2 control-label">托管费率</label>
 											    <div class="col-sm-6">
 											    	<div class="input-group">
-											    		<input type="number" class="form-control" id="trusteeFeeRate" placeholder="">
+											    		<input type="number" class="form-control" id="trusteeFeeRate" name="trusteeFeeRate" placeholder="">
 											    		<span class="input-group-addon">%</span>	
 											    	</div>
 											    </div>
@@ -341,7 +341,7 @@
 											    <label for="subFundFeeRate" class="col-sm-2 control-label">子基金管理费</label>
 											    <div class="col-sm-6">
 											    	<div class="input-group">
-											    		<input type="number" class="form-control" id="subFundFeeRate" placeholder="">
+											    		<input type="number" class="form-control" id="subFundFeeRate" name="subFundFeeRate" placeholder="">
 											    		<span class="input-group-addon">%</span>	
 											    	</div>
 											    </div>
@@ -350,7 +350,7 @@
 											    <label for="redeemFeeRate" class="col-sm-2 control-label">赎回费率</label>
 											    <div class="col-sm-6">
 											    	<div class="input-group">
-											    		<input type="number" class="form-control" id="redeemFeeRate" placeholder="">
+											    		<input type="number" class="form-control" id="redeemFeeRate" name="redeemFeeRate" placeholder="">
 											    		<span class="input-group-addon">%</span>	
 											    	</div>
 											    </div>
@@ -358,38 +358,38 @@
 											<div class="form-group">
 											    <label for="trustOrg" class="col-sm-2 control-label">托管平台</label>
 											    <div class="col-sm-6">
-											      <input type="text" class="form-control" id="trustOrg" placeholder="">
+											      <input type="text" class="form-control" id="trustOrg" name="trustOrg" placeholder="">
 											    </div>
 											</div>
 											<div class="form-group">
 											    <label for="fundCompany" class="col-sm-2 control-label">基金公司</label>
 											    <div class="col-sm-6">
-											      <input type="text" class="form-control" id="fundCompany" placeholder="">
+											      <input type="text" class="form-control" id="fundCompany" name="fundCompany" placeholder="">
 											    </div>
 											</div>
 											<div class="form-group">
 											    <label for="motherFundCompany" class="col-sm-2 control-label">母基金公司</label>
 											    <div class="col-sm-6">
-											      <input type="text" class="form-control" id="motherFundCompany" placeholder="">
+											      <input type="text" class="form-control" id="motherFundCompany" name="motherFundCompany" placeholder="">
 											    </div>
 											</div>
 											<div class="form-group">
 											    <label for="investStrategy" class="col-sm-2 control-label">投资策略</label>
 											    <div class="col-sm-6">
-											      <input type="text" class="form-control" id="investStrategy" placeholder="">
+											      <input type="text" class="form-control" id="investStrategy" name="investStrategy" placeholder="">
 											    </div>
 											</div>
 											<div class="form-group">
 											    <label for="fundCatagory" class="col-sm-2 control-label">基金类型</label>
 											    <div class="col-sm-6">
-											      <input type="text" class="form-control" id="fundCatagory" placeholder="">
+											      <input type="text" class="form-control" id="fundCatagory" name="fundCatagory" placeholder="">
 											    </div>
 											</div>
 											<div class="form-group">
 											    <label for="expectedMaxRate" class="col-sm-2 control-label">最大收益率</label>
 											    <div class="col-sm-6">
 											    	<div class="input-group">
-											    		<input type="number" class="form-control" id="expectedMaxRate" placeholder="">
+											    		<input type="number" class="form-control" id="expectedMaxRate" name="expectedMaxRate" placeholder="">
 											    		<span class="input-group-addon">%</span>	
 											    	</div>
 											    </div>
@@ -398,7 +398,7 @@
 											    <label for="expectedMinRate" class="col-sm-2 control-label">最小收益率</label>
 											    <div class="col-sm-6">
 											    	<div class="input-group">
-											    		<input type="number" class="form-control" id="expectedMinRate" placeholder="">
+											    		<input type="number" class="form-control" id="expectedMinRate" name="expectedMinRate" placeholder="">
 											    		<span class="input-group-addon">%</span>	
 											    	</div>
 											    </div>
@@ -407,12 +407,12 @@
 										</form>
 								  	</div>
 								  	<div role="tabpanel" class="tab-pane panel-body" id="income">
-								  		<form class="form-horizontal">
+								  		<form class="form-horizontal" id="income-form">
 								  			<div class="form-group">
 											    <label for="actProfitThisRcteYear" class="col-sm-2 control-label">今年收益</label>
 											    <div class="col-sm-6">
 											    	<div class="input-group">
-											    		<input type="text" class="form-control" id="actProfitThisRcteYear" placeholder="">
+											    		<input type="text" class="form-control" id="actProfitThisRcteYear" name="actProfitThisRcteYear" placeholder="">
 											    		<span class="input-group-addon">%</span>
 											    	</div>
 											    </div>
@@ -421,7 +421,7 @@
 											    <label for="actProfitThisOneYear" class="col-sm-2 control-label">累计年化收益</label>
 											    <div class="col-sm-6">
 											      	<div class="input-group">
-											    		<input type="text" class="form-control" id="actProfitThisOneYear" placeholder="">
+											    		<input type="text" class="form-control" id="actProfitThisOneYear" name="actProfitThisOneYear" placeholder="">
 											    		<span class="input-group-addon">%</span>
 											    	</div>
 											    </div>
@@ -430,7 +430,7 @@
 											    <label for="actProfitRateTotal" class="col-sm-2 control-label">累计收益</label>
 											    <div class="col-sm-6">
 											     	<div class="input-group">
-											    		<input type="text" class="form-control" id="actProfitRateTotal" placeholder="">
+											    		<input type="text" class="form-control" id="actProfitRateTotal" name="actProfitRateTotal" placeholder="">
 											    		<span class="input-group-addon">%</span>
 											    	</div>
 											    </div>
@@ -438,13 +438,13 @@
 											<div class="form-group">
 											    <label for="netValeCur" class="col-sm-2 control-label">最新净值</label>
 											    <div class="col-sm-6">
-											      <input type="number" class="form-control" id="netValeCur" placeholder="">
+											      <input type="number" class="form-control" id="netValeCur" name="netValeCur" placeholder="">
 											    </div>
 											</div>
 											<div class="form-group">
 											    <label for="netPriceCurAccu" class="col-sm-2 control-label">累计净值</label>
 											    <div class="col-sm-6">
-											      <input type="number" class="form-control" id="netPriceCurAccu" placeholder="">
+											      <input type="number" class="form-control" id="netPriceCurAccu" name="netPriceCurAccu" placeholder="">
 											    </div>
 											</div>
 								  		</form>
@@ -452,8 +452,8 @@
 									<div role="tabpanel" class="tab-pane panel-body" id="histori-net">
 										<div class="row">
 											<div class="form-group col-md-2">
-											    <label for="benchmark1">基准名称</label>
-											    <input type="text" class="form-control" id="benchmark1" placeholder="请输入基准名称：如沪深300">
+											    <label for="netvalue-action">基准名称</label>
+											    <input type="text" class="form-control" id="netvalue-action" placeholder="请输入基准名称：如沪深300">
 											</div>
 										</div>
 										<div class="btn-toolbar" id="toolbar1">
@@ -532,8 +532,8 @@
 											    <input type="text" class="form-control" id="brotherProductName" placeholder="请输入历史产品名称">
 											</div>
 											<div class="btn-group col-md-2">
-												<label for="benchmark2">基准名称</label>
-												<input type="text" class="form-control" id="benchmark2" placeholder="请输入对比基准名称，如：沪深300">
+												<label for="brother-action">基准名称</label>
+												<input type="text" class="form-control" id="brother-action" placeholder="请输入对比基准名称，如：沪深300">
 											</div>
 										</div>
 										<div class="btn-toolbar" id="toolbar3">
@@ -906,42 +906,10 @@
     	function save(){
     		var $btn = $(this).button('loading'),
     			index = 0,
-    			product = {
-					productName : $("#productName").val(),
-					quoca		: $("#quoca").val(),
-					lockPeriod 	: $("#lockPeriod").val(),
-					managerMentOrg : $("#managerMentOrg").val(),
-					fundCatagory : $("#fundCatagory").val(),
-					investMinAmout : $("#investMinAmout").val(),
-					trustOrg : $("#trustOrg").val(),
-					investUnit : $("#investUnit").val(),
-					productClass : $("#productClass").val(),
-					redeemFeeRate : $("#redeemFeeRate").val(),
-					purchaseFeeRate : $("#purchaseFeeRate").val(),
-					managementFeeRate : $("#managementFeeRate").val(),
-					productWholeName : $("#productWholeName").val(),
-					investStrategy : $("#investStrategy").val(),
-					fundCompany: $("#fundCompany").val(),
-					status : $("#status").val(),
-					amountType : $("#amountType").val(),
-					type: $("#type").val(),
-					isSelected: $("#isSelected:checked").val(),
-					investmentAdviser: $("#investmentAdviser").val(),
-					pageStyleField: $("#pageStyleField").val(),
-					motherFundCompany: $("#motherFundCompany").val(),
-					subFundFeeRate: $("#subFundFeeRate").val(),
-					trusteeFeeRate: $("#trusteeFeeRate").val(),
-					actProfitThisRcteYear: $("#actProfitThisRcteYear").val(),
-					actProfitThisOneYear: $("#actProfitThisOneYear").val(),
-					actProfitRateTotal: $("#actProfitRateTotal").val(),
-					extablishedDate: $("#extablishedDate").val(),
-					fundManager: $("#fundManager").val(),
-					expectedMaxRate: $("#expectedMaxRate").val(),
-					expectedMinRate: $("#expectedMinRate").val(),
-					netValeCur: $("#netValeCur").val(),
-					netPriceCurAccu: $("#netPriceCurAccu").val()
-				}
-				
+    			product = {};
+			
+			$.extend(product, formToObject.call($("#basic-info-form")), formToObject.call($("#income-form")));
+
 			for(var i = 0; i < 4; i++){
     			var sortable = sortables[i],
     				fieldList = $(sortable.el),
@@ -956,9 +924,17 @@
 		    			index++;
 	    			}
     		}
+   		
+   	}
 
-    		console.log(product);
-    	}
+   	function formToObject(){
+		var arr = this.serializeArray(),
+			obj = {};
+		$.each(arr, function(){
+			obj[this.name] = this.value;
+		});
+		return obj;
+	}
 
 	</script>
 </body>
