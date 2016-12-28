@@ -207,6 +207,7 @@
 							            <th data-align="center">邀请状态</th>
 							            <th data-align="center">签到状态</th>
 							            <th data-align="center" data-sortable="true">预约时间</th>
+							            <th data-formatter="operateFormatter">操作</th>
 							        </tr>
 							    </thead>
 							</table>
@@ -242,43 +243,11 @@
 	<script src="js/bootstrap-table.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap-table-zh-CN.min.js"></script>
 	<script type="text/javascript" src="js/admin.js"></script>
+	<script type="text/javascript" src="js/table.js"></script>
 	<script type="text/javascript">
 
 		(function(window, document){
-
-			var navbarH = $(".navbar").outerHeight(true),
-				windowH = $(window).height(),
-				contentH = windowH - navbarH,
-				breadcrumbH = $(".page-breadcrumb").outerHeight(true),
-				tableH = contentH - breadcrumbH,
-				$table = $("#table");
-
-			$(".page-content").height(contentH);
-
-			// $table.bootstrapTable('resetView', {
-   //              height: 800
-   //          });
-   			$table.data("height", getTableHeight());
-
-   			$(window).resize(function () {
-   				$table.bootstrapTable('resetView', {
-                	height: getTableHeight()
-            	});
-            });
-
-	        function getTableHeight(){
-	        	var navbarH = $(".navbar").outerHeight(true),
-					windowH = $(window).height(),
-					contentH = windowH - navbarH,
-					breadcrumbH = $(".page-breadcrumb").outerHeight(true),
-					tableH = contentH - breadcrumbH - 40;
-				return tableH;
-	        }
-
-         //     setTimeout(function () {
-	        //     $table.bootstrapTable('resetView');
-	        // }, 200);
-
+			
 		    function responseHandler(res) {
 		        $.each(res.rows, function (i, row) {
 		            row.state = $.inArray(row.id, selections) !== -1;
@@ -286,15 +255,12 @@
 		        return res;
 		    }
 
-		
-			
 		    function operateFormatter(value, row, index) {
 		        return [
-		            '<a class="editor" href="add_pe.html" title="Remove">',
-		            '<i class="glyphicon glyphicon-pencil"></i>',
-		            '</a>'
+		            '<a class="editor" href="javascript:void(0)" title="点击邀请">点击邀请</a>'
 		        ].join('');
 		    }
+
 
 		    window.operateFormatter = operateFormatter;
 		})(this, document);

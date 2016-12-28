@@ -186,7 +186,7 @@
 						    </div>
 							<table 	id="table"
 								 	data-toggle="table"
-									data-url="js/data/products.json"
+									data-url="http://localhost:8080/admin/test/list/1"
 									data-id-field="productId"
 									data-pagination="true"
 									data-search="true"
@@ -208,7 +208,7 @@
 							            <th data-field="investMinAmout" class="hidden-xs" data-sortable="true" data-align="center">起投金额</th>
 							            <th data-field="extablishedDate" class="hidden-xs" data-sortable="true" data-align="center">成立时间</th>
 							            <th data-field="status" class="hidden-xs" data-align="center" data-formatter="statusFormatter">产品状态</th>
-							            <th data-field="areTop" class="hidden-xs" data-align="center" data-formatter="topFormatter">置顶/取消置顶</th>
+							            <th data-field="areTop" class="hidden-xs" data-align="center" data-events="artTopEvents" data-formatter="topFormatter">置顶/取消置顶</th>
 							            <th data-formatter="operateFormatter" class="hidden-xs" data-align="center">操作</th>
 							        </tr>
 							    </thead>
@@ -237,6 +237,9 @@
 	  </div>
 	</div>
 	
+	<div class="page-tip">
+		<div class="page-tip-msg" id="page-tip">操作成功</div>
+	</div>
 	<div class="admin-menu visible-xs-block" id="admin-menu"></div>
 
 	<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
@@ -246,5 +249,136 @@
 	<script type="text/javascript" src="js/bootstrap-table-zh-CN.min.js"></script>
 	<script type="text/javascript" src="js/admin.js"></script>
 	<script type="text/javascript" src="js/table.js"></script>
+	<script type="text/javascript">
+		(function(window, document){
+
+			function responseHandler(res) {
+		        $.each(res.rows, function (i, row) {
+		            row.state = $.inArray(row.id, selections) !== -1;
+		        });
+		        return res;
+		    }
+
+		    var $remove = $("#remove");
+		    $table.on('check.bs.table uncheck.bs.table check-all.bs.table uncheck-all.bs.table', function () {
+		        $remove.prop('disabled', !$table.bootstrapTable('getSelections').length);
+		    });
+
+		    /*删除数据*/
+		    $remove.click(function(){
+		    	var ids = getIdSelections();
+
+		    	if(ids !== null){
+		    		$.ajax({type:"get", url:"js/data/products.json"}).done(function(){
+		    			alert("哈哈哈成功了");
+		    		});
+					// $.ajax({
+					// 	type: "post",
+					// 	url: "product/delete",
+					// 	data: {ids:ids.toString()},
+					// 	beforeSend: function(){
+					// 		$("#page-tip").text("正在删除").parent().show();
+					// 	},
+					// 	success: function(response){
+					// 		var data = JSON.parse(response);
+					// 		if(data.statusCode == 1){
+					// 			 $table.bootstrapTable('remove', {
+					// 	            field: 'productName',
+					// 	            values: ids
+					// 	        });
+					// 			$table.bootstrapTable("refresh", {
+					// 	        	url: "js/data/products.json"
+					// 	        });
+					// 	        $remove.prop('disabled', true);
+					// 		}else{
+					// 			$("#page-tip").text("删除失败");
+					// 		}
+					// 	}
+					// });
+
+					setTimeout(function(){
+						$("#page-tip").hide();
+					}, 500);
+				}
+		    });
+
+		    /*获取选择的元素*/
+		    function getIdSelections(){
+		        var arr = $table.bootstrapTable('getSelections');
+		    	return $.map(arr, function (row) {
+		            return row.productName;
+		        });
+		    }
+
+		    /*状态格式化*/
+			function statusFormatter(value, row, index){
+				if(value == null || value == 0){
+					return "未发布";
+				}else if(value == 1){
+					return "预约中";
+				}else if(value == 2){
+					return "运行中";
+				}
+			}
+
+		    /*置顶格式化*/
+			function topFormatter(value, row, index){
+				if(value == 0 || value == null){
+					return "<a href='javascript:void(0)' class='data-status-on setTop' data-top='0' data-opid='"+ row.productId +"'>置顶</a>";
+				}else if(value == 1){
+					return "<a href='javascript:void(0)' class='data-status-off setTop' data-top='1' data-opid='"+ row.productId +"'>取消置顶</a>";
+				}
+			}
+			
+
+			window.artTopEvents = {
+				"click .setTop": function(e, value, row, index){
+					var id = $(e.target).data("opid"),
+						top = $(e.target).data("top"),
+						isTop = top == 0 ? 1 : 0;
+					$.ajax({
+						type: "post",
+						url: "product/set_product_top",
+						data: {"productId": id, "areTop": isTop},
+						beforeSend: function(){
+							$("#page-tip").text("置顶中...").parent().show();
+						},
+						success: function(response){
+							var data = JSON.parse(response);
+							if(data.statusCode == 1 && isTop == 0){
+								$(e.target).text("取消置顶");
+								$(e.target).data("top", 1);
+								$("#page-tip").text("置顶成功");
+							}else if(data.statusCode == 1 && isTop == 1){
+								$(e.target).text("置顶");
+								$(e.target).data("top", 0);
+								$("#page-tip").text("取消置顶成功");
+							}else{
+								$("#page-tip").text("置顶失败");
+							}
+						}
+					});
+					
+					setTimeout(function(){
+						$("#page-tip").hide();
+					}, 500);
+
+				}
+			}
+		    /*操作格式化*/
+		    function operateFormatter(value, row, index) {
+		        return [
+		            '<a class="editor" href="product/edit/simu/'+ row.productId +'" title="点击编辑产品">',
+		            '<i class="glyphicon glyphicon-pencil"></i>',
+		            '</a>'
+		        ].join('');
+		    }
+
+		    window.operateFormatter = operateFormatter;
+		    window.statusFormatter = statusFormatter;
+		    window.topFormatter = topFormatter;
+
+		})(this, document);
+	</script>
 </body>
 </html>

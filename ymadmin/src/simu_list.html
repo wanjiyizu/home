@@ -237,7 +237,7 @@
 										<td></td>
 									</tr>
 									<tr>
-										<td><input type="checkbox" data-opid="3"></td>
+										<td></td>
 										<td>健康管理龙头美股私有化（B级）</td>
 										<td>蓝海资本</td>
 										<td>——</td>
@@ -356,5 +356,110 @@
 	<script type="text/javascript" src="js/bootstrap-table-zh-CN.min.js"></script>
 	<script type="text/javascript" src="js/admin.js"></script>
 	<script type="text/javascript" src="js/table.js"></script>
+	<script type="text/javascript">
+		(function(window, document){
+
+			function responseHandler(res) {
+		        $.each(res.rows, function (i, row) {
+		            row.state = $.inArray(row.id, selections) !== -1;
+		        });
+		        return res;
+		    }
+
+		    var $remove = $("#remove");
+		    $table.on('check.bs.table uncheck.bs.table check-all.bs.table uncheck-all.bs.table', function () {
+		        $remove.prop('disabled', !$table.bootstrapTable('getSelections').length);
+		    });
+
+		    /*删除数据*/
+		    $remove.click(function(){
+		    	var ids = getIdSelections();
+		        $table.bootstrapTable('remove', {
+		            field: 'productName',
+		            values: ids
+		        });
+		        $remove.prop('disabled', true);
+		    });
+
+		    /*获取选择的元素*/
+		    function getIdSelections(){
+		        var arr = $table.bootstrapTable('getSelections');
+		        console.log(arr);
+		    	return $.map(arr, function (row) {
+		            return row.productName;
+		        });
+		    }
+
+		    /*状态格式化*/
+			function statusFormatter(value, row, index){
+				if(value == null || value == 0){
+					return "未发布";
+				}else if(value == 1){
+					return "预约中";
+				}else if(value == 2){
+					return "运行中";
+				}
+			}
+
+		    /*置顶格式化*/
+			function topFormatter(value, row, index){
+				console.log(row);
+				if(value == 0 || value == null){
+					return "<a href='javascript:void(0)' class='data-status-on setTop' data-top='0' data-opid='"+ row.productId +"'>置顶</a>";
+				}else if(value == 1){
+					return "<a href='javascript:void(0)' class='data-status-off setTop' data-top='1' data-opid='"+ row.productId +"'>取消置顶</a>";
+				}
+			}
+			
+
+			window.artTopEvents = {
+				"click .setTop": function(e, value, row, index){
+					var id = $(e.target).data("opid"),
+						top = $(e.target).data("top"),
+						isTop = top == 0 ? 1 : 0;
+					$.ajax({
+						type: "post",
+						url: "product/set_product_top",
+						data: {"productId": id, "areTop": isTop},
+						beforeSend: function(){
+							$("#page-tip").text("置顶中...").parent().show();
+						},
+						success: function(response){
+							var data = JSON.parse(response);
+							if(data.statusCode == 1 && isTop == 0){
+								$(e.target).text("取消置顶");
+								$(e.target).data("top", 1);
+								$("#page-tip").text("置顶成功");
+							}else if(data.statusCode == 1 && isTop == 1){
+								$(e.target).text("置顶");
+								$(e.target).data("top", 0);
+								$("#page-tip").text("取消置顶成功");
+							}else{
+								$("#page-tip").text("置顶失败");
+							}
+						}
+					});
+					
+					setTimeout(function(){
+						$("#page-tip").hide();
+					}, 500);
+
+				}
+			}
+		    /*操作格式化*/
+		    function operateFormatter(value, row, index) {
+		        return [
+		            '<a class="editor" href="product/edit/simu/'+ row.productId +'" title="点击编辑产品">',
+		            '<i class="glyphicon glyphicon-pencil"></i>',
+		            '</a>'
+		        ].join('');
+		    }
+
+		    window.operateFormatter = operateFormatter;
+		    window.statusFormatter = statusFormatter;
+		    window.topFormatter = topFormatter;
+
+		})(this, document);
+	</script>
 </body>
 </html>
