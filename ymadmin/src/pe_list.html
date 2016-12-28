@@ -182,11 +182,14 @@
 						<div class="col-md-12 main">
 							<div id="toolbar" class=" hidden-xs">
 						  		<a class="btn btn-primary" href="add_pe.html">添加产品</a>
+						  		<a class="btn btn-primary" id="add">添加</a>
 						        <button id="remove" class="btn btn-danger" disabled>删除</button>
 						    </div>
 							<table 	id="table"
 								 	data-toggle="table"
-									data-url="http://localhost:8080/admin/test/list/1"
+								 	data-method="post"
+								 	data-ajax="sendData"
+									data-url="http://localhost:8080/admin/test/list"
 									data-id-field="productId"
 									data-pagination="true"
 									data-search="true"
@@ -206,7 +209,7 @@
 							            <th data-field="fundManager" class="hidden-xs" data-align="center">基金经理</th>
 							            <th data-field="quoca" class="hidden-xs" data-sortable="true" data-align="center">募集额度</th>
 							            <th data-field="investMinAmout" class="hidden-xs" data-sortable="true" data-align="center">起投金额</th>
-							            <th data-field="extablishedDate" class="hidden-xs" data-sortable="true" data-align="center">成立时间</th>
+							            <th data-field="extablishedDate" class="hidden-xs" data-formatter="dateFormatter" data-sortable="true" data-align="center">成立时间</th>
 							            <th data-field="status" class="hidden-xs" data-align="center" data-formatter="statusFormatter">产品状态</th>
 							            <th data-field="areTop" class="hidden-xs" data-align="center" data-events="artTopEvents" data-formatter="topFormatter">置顶/取消置顶</th>
 							            <th data-formatter="operateFormatter" class="hidden-xs" data-align="center">操作</th>
@@ -259,9 +262,15 @@
 		        return res;
 		    }
 
-		    var $remove = $("#remove");
-		    $table.on('check.bs.table uncheck.bs.table check-all.bs.table uncheck-all.bs.table', function () {
-		        $remove.prop('disabled', !$table.bootstrapTable('getSelections').length);
+		    $("#add").on("click", function(){
+		    	$.ajax({
+		    		type: "get",
+		    		url: "http://localhost:8080/admin/test/list",
+		    		success: function(response){
+		    			console.log(response);
+		    		}
+		    	});
+		    	
 		    });
 
 		    /*删除数据*/
@@ -374,9 +383,28 @@
 		        ].join('');
 		    }
 
+		    function dateFormatter(value, row, index){
+		    	var date = new Date(value);
+		    	return date.toLocaleDateString();
+		    }
+
+		    function sendData(obj){
+		    	$.ajax({
+		    		type: obj.type,
+		    		url: obj.url,
+		    		data: obj.data
+		    	}).done(function(data){
+		    		var rows = JSON.parse(data);
+		    		$table.bootstrapTable("append", rows);
+		    		$(".fixed-table-loading").hide();
+		    	});
+		    }
+
 		    window.operateFormatter = operateFormatter;
 		    window.statusFormatter = statusFormatter;
 		    window.topFormatter = topFormatter;
+		    window.dateFormatter = dateFormatter;
+		    window.sendData = sendData;
 
 		})(this, document);
 	</script>

@@ -26,15 +26,20 @@
 	      </button>
 	      <a class="navbar-brand sidebar-toggle" data-toggle="true" href="index.html">
 	      	<img src="images/logo.png" height="30" title="优米金融">
-	      	<span class="menu-icon hidden-xs sidebar-closed" data-toggle="true">
-	      		<i class="glyphicon glyphicon-align-justify"></i>
-	      	</span>
+	      	
 	      	
 	      </a>
 	    </div>
 
 	    <div class="collapse navbar-collapse" id="toolbar-collapse">
 	      <ul class="nav navbar-nav navbar-admin">
+	      	<li>
+	      		<a class="hidden-xs sidebar-closed" data-toggle="true">
+	      			<span class="menu-icon">
+			      		<i class="glyphicon glyphicon-align-justify"></i>
+			      	</span>
+	      		</a>
+	      	</li>
 	        <li class="active">
 	        	<a href="#">
 	        		<i class="iconfont icon-tixing"></i>
@@ -194,11 +199,12 @@
 									data-toolbar="#toolbar"
 									data-show-columns="true"
 									data-show-export="true"
+									data-row-style="rowStyle"
 									data-pagination-h-align="left"
 									data-click-to-select="true">
 							    <thead>
 							        <tr>
-							        	<th data-field="id" data-checkbox="true"></th>
+							        	<th data-field="state" data-checkbox="true"></th>
 							            <th data-field="title" data-align="center">标	题</th>
 							            <th data-field="uploader" data-align="center">发布者</th>
 							            <th data-filed="createTime" data-sortable="true" data-align="center">创建时间</th>
@@ -239,53 +245,21 @@
 	<script type="text/javascript" src="js/bootstrap-select.js"></script>
 	<script src="js/bootstrap-table.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap-table-zh-CN.min.js"></script>
+	<script type="text/javascript" src="js/jquery.dragsort-0.5.2.min.js"></script>
+	<script type="text/javascript" src="js/Sortable.min.js"></script>
 	<script type="text/javascript" src="js/admin.js"></script>
+	<script type="text/javascript" src="js/table.js"></script>
 	<script type="text/javascript">
-
+	
 		(function(window, document){
 
-			var navbarH = $(".navbar").outerHeight(true),
-				windowH = $(window).height(),
-				contentH = windowH - navbarH,
-				breadcrumbH = $(".page-breadcrumb").outerHeight(true),
-				tableH = contentH - breadcrumbH,
-				$table = $("#table");
+			var sortableOpts = {
+	    		sort: true,
+	    		draggable: ".tr-item"
+	    	};
+	    	var table = document.getElementById("table");
+			Sortable.create(table, sortableOpts);
 
-			$(".page-content").height(contentH);
-
-			// $table.bootstrapTable('resetView', {
-   //              height: 800
-   //          });
-   			$table.data("height", getTableHeight());
-
-   			$(window).resize(function () {
-   				$table.bootstrapTable('resetView', {
-                	height: getTableHeight()
-            	});
-            });
-
-	        function getTableHeight(){
-	        	var navbarH = $(".navbar").outerHeight(true),
-					windowH = $(window).height(),
-					contentH = windowH - navbarH,
-					breadcrumbH = $(".page-breadcrumb").outerHeight(true),
-					tableH = contentH - breadcrumbH - 40;
-				return tableH;
-	        }
-
-         //     setTimeout(function () {
-	        //     $table.bootstrapTable('resetView');
-	        // }, 200);
-
-		    function responseHandler(res) {
-		        $.each(res.rows, function (i, row) {
-		            row.state = $.inArray(row.id, selections) !== -1;
-		        });
-		        return res;
-		    }
-
-		
-			
 		    function operateFormatter(value, row, index) {
 		        return [
 		            '<a class="editor" href="add_pe.html" title="Remove">',
@@ -294,6 +268,13 @@
 		        ].join('');
 		    }
 
+		    function rowStyle(row, index) {
+			  return {
+			    classes: 'tr-item'
+			  };
+			}
+
+		    window.rowStyle = rowStyle;
 		    window.operateFormatter = operateFormatter;
 		})(this, document);
 

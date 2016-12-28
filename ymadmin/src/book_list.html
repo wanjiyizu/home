@@ -26,15 +26,18 @@
 	      </button>
 	      <a class="navbar-brand sidebar-toggle" data-toggle="true" href="index.html">
 	      	<img src="images/logo.png" height="30" title="优米金融">
-	      	<span class="menu-icon hidden-xs sidebar-closed" data-toggle="true">
-	      		<i class="glyphicon glyphicon-align-justify"></i>
-	      	</span>
-	      	
 	      </a>
 	    </div>
 
 	    <div class="collapse navbar-collapse" id="toolbar-collapse">
 	      <ul class="nav navbar-nav navbar-admin">
+	      	<li>
+	      		<a class="hidden-xs sidebar-closed" data-toggle="true">
+	      			<span class="menu-icon">
+			      		<i class="glyphicon glyphicon-align-justify"></i>
+			      	</span>
+	      		</a>
+	      	</li>
 	        <li class="active">
 	        	<a href="#">
 	        		<i class="iconfont icon-tixing"></i>
@@ -197,7 +200,7 @@
 									data-click-to-select="true">
 							    <thead>
 							        <tr>
-							        	<th data-field="bookId" data-checkbox="true"></th>
+							        	<th data-field="state" data-checkbox="true"></th>
 							            <th data-field="userCellphone">客户手机</th>
 							            <th data-field="userNickname" data-align="center">客户姓名</th>
 							            <th data-filed="userId">注册状态</th>
@@ -242,52 +245,11 @@
 	<script src="js/bootstrap-table.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap-table-zh-CN.min.js"></script>
 	<script type="text/javascript" src="js/admin.js"></script>
+	<script type="text/javascript" src="js/table.js"></script>
 	<script type="text/javascript">
 
 		(function(window, document){
 
-			var navbarH = $(".navbar").outerHeight(true),
-				windowH = $(window).height(),
-				contentH = windowH - navbarH,
-				breadcrumbH = $(".page-breadcrumb").outerHeight(true),
-				tableH = contentH - breadcrumbH,
-				$table = $("#table");
-
-			$(".page-content").height(contentH);
-
-			// $table.bootstrapTable('resetView', {
-   //              height: 800
-   //          });
-   			$table.data("height", getTableHeight());
-
-   			$(window).resize(function () {
-   				$table.bootstrapTable('resetView', {
-                	height: getTableHeight()
-            	});
-            });
-
-	        function getTableHeight(){
-	        	var navbarH = $(".navbar").outerHeight(true),
-					windowH = $(window).height(),
-					contentH = windowH - navbarH,
-					breadcrumbH = $(".page-breadcrumb").outerHeight(true),
-					tableH = contentH - breadcrumbH - 40;
-				return tableH;
-	        }
-
-         //     setTimeout(function () {
-	        //     $table.bootstrapTable('resetView');
-	        // }, 200);
-
-		    function responseHandler(res) {
-		        $.each(res.rows, function (i, row) {
-		            row.state = $.inArray(row.id, selections) !== -1;
-		        });
-		        return res;
-		    }
-
-		
-			
 		    function operateFormatter(value, row, index) {
 		        return [
 		            '<a class="editor" href="add_pe.html" title="Remove">',
