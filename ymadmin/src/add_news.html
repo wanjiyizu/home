@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/bootstrap-select.css">
 	<link rel="stylesheet" href="css/bootstrap-table.min.css">
+	<link rel="stylesheet" type="text/css" href="css/webuploader.css">
 	<link rel="stylesheet" type="text/css" href="css/admin.css">
 </head>
 <body>
@@ -25,15 +26,18 @@
 	      </button>
 	      <a class="navbar-brand sidebar-toggle" data-toggle="true" href="index.html">
 	      	<img src="images/logo.png" height="30" title="优米金融">
-	      	<span class="menu-icon hidden-xs sidebar-closed" data-toggle="true">
-	      		<i class="glyphicon glyphicon-align-justify"></i>
-	      	</span>
-	      	
 	      </a>
 	    </div>
 
 	    <div class="collapse navbar-collapse" id="toolbar-collapse">
 	      <ul class="nav navbar-nav navbar-admin">
+	      	<li>
+	      		<a class="hidden-xs sidebar-closed" data-toggle="true">
+	      			<span class="menu-icon">
+			      		<i class="glyphicon glyphicon-align-justify"></i>
+			      	</span>
+	      		</a>
+	      	</li>
 	        <li class="active">
 	        	<a href="#">
 	        		<i class="iconfont icon-tixing"></i>
@@ -133,7 +137,7 @@
 				        </ul>
 					</li>
 					<li>
-						<a href="javascript:void(0)">
+						<a href="sign_list.html">
 							<i class="menu-icon iconfont icon-qiandao"></i>
 							<span>签到管理</span>
 						</a>
@@ -145,10 +149,16 @@
 						</a>
 					</li>
 					<li>
-						<a href="javascript:void(0)">
+						<a class="sidebar-dropdown" href="javascript:void(0)">
 							<i class="menu-icon iconfont icon-icon88"></i>
-							公众号管理
+							<span class="menu-text">微信管理</span>
+							<i class="menu-expand iconfont icon-icon07"></i>
 						</a>
+						<ul class="sidebar-submenu" role="menu">
+							<li><a href="material_list.html">素材管理</a></li>
+				            <li><a href="#">菜单管理</a></li>
+				            <li><a href="#">消息管理</a></li>
+				        </ul>
 					</li>
 					<li>
 						<a class="sidebar-dropdown" href="javascript:void(0)">
@@ -178,7 +188,8 @@
 					<div class="row">
 						<div class="main">
 							<div class="btn-group editor-toobar">
-							  <button type="button" class="btn btn-default">保存</button>
+							  <button type="button" class="btn btn-default" id="save">保存</button>
+							  <input type="file" name="file" id="file" style="display:none;">
 							  <button type="button" class="btn btn-default">预览</button>
 							  <button type="button" class="btn btn-default">保存并发布</button>
 							</div>
@@ -207,13 +218,13 @@
 											<span class="tip">文章的缩略图 210 x 164</span>
 										</div>
 										<div class="article-image-wrap article-image-cover">
-											<div class="image-thumb-wrap">
+											<div class="image-thumb-wrap" id="cover-image-thumb">
 												<div class="image-thumb">
 													<i class="icon-image-thumb"></i>
 												</div>
 											</div>
 											<div classs="imagepick-wrap">
-												<span href="javascript:void(0)" class="btn-imagepick">选择图片</span>
+												<span href="javascript:void(0)" class="btn-imagepick" id="imgpickcover">选择图片</span>
 											</div>
 										</div>
 									</div>
@@ -229,7 +240,7 @@
 												</div>
 											</div>
 											<div classs="imagepick-wrap">
-												<span href="javascript:void(0)" class="btn-imagepick">选择图片</span>
+												<span href="javascript:void(0)" class="btn-imagepick" id=imgpickthumb>选择图片</span>
 											</div>
 										</div>
 									</div>
@@ -278,6 +289,7 @@
 	<script type="text/javascript" src="js/bootstrap-table-zh-CN.min.js"></script>
 	<script type="text/javascript" src="js/ueditor/ueditor.config.js"></script>
 	<script type="text/javascript" src="js/ueditor/ueditor.all.min.js"></script>
+	<script type="text/javascript" src="js/ueditor/third-party/webuploader/webuploader.html5only.js"></script>
 	<script type="text/javascript" src="js/admin.js"></script>
 	<script type="text/javascript" src="js/add_news.js"></script>
 </body>

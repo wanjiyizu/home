@@ -45,4 +45,72 @@
 		    ]
 		]
 	});
+
+	var uploader = WebUploader.create({
+
+	    // 选完文件后，是否自动上传。
+	    auto: true,
+
+	    // 文件接收服务端。
+	    server: 'http://localhost:8080/img/upload.html',
+
+	    // 选择文件的按钮。可选。
+	    // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+	    pick: {
+	    	id: '#imgpickcover',
+	    	multiple: false
+	    },
+
+	    thumb: {
+	    	 width: 216,
+    		height: 124
+	    },
+
+	    formData: {
+	    	"oldUrl": "http://img.youmifinance.com/img/images/news/1481098521222/cover/1481100563911.png",
+	    	"dir": "images/news/2016/cover"
+	    },
+
+	    // 只允许选择图片文件。
+	    accept: {
+	        title: 'Images',
+	        extensions: 'gif,jpg,jpeg,bmp,png',
+	        mimeTypes: 'image/jpg,image/jpeg,image/png,image/gif'
+	    }
+	});
+
+	uploader.on("fileQueued", function(file){
+
+		var $img,
+			wrap = $("#cover-image-thumb");
+		wrap.html("<img class=''>");
+		$img = wrap.find("img");
+		uploader.makeThumb( file, function( error, src ) {
+
+	        if ( error ) {
+	            // $img.replaceWith('<span>不能预览</span>');
+	            return;
+	        }
+
+	        $img.attr( 'src', src );
+	    });
+	});
+
+	$("#save").on("click", function(){
+		$("#file").trigger("click");
+		
+	});
+
+	$("#file").on("change", function(e){
+		var file = e.target.files[0];
+		var xhr = new XMLHttpRequest();
+		var formData = new FormData();
+		xhr.upload.onprogress = function( e ){
+			// console.log("=============");
+		}
+		formData.append("file", file);
+		xhr.open("post", "http://localhost:8080/img/test_upload.html", true);
+		xhr.send(formData);
+
+	})
 })();

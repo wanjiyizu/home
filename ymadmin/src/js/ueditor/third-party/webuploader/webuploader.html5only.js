@@ -5394,38 +5394,40 @@
                     formData.append( opts.fileVal, blob.getSource(),
                             opts.filename || owner._formData.name || '' );
                 }
+                // var xhr = new XMLHttpRequest();
+                xhr.open("post", "http://localhost:8080/img/upload.html", true);
+                xhr.send(formData);
+                // if ( opts.withCredentials && 'withCredentials' in xhr ) {
+                //     xhr.open( opts.method, server, true );
+                //     xhr.withCredentials = true;
+                // } else {
+                //     xhr.open( opts.method, server );
+                // }
     
-                if ( opts.withCredentials && 'withCredentials' in xhr ) {
-                    xhr.open( opts.method, server, true );
-                    xhr.withCredentials = true;
-                } else {
-                    xhr.open( opts.method, server );
-                }
+                // this._setRequestHeader( xhr, opts.headers );
     
-                this._setRequestHeader( xhr, opts.headers );
+                // if ( binary ) {
+                //     xhr.overrideMimeType('application/octet-stream');
     
-                if ( binary ) {
-                    xhr.overrideMimeType('application/octet-stream');
+                //     // android直接发送blob会导致服务端接收到的是空文件。
+                //     // bug详情。
+                //     // https://code.google.com/p/android/issues/detail?id=39882
+                //     // 所以先用fileReader读取出来再通过arraybuffer的方式发送。
+                //     if ( Base.os.android ) {
+                //         fr = new FileReader();
     
-                    // android直接发送blob会导致服务端接收到的是空文件。
-                    // bug详情。
-                    // https://code.google.com/p/android/issues/detail?id=39882
-                    // 所以先用fileReader读取出来再通过arraybuffer的方式发送。
-                    if ( Base.os.android ) {
-                        fr = new FileReader();
+                //         fr.onload = function() {
+                //             xhr.send( this.result );
+                //             fr = fr.onload = null;
+                //         };
     
-                        fr.onload = function() {
-                            xhr.send( this.result );
-                            fr = fr.onload = null;
-                        };
-    
-                        fr.readAsArrayBuffer( binary );
-                    } else {
-                        xhr.send( binary );
-                    }
-                } else {
-                    xhr.send( formData );
-                }
+                //         fr.readAsArrayBuffer( binary );
+                //     } else {
+                //         xhr.send( binary );
+                //     }
+                // } else {
+                //     xhr.send( formData );
+                // }
             },
     
             getResponse: function() {
@@ -5468,12 +5470,12 @@
     
                 xhr.upload.onprogress = function( e ) {
                     var percentage = 0;
+                    console.log("============");
+                    // if ( e.lengthComputable ) {
+                    //     percentage = e.loaded / e.total;
+                    // }
     
-                    if ( e.lengthComputable ) {
-                        percentage = e.loaded / e.total;
-                    }
-    
-                    return me.trigger( 'progress', percentage );
+                    // return me.trigger( 'progress', percentage );
                 };
     
                 xhr.onreadystatechange = function() {

@@ -26,15 +26,18 @@
 	      </button>
 	      <a class="navbar-brand sidebar-toggle" data-toggle="true" href="index.html">
 	      	<img src="images/logo.png" height="30" title="优米金融">
-	      	<span class="menu-icon hidden-xs sidebar-closed" data-toggle="true">
-	      		<i class="glyphicon glyphicon-align-justify"></i>
-	      	</span>
-	      	
 	      </a>
 	    </div>
 
 	    <div class="collapse navbar-collapse" id="toolbar-collapse">
 	      <ul class="nav navbar-nav navbar-admin">
+	      	<li>
+	      		<a class="hidden-xs sidebar-closed" data-toggle="true">
+	      			<span class="menu-icon">
+			      		<i class="glyphicon glyphicon-align-justify"></i>
+			      	</span>
+	      		</a>
+	      	</li>
 	        <li class="active">
 	        	<a href="#">
 	        		<i class="iconfont icon-tixing"></i>
@@ -135,7 +138,7 @@
 				        </ul>
 					</li>
 					<li>
-						<a href="javascript:void(0)">
+						<a href="sign_list.html">
 							<i class="menu-icon iconfont icon-qiandao"></i>
 							<span>签到管理</span>
 						</a>
@@ -147,10 +150,16 @@
 						</a>
 					</li>
 					<li>
-						<a href="javascript:void(0)">
+						<a class="sidebar-dropdown" href="javascript:void(0)">
 							<i class="menu-icon iconfont icon-icon88"></i>
-							公众号管理
+							<span class="menu-text">微信管理</span>
+							<i class="menu-expand iconfont icon-icon07"></i>
 						</a>
+						<ul class="sidebar-submenu" role="menu">
+							<li><a href="material_list.html">素材管理</a></li>
+				            <li><a href="#">菜单管理</a></li>
+				            <li><a href="#">消息管理</a></li>
+				        </ul>
 					</li>
 					<li>
 						<a class="sidebar-dropdown" href="javascript:void(0)">
@@ -193,11 +202,10 @@
 									data-toolbar="#toolbar"
 									data-show-columns="true"
 									data-show-export="true"
-									data-pagination-h-align="left"
-									data-click-to-select="true">
+									data-pagination-h-align="left">
 							    <thead>
 							        <tr>
-							        	<th data-field="userId" data-checkbox="true"></th>
+							        	<th data-field="state" data-checkbox="true"></th>
 							            <th data-field="nickName" data-align="center">用户名</th>
 							            <th data-field="cellphone" data-align="center">手机号</th>
 							            <th data-filed="regTime" data-sortable="true" data-align="center">注册时间</th>
@@ -205,7 +213,6 @@
 							            <th data-field="userLock" data-align="center">用户状态</th>
 							            <th data-field="longFailTimes" data-align="center">登录失败次数</th>
 							            <th data-field="userLockDesc" data-align="center">备	注</th>
-							            <th data-formatter="operateFormatter" data-align="center">操作</th>
 							        </tr>
 							    </thead>
 							</table>
@@ -241,61 +248,13 @@
 	<script src="js/bootstrap-table.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap-table-zh-CN.min.js"></script>
 	<script type="text/javascript" src="js/admin.js"></script>
+	<script type="text/javascript" src="js/table.js"></script>
 	<script type="text/javascript">
 
 		(function(window, document){
 
-			var navbarH = $(".navbar").outerHeight(true),
-				windowH = $(window).height(),
-				contentH = windowH - navbarH,
-				breadcrumbH = $(".page-breadcrumb").outerHeight(true),
-				tableH = contentH - breadcrumbH,
-				$table = $("#table");
 
-			$(".page-content").height(contentH);
 
-			// $table.bootstrapTable('resetView', {
-   //              height: 800
-   //          });
-   			$table.data("height", getTableHeight());
-
-   			$(window).resize(function () {
-   				$table.bootstrapTable('resetView', {
-                	height: getTableHeight()
-            	});
-            });
-
-	        function getTableHeight(){
-	        	var navbarH = $(".navbar").outerHeight(true),
-					windowH = $(window).height(),
-					contentH = windowH - navbarH,
-					breadcrumbH = $(".page-breadcrumb").outerHeight(true),
-					tableH = contentH - breadcrumbH - 40;
-				return tableH;
-	        }
-
-         //     setTimeout(function () {
-	        //     $table.bootstrapTable('resetView');
-	        // }, 200);
-
-		    function responseHandler(res) {
-		        $.each(res.rows, function (i, row) {
-		            row.state = $.inArray(row.id, selections) !== -1;
-		        });
-		        return res;
-		    }
-
-		
-			
-		    function operateFormatter(value, row, index) {
-		        return [
-		            '<a class="editor" href="add_pe.html" title="Remove">',
-		            '<i class="glyphicon glyphicon-pencil"></i>',
-		            '</a>'
-		        ].join('');
-		    }
-
-		    window.operateFormatter = operateFormatter;
 		})(this, document);
 
 

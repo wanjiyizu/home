@@ -140,7 +140,7 @@
 				        </ul>
 					</li>
 					<li>
-						<a href="javascript:void(0)">
+						<a href="sign_list.html">
 							<i class="menu-icon iconfont icon-qiandao"></i>
 							<span>签到管理</span>
 						</a>
@@ -152,10 +152,16 @@
 						</a>
 					</li>
 					<li>
-						<a href="javascript:void(0)">
+						<a class="sidebar-dropdown" href="javascript:void(0)">
 							<i class="menu-icon iconfont icon-icon88"></i>
-							公众号管理
+							<span class="menu-text">微信管理</span>
+							<i class="menu-expand iconfont icon-icon07"></i>
 						</a>
+						<ul class="sidebar-submenu" role="menu">
+							<li><a href="material_list.html">素材管理</a></li>
+				            <li><a href="#">菜单管理</a></li>
+				            <li><a href="#">消息管理</a></li>
+				        </ul>
 					</li>
 					<li>
 						<a class="sidebar-dropdown" href="javascript:void(0)">
@@ -189,7 +195,7 @@
 							<table 	id="table"
 								 	data-toggle="table"
 									data-url="js/data/news.json"
-									data-id-field="productId"
+									data-id-field="id"
 									data-pagination="true"
 									data-search="true"
 									data-halign="500"
@@ -199,9 +205,9 @@
 									data-toolbar="#toolbar"
 									data-show-columns="true"
 									data-show-export="true"
+									data-row-attributes="setRowAttr"
 									data-row-style="rowStyle"
-									data-pagination-h-align="left"
-									data-click-to-select="true">
+									data-pagination-h-align="left">
 							    <thead>
 							        <tr>
 							        	<th data-field="state" data-checkbox="true"></th>
@@ -211,6 +217,7 @@
 							            <th data-field="isTop" data-align="center">置顶状态</th>
 							            <th data-field="status" data-align="center">发布状态</th>
 							            <th data-formatter="operateFormatter" data-align="center">操作</th>
+							            <th data-formatter="dragFormatter" data-width="2%" data-cell-style="dragCellStyle">拖动排序</th>
 							        </tr>
 							    </thead>
 							</table>
@@ -253,13 +260,58 @@
 	
 		(function(window, document){
 
-			var sortableOpts = {
-	    		sort: true,
-	    		draggable: ".tr-item"
-	    	};
-	    	var table = document.getElementById("table");
-			Sortable.create(table, sortableOpts);
+			var sortable,
+				sortableOpts = {
+				// delay: 500,
+				handle: '.tr-move',
+	    		// sort: true,
+	    		draggable: ".tr-item",
+	    		ghostClass: 'ghost',
+	    		// chosenClass: 'chosen'
+	    		// forceFallback: false,	//生成拖动副本
+	    		// scroll: true,
+	    		dataIdAttr: 'data-priority',
 
+	    		onEnd: function(evt){
+	    			
+	    			var exchangeIndex = evt.newIndex,
+	    				priority = $(evt.item).data("priority"),
+	    				id = $(evt.item).data("opid");
+	    			console.log(exchangeIndex+"==="+priority+"==="+id);
+	    // 			$.ajax({
+					// 	type: "post",
+					// 	url: "content/update_priority",
+					// 	data: {"originalID":id, "exchangeIndex":value, "priority": priority, "columnName": columnName, sequence: sequence},
+					// 	success: function(response){
+					// 		var data = JSON.parse(response);
+					// 		if(data.statusCode == 1){
+								
+
+					// 		}else if(util.isNotEmpty(data.url)){
+					// 			ym_layer.alert(data.message, {
+					// 				sure: function(){
+					// 					window.location.href = data.url;
+					// 				}
+					// 			});
+					// 		}else{
+					// 			ym_layer.alert(data.message);
+					// 		}
+					// 	}
+					// });
+	    			// $table.bootstrapTable("refresh", {
+			     //    	url: "js/data/news.json"
+			     //    });
+	    		}
+	    	};
+
+	    	/*表格加载成功之后的函数*/
+	    	$table.on("load-success.bs.table", function(){
+	    		var tbody = document.querySelector("tbody");
+	    		sortable = Sortable.create(tbody, sortableOpts);
+	    	});
+
+
+			
 		    function operateFormatter(value, row, index) {
 		        return [
 		            '<a class="editor" href="add_pe.html" title="Remove">',
@@ -268,13 +320,34 @@
 		        ].join('');
 		    }
 
+		    function dragFormatter(value, row, index){
+		    	return "<span class='tr-move'><i class='glyphicon glyphicon-align-justify'></i></span>";
+		    }
+
 		    function rowStyle(row, index) {
 			  return {
 			    classes: 'tr-item'
 			  };
 			}
 
+			function dragCellStyle(value, row, index, field){
+				return {
+			    	classes: 'tr-drag'
+			  	};
+			}
+
+			/*必须设置这两个*/
+			function setRowAttr(row, index){
+				return {
+					"data-priority": row.priority,
+					"data-opid": row.id
+				}
+			}
+
+			window.setRowAttr = setRowAttr;
+			window.dragCellStyle = dragCellStyle;
 		    window.rowStyle = rowStyle;
+		    window.dragFormatter = dragFormatter;
 		    window.operateFormatter = operateFormatter;
 		})(this, document);
 
