@@ -46,7 +46,7 @@
 		]
 	});
 
-	var uploader = WebUploader.create({
+	var uploaderOpts = {
 
 	    // 选完文件后，是否自动上传。
 	    auto: true,
@@ -54,17 +54,12 @@
 	    // 文件接收服务端。
 	    server: 'http://localhost:8080/img/upload.html',
 
+	    // headers: {
+	    // 	"Content-Type": "multipart/form-data"
+	    // },
+
 	    // 选择文件的按钮。可选。
 	    // 内部根据当前运行是创建，可能是input元素，也可能是flash.
-	    pick: {
-	    	id: '#imgpickcover',
-	    	multiple: false
-	    },
-
-	    thumb: {
-	    	 width: 216,
-    		height: 124
-	    },
 
 	    formData: {
 	    	"oldUrl": "http://img.youmifinance.com/img/images/news/1481098521222/cover/1481100563911.png",
@@ -77,40 +72,40 @@
 	        extensions: 'gif,jpg,jpeg,bmp,png',
 	        mimeTypes: 'image/jpg,image/jpeg,image/png,image/gif'
 	    }
-	});
+	}
 
-	uploader.on("fileQueued", function(file){
+	var coverUploader = WebUploader.create(uploaderOpts),
+		thumbUploader = WebUploader.create(uploaderOpts);
 
-		var $img,
-			wrap = $("#cover-image-thumb");
-		wrap.html("<img class=''>");
-		$img = wrap.find("img");
-		uploader.makeThumb( file, function( error, src ) {
+	uploadHandler.call(coverUploader, "#imgpickcover", $("#cover-image-thumb"), 216, 124);
+	uploadHandler.call(thumbUploader, "#imgpickthumb", $("#logo-image-thumb"), 216, 99);
 
-	        if ( error ) {
-	            // $img.replaceWith('<span>不能预览</span>');
-	            return;
-	        }
+	function uploadHandler(pickEl, $wrap, width, height){
 
-	        $img.attr( 'src', src );
-	    });
-	});
+		this.addButton({
+			id: pickEl,
+		    multiple: false
+		});
 
-	$("#save").on("click", function(){
-		$("#file").trigger("click");
-		
-	});
+		this.on("fileQueued", function(file){
 
-	$("#file").on("change", function(e){
-		var file = e.target.files[0];
-		var xhr = new XMLHttpRequest();
-		var formData = new FormData();
-		xhr.upload.onprogress = function( e ){
-			// console.log("=============");
-		}
-		formData.append("file", file);
-		xhr.open("post", "http://localhost:8080/img/test_upload.html", true);
-		xhr.send(formData);
+			var $img,
+				wrap = $wrap;
+			wrap.html("<img>");
+			$img = wrap.find("img");
+			coverUploader.makeThumb( file, function( error, src ) {
 
-	})
+		        if ( error ) {
+		            // $img.replaceWith('<span>不能预览</span>');
+		            return;
+		        }
+
+		        $img.attr( 'src', src );
+		    },width,height);
+		});
+	}
+
+	
+	
+
 })();
