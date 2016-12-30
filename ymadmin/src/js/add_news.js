@@ -47,36 +47,24 @@
 	});
 
 	var uploaderOpts = {
-
-	    // 选完文件后，是否自动上传。
 	    auto: true,
-
-	    // 文件接收服务端。
-	    server: 'http://localhost:8080/img/upload.html',
-
-	    // headers: {
-	    // 	"Content-Type": "multipart/form-data"
-	    // },
-
-	    // 选择文件的按钮。可选。
-	    // 内部根据当前运行是创建，可能是input元素，也可能是flash.
-
+	    server: 'http://localhost:8080/img/test_upload.html',
 	    formData: {
 	    	"oldUrl": "http://img.youmifinance.com/img/images/news/1481098521222/cover/1481100563911.png",
 	    	"dir": "images/news/2016/cover"
 	    },
-
-	    // 只允许选择图片文件。
 	    accept: {
 	        title: 'Images',
 	        extensions: 'gif,jpg,jpeg,bmp,png',
 	        mimeTypes: 'image/jpg,image/jpeg,image/png,image/gif'
 	    }
-	}
+	};
 
-	var coverUploader = WebUploader.create(uploaderOpts),
-		thumbUploader = WebUploader.create(uploaderOpts);
+	var coverUploader = null,
+		thumbUploader = null;
 
+	coverUploader = WebUploader.create(uploaderOpts),
+	thumbUploader = WebUploader.create(uploaderOpts);
 	uploadHandler.call(coverUploader, "#imgpickcover", $("#cover-image-thumb"), 216, 124);
 	uploadHandler.call(thumbUploader, "#imgpickthumb", $("#logo-image-thumb"), 216, 99);
 
@@ -106,6 +94,59 @@
 	}
 
 	
+	$("#save").on("click", save);
+	$("#preview").on("click", preview);
 	
+	function save(){
+		// 获取数据
+		var news = getNewsData();
+		news["status"] = 0;
+		// 验证数据
+		verifyData(news);
+		// 提交数据
+	}
+
+	function preview(){
+		var news = getNewsData();
+		news["status"] = 2;
+		verifyData(news);
+	}
+
+	function getNewsData(){
+		var data = {
+			title: $("#js-news-title").val(),
+			content: ue.getContent(),
+			brief: $("#js-news-summary").val(),
+			coverImg: $("#cover-image-thumb").data("src"),
+			logoImg: $("#logo-image-thumb").data("src"),
+			uploader: $("#js-news-author").val(),
+			source: $("#js-news-source").val(),
+			date: $("#js-news-date").val(),
+			status: $("#save").data("status") || 0
+		}
+		return data;
+	}
+
+	function verifyData(obj){
+		if(obj == null){
+			return false;
+		}
+
+		/*预览和保存并发布的情况下*/
+		if(obj.status == 1 || obj.status == 2){
+			if(util.isEmpty(obj.title)){
+				console.log("标题不能为空");
+			}else if(util.isEmpty(obj.content)){
+				console.log("正文必须有文字，请在正文中至少输入1个汉字后重试");
+			}
+		}else{
+			/*保存的情况下*/
+			if(util.isEmpty(obj.title) && util.isEmpty(obj.content)){
+				console.log("请先输入一段正文（或者标题），再点击保存按钮。");
+			}
+		}
+
+		
+	}
 
 })();

@@ -188,15 +188,14 @@
 					<div class="row">
 						<div class="main">
 							<div class="btn-group editor-toobar">
-							  <button type="button" class="btn btn-default">保存</button>
-							  <input type="file" name="file" id="file" style="display:none;">
-							  <button type="button" class="btn btn-default">预览</button>
+							  <button type="button" class="btn btn-default" id="save">保存</button>
+							  <button type="button" class="btn btn-default" id="preview">预览</button>
 							  <button type="button" class="btn btn-default">保存并发布</button>
 							</div>
 							<div class="main-box">
 								<div class="col-md-10 editor-wrapper">
 									<div class="editor-title-wrap">
-										<input class="editor-title" type="text" placeholder="请在这里输入标题">
+										<input class="editor-title" type="text" id="js-news-title" placeholder="请在这里输入标题">
 									</div>
 									<div class="editor-main">
 										 <script id="container" style="width:100%;" name="content" type="text/plain"></script>
@@ -207,7 +206,7 @@
 											<span class="tip">文章的摘要</span>
 										</div>
 										<div class="form-textarea">
-											<textarea></textarea>
+											<textarea spellcheck="false" id="js-news-summary"></textarea>
 										</div>
 									</div>
 								</div>
@@ -250,7 +249,7 @@
 											<span class="tip">文章的发布者</span>
 										</div>
 										<div class="form-input-short">
-											<input type="text" placeholder="请输入作者">
+											<input type="text" placeholder="请输入作者" id="js-news-author">
 										</div>
 									</div>
 									<div class="form-group">
@@ -259,7 +258,7 @@
 											<span class="tip">文章的来源</span>
 										</div>
 										<div class="form-input-short">
-											<input type="text" placeholder="请输入来源">
+											<input type="text" placeholder="请输入来源" id="js-news-source">
 										</div>
 									</div>
 									<div class="form-group">
@@ -268,7 +267,7 @@
 											<span class="tip">文章发布时间</span>
 										</div>
 										<div class="form-input-short">
-											<input type="datetime-local" placeholder="请输入来源">
+											<input type="datetime-local" id="js-news-date">
 										</div>
 									</div>
 								</div>
@@ -289,7 +288,8 @@
 	<script type="text/javascript" src="js/bootstrap-table-zh-CN.min.js"></script>
 	<script type="text/javascript" src="js/ueditor/ueditor.config.js"></script>
 	<script type="text/javascript" src="js/ueditor/ueditor.all.min.js"></script>
-	<script type="text/javascript" src="js/ueditor/third-party/webuploader/webuploader.min.js"></script>
+	<script type="text/javascript" src="js/ueditor/third-party/webuploader/webuploader.html5only.js"></script>
+	<script type="text/javascript" src="js/util.js"></script>
 	<script type="text/javascript" src="js/admin.js"></script>
 	<script type="text/javascript" src="js/add_news.js"></script>
 </body>
