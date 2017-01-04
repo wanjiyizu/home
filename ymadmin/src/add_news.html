@@ -190,12 +190,13 @@
 							<div class="btn-group editor-toobar">
 							  <button type="button" class="btn btn-default" id="save">保存</button>
 							  <button type="button" class="btn btn-default" id="preview">预览</button>
-							  <button type="button" class="btn btn-default">保存并发布</button>
+							  <button type="button" class="btn btn-default" id="publish">保存并发布</button>
 							</div>
 							<div class="main-box">
 								<div class="col-md-10 editor-wrapper">
 									<div class="editor-title-wrap">
 										<input class="editor-title" type="text" id="js-news-title" placeholder="请在这里输入标题">
+										<span class="message-tip" id="title-message-tip"></span>
 									</div>
 									<div class="editor-main">
 										 <script id="container" style="width:100%;" name="content" type="text/plain"></script>
@@ -217,7 +218,7 @@
 											<span class="tip">文章的缩略图 210 x 164</span>
 										</div>
 										<div class="article-image-wrap article-image-cover">
-											<div class="image-thumb-wrap" id="cover-image-thumb">
+											<div class="image-thumb-wrap" id="cover-image-thumb" data-type="cover">
 												<div class="image-thumb">
 													<i class="icon-image-thumb"></i>
 												</div>
@@ -233,7 +234,7 @@
 											<span class="tip">文章来源的图标 74 x 434</span>
 										</div>
 										<div class="article-image-wrap article-image-logo">
-											<div class="image-thumb-wrap" id="logo-image-thumb">
+											<div class="image-thumb-wrap" id="logo-image-thumb" data-type="logo">
 												<div class="image-thumb">
 													<i class="icon-image-thumb"></i>
 												</div>
@@ -277,6 +278,10 @@
 				</div>
 			</div>
 		</div>
+	</div>
+	
+	<div class="page-tip">
+		<div class="page-tip-msg" id="page-tip">操作成功</div>
 	</div>
 	
 	<div class="admin-menu visible-xs-block" id="admin-menu"></div>
