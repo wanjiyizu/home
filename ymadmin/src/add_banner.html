@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>首页</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/webuploader.css">
+	<link rel="stylesheet" type="text/css" href="css/admin.css">
+	
+</head>
+<body>
+
+	<!-- 加载层 -->
+	<div class="loading-container"></div>
+
+	<!-- 头部 -->
+	<nav class="navbar" role="navigation">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed admin-btn-primary" data-toggle="collapse" data-target="#toolbar-collapse">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand sidebar-toggle" data-toggle="true" href="index.html">
+	      	<img src="images/logo.png" height="30" title="优米金融">
+	      </a>
+	    </div>
+
+	    <div class="collapse navbar-collapse" id="toolbar-collapse">
+	      <ul class="nav navbar-nav navbar-admin">
+	      	<li>
+	      		<a href="javascript:void(0)" class="sidebar-closed" data-toggle="true">
+	      			<span class="menu-icon hidden-xs">
+			      		<i class="glyphicon glyphicon-align-justify"></i>
+			      	</span>
+	      		</a>
+	      	</li>
+	        <li>
+	        	<a href="#">
+	        		<i class="iconfont icon-tixing"></i>
+	        		<span class="nav-text">提醒</span>
+	        		<span class="badge">4</span>
+	        	</a>
+	        </li>
+	        <li>
+	        	<a href="#">
+	        		<i class="iconfont icon-iconfontmark"></i>
+	        		<span class="nav-text">消息</span>
+	        		<span class="badge">4</span>
+	        	</a>
+	        </li>
+	        <li><a href="#"><span class="nav-text">进度</span></a></li>
+	        <li class="hidden-xs">
+	        	<a href="javascript:void(0)" id="admin-fullscreen">
+	        		<i class="iconfont icon-quanping"></i>
+	        		<span class="nav-text">开启全屏</span>
+	        	</a>
+	        </li>
+	        <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+	          	<span class="nav-text">玩机e族</span>
+	          	<span class="caret"></span>
+	          </a>
+	          <ul class="dropdown-menu" role="menu">
+	            <li>
+	            	<a href="#">
+	            		<i class="iconfont icon-xiugaimima"></i>
+	            		修改密码
+	            	</a>
+	            </li>
+	            <li>
+	            	<a href="#">
+	            		<i class="iconfont icon-logout"></i>
+	            		退出账号
+	            	</a>
+	            </li>
+	          </ul>
+	        </li>
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
+
+
+	<div class="main-container container-fluid">
+		<div class="page-sidebar offcanvas">
+			<div class="offcanvas-bar">
+				<ul class="sidebar">
+					<li>
+						<a href="index.html">
+							<i class="menu-icon iconfont icon-zhuye"></i>
+							首页
+						</a>
+					</li>
+					<li>
+						<a class="sidebar-dropdown" href="javascript:void(0)">
+							<i class="menu-icon iconfont icon-chanpinguanli"></i>
+							<span class="menu-text">产品管理</span>
+							<i class="menu-expand iconfont icon-icon07"></i>
+						</a>
+						<ul class="sidebar-submenu" role="menu">
+				            <li><a href="pe_list.html">私募股权</a></li>
+				            <li><a href="simu_list.html">阳光私募</a></li>
+				        </ul>
+					</li>
+					<li>
+						<a href="book_list.html">
+							<i class="menu-icon iconfont icon-yuyue"></i>
+							<span class="menu-text">预约管理</span>
+						</a>
+					</li>
+					<li>
+						<a href="news_list.html">
+							<i class="menu-icon iconfont icon-xinwenguanli"></i>
+							<span>新闻管理</span>
+						</a>
+					</li>
+					<li>
+						<a href="user_list.html">
+							<i class="menu-icon iconfont icon-kehuguanli"></i>
+							<span>用户管理</span>
+						</a>
+					</li>
+					<li class="down">
+						<a class="sidebar-dropdown" href="javascript:void(0)">
+							<i class="menu-icon iconfont icon-banner"></i>
+							<span class="menu-text">广告管理</span>
+							<i class="menu-expand iconfont icon-icon07"></i>
+						</a>
+						<ul class="sidebar-submenu" role="menu">
+							<li class="active"><a href="banner_list.html">首页</a></li>
+				            <li><a href="banner_list.html">私募股权</a></li>
+				            <li><a href="banner_list.html">阳光私募</a></li>
+				            <li><a href="banner_list.html">企业理财</a></li>
+				        </ul>
+					</li>
+					<li>
+						<a href="sign_list.html">
+							<i class="menu-icon iconfont icon-qiandao"></i>
+							<span>签到管理</span>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:void(0)">
+							<i class="menu-icon iconfont icon-mobanguanli"></i>
+							<span>模板管理</span>
+						</a>
+					</li>
+					<li>
+						<a class="sidebar-dropdown" href="javascript:void(0)">
+							<i class="menu-icon iconfont icon-icon88"></i>
+							<span class="menu-text">微信管理</span>
+							<i class="menu-expand iconfont icon-icon07"></i>
+						</a>
+						<ul class="sidebar-submenu" role="menu">
+							<li><a href="material_list.html">素材管理</a></li>
+				            <li><a href="#">菜单管理</a></li>
+				            <li><a href="#">消息管理</a></li>
+				        </ul>
+					</li>
+					<li>
+						<a class="sidebar-dropdown" href="javascript:void(0)">
+							<i class="menu-icon iconfont icon-guanliyuan"></i>
+							<span class="menu-text">管理员管理</span>
+							<i class="menu-expand iconfont icon-icon07"></i>
+						</a>
+						<ul class="sidebar-submenu" role="menu">
+				            <li><a href="javascript:void(0)">管理员列表</a></li>
+				            <li><a href="role_list.html">角色列表</a></li>
+				        </ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="page-content">
+			<div class="page-breadcrumb">
+				<ol class="breadcrumb">
+				  <li><i class="glyphicon glyphicon-home"></i>&nbsp;<a href="index.html">首页</a></li>
+				  <li><a href="pe_list.html">Banner管理</a></li>
+				  <li class="active">添加Banner</li>
+				</ol>
+			</div>
+			<div class="page-body">
+				<div class="container-fuild">
+					<div class="row">
+						<div class="col-md-12 main">
+							<div class="btn-group">
+							  <a class="btn btn-primary" id="picker">选择图片</a>
+							  <a class="btn btn-default" id="startUpload">开始上传</a>
+							  <a class="btn btn-default" id="save" data-loading-text="保存中..." autocomplete="off">保存</a>
+							</div>
+							<hr>
+							<form class="form-horizontal col-md-8" id="image-wrap">
+								
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/x-template" id="template">
+		<div class="form-group">
+			<div class="input-group">
+				<input type="text" class="form-control" placeholder="请输入链接地址">
+				<span class="input-group-addon glyphicon glyphicon-trash image-item-remove"></span>
+			</div>
+			<div class="image-group">
+				<div class="image-error">上传出错</div>
+				<img>
+			</div>
+		</div>
+	</script>
+	<div class="admin-menu visible-xs-block" id="admin-menu"></div>
+	<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap-select.js"></script>
+	<script type="text/javascript" src="js/ueditor/third-party/webuploader/webuploader.html5only.js"></script>
+	<script type="text/javascript" src="js/admin.js"></script>
+	<script type="text/javascript">
+
+    	var uploader,
+    		imageItem,
+    		imageWrap,
+    		uploaderOpts = {
+		    auto: false,
+		    server: 'http://localhost:8080/img/test_upload.html',
+		    pick: "#picker",
+		    accept: {
+		        title: 'Images',
+		        extensions: 'gif,jpg,jpeg,bmp,png',
+		        mimeTypes: 'image/jpg,image/jpeg,image/png,image/gif'
+		    }
+		};
+
+		uploader = WebUploader.create(uploaderOpts);
+		imageItem = $("#template").html();
+		imageWrap = $("#image-wrap");
+		uploader.on("fileQueued", function(file){
+			var $item = $(imageItem),
+				$img = $item.find("img"),
+				$imgGroup = $item.find(".image-group"),
+				$error = $item.find(".image-error");
+			imageWrap.append($item);
+			$item.attr("id", file.id);
+			uploader.makeThumb( file, function( error, src ) {
+		        if ( error ) {
+		            $error.show().text('图片选择出错');
+		            return;
+		        }
+
+		        $img.attr( 'src', src );
+		    }, $imgGroup.width(), $imgGroup.height() );
+		});
+
+		uploader.on("uploadStart", function(file){
+			uploader.option("formData", {
+	    		"dir": "images/banner"
+			});
+		});
+
+		uploader.on( 'uploadSuccess', function( file ) {
+		    $( '#'+file.id ).find(".image-item-remove").removeClass("glyphicon-trash").addClass("glyphicon-ok");
+		    $( '#'+file.id ).find(".image-item-remove").off("click");
+		});
+
+		uploader.on( 'uploadComplete', function( file ) {
+		    $( '#'+file.id ).find('.progress').remove();
+		});
+
+		uploader.on( 'uploadProgress', function( file, percentage ) {
+		    var $item = $( '#'+file.id ),
+		    	$imgGroup = $item.find(".image-group"),
+		        $percent = $item.find('.progress .progress-bar');
+		    // 避免重复创建
+		    if ( !$percent.length ) {
+		        $percent = $('<div class="progress"><div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div></div>')
+		                .appendTo( $imgGroup )
+		                .find('.progress-bar');
+		    }
+
+		    $percent.css( 'width', percentage * 100 + '%' );
+		});
+
+		uploader.on( 'uploadError', function( file ) {
+		    var $item = $( '#'+file.id ),
+		    	$error = $item.find(".image-error");
+
+		    // 避免重复创建
+		    if ( !$error.length ) {
+		        $error.show();
+		    }
+
+		    $error.text('图片上传失败');
+		});
+
+		$("#image-wrap").on("click", ".image-item-remove", function(){
+			var $parent = $(this).parents(".form-group"),
+				id = $parent.attr("id");
+			$parent.remove();
+			uploader.removeFile(id, true);
+		});
+
+		$("#startUpload").on("click", function(){
+			uploader.upload();
+		});
+
+
+	</script>
+</body>
+</html>

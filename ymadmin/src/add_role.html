@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>首页</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap-select.css">
+	<link rel="stylesheet" href="css/bootstrap-table.min.css">
+	<link rel="stylesheet" type="text/css" href="css/admin.css">
+	
+</head>
+<body>
+
+	<!-- 加载层 -->
+	<div class="loading-container"></div>
+
+	<!-- 头部 -->
+	<nav class="navbar" role="navigation">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed admin-btn-primary" data-toggle="collapse" data-target="#toolbar-collapse">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand sidebar-toggle" data-toggle="true" href="index.html">
+	      	<img src="images/logo.png" height="30" title="优米金融">
+	      </a>
+	    </div>
+
+	    <div class="collapse navbar-collapse" id="toolbar-collapse">
+	      <ul class="nav navbar-nav navbar-admin">
+	      	<li>
+	      		<a href="javascript:void(0)" class="sidebar-closed" data-toggle="true">
+	      			<span class="menu-icon hidden-xs">
+			      		<i class="glyphicon glyphicon-align-justify"></i>
+			      	</span>
+	      		</a>
+	      	</li>
+	        <li>
+	        	<a href="#">
+	        		<i class="iconfont icon-tixing"></i>
+	        		<span class="nav-text">提醒</span>
+	        		<span class="badge">4</span>
+	        	</a>
+	        </li>
+	        <li>
+	        	<a href="#">
+	        		<i class="iconfont icon-iconfontmark"></i>
+	        		<span class="nav-text">消息</span>
+	        		<span class="badge">4</span>
+	        	</a>
+	        </li>
+	        <li><a href="#"><span class="nav-text">进度</span></a></li>
+	        <li class="hidden-xs">
+	        	<a href="javascript:void(0)" id="admin-fullscreen">
+	        		<i class="iconfont icon-quanping"></i>
+	        		<span class="nav-text">开启全屏</span>
+	        	</a>
+	        </li>
+	        <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+	          	<span class="nav-text">玩机e族</span>
+	          	<span class="caret"></span>
+	          </a>
+	          <ul class="dropdown-menu" role="menu">
+	            <li>
+	            	<a href="#">
+	            		<i class="iconfont icon-xiugaimima"></i>
+	            		修改密码
+	            	</a>
+	            </li>
+	            <li>
+	            	<a href="#">
+	            		<i class="iconfont icon-logout"></i>
+	            		退出账号
+	            	</a>
+	            </li>
+	          </ul>
+	        </li>
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
+
+
+	<div class="main-container container-fluid">
+		<div class="page-sidebar offcanvas">
+			<div class="offcanvas-bar">
+				<ul class="sidebar">
+					<li>
+						<a href="index.html">
+							<i class="menu-icon iconfont icon-zhuye"></i>
+							首页
+						</a>
+					</li>
+					<li>
+						<a class="sidebar-dropdown" href="javascript:void(0)">
+							<i class="menu-icon iconfont icon-chanpinguanli"></i>
+							<span class="menu-text">产品管理</span>
+							<i class="menu-expand iconfont icon-icon07"></i>
+						</a>
+						<ul class="sidebar-submenu" role="menu">
+				            <li><a href="pe_list.html">私募股权</a></li>
+				            <li><a href="simu_list.html">阳光私募</a></li>
+				        </ul>
+					</li>
+					<li>
+						<a href="book_list.html">
+							<i class="menu-icon iconfont icon-yuyue"></i>
+							<span class="menu-text">预约管理</span>
+						</a>
+					</li>
+					<li>
+						<a href="news_list.html">
+							<i class="menu-icon iconfont icon-xinwenguanli"></i>
+							<span>新闻管理</span>
+						</a>
+					</li>
+					<li>
+						<a href="user_list.html">
+							<i class="menu-icon iconfont icon-kehuguanli"></i>
+							<span>用户管理</span>
+						</a>
+					</li>
+					<li>
+						<a class="sidebar-dropdown" href="javascript:void(0)">
+							<i class="menu-icon iconfont icon-banner"></i>
+							<span class="menu-text">广告管理</span>
+							<i class="menu-expand iconfont icon-icon07"></i>
+						</a>
+						<ul class="sidebar-submenu" role="menu">
+							<li><a href="">首页</a></li>
+				            <li><a href="#">私募股权</a></li>
+				            <li><a href="#">阳光私募</a></li>
+				            <li><a href="">企业理财</a></li>
+				        </ul>
+					</li>
+					<li>
+						<a href="sign_list.html">
+							<i class="menu-icon iconfont icon-qiandao"></i>
+							<span>签到管理</span>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:void(0)">
+							<i class="menu-icon iconfont icon-mobanguanli"></i>
+							<span>模板管理</span>
+						</a>
+					</li>
+					<li>
+						<a class="sidebar-dropdown" href="javascript:void(0)">
+							<i class="menu-icon iconfont icon-icon88"></i>
+							<span class="menu-text">微信管理</span>
+							<i class="menu-expand iconfont icon-icon07"></i>
+						</a>
+						<ul class="sidebar-submenu" role="menu">
+							<li><a href="material_list.html">素材管理</a></li>
+				            <li><a href="#">菜单管理</a></li>
+				            <li><a href="#">消息管理</a></li>
+				        </ul>
+					</li>
+					<li class="down">
+						<a class="sidebar-dropdown" href="javascript:void(0)">
+							<i class="menu-icon iconfont icon-guanliyuan"></i>
+							<span class="menu-text">管理员管理</span>
+							<i class="menu-expand iconfont icon-icon07"></i>
+						</a>
+						<ul class="sidebar-submenu" role="menu">
+				            <li><a href="manager_list.html">管理员列表</a></li>
+				            <li class="active"><a href="role_list.html">角色列表</a></li>
+				        </ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="page-content">
+			<div class="page-breadcrumb">
+				<ol class="breadcrumb">
+				  <li><i class="glyphicon glyphicon-home"></i>&nbsp;<a href="index.html">首页</a></li>
+				  <li><a href="pe_list.html">角色管理</a></li>
+				  <li class="active">添加角色</li>
+				</ol>
+			</div>
+			<div class="page-body">
+				<div class="container-fuild">
+					<div class="row">
+						<div class="col-md-12 main">
+							<a href="javascript:void(0)" class="btn btn-default" id="save" data-loading-text="保存中..." autocomplete="off">保存</a>
+							<hr>
+							<div class="form-wrap">
+								<form class="form-horizontal col-md-6">
+									<div class="form-group">
+									    <label for="roleName" class="col-sm-2 control-label">角色名称</label>
+									    <div class="col-sm-6">
+									      <input type="text" class="form-control" id="roleName" placeholder="请输入角色名称" value="">
+									    </div>
+									</div>
+									<div class="form-group">
+									    <label for="productName" class="col-sm-2 control-label">备注</label>
+									    <div class="col-sm-6">
+									      <textarea class="form-control" spellcheck="false" rows="3"></textarea>
+									    </div>
+									</div>
+									<div class="form-group">
+										<label for="productName" class="col-sm-2 control-label">管理员角色</label>
+										<div class="col-sm-6">
+											<div class="radio">
+											  <label>
+											    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+											    超级管理员
+											  </label>
+											</div>
+											<div class="radio">
+											  <label>
+											    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+											    新闻管理员
+											  </label>
+											</div>
+											<div class="radio">
+											  <label>
+											    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+											    产品管理员
+											  </label>
+											</div>
+											<div class="radio">
+											  <label>
+											    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+											    客服
+											  </label>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	        <h4 class="modal-title" id="myModalLabel">填写内容</h4>
+	      </div>
+	      <div class="modal-body">
+	      	<textarea class="textarea" spellcheck="false" id="modal-editor"></textarea>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal" id="modal-cancel">关闭</button>
+	        <button type="button" class="btn btn-primary" id="modal-sure">确定</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
+	<div class="admin-menu visible-xs-block" id="admin-menu"></div>
+	<script type="text/x-template" id="fieldListItem">
+		<li class="list-group-item form-group form-list-group" data-priority="{priority}">
+	  		<div class="input-group">
+	  			<span class="input-group-addon">
+	  				<input type="checkbox" name="">
+		  		</span>
+		  		<input type="text" class="form-control" name="">
+		  		<span class="input-group-addon">:</span>
+		  		<input type="text" class="form-control input-content" readonly="" data-toggle="modal" data-target="#myModal">
+		  		<span class="input-group-addon input-move">
+		  			<i class="glyphicon glyphicon-move"></i>
+		  		</span>
+	  		</div>
+	  	</li>
+	</script>
+	<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap-select.js"></script>
+	<script type="text/javascript" src="js/Sortable.min.js"></script>
+	<script type="text/javascript" src="js/admin.js"></script>
+	<script type="text/javascript" src="js/add_product.js"></script>
+	<script type="text/javascript">
+
+    	$("#save").on("click", save);
+
+		function save(){
+			var $btn = $(this).button('loading');
+    		var index = 0,
+    			product = {
+    				productName : $("#productName").val(),
+					quoca		: $("#quoca").val(),
+					lockPeriod 	: $("#lockPeriod").val(),
+					managerMentOrg : $("#managerMentOrg").val(),
+					fundCatagory : $("#fundCatagory").val(),
+					investMinAmout : $("#investMinAmout").val(),
+					investUnit : $("#investUnit").val(),
+					productClass : $("#productClass").val(),
+					extablishedDate : $("#extablishedDate").val(),
+					fundManager : $("#fundManager").val(),
+					expectedMaxRate : $("#expectedMaxRate").val(),
+					expectedMinRate : $("#expectedMinRate").val(),
+					purchaseFeeRate : $("#purchaseFeeRate").val(),
+					managementFeeRate : $("#managementFeeRate").val(),
+					amountType : $("#amountType").val(),
+					trustOrg : $("#trustOrg").val(),
+					productWholeName : $("#productWholeName").val(),
+					investStrategy : $("#investStrategy").val(),
+					status : $("#status").val(),
+					type: $("#type").val(),
+					isSelected: $("#isSelected").val(),
+					pageStyleField: $("#pageStyleField").val()
+    			};
+
+    		for(var i = 0; i < 4; i++){
+    			var sortable = sortables[i],
+    				fieldList = $(sortable.el),
+    				fieldKeys = $(fieldList).find(".field-key"),
+	    			fieldValues = $(fieldList).find(".field-value"),
+	    			order = sortable.toArray();
+	    			for(var j = 0, length = order.length; j < length; j++){
+	    				product["descriptions["+ index +"].group"] = $(fieldList).data("group");
+		    			product["descriptions["+ index +"].descKey"] = fieldKeys.get(j).value;
+		    			product["descriptions["+ index +"].descValue"] = fieldValues.get(j).value;
+		    			product["descriptions["+ index +"].priority"] = j;
+		    			index++;
+	    			}
+    		}
+
+    		console.log(product);
+    	}
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>首页</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap-select.css">
+	<link rel="stylesheet" href="css/bootstrap-table.min.css">
+	<link rel="stylesheet" type="text/css" href="css/admin.css">
+</head>
+<body>
+
+	<!-- 加载层 -->
+	<div class="loading-container"></div>
+
+	<!-- 头部 -->
+	<nav class="navbar" role="navigation">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed admin-btn-primary" data-toggle="collapse" data-target="#toolbar-collapse">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand sidebar-toggle" href="index.html">
+	      	<img src="images/logo.png" height="30" title="优米金融">
+	      </a>
+	    </div>
+
+	    <div class="collapse navbar-collapse" id="toolbar-collapse">
+	      <ul class="nav navbar-nav navbar-admin">
+	      	<li>
+	      		<a href="javascript:void(0)" class="sidebar-closed" data-toggle="true">
+	      			<span class="menu-icon hidden-xs">
+			      		<i class="glyphicon glyphicon-align-justify"></i>
+			      	</span>
+	      		</a>
+	      	</li>
+	        <li>
+	        	<a href="#">
+	        		<i class="iconfont icon-tixing"></i>
+	        		<span class="nav-text">提醒</span>
+	        		<span class="badge">4</span>
+	        	</a>
+	        </li>
+	        <li>
+	        	<a href="#">
+	        		<i class="iconfont icon-iconfontmark"></i>
+	        		<span class="nav-text">消息</span>
+	        		<span class="badge">4</span>
+	        	</a>
+	        </li>
+	        <li><a href="#"><span class="nav-text">进度</span></a></li>
+	        <li class="hidden-xs">
+	        	<a href="javascript:void(0)" id="admin-fullscreen">
+	        		<i class="iconfont icon-quanping"></i>
+	        		<span class="nav-text">开启全屏</span>
+	        	</a>
+	        </li>
+	        <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+	          	<span class="nav-text">玩机e族</span>
+	          	<span class="caret"></span>
+	          </a>
+	          <ul class="dropdown-menu" role="menu">
+	            <li>
+	            	<a href="#">
+	            		<i class="iconfont icon-xiugaimima"></i>
+	            		修改密码
+	            	</a>
+	            </li>
+	            <li>
+	            	<a href="#">
+	            		<i class="iconfont icon-logout"></i>
+	            		退出账号
+	            	</a>
+	            </li>
+	          </ul>
+	        </li>
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
+
+
+	<div class="main-container container-fluid">
+		<div class="page-sidebar offcanvas">
+			<div class="offcanvas-bar">
+				<ul class="sidebar">
+					<li>
+						<a href="index.html">
+							<i class="menu-icon iconfont icon-zhuye"></i>
+							首页
+						</a>
+					</li>
+					<li>
+						<a class="sidebar-dropdown" href="javascript:void(0)">
+							<i class="menu-icon iconfont icon-chanpinguanli"></i>
+							<span class="menu-text">产品管理</span>
+							<i class="menu-expand iconfont icon-icon07"></i>
+						</a>
+						<ul class="sidebar-submenu" role="menu">
+				            <li><a href="javascript:void(0)">私募股权</a></li>
+				            <li><a href="simu_list.html">阳光私募</a></li>
+				        </ul>
+					</li>
+					<li>
+						<a href="book_list.html">
+							<i class="menu-icon iconfont icon-yuyue"></i>
+							<span class="menu-text">预约管理</span>
+						</a>
+					</li>
+					<li>
+						<a href="news_list.html">
+							<i class="menu-icon iconfont icon-xinwenguanli"></i>
+							<span>新闻管理</span>
+						</a>
+					</li>
+					<li>
+						<a href="user_list.html">
+							<i class="menu-icon iconfont icon-kehuguanli"></i>
+							<span>用户管理</span>
+						</a>
+					</li>
+					<li>
+						<a class="sidebar-dropdown" href="javascript:void(0)">
+							<i class="menu-icon iconfont icon-banner"></i>
+							<span class="menu-text">广告管理</span>
+							<i class="menu-expand iconfont icon-icon07"></i>
+						</a>
+						<ul class="sidebar-submenu" role="menu">
+							<li><a href="">首页</a></li>
+				            <li><a href="#">私募股权</a></li>
+				            <li><a href="#">阳光私募</a></li>
+				            <li><a href="">企业理财</a></li>
+				        </ul>
+					</li>
+					<li>
+						<a href="sign_list.html">
+							<i class="menu-icon iconfont icon-qiandao"></i>
+							<span>签到管理</span>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:void(0)">
+							<i class="menu-icon iconfont icon-mobanguanli"></i>
+							<span>模板管理</span>
+						</a>
+					</li>
+					<li class="down">
+						<a class="sidebar-dropdown" href="javascript:void(0)">
+							<i class="menu-icon iconfont icon-icon88"></i>
+							<span class="menu-text">微信管理</span>
+							<i class="menu-expand iconfont icon-icon07"></i>
+						</a>
+						<ul class="sidebar-submenu" role="menu">
+							<li class="active"><a href="javascript:void(0)">素材管理</a></li>
+				            <li><a href="#">菜单管理</a></li>
+				            <li><a href="#">消息管理</a></li>
+				        </ul>
+					</li>
+					<li>
+						<a class="sidebar-dropdown" href="javascript:void(0)">
+							<i class="menu-icon iconfont icon-guanliyuan"></i>
+							<span class="menu-text">管理员管理</span>
+							<i class="menu-expand iconfont icon-icon07"></i>
+						</a>
+						<ul class="sidebar-submenu" role="menu">
+				            <li><a href="#">角色管理</a></li>
+				            <li><a href="#">权限管理</a></li>
+				        </ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="page-content">
+			<div class="page-breadcrumb">
+				<ol class="breadcrumb">
+				  <li><i class="glyphicon glyphicon-home"></i>&nbsp;<a href="index.html">首页</a></li>
+				  <li class="active">私募股权</li>
+				</ol>
+			</div>
+			<div class="page-body">
+				<div class="container-fuild">
+					<div class="row">
+						<div class="col-md-12 main">
+							<div id="toolbar" class=" hidden-xs">
+						  		<a class="btn btn-primary" id="js-add" data-toggle="modal" data-target="#myModal">手动获取图文</a>
+						  		<button class="btn btn-primary" id="js-publish" disabled="">发布</button>
+						  		<button class="btn btn-primary" id="js-offline" disabled="">下线</button>
+						        <button id="remove" class="btn btn-danger" disabled id="js-remove">删除</button>
+						    </div>
+							<table 	id="table"
+								 	data-toggle="table"
+									data-url="js/data/wechats.json"
+									data-id-field="articleId"
+									data-pagination="true"
+									data-search="true"
+									data-halign="500"
+									data-search-on-enter-key="true"
+									data-search-align="left"
+									data-show-refresh="true"
+									data-toolbar="#toolbar"
+									data-show-columns="true"
+									data-show-export="true"
+									data-pagination-h-align="left">
+							    <thead>
+							        <tr>
+							            <th data-field="state" class="hidden-xs" data-checkbox="true"></th>
+							            <th data-field="title" data-align="center">标题</th>
+							            <th data-field="author" class="hidden-xs" data-align="center">发布者</th>
+							            <th data-field="articleType" class="hidden-xs" data-formatter="typeFormatter" data-align="center">类型</th>
+							            <th data-field="articleStatus" class="hidden-xs" data-formatter="statusFormatter" data-align="center">状态</th>
+							            <th data-field="articleUpdateTime" data-formatter="dateFormatter" class="hidden-xs" data-sortable="true" data-align="center">同步时间</th>
+							            <th data-field="update_time" class="hidden-xs" data-formatter="dateFormatter" data-sortable="true" data-align="center">更新时间</th>
+							        </tr>
+							    </thead>
+							</table>
+					    </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	        <h4 class="modal-title" id="myModalLabel">填写内容</h4>
+	      </div>
+	      <div class="modal-body">
+	      	<form class="form-horizontal" role="form">
+	      		<div class="form-group">
+				    <div class="col-sm-12">
+				      <input type="number" class="form-control" id="offset" placeholder="你想从哪一页开始获取">
+				    </div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-12">
+				      <input type="number" class="form-control" id="limit" placeholder="你想要获取的个数">
+				    </div>
+				</div>
+				<p class="help-block" id="js-msgerror"><span></span></p>
+	      	</form>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+	        <button type="button" class="btn btn-primary" id="modal-sure">确定</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
+	<div class="page-tip">
+		<div class="page-tip-msg" id="page-tip">操作成功</div>
+	</div>
+	<div class="admin-menu visible-xs-block" id="admin-menu"></div>
+
+	<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap-select.js"></script>
+	<script src="js/bootstrap-table.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap-table-zh-CN.min.js"></script>
+	<script type="text/javascript" src="js/util.js"></script>
+	<script type="text/javascript" src="js/admin.js"></script>
+	<script type="text/javascript" src="js/table.js"></script>
+	<script type="text/javascript">
+		(function(window, document){
+
+			function responseHandler(res) {
+		        $.each(res.rows, function (i, row) {
+		            row.state = $.inArray(row.productId, selections) !== -1;
+		        });
+		        return res;
+		    }
+
+		    $("#add").on("click", function(){
+		    	$.ajax({
+		    		type: "get",
+		    		url: "http://localhost:8080/admin/test/list",
+		    		success: function(response){
+		    			console.log(response);
+		    		}
+		    	});
+		    	
+		    });
+
+		    /*删除数据*/
+		    $remove.click(function(){
+		    	var ids = getIdSelections();
+
+		    	if(ids !== null){
+		    		$.ajax({type:"get", url:"js/data/products.json"}).done(function(){
+		    			alert("哈哈哈成功了");
+		    		});
+					// $.ajax({
+					// 	type: "post",
+					// 	url: "product/delete",
+					// 	data: {ids:ids.toString()},
+					// 	beforeSend: function(){
+					// 		$("#page-tip").text("正在删除").parent().show();
+					// 	},
+					// 	success: function(response){
+					// 		var data = JSON.parse(response);
+					// 		if(data.statusCode == 1){
+					// 			 $table.bootstrapTable('remove', {
+					// 	            field: 'productName',
+					// 	            values: ids
+					// 	        });
+					// 			$table.bootstrapTable("refresh", {
+					// 	        	url: "js/data/products.json"
+					// 	        });
+					// 	        $remove.prop('disabled', true);
+					// 		}else{
+					// 			$("#page-tip").text("删除失败");
+					// 		}
+					// 	}
+					// });
+
+					setTimeout(function(){
+						$("#page-tip").hide();
+					}, 500);
+				}
+		    });
+
+		    $("#modal-sure").on("click", function(){
+				var offset = $("#offset").val(),
+					limit = $("#limit").val();
+				getWechatNews(offset, limit);
+			});
+
+		    /*手动获取图文*/
+			function getWechatNews(offset, count){
+				if(util.isEmpty(offset) || util.isEmpty(count)){
+					$("#js-msgerror span").text("起始页数、获取个数都不能为空");
+					return;
+				}
+				
+				$.ajax({
+					type: "post",
+					url: "content/get_wechat_news.html",
+					data:{"index": offset, "size": count},
+					beforeSend: function(){
+						
+					},
+					success: function(response){
+						var obj = eval("(" + response + ")");
+						if(obj.statusCode == 1){
+							window.location.reload(true);
+						}else{
+							alert(obj.message);
+						}
+					}
+				});
+				
+			}
+
+		    /*获取选择的元素*/
+		    function getIdSelections(){
+		        var arr = $table.bootstrapTable('getSelections');
+		    	return $.map(arr, function (row) {
+		            return row.productName;
+		        });
+		    }
+
+		    /*状态格式化*/
+			function statusFormatter(value, row, index){
+				if(value == 10){
+					return "已发布";
+				}else if(value == 20){
+					return "未发布";
+				}
+			}
+
+		    /*类型格式化*/
+			function typeFormatter(value, row, index){
+				if(value == 10 || value == null){
+					return "财经资讯";
+				}else if(value == 20){
+					return "财经10条";
+				}
+			}
+
+
+		    function dateFormatter(value, row, index){
+		    	var date = new Date(value);
+		    	return date.toLocaleDateString();
+		    }
+
+
+		    window.statusFormatter = statusFormatter;
+		    window.typeFormatter = typeFormatter;
+		    window.dateFormatter = dateFormatter;
+
+		})(this, document);
+	</script>
+</body>
+</html>

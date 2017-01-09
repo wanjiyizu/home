@@ -1,0 +1,59 @@
+.image-item-remove{
+	color:red;
+	cursor: pointer;
+}
+
+.image-group{
+	width:100%;
+	height:300px;
+	position: relative;
+}
+
+.image-group .progress{
+	top:0;
+	left:0;
+	right:0;
+	height:20px;
+}
+
+.image-error{
+	display: none;
+	width:100%;
+	height:30px;
+	color:#fff;
+	line-height:30px;
+	text-align: center;
+	background:red;
+}
+
+.image-done{
+	display: none;
+	border-right:30px solid #00b7ee;
+	border-bottom:30px solid #00b7ee;
+	border-top:30px solid transparent;
+	border-left:30px solid transparent;
+}
+
+.image-done .image-done-icon{
+	position: absolute;
+    display: inline-block;
+    width: 20px;
+    height: 10px;
+    border-left: 3px solid #fff;
+    border-bottom: 3px solid #fff;
+    transform: rotate(310deg);
+    top: 5px;
+}
+
+.image-group .image-error{
+	position: absolute;
+	top:0;
+	bottom:0;
+	margin:auto;
+}
+
+.image-group .image-done{
+	position: absolute;
+	bottom:0;
+	right:0;
+}
