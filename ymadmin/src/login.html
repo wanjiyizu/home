@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>优米金融</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/login.css">
+</head>
+<body>
+	<div class="container">
+		<div class="form-signin">
+			<h1 class="text-center"><strong>优米金融</strong></h1>
+			<div class="text-danger"><span></span></div>
+			<div class="list-group list-group-sm">
+				<div class="list-group-item">
+					<input type="text" class="form-control" id="account" placeholder="请输入账号">
+				</div>
+				<div class="list-group-item">
+					<input type="password" class="form-control" id="password" placeholder="请输入密码">
+				</div>
+			</div>
+			<button class="btn btn-lg btn-primary btn-block" id="submit" disabled="">登录</button>
+		</div>
+	</div>
+
+	
+	<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/util.js"></script>
+	<script type="text/javascript">
+
+		$("#account").on("keyup", function(){
+			if(verifyInput.call($(this)) && verifyInput.call($("#password"))){
+				$("#submit").prop("disabled", false);
+			}else{
+				$("#submit").prop("disabled", true);
+			}
+		});
+
+		$("#password").on("keyup", function(){
+			if(verifyInput.call($(this)) && verifyInput.call($("#account"))){
+				$("#submit").prop("disabled", false);
+			}else{
+				$("#submit").prop("disabled", true);
+			}
+		});
+
+		function verifyInput(){
+			if(util.isEmpty(this.val())){
+				return false;
+			}else{
+				return true;
+			}
+		}
+
+		$("#submit").on("click", login);
+
+		$(document).keydown(function(e){
+			if(e.keyCode == 13){
+				e.preventDefault();
+				login();
+			}
+		});
+
+		function login(){
+			var account = $("#account").val(),
+				password = $("#password").val(),
+				returnUrl = $("#returnUrl").val() || "index";
+			// $.ajax({
+			// 	type: "post",
+			// 	url: "login",
+			// 	data: {"managerName": account, "password": password},
+			// 	beforeSend: function(){
+			// 		$("#js-login").off("click").text("登录中...");
+			// 	},
+			// 	success: function(response){
+			// 		var result = eval("("+response+")");
+			// 		$("#js-login").on("click", login).text("登录");
+			// 		if(result.statusCode == 1 && util.isNotEmpty(result.url)){
+			// 			window.location.href = returnUrl;
+			// 		}else{
+			// 			$(".form-error").addClass("f-db lightSpeedIn").text(result.message);
+			// 		}
+			// 	}
+			// });
+		}
+
+	</script>
+</body>
+</html>

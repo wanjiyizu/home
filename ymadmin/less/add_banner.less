@@ -9,6 +9,15 @@
 	position: relative;
 }
 
+.image-group-addon{
+	position: absolute;
+    width: 100%;
+    background: rgba(0,0,0,0.6);
+    padding: 5px 10px;
+    text-align: right;
+    right: 0;
+}
+
 .image-group .progress{
 	top:0;
 	left:0;
@@ -34,7 +43,8 @@
 	border-left:30px solid transparent;
 }
 
-.image-done .image-done-icon{
+.image-done:after{
+	content: "";
 	position: absolute;
     display: inline-block;
     width: 20px;

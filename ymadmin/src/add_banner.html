@@ -189,13 +189,11 @@
 						<div class="col-md-12 main">
 							<div class="btn-group">
 							  <a class="btn btn-primary" id="picker">选择图片</a>
-							  <a class="btn btn-default" id="startUpload">开始上传</a>
-							  <a class="btn btn-default" id="save" data-loading-text="保存中..." autocomplete="off">保存</a>
+							  <button class="btn btn-default" id="startUpload" disabled="">开始上传</button>
+							  <button class="btn btn-default" id="save" data-loading-text="保存中..." autocomplete="off" disabled data-type="index">保存</button>
 							</div>
 							<hr>
-							<form class="form-horizontal col-md-8" id="image-wrap">
-								
-							</form>
+							<form class="form-horizontal col-md-8" id="image-wrap"></form>
 						</div>
 					</div>
 				</div>
@@ -204,12 +202,11 @@
 	</div>
 	<script type="text/x-template" id="template">
 		<div class="form-group">
-			<div class="input-group">
-				<input type="text" class="form-control" placeholder="请输入链接地址">
-				<span class="input-group-addon glyphicon glyphicon-trash image-item-remove"></span>
-			</div>
+			<input type="text" class="form-control banner-link" placeholder="请输入链接地址">
 			<div class="image-group">
+				<div class="image-group-addon"><span class="glyphicon glyphicon-trash image-item-remove"></span></div>
 				<div class="image-error">上传出错</div>
+				<div class="image-done"></div>
 				<img>
 			</div>
 		</div>
@@ -239,6 +236,7 @@
 		uploader = WebUploader.create(uploaderOpts);
 		imageItem = $("#template").html();
 		imageWrap = $("#image-wrap");
+
 		uploader.on("fileQueued", function(file){
 			var $item = $(imageItem),
 				$img = $item.find("img"),
@@ -256,15 +254,32 @@
 		    }, $imgGroup.width(), $imgGroup.height() );
 		});
 
-		uploader.on("uploadStart", function(file){
+		uploader.on("filesQueued", function(file){
+			if(!uploader.isInProgress()){
+				$("#startUpload").prop("disabled", false);
+			}
+		});
+
+		uploader.on("startUpload", function(file){
 			uploader.option("formData", {
 	    		"dir": "images/banner"
 			});
+			$("#startUpload").prop("disabled", true);
 		});
 
-		uploader.on( 'uploadSuccess', function( file ) {
-		    $( '#'+file.id ).find(".image-item-remove").removeClass("glyphicon-trash").addClass("glyphicon-ok");
-		    $( '#'+file.id ).find(".image-item-remove").off("click");
+		uploader.on( 'uploadSuccess', function( file, response ) {
+		    $( '#'+file.id ).find(".image-group-addon").remove();
+		    $( '#'+file.id ).find(".image-done").show();
+		   	if(response.src != null){
+		   		$( '#'+file.id ).data("src", response.src);
+		   	}
+		});
+
+		uploader.on("uploadFinished", function(){
+			var stats = uploader.getStats();
+			if(stats.successNum > 0){
+				$("#save").prop("disabled", false);
+			}
 		});
 
 		uploader.on( 'uploadComplete', function( file ) {
@@ -308,7 +323,54 @@
 			uploader.upload();
 		});
 
+		$("#save").on("click", save);
 
+		function save(){
+			var banners = $(".form-group"),
+				length = banners == null ? 0 : banners.length,
+				params = {},
+				addType = $("#save").data("type"),
+				position = {
+						index:1,
+						pe:2,
+						simu:3,
+						enterprise:4
+				}
+			
+			if(!position[addType]){
+				alert("添加位置未知");
+				return;
+			}
+			
+			for(var i = 0; i < length; i++){
+				var obj = banners[i];
+				params["banners["+ i +"].pictureLinking"] = $(obj).find(".banner-link").val();
+				params["banners["+ i +"].prctureSort"] = i;
+				params["banners["+ i +"].prctureAdds"] = $(obj).data("src");
+				params["banners["+ i +"].picturePostition"] = position[addType];
+			}
+
+			console.log(params);
+			
+			// $.ajax({
+			// 	type: "post",
+			// 	url: "banner/save",
+			// 	data: params,
+			// 	beforeSend: function(){
+					
+			// 	},
+			// 	success: function(response){
+			// 		var result = JSON.parse(response);
+			// 		if(result.statusCode == 1){
+			// 			window.location.href = result.url;
+			// 		}else if(result.statusCode == 0 && util.isNotEmpty(result.url)){
+			// 			ym_layer.alert(result.message,{sure:function(){
+			// 				window.location.href = result.url;
+			// 			}});
+			// 		}
+			// 	}
+			// });
+		}
 	</script>
 </body>
 </html>

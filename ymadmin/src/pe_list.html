@@ -186,16 +186,25 @@
 				<div class="container-fuild">
 					<div class="row">
 						<div class="col-md-12 main">
-							<div id="toolbar" class=" hidden-xs">
-						  		<a class="btn btn-primary" href="add_pe.html">添加产品</a>
-						        <button id="remove" class="btn btn-danger" disabled>删除</button>
+							<div id="toolbar" class="btn-toolbar hidden-xs" role="toolbar">
+								<div class="btn-group">
+									<a class="btn btn-primary" href="add_pe.html">添加产品</a>
+						        	<button id="remove" class="btn btn-danger" disabled>删除</button>
+								</div>
+								<div class="btn-group">
+									<div class="input-group">
+										<select class="form-control input-group-btninput-group-btn">
+											<option>产品名称</option>
+										</select>
+										<input type="text" class="form-control">
+									</div>
+								</div>
 						    </div>
 							<table 	id="table"
 								 	data-toggle="table"
 									data-url="js/data/products.json"
 									data-id-field="productId"
 									data-pagination="true"
-									data-search="true"
 									data-halign="500"
 									data-search-on-enter-key="true"
 									data-search-align="left"

@@ -188,26 +188,32 @@
 				<div class="container-fuild">
 					<div class="row">
 						<div class="col-md-12 main">
-							<a href="javascript:void(0)" class="btn btn-default" id="save" data-loading-text="保存中..." autocomplete="off">保存</a>
+							<a href="javascript:void(0)" class="btn btn-default" id="save" data-loading-text="保存中..." autocomplete="off" data-opid="1">保存</a>
 							<hr>
 							<div class="form-wrap">
 								<form class="form-horizontal col-md-6">
 									<div class="form-group">
-									    <label for="productName" class="col-sm-2 control-label">管理员账号</label>
+									    <label for="managerName" class="col-sm-2 control-label">管理员账号</label>
 									    <div class="col-sm-6">
-									      <input type="text" class="form-control" id="productName" placeholder="帐号用于登录系统，由字母或数字组成" value="admin">
+									      <input type="text" class="form-control" id="managerName" placeholder="帐号用于登录系统，由字母或数字组成" value="admin">
+									      <span class="help-block error"></span>
 									    </div>
 									</div>
 									<div class="form-group">
-									    <label for="productName" class="col-sm-2 control-label">管理员密码</label>
+									    <label for="password" class="col-sm-2 control-label">管理员密码</label>
 									    <div class="col-sm-6">
-									      <input type="text" class="form-control" id="productName" readonly value="123456">
+									    	<div class="input-group">
+									    		<input type="text" class="form-control" id="password" readonly value="123456">
+										      	<span class="input-group-btn">
+										        	<button class="btn btn-default" type="button" id="js-reset-btn" data-reset="123456">重置密码</button>
+										      	</span>
+									    	</div>
 									    </div>
 									</div>
 									<div class="form-group">
-									    <label for="productName" class="col-sm-2 control-label">备注</label>
+									    <label for="remark" class="col-sm-2 control-label">备注</label>
 									    <div class="col-sm-6">
-									      <textarea class="form-control" spellcheck="false" rows="3"></textarea>
+									      <textarea class="form-control" id="remark" spellcheck="false" rows="3"></textarea>
 									    </div>
 									</div>
 									<div class="form-group">
@@ -215,25 +221,25 @@
 										<div class="col-sm-6">
 											<div class="radio">
 											  <label>
-											    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+											    <input type="radio" name="optionsRadios" id="optionsRadios1" value="2" checked>
 											    超级管理员
 											  </label>
 											</div>
 											<div class="radio">
 											  <label>
-											    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+											    <input type="radio" name="optionsRadios" id="optionsRadios1" value="1" checked>
 											    新闻管理员
 											  </label>
 											</div>
 											<div class="radio">
 											  <label>
-											    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+											    <input type="radio" name="optionsRadios" id="optionsRadios1" value="3" checked>
 											    产品管理员
 											  </label>
 											</div>
 											<div class="radio">
 											  <label>
-											    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+											    <input type="radio" name="optionsRadios" id="optionsRadios1" value="4" checked>
 											    客服
 											  </label>
 											</div>
@@ -248,25 +254,9 @@
 			</div>
 		</div>
 	</div>
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	  <div class="modal-dialog">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-	        <h4 class="modal-title" id="myModalLabel">填写内容</h4>
-	      </div>
-	      <div class="modal-body">
-	      	<textarea class="textarea" spellcheck="false" id="modal-editor"></textarea>
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-default" data-dismiss="modal" id="modal-cancel">关闭</button>
-	        <button type="button" class="btn btn-primary" id="modal-sure">确定</button>
-	      </div>
-	    </div>
-	  </div>
-	</div>
 	
 	<div class="admin-menu visible-xs-block" id="admin-menu"></div>
+
 	<script type="text/x-template" id="fieldListItem">
 		<li class="list-group-item form-group form-list-group" data-priority="{priority}">
 	  		<div class="input-group">
@@ -286,58 +276,68 @@
 	<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap-select.js"></script>
 	<script type="text/javascript" src="js/Sortable.min.js"></script>
+	<script type="text/javascript" src="js/util.js"></script>
 	<script type="text/javascript" src="js/admin.js"></script>
-	<script type="text/javascript" src="js/add_product.js"></script>
 	<script type="text/javascript">
 
     	$("#save").on("click", save);
 
-		function save(){
-			var $btn = $(this).button('loading');
-    		var index = 0,
-    			product = {
-    				productName : $("#productName").val(),
-					quoca		: $("#quoca").val(),
-					lockPeriod 	: $("#lockPeriod").val(),
-					managerMentOrg : $("#managerMentOrg").val(),
-					fundCatagory : $("#fundCatagory").val(),
-					investMinAmout : $("#investMinAmout").val(),
-					investUnit : $("#investUnit").val(),
-					productClass : $("#productClass").val(),
-					extablishedDate : $("#extablishedDate").val(),
-					fundManager : $("#fundManager").val(),
-					expectedMaxRate : $("#expectedMaxRate").val(),
-					expectedMinRate : $("#expectedMinRate").val(),
-					purchaseFeeRate : $("#purchaseFeeRate").val(),
-					managementFeeRate : $("#managementFeeRate").val(),
-					amountType : $("#amountType").val(),
-					trustOrg : $("#trustOrg").val(),
-					productWholeName : $("#productWholeName").val(),
-					investStrategy : $("#investStrategy").val(),
-					status : $("#status").val(),
-					type: $("#type").val(),
-					isSelected: $("#isSelected").val(),
-					pageStyleField: $("#pageStyleField").val()
-    			};
+    	function save(){
+			var $btn = $(this).button('loading'),
+				id = $(this).data("opid"),
+				method = "save",
+				param = {
+					managerName   : $("#managerName").val(),
+					remark      : $("#remark").val(),
+					roleId		: $("input[type=radio]:checked").val(),
+					resetPassword: $("#js-reset-btn").data("reset")
+				}
+			if(util.isNotEmpty(id)){
+				param["managerId"] = id;
+				method = "update";
+			}
+			if(!verifyInput(param.managerName)){
+				return;
+			}
+			// $.ajax({
+			// 	type: "post",
+			// 	url: "manager/"+method,
+			// 	data: param,
+			// 	beforeSend: function(){
+			// 		$("#save").off("click").text("保存中");
+			// 	},
+			// 	success: function(response){
+			// 		$("#save").on("click", save).text("保存");
+			// 		var result = eval("("+response+")");
+			// 		if(result.statusCode == 1 && util.isNotEmpty(result.url)){
+			// 			window.location.href = result.url;
+			// 		}else if(result.statusCode == 0 && util.isNotEmpty(result.url)){
+			// 			ym_layer.alert(result.message, {
+			// 				sure: function(){
+			// 					window.location.href = result.url;
+			// 				}
+			// 			});
+			// 		}else{
+			// 			ym_layer.alert(result.message);
+			// 		}
+			// 	}
+			// });
+		}
 
-    		for(var i = 0; i < 4; i++){
-    			var sortable = sortables[i],
-    				fieldList = $(sortable.el),
-    				fieldKeys = $(fieldList).find(".field-key"),
-	    			fieldValues = $(fieldList).find(".field-value"),
-	    			order = sortable.toArray();
-	    			for(var j = 0, length = order.length; j < length; j++){
-	    				product["descriptions["+ index +"].group"] = $(fieldList).data("group");
-		    			product["descriptions["+ index +"].descKey"] = fieldKeys.get(j).value;
-		    			product["descriptions["+ index +"].descValue"] = fieldValues.get(j).value;
-		    			product["descriptions["+ index +"].priority"] = j;
-		    			index++;
-	    			}
-    		}
+		$("#managerName").on("keyup", function(){
+			verifyInput($(this).val());
+		});
 
-    		console.log(product);
-    	}
-
+		function verifyInput(value){
+			if(util.isEmpty(value)){
+				$("#managerName").parents(".form-group").addClass("has-error");
+				$("#managerName").next().css("color", "#a94442").text("昵称不能为空").fadeOut(2000);
+				return false;
+			}else{
+				$("#managerName").parents(".form-group").removeClass("has-error").addClass("has-success");
+				return true;
+			}
+		}
 
 	</script>
 </body>
