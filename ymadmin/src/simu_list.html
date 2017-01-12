@@ -186,16 +186,24 @@
 				<div class="container-fuild">
 					<div class="row">
 						<div class="col-md-12 main">
-							<div id="toolbar-1">
-						  		<a class="btn btn-primary" href="add_simu.html">添加产品</a>
-						        <button id="remove" class="btn btn-danger" disabled>删除</button>
+							<div id="toolbar-1" class="btn-toolbar hidden-xs">
+								<div class="btn-group">
+									<a class="btn btn-primary" href="add_simu.html">添加产品</a>
+						        	<button id="remove" class="btn btn-danger" disabled>删除</button>
+								</div>
+								<div class="toobar-form">
+									<div class="input-group">
+										<input type="text" class="form-control form-control-search">
+										<div class="input-group-btn">
+											<a class="btn btn-default">搜索</a>
+										</div>
+									</div>
+								</div>
 						    </div>
 							<table id="table"
 								   data-toggle="table"
 								   data-height="600"
-								   data-search="true"
 								   data-pagination="true"
-								   data-search-align="left"
 						           data-toolbar="#toolbar-1">
 						        <thead>
 						        	<tr>

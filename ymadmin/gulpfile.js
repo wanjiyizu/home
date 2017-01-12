@@ -21,25 +21,6 @@ var gulp = require('gulp'),
     less = require('gulp-less'),
     livereload = require('gulp-livereload');
 
-var paths = {
-    js: [
-        'src/js/*'
-    ],
-    css: [
-         'src/css/*'
-    ],
-    img: [
-         'src/images/*'
-    ],
-    html: [
-        'src/view/*'
-    ],
-    lib: {
-        js: [
-            'src/bower_components/jquery/dist/jquery.min.js'
-        ]
-    }
-};
 
 
 gulp.task("default", ['clean'], function(){
@@ -57,20 +38,10 @@ gulp.task('styles', function() {
     .pipe(less())
 	.pipe(autoprefixer({browsers: ['last 2 versions'],
             cascade: false}))
-  	.pipe(minifycss())
+  	// .pipe(minifycss())
     .pipe(gulp.dest('dist/css'));
 });
 
-gulp.task('oldstyles', function() {  
-  return gulp.src(['src/css/**/*.css'])
-    .pipe(plumber())
-    //.pipe(changed("dist/css/"))
-    .pipe(cssimport())
-    .pipe(autoprefixer({browsers: ['last 2 versions'],
-            cascade: false}))
-    .pipe(minifycss())
-    .pipe(gulp.dest('dist/css'));
-});
 
 
 gulp.task('htmlput', function() {
@@ -80,38 +51,10 @@ gulp.task('htmlput', function() {
 				.pipe(gulp.dest("dist"));
 });
 
-gulp.task("import", function() {
-    return gulp.src("src/css/*.css")
-        .pipe(cssimport())
-        .pipe(gulp.dest("temp/css/"));
-}); 
-
 
 gulp.task("imgput", function(){
     gulp.src("src/images/**/*.*")
         .pipe(gulp.dest("dist/images/"))
-});
-
-gulp.task('usemin', function() {
-    var options = {
-            removeComments: true,//清除HTML注释
-            collapseWhitespace: true,//压缩HTML
-            collapseBooleanAttributes: false,//省略布尔属性的值 <input checked="true"/> ==> <input />
-            removeEmptyAttributes: false,//删除所有空格作属性值 <input id="" /> ==> <input />
-            removeScriptTypeAttributes: true,//删除<script>的type="text/javascript"
-            removeStyleLinkTypeAttributes: true,//删除<style>和<link>的type="text/css"
-            minifyJS: true,//压缩页面JS
-            minifyCSS: true//压缩页面CSS
-        },
-        useminOpts = {
-            css: [ rev() ]
-        }
-
-    gulp.src(["dist/*.html", "dist/common/*.html"])
-        .pipe(usemin({
-            css: [minifycss()]
-        }))
-        .pipe(gulp.dest("dist/"));
 });
 
 
